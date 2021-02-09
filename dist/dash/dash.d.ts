@@ -1,12 +1,10 @@
 import React from "react";
-import { Theme } from "@material-ui/core/styles";
 import { AppBarProps } from "./app-bar";
 import { BottomNavigationProps } from "./bottom-navigation";
 import { DrawerProps } from "./drawer";
 import { FooterProps } from "./footer";
 export interface DashProps {
     children: React.ReactNode;
-    theme: Theme;
     appBarBackgroundColor: AppBarProps["backgroundColor"];
     appBarColor: AppBarProps["color"];
     shortName: AppBarProps["shortName"];
@@ -20,4 +18,4 @@ export interface DashProps {
     footerLinks: FooterProps["links"];
     bottomNavigationLinks: BottomNavigationProps["links"];
 }
-export declare function Dash({ appBarBackgroundColor, appBarColor, logo, shortName, appBarLinks, appBarLinksAriaLabel, drawerButtonAriaLabel, drawerLinksAriaLabel, drawerLinks, footerLinksAriaLabel, footerLinks, bottomNavigationLinks, theme, children, }: DashProps): JSX.Element;
+export declare function Dash({ appBarBackgroundColor, appBarColor, logo, shortName, appBarLinks, appBarLinksAriaLabel, drawerButtonAriaLabel, drawerLinksAriaLabel, drawerLinks, footerLinksAriaLabel, footerLinks, bottomNavigationLinks, children, }: DashProps): JSX.Element;

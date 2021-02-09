@@ -1,5 +1,5 @@
 import React from "react";
-import { Theme } from "@material-ui/core/styles";
+import { useTheme } from "@material-ui/core/styles";
 import Hidden from "@material-ui/core/Hidden";
 import { AppBar, AppBarProps } from "./app-bar";
 import { BottomNavigation, BottomNavigationProps } from "./bottom-navigation";
@@ -8,7 +8,6 @@ import { Footer, FooterProps } from "./footer";
 
 export interface DashProps {
   children: React.ReactNode;
-  theme: Theme;
   appBarBackgroundColor: AppBarProps["backgroundColor"];
   appBarColor: AppBarProps["color"];
   shortName: AppBarProps["shortName"];
@@ -36,9 +35,9 @@ export function Dash({
   footerLinksAriaLabel,
   footerLinks,
   bottomNavigationLinks,
-  theme,
   children,
 }: DashProps) {
+  const theme = useTheme();
   const [drawerOpen, setDrawerOpen] = React.useState(false);
 
   return (
