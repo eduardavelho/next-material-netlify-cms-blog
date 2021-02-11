@@ -5,4 +5,5 @@ tslib_1.__exportStar(require("./dash"), exports);
 tslib_1.__exportStar(require("./banner"), exports);
 tslib_1.__exportStar(require("./banner-with-button"), exports);
 tslib_1.__exportStar(require("./item-list"), exports);
+tslib_1.__exportStar(require("./account"), exports);
 //# sourceMappingURL=index.js.map

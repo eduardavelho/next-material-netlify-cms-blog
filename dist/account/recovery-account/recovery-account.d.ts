@@ -1,4 +1,4 @@
-/// <reference types="react" />
+import { ReactNode } from "react";
 import { EmailCodeStepProps } from "./email-code-step";
 import { VerifyCodeStepProps } from "./verify-code-step";
 import { UpdatePhoneStepProps } from "./update-phone-step";
@@ -14,8 +14,8 @@ declare const steps: {
 export declare type CreateAccountViewStep = keyof typeof steps;
 export interface RecoveryAccountProps {
     step: CreateAccountViewStep;
-    recoveryAccountTitleText: string;
-    RecoveryAccountInfoText: () => JSX.Element;
+    recoveryAccountTitleText: ReactNode;
+    recoveryAccountInfoText: ReactNode;
     emailCodeStepLabel: string;
     verifyCodeStepLabel: string;
     updatePhoneStepLabel: string;
@@ -27,5 +27,5 @@ export interface RecoveryAccountProps {
     phoneVerificationStepProps: PhoneVerificationStepProps;
     finishStepProps: FinishStepProps;
 }
-export declare function RecoveryAccount({ step, recoveryAccountTitleText, RecoveryAccountInfoText, emailCodeStepLabel, verifyCodeStepLabel, updatePhoneStepLabel, phoneVerificationStepLabel, finishStepLabel, emailCodeStepProps, verifyCodeStepProps, updatePhoneStepProps, phoneVerificationStepProps, finishStepProps, }: RecoveryAccountProps): JSX.Element;
+export declare function RecoveryAccount({ step, recoveryAccountTitleText, recoveryAccountInfoText, emailCodeStepLabel, verifyCodeStepLabel, updatePhoneStepLabel, phoneVerificationStepLabel, finishStepLabel, emailCodeStepProps, verifyCodeStepProps, updatePhoneStepProps, phoneVerificationStepProps, finishStepProps, }: RecoveryAccountProps): JSX.Element;
 export {};

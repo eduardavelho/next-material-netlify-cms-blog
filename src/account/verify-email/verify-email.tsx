@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import Dialog from "@material-ui/core/Dialog";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import { EmailCodeStep, EmailCodeStepProps } from "./email-code-step";
@@ -10,7 +10,7 @@ export interface VerifyEmailProps {
   step: CreateAccountViewStep;
   open: boolean;
   onClose: () => void;
-  verifyEmailTitleText: string;
+  verifyEmailTitleText: ReactNode;
   emailCodeStepProps: EmailCodeStepProps;
   verifyCodeStepProps: VerifyCodeStepProps;
 }

@@ -23,13 +23,12 @@ const steps = {
     "phone-verification": 3,
     "finish-step": 4,
 };
-function RecoveryAccount({ step, recoveryAccountTitleText, RecoveryAccountInfoText, emailCodeStepLabel, verifyCodeStepLabel, updatePhoneStepLabel, phoneVerificationStepLabel, finishStepLabel, emailCodeStepProps, verifyCodeStepProps, updatePhoneStepProps, phoneVerificationStepProps, finishStepProps, }) {
+function RecoveryAccount({ step, recoveryAccountTitleText, recoveryAccountInfoText, emailCodeStepLabel, verifyCodeStepLabel, updatePhoneStepLabel, phoneVerificationStepLabel, finishStepLabel, emailCodeStepProps, verifyCodeStepProps, updatePhoneStepProps, phoneVerificationStepProps, finishStepProps, }) {
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement(DialogTitle_1.default, { style: { textAlign: "center" } }, recoveryAccountTitleText),
         react_1.default.createElement(DialogContent_1.default, null,
             react_1.default.createElement(Box_1.default, { marginBottom: 2, marginX: 2, textAlign: "center" },
-                react_1.default.createElement(Typography_1.default, null,
-                    react_1.default.createElement(RecoveryAccountInfoText, null))),
+                react_1.default.createElement(Typography_1.default, null, recoveryAccountInfoText)),
             react_1.default.createElement(Stepper_1.default, { activeStep: steps[step], orientation: "vertical" },
                 react_1.default.createElement(Step_1.default, null,
                     react_1.default.createElement(StepLabel_1.default, null, emailCodeStepLabel),

@@ -1,7 +1,7 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
-import LoginStep, { LoginStepProps } from "./login-step";
+import { LoginStep, LoginStepProps } from "./login-step";
 import {
   PhoneVerificationStep,
   PhoneVerificationStepProps,
@@ -10,7 +10,7 @@ import {
 export type CreateAccountViewStep = "login" | "phone-verification";
 
 export interface LoginProps {
-  loginTitleLabel: string;
+  loginTitleText: ReactNode;
   step: CreateAccountViewStep;
   loginStepProps: LoginStepProps;
   phoneVerificationStepProps: PhoneVerificationStepProps;
@@ -18,14 +18,14 @@ export interface LoginProps {
 
 export function Login({
   step,
-  loginTitleLabel,
+  loginTitleText,
   loginStepProps,
   phoneVerificationStepProps,
 }: LoginProps) {
   return (
     <>
       <DialogTitle style={{ textAlign: "center" }}>
-        {loginTitleLabel}
+        {loginTitleText}
       </DialogTitle>
       <DialogContent
         style={{

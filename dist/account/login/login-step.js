@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.LoginStep = void 0;
 const tslib_1 = require("tslib");
 const react_1 = tslib_1.__importDefault(require("react"));
 const react_input_mask_1 = tslib_1.__importDefault(require("react-input-mask"));
@@ -9,7 +10,7 @@ const Button_1 = tslib_1.__importDefault(require("@material-ui/core/Button"));
 const Box_1 = tslib_1.__importDefault(require("@material-ui/core/Box"));
 const Typography_1 = tslib_1.__importDefault(require("@material-ui/core/Typography"));
 const CircularProgress_1 = tslib_1.__importDefault(require("@material-ui/core/CircularProgress"));
-function LoginStep({ form, onSubmit, loading, submitButtonLabel, recoveryAccountTitleLabel, recoveryAccountLinkLabel, phoneNumberMask, recoveryAccountOnClick, createAccountButtonLabel, createAccountOnClick, }) {
+function LoginStep({ form, onSubmit, loading, submitButtonLabel, recoveryAccountTitleText, recoveryAccountLinkLabel, phoneNumberMask, recoveryAccountOnClick, createAccountButtonLabel, createAccountOnClick, }) {
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement("form", { onSubmit: (event) => {
                 event.preventDefault();
@@ -23,11 +24,10 @@ function LoginStep({ form, onSubmit, loading, submitButtonLabel, recoveryAccount
             react_1.default.createElement(Button_1.default, { variant: "outlined", color: "primary", type: "submit", disabled: loading }, loading ? react_1.default.createElement(CircularProgress_1.default, null) : submitButtonLabel)),
         react_1.default.createElement(Box_1.default, { marginY: 2 },
             react_1.default.createElement(Typography_1.default, null,
-                recoveryAccountTitleLabel,
-                " ",
+                recoveryAccountTitleText,
                 react_1.default.createElement(Link_1.default, { onClick: () => recoveryAccountOnClick(), style: { cursor: "pointer" } }, recoveryAccountLinkLabel),
                 ".")),
         react_1.default.createElement(Button_1.default, { variant: "contained", color: "primary", onClick: () => createAccountOnClick() }, createAccountButtonLabel)));
 }
-exports.default = LoginStep;
+exports.LoginStep = LoginStep;
 //# sourceMappingURL=login-step.js.map

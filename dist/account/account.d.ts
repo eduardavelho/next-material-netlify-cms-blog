@@ -14,4 +14,4 @@ export interface AccountProps {
     createAccountProps: CreateAccountProps;
     recoveryAccountProps: RecoveryAccountProps;
 }
-export default function Account(props: AccountProps): JSX.Element;
+export declare function Account(props: AccountProps): JSX.Element;

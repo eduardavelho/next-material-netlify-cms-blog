@@ -1,8 +1,8 @@
-/// <reference types="react" />
+import { ReactNode } from "react";
 export interface FinishStepProps {
-    finishStepTitleText: string;
+    finishStepTitleText: ReactNode;
     finishButtonLabel: string;
-    FinishStepInfoText: () => JSX.Element;
+    finishStepInfoText: ReactNode;
     onClickFinishButton: () => void;
 }
-export declare function FinishStep({ finishStepTitleText, FinishStepInfoText, finishButtonLabel, onClickFinishButton, }: FinishStepProps): JSX.Element;
+export declare function FinishStep({ finishStepTitleText, finishStepInfoText, finishButtonLabel, onClickFinishButton, }: FinishStepProps): JSX.Element;

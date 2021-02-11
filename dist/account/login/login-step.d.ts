@@ -1,10 +1,10 @@
-/// <reference types="react" />
+import { ReactNode } from "react";
 import { FormInput } from "../types";
 export interface LoginStepProps {
     onSubmit: () => void;
     loading: boolean;
     submitButtonLabel: string;
-    recoveryAccountTitleLabel: string;
+    recoveryAccountTitleText: ReactNode;
     recoveryAccountLinkLabel: string;
     createAccountButtonLabel: string;
     phoneNumberMask: string;
@@ -14,4 +14,4 @@ export interface LoginStepProps {
         phoneNumber: FormInput<string>;
     };
 }
-export default function LoginStep({ form, onSubmit, loading, submitButtonLabel, recoveryAccountTitleLabel, recoveryAccountLinkLabel, phoneNumberMask, recoveryAccountOnClick, createAccountButtonLabel, createAccountOnClick, }: LoginStepProps): JSX.Element;
+export declare function LoginStep({ form, onSubmit, loading, submitButtonLabel, recoveryAccountTitleText, recoveryAccountLinkLabel, phoneNumberMask, recoveryAccountOnClick, createAccountButtonLabel, createAccountOnClick, }: LoginStepProps): JSX.Element;

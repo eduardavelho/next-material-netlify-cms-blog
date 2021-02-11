@@ -1,3 +1,2 @@
-export * from "./account";
-export * from "./phone-verification";
-export * from "./types";
+export { Account } from "./account";
+export type { AccountProps } from "./account";

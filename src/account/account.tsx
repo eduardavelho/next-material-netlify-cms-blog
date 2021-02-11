@@ -43,7 +43,7 @@ function SwitchView({
   }
 }
 
-export default function Account(props: AccountProps) {
+export function Account(props: AccountProps) {
   const { backButtonVisible, backButtonView, view, setView } = props;
   return (
     <Dialog

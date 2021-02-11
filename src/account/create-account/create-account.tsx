@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ReactNode } from "react";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
 import Box from "@material-ui/core/Box";
@@ -26,9 +26,9 @@ export interface CreateAccountProps {
   personalDataStepLabel: string;
   phoneVerificationStepLabel: string;
   finishStepLabel: string;
-  createAccountTitleText: string;
+  createAccountTitleText: ReactNode;
   onRequestGoToPersonalDataStep: () => void;
-  CreateAccountInfoText: () => JSX.Element;
+  createAccountInfoText: ReactNode;
   step: CreateAccountStep;
   personalDataStepProps: PersonalDataStepProps;
   phoneVerificationStepProps: PhoneVerificationStepProps;
@@ -58,7 +58,7 @@ export function CreateAccount(props: CreateAccountProps) {
     phoneVerificationStepLabel,
     finishStepLabel,
     createAccountTitleText,
-    CreateAccountInfoText,
+    createAccountInfoText,
     step,
   } = props;
 
@@ -73,9 +73,7 @@ export function CreateAccount(props: CreateAccountProps) {
         {step !== "finish-step" && (
           <>
             <Box marginBottom={2} marginX={2} textAlign="center">
-              <Typography>
-                <CreateAccountInfoText />
-              </Typography>
+              <Typography>{createAccountInfoText}</Typography>
             </Box>
             <Stepper
               activeStep={steps[step]}

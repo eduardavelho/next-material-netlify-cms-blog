@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import InputMask from "react-input-mask";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
@@ -9,7 +9,7 @@ import { FormInput } from "../types";
 
 export interface UpdatePhoneStepProps {
   loading: boolean;
-  UpdatePhoneStepInfoText: () => JSX.Element;
+  updatePhoneStepInfoText: ReactNode;
   onSubmit: () => void;
   phoneNumberMask: string;
   submitButtonLabel: string;
@@ -24,14 +24,12 @@ export function UpdatePhoneStep({
   phoneNumberMask,
   onSubmit,
   submitButtonLabel,
-  UpdatePhoneStepInfoText,
+  updatePhoneStepInfoText,
 }: UpdatePhoneStepProps) {
   return (
     <>
       <Box marginBottom={1}>
-        <Typography>
-          <UpdatePhoneStepInfoText />
-        </Typography>
+        <Typography>{updatePhoneStepInfoText}</Typography>
       </Box>
       <form
         style={{

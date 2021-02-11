@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import InputMask from "react-input-mask";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
@@ -19,7 +19,7 @@ export interface PhoneVerificationProps {
   confirmationCodeMask: string;
   onSubmit: () => void;
   onClickResendCode: () => void;
-  RecoveryAccountInfoText: () => JSX.Element;
+  recoveryAccountInfoText: ReactNode;
   form: PhoneVerificationForm;
   loading: boolean;
 }
@@ -31,14 +31,14 @@ export function PhoneVerification({
   resendCodeLinkLabel,
   onClickResendCode,
   onSubmit,
-  RecoveryAccountInfoText,
+  recoveryAccountInfoText,
   form,
 }: PhoneVerificationProps) {
   return (
     <>
       <Box marginBottom={1}>
         <Typography>
-          <RecoveryAccountInfoText />
+          {recoveryAccountInfoText}
           <Link
             style={{ cursor: "pointer" }}
             onClick={() => onClickResendCode()}

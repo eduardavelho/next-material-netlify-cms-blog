@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import DialogContent from "@material-ui/core/DialogContent";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
@@ -9,7 +9,7 @@ import Button from "@material-ui/core/Button";
 import { FormInput } from "../types";
 
 export interface VerifyCodeStepProps {
-  VerifyCodeInfoText: () => JSX.Element;
+  verifyCodeInfoText: ReactNode;
   onClickResendCode: () => void;
   onSubmit: () => void;
   resendCodeLinkLabel: string;
@@ -21,7 +21,7 @@ export interface VerifyCodeStepProps {
 }
 
 export function VerifyCodeStep({
-  VerifyCodeInfoText,
+  verifyCodeInfoText,
   onClickResendCode,
   resendCodeLinkLabel,
   onSubmitButtonLabel,
@@ -34,7 +34,7 @@ export function VerifyCodeStep({
       <DialogContent>
         <Box marginBottom={1}>
           <Typography>
-            <VerifyCodeInfoText />
+            {verifyCodeInfoText}
             <Link onClick={() => onClickResendCode()}>
               {resendCodeLinkLabel}
             </Link>

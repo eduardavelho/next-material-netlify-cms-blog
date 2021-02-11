@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const tslib_1 = require("tslib");
-tslib_1.__exportStar(require("./account"), exports);
-tslib_1.__exportStar(require("./phone-verification"), exports);
-tslib_1.__exportStar(require("./types"), exports);
+exports.Account = void 0;
+var account_1 = require("./account");
+Object.defineProperty(exports, "Account", { enumerable: true, get: function () { return account_1.Account; } });
 //# sourceMappingURL=index.js.map

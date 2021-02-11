@@ -30,14 +30,13 @@ function SwitchSteps({ step, personalDataStepProps, phoneVerificationStepProps, 
     }
 }
 function CreateAccount(props) {
-    const { onRequestGoToPersonalDataStep, personalDataStepLabel, phoneVerificationStepLabel, finishStepLabel, createAccountTitleText, CreateAccountInfoText, step, } = props;
+    const { onRequestGoToPersonalDataStep, personalDataStepLabel, phoneVerificationStepLabel, finishStepLabel, createAccountTitleText, createAccountInfoText, step, } = props;
     return (react_1.default.createElement(react_1.default.Fragment, null,
         step !== "finish-step" && (react_1.default.createElement(DialogTitle_1.default, { style: { textAlign: "center" } }, createAccountTitleText)),
         react_1.default.createElement(DialogContent_1.default, null,
             step !== "finish-step" && (react_1.default.createElement(react_1.default.Fragment, null,
                 react_1.default.createElement(Box_1.default, { marginBottom: 2, marginX: 2, textAlign: "center" },
-                    react_1.default.createElement(Typography_1.default, null,
-                        react_1.default.createElement(CreateAccountInfoText, null))),
+                    react_1.default.createElement(Typography_1.default, null, createAccountInfoText)),
                 react_1.default.createElement(Stepper_1.default, { activeStep: steps[step], alternativeLabel: true, style: {
                         paddingRight: 0,
                         paddingLeft: 0,

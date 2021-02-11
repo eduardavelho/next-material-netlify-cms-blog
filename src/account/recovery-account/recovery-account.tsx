@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ReactNode } from "react";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
 import Stepper from "@material-ui/core/Stepper";
@@ -28,8 +28,8 @@ export type CreateAccountViewStep = keyof typeof steps;
 
 export interface RecoveryAccountProps {
   step: CreateAccountViewStep;
-  recoveryAccountTitleText: string;
-  RecoveryAccountInfoText: () => JSX.Element;
+  recoveryAccountTitleText: ReactNode;
+  recoveryAccountInfoText: ReactNode;
   emailCodeStepLabel: string;
   verifyCodeStepLabel: string;
   updatePhoneStepLabel: string;
@@ -45,7 +45,7 @@ export interface RecoveryAccountProps {
 export function RecoveryAccount({
   step,
   recoveryAccountTitleText,
-  RecoveryAccountInfoText,
+  recoveryAccountInfoText,
   emailCodeStepLabel,
   verifyCodeStepLabel,
   updatePhoneStepLabel,
@@ -64,9 +64,7 @@ export function RecoveryAccount({
       </DialogTitle>
       <DialogContent>
         <Box marginBottom={2} marginX={2} textAlign="center">
-          <Typography>
-            <RecoveryAccountInfoText />
-          </Typography>
+          <Typography>{recoveryAccountInfoText}</Typography>
         </Box>
         <Stepper activeStep={steps[step]} orientation="vertical">
           <Step>

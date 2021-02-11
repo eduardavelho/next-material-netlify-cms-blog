@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Account = void 0;
 const tslib_1 = require("tslib");
 const react_1 = tslib_1.__importDefault(require("react"));
 const Dialog_1 = tslib_1.__importDefault(require("@material-ui/core/Dialog"));
@@ -29,5 +30,5 @@ function Account(props) {
                 react_1.default.createElement(ArrowBack_1.default, { fontSize: "large" })))),
         react_1.default.createElement(SwitchView, Object.assign({}, props))));
 }
-exports.default = Account;
+exports.Account = Account;
 //# sourceMappingURL=account.js.map

@@ -1,10 +1,10 @@
-/// <reference types="react" />
+import { ReactNode } from "react";
 export interface EmailCodeStepProps {
-    EmailCodeInfoText: () => JSX.Element;
+    emailCodeInfoText: ReactNode;
     onClickCloseButton: () => void;
     onSubmit: () => void;
     closeButtonLabel: string;
     onSubmitButtonLabel: string;
     loading: boolean;
 }
-export declare function EmailCodeStep({ EmailCodeInfoText, onClickCloseButton, onSubmit, closeButtonLabel, onSubmitButtonLabel, loading, }: EmailCodeStepProps): JSX.Element;
+export declare function EmailCodeStep({ emailCodeInfoText, onClickCloseButton, onSubmit, closeButtonLabel, onSubmitButtonLabel, loading, }: EmailCodeStepProps): JSX.Element;

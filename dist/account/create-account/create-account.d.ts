@@ -1,4 +1,4 @@
-/// <reference types="react" />
+import { ReactNode } from "react";
 import { PersonalDataStepProps } from "./personal-data-step";
 import { PhoneVerificationStepProps } from "./phone-verification-step";
 import { FinishStepProps } from "./finish-step";
@@ -12,9 +12,9 @@ export interface CreateAccountProps {
     personalDataStepLabel: string;
     phoneVerificationStepLabel: string;
     finishStepLabel: string;
-    createAccountTitleText: string;
+    createAccountTitleText: ReactNode;
     onRequestGoToPersonalDataStep: () => void;
-    CreateAccountInfoText: () => JSX.Element;
+    createAccountInfoText: ReactNode;
     step: CreateAccountStep;
     personalDataStepProps: PersonalDataStepProps;
     phoneVerificationStepProps: PhoneVerificationStepProps;

@@ -1,8 +1,8 @@
-/// <reference types="react" />
+import { ReactNode } from "react";
 import { FormInput } from "../types";
 export interface EmailCodeStepProps {
     loading: boolean;
-    emailCodeTitleText: string;
+    emailCodeTitleText: ReactNode;
     submitButtonLabel: string;
     onSubmit: () => void;
     form: {

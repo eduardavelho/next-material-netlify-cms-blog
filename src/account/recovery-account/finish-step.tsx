@@ -1,20 +1,20 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
 export interface FinishStepProps {
-  finishStepTitleText: string;
+  finishStepTitleText: ReactNode;
   finishButtonLabel: string;
-  FinishStepInfoText: () => JSX.Element;
+  finishStepInfoText: ReactNode;
   onClickFinishButton: () => void;
 }
 
 export function FinishStep({
   finishButtonLabel,
   finishStepTitleText,
-  FinishStepInfoText,
+  finishStepInfoText,
   onClickFinishButton,
 }: FinishStepProps) {
   return (
@@ -27,9 +27,7 @@ export function FinishStep({
             color="primary"
           />
         </Box>
-        <Typography>
-          <FinishStepInfoText />
-        </Typography>
+        <Typography>{finishStepInfoText}</Typography>
       </Box>
       <Button
         variant="contained"

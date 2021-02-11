@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { ReactNode } from "react";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
@@ -8,7 +8,7 @@ import { FormInput } from "../types";
 
 export interface EmailCodeStepProps {
   loading: boolean;
-  emailCodeTitleText: string;
+  emailCodeTitleText: ReactNode;
   submitButtonLabel: string;
   onSubmit: () => void;
   form: {

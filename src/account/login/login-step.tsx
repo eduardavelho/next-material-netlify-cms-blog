@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import InputMask from "react-input-mask";
 import TextField from "@material-ui/core/TextField";
 import Link from "@material-ui/core/Link";
@@ -12,7 +12,7 @@ export interface LoginStepProps {
   onSubmit: () => void;
   loading: boolean;
   submitButtonLabel: string;
-  recoveryAccountTitleLabel: string;
+  recoveryAccountTitleText: ReactNode;
   recoveryAccountLinkLabel: string;
   createAccountButtonLabel: string;
   phoneNumberMask: string;
@@ -23,12 +23,12 @@ export interface LoginStepProps {
   };
 }
 
-export default function LoginStep({
+export function LoginStep({
   form,
   onSubmit,
   loading,
   submitButtonLabel,
-  recoveryAccountTitleLabel,
+  recoveryAccountTitleText,
   recoveryAccountLinkLabel,
   phoneNumberMask,
   recoveryAccountOnClick,
@@ -79,7 +79,7 @@ export default function LoginStep({
       </form>
       <Box marginY={2}>
         <Typography>
-          {recoveryAccountTitleLabel}{" "}
+          {recoveryAccountTitleText}
           <Link
             onClick={() => recoveryAccountOnClick()}
             style={{ cursor: "pointer" }}

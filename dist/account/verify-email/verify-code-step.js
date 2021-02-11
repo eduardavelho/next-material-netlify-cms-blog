@@ -10,12 +10,12 @@ const CircularProgress_1 = tslib_1.__importDefault(require("@material-ui/core/Ci
 const Link_1 = tslib_1.__importDefault(require("@material-ui/core/Link"));
 const Box_1 = tslib_1.__importDefault(require("@material-ui/core/Box"));
 const Button_1 = tslib_1.__importDefault(require("@material-ui/core/Button"));
-function VerifyCodeStep({ VerifyCodeInfoText, onClickResendCode, resendCodeLinkLabel, onSubmitButtonLabel, onSubmit, loading, form, }) {
+function VerifyCodeStep({ verifyCodeInfoText, onClickResendCode, resendCodeLinkLabel, onSubmitButtonLabel, onSubmit, loading, form, }) {
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement(DialogContent_1.default, null,
             react_1.default.createElement(Box_1.default, { marginBottom: 1 },
                 react_1.default.createElement(Typography_1.default, null,
-                    react_1.default.createElement(VerifyCodeInfoText, null),
+                    verifyCodeInfoText,
                     react_1.default.createElement(Link_1.default, { onClick: () => onClickResendCode() }, resendCodeLinkLabel))),
             react_1.default.createElement("form", { style: {
                     display: "flex",

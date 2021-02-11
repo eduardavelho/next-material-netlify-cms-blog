@@ -9,11 +9,10 @@ const Button_1 = tslib_1.__importDefault(require("@material-ui/core/Button"));
 const Box_1 = tslib_1.__importDefault(require("@material-ui/core/Box"));
 const TextField_1 = tslib_1.__importDefault(require("@material-ui/core/TextField"));
 const CircularProgress_1 = tslib_1.__importDefault(require("@material-ui/core/CircularProgress"));
-function UpdatePhoneStep({ loading, form, phoneNumberMask, onSubmit, submitButtonLabel, UpdatePhoneStepInfoText, }) {
+function UpdatePhoneStep({ loading, form, phoneNumberMask, onSubmit, submitButtonLabel, updatePhoneStepInfoText, }) {
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement(Box_1.default, { marginBottom: 1 },
-            react_1.default.createElement(Typography_1.default, null,
-                react_1.default.createElement(UpdatePhoneStepInfoText, null))),
+            react_1.default.createElement(Typography_1.default, null, updatePhoneStepInfoText)),
         react_1.default.createElement("form", { style: {
                 display: "flex",
                 flexDirection: "column",

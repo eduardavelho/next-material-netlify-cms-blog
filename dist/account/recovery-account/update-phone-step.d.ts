@@ -1,8 +1,8 @@
-/// <reference types="react" />
+import { ReactNode } from "react";
 import { FormInput } from "../types";
 export interface UpdatePhoneStepProps {
     loading: boolean;
-    UpdatePhoneStepInfoText: () => JSX.Element;
+    updatePhoneStepInfoText: ReactNode;
     onSubmit: () => void;
     phoneNumberMask: string;
     submitButtonLabel: string;
@@ -10,4 +10,4 @@ export interface UpdatePhoneStepProps {
         phoneNumber: FormInput<string>;
     };
 }
-export declare function UpdatePhoneStep({ loading, form, phoneNumberMask, onSubmit, submitButtonLabel, UpdatePhoneStepInfoText, }: UpdatePhoneStepProps): JSX.Element;
+export declare function UpdatePhoneStep({ loading, form, phoneNumberMask, onSubmit, submitButtonLabel, updatePhoneStepInfoText, }: UpdatePhoneStepProps): JSX.Element;

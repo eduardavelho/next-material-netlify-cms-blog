@@ -10,11 +10,11 @@ const Link_1 = tslib_1.__importDefault(require("@material-ui/core/Link"));
 const Box_1 = tslib_1.__importDefault(require("@material-ui/core/Box"));
 const Typography_1 = tslib_1.__importDefault(require("@material-ui/core/Typography"));
 const CircularProgress_1 = tslib_1.__importDefault(require("@material-ui/core/CircularProgress"));
-function PhoneVerification({ loading, confirmationCodeMask, submitButtonLabel, resendCodeLinkLabel, onClickResendCode, onSubmit, RecoveryAccountInfoText, form, }) {
+function PhoneVerification({ loading, confirmationCodeMask, submitButtonLabel, resendCodeLinkLabel, onClickResendCode, onSubmit, recoveryAccountInfoText, form, }) {
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement(Box_1.default, { marginBottom: 1 },
             react_1.default.createElement(Typography_1.default, null,
-                react_1.default.createElement(RecoveryAccountInfoText, null),
+                recoveryAccountInfoText,
                 react_1.default.createElement(Link_1.default, { style: { cursor: "pointer" }, onClick: () => onClickResendCode() }, resendCodeLinkLabel))),
         react_1.default.createElement("form", { onSubmit: (event) => {
                 event.preventDefault();
