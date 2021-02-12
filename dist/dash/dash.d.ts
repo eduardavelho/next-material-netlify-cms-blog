@@ -3,6 +3,7 @@ import { AppBarProps } from "./app-bar";
 import { BottomNavigationProps } from "./bottom-navigation";
 import { DrawerProps } from "./drawer";
 import { FooterProps } from "./footer";
+import { SnackbarProps } from "./snackbar";
 export interface DashProps {
     children: React.ReactNode;
     appBarBackgroundColor: AppBarProps["backgroundColor"];
@@ -17,5 +18,7 @@ export interface DashProps {
     footerItemsAriaLabel: FooterProps["itemsAriaLabel"];
     footerItems: FooterProps["items"];
     bottomNavigationItems: BottomNavigationProps["items"];
+    snackbarContent: SnackbarProps["content"];
+    setSnackbarContent: SnackbarProps["setContent"];
 }
-export declare function Dash({ appBarBackgroundColor, appBarColor, logo, shortName, appBarItems, appBarItemsAriaLabel, drawerButtonAriaLabel, drawerItemsAriaLabel, drawerItems, footerItemsAriaLabel, footerItems, bottomNavigationItems, children, }: DashProps): JSX.Element;
+export declare function Dash({ appBarBackgroundColor, appBarColor, logo, shortName, appBarItems, appBarItemsAriaLabel, drawerButtonAriaLabel, drawerItemsAriaLabel, drawerItems, footerItemsAriaLabel, footerItems, bottomNavigationItems, snackbarContent, setSnackbarContent, children, }: DashProps): JSX.Element;

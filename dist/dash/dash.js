@@ -9,7 +9,8 @@ const app_bar_1 = require("./app-bar");
 const bottom_navigation_1 = require("./bottom-navigation");
 const drawer_1 = require("./drawer");
 const footer_1 = require("./footer");
-function Dash({ appBarBackgroundColor, appBarColor, logo, shortName, appBarItems, appBarItemsAriaLabel, drawerButtonAriaLabel, drawerItemsAriaLabel, drawerItems, footerItemsAriaLabel, footerItems, bottomNavigationItems, children, }) {
+const snackbar_1 = require("./snackbar");
+function Dash({ appBarBackgroundColor, appBarColor, logo, shortName, appBarItems, appBarItemsAriaLabel, drawerButtonAriaLabel, drawerItemsAriaLabel, drawerItems, footerItemsAriaLabel, footerItems, bottomNavigationItems, snackbarContent, setSnackbarContent, children, }) {
     const theme = styles_1.useTheme();
     const [drawerOpen, setDrawerOpen] = react_1.default.useState(false);
     return (react_1.default.createElement(react_1.default.Fragment, null,
@@ -18,7 +19,8 @@ function Dash({ appBarBackgroundColor, appBarColor, logo, shortName, appBarItems
         react_1.default.createElement("main", null, children),
         react_1.default.createElement(footer_1.Footer, { itemsAriaLabel: footerItemsAriaLabel, items: footerItems, color: theme.palette.secondary.contrastText, backgroundColor: theme.palette.secondary.main }),
         react_1.default.createElement(Hidden_1.default, { smUp: true },
-            react_1.default.createElement(bottom_navigation_1.BottomNavigation, { color: theme.palette.primary.main, items: bottomNavigationItems }))));
+            react_1.default.createElement(bottom_navigation_1.BottomNavigation, { color: theme.palette.primary.main, items: bottomNavigationItems })),
+        react_1.default.createElement(snackbar_1.Snackbar, { content: snackbarContent, setContent: setSnackbarContent })));
 }
 exports.Dash = Dash;
 //# sourceMappingURL=dash.js.map

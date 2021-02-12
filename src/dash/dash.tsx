@@ -5,6 +5,7 @@ import { AppBar, AppBarProps } from "./app-bar";
 import { BottomNavigation, BottomNavigationProps } from "./bottom-navigation";
 import { Drawer, DrawerProps } from "./drawer";
 import { Footer, FooterProps } from "./footer";
+import { Snackbar, SnackbarProps } from "./snackbar";
 
 export interface DashProps {
   children: React.ReactNode;
@@ -20,6 +21,8 @@ export interface DashProps {
   footerItemsAriaLabel: FooterProps["itemsAriaLabel"];
   footerItems: FooterProps["items"];
   bottomNavigationItems: BottomNavigationProps["items"];
+  snackbarContent: SnackbarProps["content"];
+  setSnackbarContent: SnackbarProps["setContent"];
 }
 
 export function Dash({
@@ -35,6 +38,8 @@ export function Dash({
   footerItemsAriaLabel,
   footerItems,
   bottomNavigationItems,
+  snackbarContent,
+  setSnackbarContent,
   children,
 }: DashProps) {
   const theme = useTheme();
@@ -71,6 +76,7 @@ export function Dash({
           items={bottomNavigationItems}
         />
       </Hidden>
+      <Snackbar content={snackbarContent} setContent={setSnackbarContent} />
     </>
   );
 }
