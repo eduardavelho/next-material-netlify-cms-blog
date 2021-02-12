@@ -86,7 +86,6 @@ export function LoginStep({
           >
             {recoveryAccountLinkLabel}
           </Link>
-          .
         </Typography>
       </Box>
       <Button

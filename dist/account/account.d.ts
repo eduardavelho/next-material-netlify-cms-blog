@@ -7,9 +7,7 @@ export interface AccountProps {
     view: AccountView;
     setView: (view: AccountView) => void;
     backButtonVisible: boolean;
-    setBackButtonVisible: (visible: boolean) => void;
-    backButtonView: AccountView;
-    setBackButtonView: (view: AccountView) => void;
+    onBackButtonClick: () => void;
     loginProps: LoginProps;
     createAccountProps: CreateAccountProps;
     recoveryAccountProps: RecoveryAccountProps;

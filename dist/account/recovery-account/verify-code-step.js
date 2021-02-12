@@ -9,11 +9,11 @@ const Box_1 = tslib_1.__importDefault(require("@material-ui/core/Box"));
 const TextField_1 = tslib_1.__importDefault(require("@material-ui/core/TextField"));
 const Link_1 = tslib_1.__importDefault(require("@material-ui/core/Link"));
 const CircularProgress_1 = tslib_1.__importDefault(require("@material-ui/core/CircularProgress"));
-function VerifyCodeStep({ loading, onResendCode, VerifyCodeStepInfoText, resendCodeButtonLabel, form, onSubmit, onSubmitButtonLabel, }) {
+function VerifyCodeStep({ loading, onResendCode, verifyCodeStepInfoText, resendCodeButtonLabel, form, onSubmit, onSubmitButtonLabel, }) {
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement(Box_1.default, { marginBottom: 1 },
             react_1.default.createElement(Typography_1.default, null,
-                react_1.default.createElement(VerifyCodeStepInfoText, null),
+                verifyCodeStepInfoText,
                 react_1.default.createElement(Link_1.default, { onClick: () => {
                         onResendCode();
                     } }, resendCodeButtonLabel))),

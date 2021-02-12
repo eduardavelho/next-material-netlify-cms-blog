@@ -17,9 +17,7 @@ export interface AccountProps {
   view: AccountView;
   setView: (view: AccountView) => void;
   backButtonVisible: boolean;
-  setBackButtonVisible: (visible: boolean) => void;
-  backButtonView: AccountView;
-  setBackButtonView: (view: AccountView) => void;
+  onBackButtonClick: () => void;
   loginProps: LoginProps;
   createAccountProps: CreateAccountProps;
   recoveryAccountProps: RecoveryAccountProps;
@@ -44,7 +42,7 @@ function SwitchView({
 }
 
 export function Account(props: AccountProps) {
-  const { backButtonVisible, backButtonView, view, setView } = props;
+  const { backButtonVisible, onBackButtonClick, view, setView } = props;
   return (
     <Dialog
       open={view !== undefined}
@@ -54,7 +52,7 @@ export function Account(props: AccountProps) {
       {backButtonVisible && (
         <DialogContent>
           <IconButton
-            onClick={() => setView(backButtonView)}
+            onClick={onBackButtonClick}
             edge="start"
             color="inherit"
             aria-label="Voltar"
