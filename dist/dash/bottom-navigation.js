@@ -13,7 +13,7 @@ function BottomNavigation({ links, color }) {
             bottom: 0,
             color,
         }, showLabels: true }, links.map(({ link, label, Icon }, index) => (react_1.default.createElement(link_1.default, { href: link, passHref: true, key: `bottom-navigation-link-${index}` },
-        react_1.default.createElement(BottomNavigationAction_1.default, { component: "a", label: label, icon: react_1.default.createElement(Icon, null) }))))));
+        react_1.default.createElement(BottomNavigationAction_1.default, { component: "a", label: label, icon: react_1.default.createElement(Icon, null), style: { color } }))))));
 }
 exports.BottomNavigation = BottomNavigation;
 //# sourceMappingURL=bottom-navigation.js.map

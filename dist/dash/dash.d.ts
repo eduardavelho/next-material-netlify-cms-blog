@@ -9,8 +9,8 @@ export interface DashProps {
     appBarColor: AppBarProps["color"];
     shortName: AppBarProps["shortName"];
     logo: AppBarProps["logo"];
-    appBarLinks: AppBarProps["links"];
-    appBarLinksAriaLabel: AppBarProps["linksAriaLabel"];
+    appBarItems: AppBarProps["items"];
+    appBarItemsAriaLabel: AppBarProps["itemsAriaLabel"];
     drawerButtonAriaLabel: AppBarProps["drawerButtonAriaLabel"];
     drawerLinksAriaLabel: DrawerProps["linksAriaLabel"];
     drawerLinks: DrawerProps["links"];
@@ -18,4 +18,4 @@ export interface DashProps {
     footerLinks: FooterProps["links"];
     bottomNavigationLinks: BottomNavigationProps["links"];
 }
-export declare function Dash({ appBarBackgroundColor, appBarColor, logo, shortName, appBarLinks, appBarLinksAriaLabel, drawerButtonAriaLabel, drawerLinksAriaLabel, drawerLinks, footerLinksAriaLabel, footerLinks, bottomNavigationLinks, children, }: DashProps): JSX.Element;
+export declare function Dash({ appBarBackgroundColor, appBarColor, logo, shortName, appBarItems, appBarItemsAriaLabel, drawerButtonAriaLabel, drawerLinksAriaLabel, drawerLinks, footerLinksAriaLabel, footerLinks, bottomNavigationLinks, children, }: DashProps): JSX.Element;

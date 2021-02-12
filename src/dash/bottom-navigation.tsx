@@ -27,7 +27,12 @@ export function BottomNavigation({ links, color }: BottomNavigationProps) {
     >
       {links.map(({ link, label, Icon }, index) => (
         <Link href={link} passHref key={`bottom-navigation-link-${index}`}>
-          <BottomNavigationAction component="a" label={label} icon={<Icon />} />
+          <BottomNavigationAction
+            component="a"
+            label={label}
+            icon={<Icon />}
+            style={{ color }}
+          />
         </Link>
       ))}
     </MuiBottomNavigation>

@@ -9,11 +9,11 @@ const app_bar_1 = require("./app-bar");
 const bottom_navigation_1 = require("./bottom-navigation");
 const drawer_1 = require("./drawer");
 const footer_1 = require("./footer");
-function Dash({ appBarBackgroundColor, appBarColor, logo, shortName, appBarLinks, appBarLinksAriaLabel, drawerButtonAriaLabel, drawerLinksAriaLabel, drawerLinks, footerLinksAriaLabel, footerLinks, bottomNavigationLinks, children, }) {
+function Dash({ appBarBackgroundColor, appBarColor, logo, shortName, appBarItems, appBarItemsAriaLabel, drawerButtonAriaLabel, drawerLinksAriaLabel, drawerLinks, footerLinksAriaLabel, footerLinks, bottomNavigationLinks, children, }) {
     const theme = styles_1.useTheme();
     const [drawerOpen, setDrawerOpen] = react_1.default.useState(false);
     return (react_1.default.createElement(react_1.default.Fragment, null,
-        react_1.default.createElement(app_bar_1.AppBar, { backgroundColor: appBarBackgroundColor, color: appBarColor, shortName: shortName, logo: logo, drawerButtonAriaLabel: drawerButtonAriaLabel, linksAriaLabel: appBarLinksAriaLabel, setDrawerOpen: (drawerOpen) => setDrawerOpen(drawerOpen), links: appBarLinks }),
+        react_1.default.createElement(app_bar_1.AppBar, { backgroundColor: appBarBackgroundColor, color: appBarColor, shortName: shortName, logo: logo, drawerButtonAriaLabel: drawerButtonAriaLabel, itemsAriaLabel: appBarItemsAriaLabel, setDrawerOpen: (drawerOpen) => setDrawerOpen(drawerOpen), items: appBarItems }),
         react_1.default.createElement(drawer_1.Drawer, { linksAriaLabel: drawerLinksAriaLabel, links: drawerLinks, drawerOpen: drawerOpen, setDrawerOpen: (drawerOpen) => setDrawerOpen(drawerOpen) }),
         react_1.default.createElement("main", null, children),
         react_1.default.createElement(footer_1.Footer, { linksAriaLabel: footerLinksAriaLabel, links: footerLinks, color: theme.palette.secondary.contrastText, backgroundColor: theme.palette.secondary.main }),

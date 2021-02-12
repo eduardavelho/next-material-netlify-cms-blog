@@ -10,13 +10,15 @@ import Typography from "@material-ui/core/Typography";
 import MenuIcon from "@material-ui/icons/Menu";
 import Link from "next/link";
 
+type Item = { label: string } & ({ href: string } | { onClick: () => void });
+
 export interface AppBarProps {
   backgroundColor: string;
   color: string;
   shortName: string;
   logo: string;
-  links: { link: string; label: string }[];
-  linksAriaLabel: string;
+  items: Item[];
+  itemsAriaLabel: string;
   drawerButtonAriaLabel: string;
   setDrawerOpen: (drawerOpen: boolean) => void;
 }
@@ -26,8 +28,8 @@ export function AppBar({
   color,
   shortName,
   logo,
-  links,
-  linksAriaLabel,
+  items,
+  itemsAriaLabel,
   drawerButtonAriaLabel,
   setDrawerOpen,
 }: AppBarProps) {
@@ -73,12 +75,20 @@ export function AppBar({
         </Link>
         <Hidden smDown>
           <nav>
-            <Tabs value={false} arial-label={linksAriaLabel}>
-              {links.map(({ link, label }, index) => (
-                <Link href={link} passHref key={`app-bar-link-${index}`}>
-                  <Tab label={label} component="a" />
-                </Link>
-              ))}
+            <Tabs value={false} arial-label={itemsAriaLabel}>
+              {items.map((item, index) =>
+                "href" in item ? (
+                  <Link href={item.href} passHref key={`app-bar-item-${index}`}>
+                    <Tab label={item.label} component="a" />
+                  </Link>
+                ) : (
+                  <Tab
+                    label={item.label}
+                    key={`app-bar-item-${index}`}
+                    onClick={item.onClick}
+                  />
+                )
+              )}
             </Tabs>
           </nav>
         </Hidden>

@@ -113,7 +113,7 @@ export function ItemList({
             variant={isDesktop ? "h3" : "h4"}
             component="h1"
           >
-            O que você encontra?
+            {title}
           </Typography>
         </Box>
         {items.map(({ text, image }: Item, index) => (

@@ -45,7 +45,7 @@ function ItemList({ title, color, backgroundColor, items, }) {
         } },
         react_1.default.createElement(Box_1.default, { display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", maxWidth: 720, marginX: "auto" },
             react_1.default.createElement(Box_1.default, { marginBottom: 4 },
-                react_1.default.createElement(Typography_1.default, { align: "center", variant: isDesktop ? "h3" : "h4", component: "h1" }, "O que voc\u00EA encontra?")),
+                react_1.default.createElement(Typography_1.default, { align: "center", variant: isDesktop ? "h3" : "h4", component: "h1" }, title)),
             items.map(({ text, image }, index) => (react_1.default.createElement(Box_1.default, { key: `how-works-${index}`, marginBottom: items.length - 1 === index ? 0 : 8, width: "100%" },
                 react_1.default.createElement(InfoView, { text: text, image: image, reverse: index % 2 !== 0 })))))));
 }

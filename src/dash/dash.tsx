@@ -12,8 +12,8 @@ export interface DashProps {
   appBarColor: AppBarProps["color"];
   shortName: AppBarProps["shortName"];
   logo: AppBarProps["logo"];
-  appBarLinks: AppBarProps["links"];
-  appBarLinksAriaLabel: AppBarProps["linksAriaLabel"];
+  appBarItems: AppBarProps["items"];
+  appBarItemsAriaLabel: AppBarProps["itemsAriaLabel"];
   drawerButtonAriaLabel: AppBarProps["drawerButtonAriaLabel"];
   drawerLinksAriaLabel: DrawerProps["linksAriaLabel"];
   drawerLinks: DrawerProps["links"];
@@ -27,8 +27,8 @@ export function Dash({
   appBarColor,
   logo,
   shortName,
-  appBarLinks,
-  appBarLinksAriaLabel,
+  appBarItems,
+  appBarItemsAriaLabel,
   drawerButtonAriaLabel,
   drawerLinksAriaLabel,
   drawerLinks,
@@ -48,9 +48,9 @@ export function Dash({
         shortName={shortName}
         logo={logo}
         drawerButtonAriaLabel={drawerButtonAriaLabel}
-        linksAriaLabel={appBarLinksAriaLabel}
+        itemsAriaLabel={appBarItemsAriaLabel}
         setDrawerOpen={(drawerOpen) => setDrawerOpen(drawerOpen)}
-        links={appBarLinks}
+        items={appBarItems}
       />
       <Drawer
         linksAriaLabel={drawerLinksAriaLabel}
