@@ -15,7 +15,7 @@ export type AccountView =
 
 export interface AccountProps {
   view: AccountView;
-  setView: (view: AccountView) => void;
+  onRequestClose: () => void;
   backButtonVisible: boolean;
   onBackButtonClick: () => void;
   loginProps: LoginProps;
@@ -42,13 +42,9 @@ function SwitchView({
 }
 
 export function Account(props: AccountProps) {
-  const { backButtonVisible, onBackButtonClick, view, setView } = props;
+  const { backButtonVisible, onBackButtonClick, view, onRequestClose } = props;
   return (
-    <Dialog
-      open={view !== undefined}
-      onClose={() => setView(undefined)}
-      scroll="body"
-    >
+    <Dialog open={view !== undefined} onClose={onRequestClose} scroll="body">
       {backButtonVisible && (
         <DialogContent>
           <IconButton

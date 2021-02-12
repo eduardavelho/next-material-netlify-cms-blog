@@ -5,7 +5,7 @@ import { RecoveryAccountProps } from "./recovery-account";
 export declare type AccountView = undefined | "login" | "recovery-account" | "create-account";
 export interface AccountProps {
     view: AccountView;
-    setView: (view: AccountView) => void;
+    onRequestClose: () => void;
     backButtonVisible: boolean;
     onBackButtonClick: () => void;
     loginProps: LoginProps;

@@ -23,8 +23,8 @@ function SwitchView({ view, loginProps, createAccountProps, recoveryAccountProps
     }
 }
 function Account(props) {
-    const { backButtonVisible, onBackButtonClick, view, setView } = props;
-    return (react_1.default.createElement(Dialog_1.default, { open: view !== undefined, onClose: () => setView(undefined), scroll: "body" },
+    const { backButtonVisible, onBackButtonClick, view, onRequestClose } = props;
+    return (react_1.default.createElement(Dialog_1.default, { open: view !== undefined, onClose: onRequestClose, scroll: "body" },
         backButtonVisible && (react_1.default.createElement(DialogContent_1.default, null,
             react_1.default.createElement(IconButton_1.default, { onClick: onBackButtonClick, edge: "start", color: "inherit", "aria-label": "Voltar" },
                 react_1.default.createElement(ArrowBack_1.default, { fontSize: "large" })))),
