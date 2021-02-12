@@ -83,8 +83,8 @@ export function AppBar({
                   </Link>
                 ) : (
                   <Tab
-                    label={item.label}
                     key={`app-bar-item-${index}`}
+                    label={item.label}
                     onClick={item.onClick}
                   />
                 )

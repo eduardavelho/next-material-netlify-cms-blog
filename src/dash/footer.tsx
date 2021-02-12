@@ -3,18 +3,20 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Link from "next/link";
 
+type Item = { label: string } & ({ href: string } | { onClick: () => void });
+
 export interface FooterProps {
   backgroundColor: string;
   color: string;
-  linksAriaLabel: string;
-  links: { label: string; link: string }[];
+  itemsAriaLabel: string;
+  items: Item[];
 }
 
 export function Footer({
   backgroundColor,
   color,
-  linksAriaLabel,
-  links,
+  itemsAriaLabel,
+  items,
 }: FooterProps) {
   return (
     <footer
@@ -27,14 +29,22 @@ export function Footer({
         <Tabs
           variant="scrollable"
           scrollButtons="on"
-          arial-label={linksAriaLabel}
+          arial-label={itemsAriaLabel}
           value={false}
         >
-          {links.map(({ label, link }, index) => (
-            <Link href={link} passHref key={`footer-link-${index}`}>
-              <Tab component="a" label={label} />
-            </Link>
-          ))}
+          {items.map((item, index) =>
+            "href" in item ? (
+              <Link href={item.href} passHref key={`footer-item-${index}`}>
+                <Tab component="a" label={item.label} />
+              </Link>
+            ) : (
+              <Tab
+                key={`footer-item-${index}`}
+                label={item.label}
+                onClick={item.onClick}
+              />
+            )
+          )}
         </Tabs>
       </nav>
     </footer>

@@ -15,11 +15,11 @@ export interface DashProps {
   appBarItems: AppBarProps["items"];
   appBarItemsAriaLabel: AppBarProps["itemsAriaLabel"];
   drawerButtonAriaLabel: AppBarProps["drawerButtonAriaLabel"];
-  drawerLinksAriaLabel: DrawerProps["linksAriaLabel"];
-  drawerLinks: DrawerProps["links"];
-  footerLinksAriaLabel: FooterProps["linksAriaLabel"];
-  footerLinks: FooterProps["links"];
-  bottomNavigationLinks: BottomNavigationProps["links"];
+  drawerItemsAriaLabel: DrawerProps["itemsAriaLabel"];
+  drawerItems: DrawerProps["items"];
+  footerItemsAriaLabel: FooterProps["itemsAriaLabel"];
+  footerItems: FooterProps["items"];
+  bottomNavigationItems: BottomNavigationProps["items"];
 }
 
 export function Dash({
@@ -30,11 +30,11 @@ export function Dash({
   appBarItems,
   appBarItemsAriaLabel,
   drawerButtonAriaLabel,
-  drawerLinksAriaLabel,
-  drawerLinks,
-  footerLinksAriaLabel,
-  footerLinks,
-  bottomNavigationLinks,
+  drawerItemsAriaLabel,
+  drawerItems,
+  footerItemsAriaLabel,
+  footerItems,
+  bottomNavigationItems,
   children,
 }: DashProps) {
   const theme = useTheme();
@@ -53,22 +53,22 @@ export function Dash({
         items={appBarItems}
       />
       <Drawer
-        linksAriaLabel={drawerLinksAriaLabel}
-        links={drawerLinks}
+        itemsAriaLabel={drawerItemsAriaLabel}
+        items={drawerItems}
         drawerOpen={drawerOpen}
         setDrawerOpen={(drawerOpen) => setDrawerOpen(drawerOpen)}
       />
       <main>{children}</main>
       <Footer
-        linksAriaLabel={footerLinksAriaLabel}
-        links={footerLinks}
+        itemsAriaLabel={footerItemsAriaLabel}
+        items={footerItems}
         color={theme.palette.secondary.contrastText}
         backgroundColor={theme.palette.secondary.main}
       />
       <Hidden smUp>
         <BottomNavigation
           color={theme.palette.primary.main}
-          links={bottomNavigationLinks}
+          items={bottomNavigationItems}
         />
       </Hidden>
     </>

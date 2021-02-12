@@ -9,20 +9,21 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import Link from "next/link";
 
+type Item = {
+  label: string;
+  Icon: OverridableComponent<SvgIconTypeMap<{}, "svg">>;
+} & ({ href: string } | { onClick: () => void });
+
 export interface DrawerProps {
-  linksAriaLabel: string;
-  links: {
-    link: string;
-    label: string;
-    Icon: OverridableComponent<SvgIconTypeMap<{}, "svg">>;
-  }[];
+  itemsAriaLabel: string;
+  items: Item[];
   drawerOpen: boolean;
   setDrawerOpen: (drawerOpen: boolean) => void;
 }
 
 export function Drawer({
-  linksAriaLabel,
-  links,
+  itemsAriaLabel,
+  items,
   drawerOpen,
   setDrawerOpen,
 }: DrawerProps) {
@@ -36,22 +37,31 @@ export function Drawer({
         <List
           style={{ width: 256 }}
           onClick={() => setDrawerOpen(false)}
-          arial-label={linksAriaLabel}
+          arial-label={itemsAriaLabel}
         >
-          {links.map(({ link, label, Icon }, index) => (
-            <Link href={link} passHref key={`drawer-link-${index}`}>
-              <ListItem
-                component={MuiLink}
-                color="inherit"
-                style={{ textDecoration: "none" }}
-              >
+          {items.map(({ label, Icon, ...item }, index) =>
+            "href" in item ? (
+              <Link href={item.href} passHref key={`drawer-item-${index}`}>
+                <ListItem
+                  component={MuiLink}
+                  color="inherit"
+                  style={{ textDecoration: "none" }}
+                >
+                  <ListItemIcon>
+                    <Icon />
+                  </ListItemIcon>
+                  <ListItemText primary={label} />
+                </ListItem>
+              </Link>
+            ) : (
+              <ListItem onClick={item.onClick} color="inherit">
                 <ListItemIcon>
                   <Icon />
                 </ListItemIcon>
                 <ListItemText primary={label} />
               </ListItem>
-            </Link>
-          ))}
+            )
+          )}
         </List>
       </nav>
     </MuiDrawer>

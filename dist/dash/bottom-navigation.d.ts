@@ -1,12 +1,17 @@
 /// <reference types="react" />
 import { SvgIconTypeMap } from "@material-ui/core";
 import { OverridableComponent } from "@material-ui/core/OverridableComponent";
+declare type Item = {
+    label: string;
+    Icon: OverridableComponent<SvgIconTypeMap<{}, "svg">>;
+} & ({
+    href: string;
+} | {
+    onClick: () => void;
+});
 export interface BottomNavigationProps {
     color: string;
-    links: {
-        link: string;
-        label: string;
-        Icon: OverridableComponent<SvgIconTypeMap<{}, "svg">>;
-    }[];
+    items: Item[];
 }
-export declare function BottomNavigation({ links, color }: BottomNavigationProps): JSX.Element;
+export declare function BottomNavigation({ items, color }: BottomNavigationProps): JSX.Element;
+export {};
