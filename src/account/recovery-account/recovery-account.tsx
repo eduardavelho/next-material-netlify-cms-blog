@@ -74,7 +74,7 @@ export function RecoveryAccount({
             </StepContent>
           </Step>
           <Step>
-            <StepLabel>V{verifyCodeStepLabel}</StepLabel>
+            <StepLabel>{verifyCodeStepLabel}</StepLabel>
             <StepContent>
               <VerifyCodeStep {...verifyCodeStepProps} />
             </StepContent>
