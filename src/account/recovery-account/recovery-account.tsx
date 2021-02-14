@@ -66,7 +66,14 @@ export function RecoveryAccount({
         <Box marginBottom={2} marginX={2} textAlign="center">
           <Typography>{recoveryAccountInfoText}</Typography>
         </Box>
-        <Stepper activeStep={steps[step]} orientation="vertical">
+        <Stepper
+          activeStep={steps[step]}
+          orientation="vertical"
+          style={{
+            paddingLeft: 0,
+            paddingRight: 0,
+          }}
+        >
           <Step>
             <StepLabel>{emailCodeStepLabel}</StepLabel>
             <StepContent>
@@ -93,7 +100,14 @@ export function RecoveryAccount({
           </Step>
           <Step>
             <StepLabel>{finishStepLabel}</StepLabel>
-            <StepContent>
+            <StepContent
+              style={{
+                marginLeft: 0,
+                marginRight: 0,
+                paddingLeft: 0,
+                paddingRight: 0,
+              }}
+            >
               <FinishStep {...finishStepProps} />
             </StepContent>
           </Step>

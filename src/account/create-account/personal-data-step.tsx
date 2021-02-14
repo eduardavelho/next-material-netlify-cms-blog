@@ -9,20 +9,17 @@ import { FormInput } from "../types";
 export interface PersonalDataStepProps {
   onSubmit: () => void;
   loading: boolean;
-  cpfMask: string;
   phoneNumberMask: string;
   submitButtonLabel: string;
   form: {
     name: FormInput<string>;
     surname: FormInput<string>;
-    cpf: FormInput<string>;
     email: FormInput<string>;
     phoneNumber: FormInput<string>;
   };
 }
 
 export function PersonalDataStep({
-  cpfMask,
   phoneNumberMask,
   submitButtonLabel,
   onSubmit,
@@ -65,26 +62,6 @@ export function PersonalDataStep({
             onBlur={form.surname.onBlur}
             onChange={(event) => form.surname.onChange(event.target.value)}
           />
-        </Grid>
-        <Grid item xs={12}>
-          <InputMask
-            mask={cpfMask}
-            value={form.cpf.value}
-            disabled={loading}
-            onFocus={form.cpf.onFocus}
-            onBlur={form.cpf.onBlur}
-            onChange={(event) => form.cpf.onChange(event.target.value)}
-          >
-            {() => (
-              <TextField
-                fullWidth
-                label={form.cpf.label}
-                variant="outlined"
-                error={form.cpf.error}
-                helperText={form.cpf.helperText}
-              />
-            )}
-          </InputMask>
         </Grid>
         <Grid item xs={12} md={7}>
           <TextField

@@ -8,7 +8,7 @@ const TextField_1 = tslib_1.__importDefault(require("@material-ui/core/TextField
 const Button_1 = tslib_1.__importDefault(require("@material-ui/core/Button"));
 const Grid_1 = tslib_1.__importDefault(require("@material-ui/core/Grid"));
 const CircularProgress_1 = tslib_1.__importDefault(require("@material-ui/core/CircularProgress"));
-function PersonalDataStep({ cpfMask, phoneNumberMask, submitButtonLabel, onSubmit, form, loading, }) {
+function PersonalDataStep({ phoneNumberMask, submitButtonLabel, onSubmit, form, loading, }) {
     return (react_1.default.createElement("form", { style: { margin: "auto" }, onSubmit: (event) => {
             event.preventDefault();
             onSubmit();
@@ -18,8 +18,6 @@ function PersonalDataStep({ cpfMask, phoneNumberMask, submitButtonLabel, onSubmi
                 react_1.default.createElement(TextField_1.default, { fullWidth: true, label: form.name.label, variant: "outlined", value: form.name.value, disabled: loading, error: form.name.error, helperText: form.name.helperText, onFocus: form.name.onFocus, onBlur: form.name.onBlur, onChange: (event) => form.name.onChange(event.target.value) })),
             react_1.default.createElement(Grid_1.default, { item: true, xs: 12, md: 7 },
                 react_1.default.createElement(TextField_1.default, { fullWidth: true, label: form.surname.label, variant: "outlined", value: form.surname.value, disabled: loading, error: form.surname.error, helperText: form.surname.helperText, onFocus: form.surname.onFocus, onBlur: form.surname.onBlur, onChange: (event) => form.surname.onChange(event.target.value) })),
-            react_1.default.createElement(Grid_1.default, { item: true, xs: 12 },
-                react_1.default.createElement(react_input_mask_1.default, { mask: cpfMask, value: form.cpf.value, disabled: loading, onFocus: form.cpf.onFocus, onBlur: form.cpf.onBlur, onChange: (event) => form.cpf.onChange(event.target.value) }, () => (react_1.default.createElement(TextField_1.default, { fullWidth: true, label: form.cpf.label, variant: "outlined", error: form.cpf.error, helperText: form.cpf.helperText })))),
             react_1.default.createElement(Grid_1.default, { item: true, xs: 12, md: 7 },
                 react_1.default.createElement(TextField_1.default, { fullWidth: true, label: form.email.label, variant: "outlined", value: form.email.value, disabled: loading, error: form.email.error, helperText: form.email.helperText, onFocus: form.email.onFocus, onBlur: form.email.onBlur, onChange: (event) => form.email.onChange(event.target.value) })),
             react_1.default.createElement(Grid_1.default, { item: true, xs: 12, md: 5 },

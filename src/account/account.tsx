@@ -44,7 +44,18 @@ function SwitchView({
 export function Account(props: AccountProps) {
   const { backButtonVisible, onBackButtonClick, view, onRequestClose } = props;
   return (
-    <Dialog open={view !== undefined} onClose={onRequestClose} scroll="body">
+    <Dialog
+      open={view !== undefined}
+      onClose={onRequestClose}
+      scroll="body"
+      PaperProps={{
+        style: {
+          maxWidth: "calc(100% - 16px)",
+          marginLeft: 8,
+          marginRight: 8,
+        },
+      }}
+    >
       {backButtonVisible && (
         <DialogContent>
           <IconButton

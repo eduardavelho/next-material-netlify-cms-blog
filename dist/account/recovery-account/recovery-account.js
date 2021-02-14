@@ -29,7 +29,10 @@ function RecoveryAccount({ step, recoveryAccountTitleText, recoveryAccountInfoTe
         react_1.default.createElement(DialogContent_1.default, null,
             react_1.default.createElement(Box_1.default, { marginBottom: 2, marginX: 2, textAlign: "center" },
                 react_1.default.createElement(Typography_1.default, null, recoveryAccountInfoText)),
-            react_1.default.createElement(Stepper_1.default, { activeStep: steps[step], orientation: "vertical" },
+            react_1.default.createElement(Stepper_1.default, { activeStep: steps[step], orientation: "vertical", style: {
+                    paddingLeft: 0,
+                    paddingRight: 0,
+                } },
                 react_1.default.createElement(Step_1.default, null,
                     react_1.default.createElement(StepLabel_1.default, null, emailCodeStepLabel),
                     react_1.default.createElement(StepContent_1.default, null,
@@ -48,7 +51,12 @@ function RecoveryAccount({ step, recoveryAccountTitleText, recoveryAccountInfoTe
                         react_1.default.createElement(phone_verification_step_1.PhoneVerificationStep, Object.assign({}, phoneVerificationStepProps)))),
                 react_1.default.createElement(Step_1.default, null,
                     react_1.default.createElement(StepLabel_1.default, null, finishStepLabel),
-                    react_1.default.createElement(StepContent_1.default, null,
+                    react_1.default.createElement(StepContent_1.default, { style: {
+                            marginLeft: 0,
+                            marginRight: 0,
+                            paddingLeft: 0,
+                            paddingRight: 0,
+                        } },
                         react_1.default.createElement(finish_step_1.FinishStep, Object.assign({}, finishStepProps))))))));
 }
 exports.RecoveryAccount = RecoveryAccount;
