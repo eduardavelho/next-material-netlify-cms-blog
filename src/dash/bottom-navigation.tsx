@@ -47,6 +47,9 @@ export function BottomNavigation({ items, color }: BottomNavigationProps) {
             label={label}
             icon={<Icon />}
             showLabel
+            style={{
+              cursor: "pointer",
+            }}
           />
         )
       )}

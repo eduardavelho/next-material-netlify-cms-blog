@@ -13,7 +13,9 @@ function Footer({ backgroundColor, color, itemsAriaLabel, items, }) {
         } },
         react_1.default.createElement("nav", null,
             react_1.default.createElement(Tabs_1.default, { variant: "scrollable", scrollButtons: "on", "arial-label": itemsAriaLabel, value: false }, items.map((item, index) => "href" in item ? (react_1.default.createElement(link_1.default, { href: item.href, passHref: true, key: `footer-item-${index}` },
-                react_1.default.createElement(Tab_1.default, { component: "a", label: item.label }))) : (react_1.default.createElement(Tab_1.default, { key: `footer-item-${index}`, label: item.label, onClick: item.onClick })))))));
+                react_1.default.createElement(Tab_1.default, { component: "a", label: item.label }))) : (react_1.default.createElement(Tab_1.default, { key: `footer-item-${index}`, label: item.label, onClick: item.onClick, style: {
+                    cursor: "pointer",
+                } })))))));
 }
 exports.Footer = Footer;
 //# sourceMappingURL=footer.js.map

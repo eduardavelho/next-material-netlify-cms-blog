@@ -19,7 +19,9 @@ function Drawer({ itemsAriaLabel, items, drawerOpen, setDrawerOpen, }) {
                     react_1.default.createElement(ListItem_1.default, { component: Link_1.default, color: "inherit", style: { textDecoration: "none" } },
                         react_1.default.createElement(ListItemIcon_1.default, null,
                             react_1.default.createElement(Icon, null)),
-                        react_1.default.createElement(ListItemText_1.default, { primary: label })))) : (react_1.default.createElement(ListItem_1.default, { onClick: item.onClick, color: "inherit" },
+                        react_1.default.createElement(ListItemText_1.default, { primary: label })))) : (react_1.default.createElement(ListItem_1.default, { onClick: item.onClick, color: "inherit", key: `drawer-item-${index}`, style: {
+                        cursor: "pointer",
+                    } },
                     react_1.default.createElement(ListItemIcon_1.default, null,
                         react_1.default.createElement(Icon, null)),
                     react_1.default.createElement(ListItemText_1.default, { primary: label })));

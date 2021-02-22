@@ -15,7 +15,9 @@ function BottomNavigation({ items, color }) {
         }, showLabels: true }, items.map((_a, index) => {
         var { label, Icon } = _a, item = tslib_1.__rest(_a, ["label", "Icon"]);
         return "href" in item ? (react_1.default.createElement(link_1.default, { href: item.href, passHref: true, key: `bottom-navigation-item-${index}` },
-            react_1.default.createElement(BottomNavigationAction_1.default, { component: "a", label: label, icon: react_1.default.createElement(Icon, null), showLabel: true }))) : (react_1.default.createElement(BottomNavigationAction_1.default, { key: `bottom-navigation-item-${index}`, onClick: item.onClick, label: label, icon: react_1.default.createElement(Icon, null), showLabel: true }));
+            react_1.default.createElement(BottomNavigationAction_1.default, { component: "a", label: label, icon: react_1.default.createElement(Icon, null), showLabel: true }))) : (react_1.default.createElement(BottomNavigationAction_1.default, { key: `bottom-navigation-item-${index}`, onClick: item.onClick, label: label, icon: react_1.default.createElement(Icon, null), showLabel: true, style: {
+                cursor: "pointer",
+            } }));
     })));
 }
 exports.BottomNavigation = BottomNavigation;

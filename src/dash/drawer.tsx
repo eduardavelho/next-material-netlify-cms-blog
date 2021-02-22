@@ -54,7 +54,14 @@ export function Drawer({
                 </ListItem>
               </Link>
             ) : (
-              <ListItem onClick={item.onClick} color="inherit">
+              <ListItem
+                onClick={item.onClick}
+                color="inherit"
+                key={`drawer-item-${index}`}
+                style={{
+                  cursor: "pointer",
+                }}
+              >
                 <ListItemIcon>
                   <Icon />
                 </ListItemIcon>

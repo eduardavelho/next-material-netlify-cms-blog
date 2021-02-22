@@ -86,6 +86,9 @@ export function AppBar({
                     key={`app-bar-item-${index}`}
                     label={item.label}
                     onClick={item.onClick}
+                    style={{
+                      cursor: "pointer",
+                    }}
                   />
                 )
               )}

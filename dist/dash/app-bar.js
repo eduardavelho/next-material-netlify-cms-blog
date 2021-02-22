@@ -36,7 +36,9 @@ function AppBar({ backgroundColor, color, shortName, logo, items, itemsAriaLabel
             react_1.default.createElement(Hidden_1.default, { smDown: true },
                 react_1.default.createElement("nav", null,
                     react_1.default.createElement(Tabs_1.default, { value: false, "arial-label": itemsAriaLabel }, items.map((item, index) => "href" in item ? (react_1.default.createElement(link_1.default, { href: item.href, passHref: true, key: `app-bar-item-${index}` },
-                        react_1.default.createElement(Tab_1.default, { label: item.label, component: "a" }))) : (react_1.default.createElement(Tab_1.default, { key: `app-bar-item-${index}`, label: item.label, onClick: item.onClick })))))),
+                        react_1.default.createElement(Tab_1.default, { label: item.label, component: "a" }))) : (react_1.default.createElement(Tab_1.default, { key: `app-bar-item-${index}`, label: item.label, onClick: item.onClick, style: {
+                            cursor: "pointer",
+                        } })))))),
             react_1.default.createElement(Box_1.default, { display: "flex", flexGrow: 1, justifyContent: "flex-end" },
                 react_1.default.createElement(IconButton_1.default, { edge: "end", color: "inherit", "aria-label": drawerButtonAriaLabel, onClick: () => setDrawerOpen(true) },
                     react_1.default.createElement(Menu_1.default, null))))));

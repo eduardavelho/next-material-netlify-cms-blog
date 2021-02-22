@@ -42,6 +42,9 @@ export function Footer({
                 key={`footer-item-${index}`}
                 label={item.label}
                 onClick={item.onClick}
+                style={{
+                  cursor: "pointer",
+                }}
               />
             )
           )}
