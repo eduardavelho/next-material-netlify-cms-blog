@@ -9,14 +9,14 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import { FormInput } from "./types";
 
 export interface PhoneVerificationForm {
-  confirmationCode: FormInput<string>;
+  code: FormInput<string>;
 }
 
 export interface PhoneVerificationProps {
   finishButtonLabel: string;
   resendCodeLinkLabel: string;
   submitButtonLabel: string;
-  confirmationCodeMask: string;
+  codeMask: string;
   onSubmit: () => void;
   onClickResendCode: () => void;
   recoveryAccountInfoText: ReactNode;
@@ -26,7 +26,7 @@ export interface PhoneVerificationProps {
 
 export function PhoneVerification({
   loading,
-  confirmationCodeMask,
+  codeMask,
   submitButtonLabel,
   resendCodeLinkLabel,
   onClickResendCode,
@@ -55,22 +55,20 @@ export function PhoneVerification({
       >
         <Box marginBottom={1}>
           <InputMask
-            mask={confirmationCodeMask}
-            value={form.confirmationCode.value}
+            mask={codeMask}
+            value={form.code.value}
             disabled={loading}
-            onBlur={form.confirmationCode.onBlur}
-            onFocus={form.confirmationCode.onFocus}
-            onChange={(event) =>
-              form.confirmationCode.onChange(event.target.value)
-            }
+            onBlur={form.code.onBlur}
+            onFocus={form.code.onFocus}
+            onChange={(event) => form.code.onChange(event.target.value)}
           >
             {() => (
               <TextField
                 fullWidth
-                label={form.confirmationCode.label}
+                label={form.code.label}
                 variant="outlined"
-                error={form.confirmationCode.error}
-                helperText={form.confirmationCode.helperText}
+                error={form.code.error}
+                helperText={form.code.helperText}
               />
             )}
           </InputMask>
