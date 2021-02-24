@@ -91,6 +91,7 @@ export function PersonalDataStep({
                 fullWidth
                 label={form.phoneNumber.label}
                 variant="outlined"
+                disabled={loading}
                 error={form.phoneNumber.error}
                 helperText={form.phoneNumber.helperText}
               />

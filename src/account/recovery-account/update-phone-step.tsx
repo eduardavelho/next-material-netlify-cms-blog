@@ -53,9 +53,9 @@ export function UpdatePhoneStep({
             {() => (
               <TextField
                 label={form.phoneNumber.label}
+                disabled={loading}
                 variant="outlined"
                 fullWidth
-                disabled={loading}
                 error={form.phoneNumber.error}
                 helperText={form.phoneNumber.helperText}
               />

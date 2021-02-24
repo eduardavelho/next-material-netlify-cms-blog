@@ -66,6 +66,7 @@ export function PhoneVerification({
               <TextField
                 fullWidth
                 label={form.code.label}
+                disabled={loading}
                 variant="outlined"
                 error={form.code.error}
                 helperText={form.code.helperText}

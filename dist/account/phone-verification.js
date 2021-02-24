@@ -21,7 +21,7 @@ function PhoneVerification({ loading, codeMask, submitButtonLabel, resendCodeLin
                 onSubmit();
             } },
             react_1.default.createElement(Box_1.default, { marginBottom: 1 },
-                react_1.default.createElement(react_input_mask_1.default, { mask: codeMask, value: form.code.value, disabled: loading, onBlur: form.code.onBlur, onFocus: form.code.onFocus, onChange: (event) => form.code.onChange(event.target.value) }, () => (react_1.default.createElement(TextField_1.default, { fullWidth: true, label: form.code.label, variant: "outlined", error: form.code.error, helperText: form.code.helperText })))),
+                react_1.default.createElement(react_input_mask_1.default, { mask: codeMask, value: form.code.value, disabled: loading, onBlur: form.code.onBlur, onFocus: form.code.onFocus, onChange: (event) => form.code.onChange(event.target.value) }, () => (react_1.default.createElement(TextField_1.default, { fullWidth: true, label: form.code.label, disabled: loading, variant: "outlined", error: form.code.error, helperText: form.code.helperText })))),
             react_1.default.createElement(Button_1.default, { disabled: loading, type: "submit", variant: "contained", color: "primary", fullWidth: true }, loading ? react_1.default.createElement(CircularProgress_1.default, null) : submitButtonLabel))));
 }
 exports.PhoneVerification = PhoneVerification;

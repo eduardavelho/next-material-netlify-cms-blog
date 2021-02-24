@@ -21,7 +21,7 @@ function UpdatePhoneStep({ loading, form, phoneNumberMask, onSubmit, submitButto
                 onSubmit();
             } },
             react_1.default.createElement(Box_1.default, { marginBottom: 1 },
-                react_1.default.createElement(react_input_mask_1.default, { mask: phoneNumberMask, value: form.phoneNumber.value, disabled: loading, onFocus: form.phoneNumber.onFocus, onBlur: form.phoneNumber.onBlur, onChange: (event) => form.phoneNumber.onChange(event.target.value) }, () => (react_1.default.createElement(TextField_1.default, { label: form.phoneNumber.label, variant: "outlined", fullWidth: true, disabled: loading, error: form.phoneNumber.error, helperText: form.phoneNumber.helperText })))),
+                react_1.default.createElement(react_input_mask_1.default, { mask: phoneNumberMask, value: form.phoneNumber.value, disabled: loading, onFocus: form.phoneNumber.onFocus, onBlur: form.phoneNumber.onBlur, onChange: (event) => form.phoneNumber.onChange(event.target.value) }, () => (react_1.default.createElement(TextField_1.default, { label: form.phoneNumber.label, disabled: loading, variant: "outlined", fullWidth: true, error: form.phoneNumber.error, helperText: form.phoneNumber.helperText })))),
             react_1.default.createElement(Button_1.default, { variant: "contained", color: "primary", type: "submit", disabled: loading }, loading ? react_1.default.createElement(CircularProgress_1.default, null) : submitButtonLabel))));
 }
 exports.UpdatePhoneStep = UpdatePhoneStep;
