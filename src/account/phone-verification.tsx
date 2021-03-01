@@ -41,7 +41,7 @@ export function PhoneVerification({
           {recoveryAccountInfoText}
           <Link
             style={{ cursor: "pointer" }}
-            onClick={() => onClickResendCode()}
+            onClick={() => loading === false && onClickResendCode()}
           >
             {resendCodeLinkLabel}
           </Link>

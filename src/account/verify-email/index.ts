@@ -1,3 +1,2 @@
-export * from "./verify-email";
-export * from "./email-code-step";
-export * from "./verify-code-step";
+export { VerifyEmail } from "./verify-email";
+export type { VerifyEmailProps } from "./verify-email";

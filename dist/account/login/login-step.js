@@ -25,7 +25,7 @@ function LoginStep({ form, onSubmit, loading, submitButtonLabel, recoveryAccount
         react_1.default.createElement(Box_1.default, { marginY: 2 },
             react_1.default.createElement(Typography_1.default, null,
                 recoveryAccountTitleText,
-                react_1.default.createElement(Link_1.default, { onClick: () => recoveryAccountOnClick(), style: { cursor: "pointer" } }, recoveryAccountLinkLabel))),
+                react_1.default.createElement(Link_1.default, { onClick: () => loading === false && recoveryAccountOnClick(), style: { cursor: "pointer" } }, recoveryAccountLinkLabel))),
         react_1.default.createElement(Button_1.default, { variant: "contained", color: "primary", onClick: () => createAccountOnClick() }, createAccountButtonLabel)));
 }
 exports.LoginStep = LoginStep;

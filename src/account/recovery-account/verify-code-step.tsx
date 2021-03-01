@@ -33,11 +33,7 @@ export function VerifyCodeStep({
       <Box marginBottom={1}>
         <Typography>
           {verifyCodeStepInfoText}
-          <Link
-            onClick={() => {
-              onResendCode();
-            }}
-          >
+          <Link onClick={() => loading === false && onResendCode()}>
             {resendCodeButtonLabel}
           </Link>
         </Typography>

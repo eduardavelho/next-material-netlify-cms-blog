@@ -16,7 +16,7 @@ function VerifyCodeStep({ verifyCodeInfoText, onClickResendCode, resendCodeLinkL
             react_1.default.createElement(Box_1.default, { marginBottom: 1 },
                 react_1.default.createElement(Typography_1.default, null,
                     verifyCodeInfoText,
-                    react_1.default.createElement(Link_1.default, { onClick: () => onClickResendCode() }, resendCodeLinkLabel))),
+                    react_1.default.createElement(Link_1.default, { onClick: () => loading === false && onClickResendCode() }, resendCodeLinkLabel))),
             react_1.default.createElement("form", { style: {
                     display: "flex",
                     flexDirection: "column",

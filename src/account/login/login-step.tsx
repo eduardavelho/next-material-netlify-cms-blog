@@ -81,7 +81,7 @@ export function LoginStep({
         <Typography>
           {recoveryAccountTitleText}
           <Link
-            onClick={() => recoveryAccountOnClick()}
+            onClick={() => loading === false && recoveryAccountOnClick()}
             style={{ cursor: "pointer" }}
           >
             {recoveryAccountLinkLabel}

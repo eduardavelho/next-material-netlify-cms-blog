@@ -15,7 +15,7 @@ function PhoneVerification({ loading, codeMask, submitButtonLabel, resendCodeLin
         react_1.default.createElement(Box_1.default, { marginBottom: 1 },
             react_1.default.createElement(Typography_1.default, null,
                 recoveryAccountInfoText,
-                react_1.default.createElement(Link_1.default, { style: { cursor: "pointer" }, onClick: () => onClickResendCode() }, resendCodeLinkLabel))),
+                react_1.default.createElement(Link_1.default, { style: { cursor: "pointer" }, onClick: () => loading === false && onClickResendCode() }, resendCodeLinkLabel))),
         react_1.default.createElement("form", { onSubmit: (event) => {
                 event.preventDefault();
                 onSubmit();

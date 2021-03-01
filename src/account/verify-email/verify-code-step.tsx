@@ -35,7 +35,7 @@ export function VerifyCodeStep({
         <Box marginBottom={1}>
           <Typography>
             {verifyCodeInfoText}
-            <Link onClick={() => onClickResendCode()}>
+            <Link onClick={() => loading === false && onClickResendCode()}>
               {resendCodeLinkLabel}
             </Link>
           </Typography>
