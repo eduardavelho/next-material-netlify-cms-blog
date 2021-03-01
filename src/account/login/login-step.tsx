@@ -91,7 +91,7 @@ export function LoginStep({
       <Button
         variant="contained"
         color="primary"
-        onClick={() => createAccountOnClick()}
+        onClick={() => loading === false && createAccountOnClick()}
       >
         {createAccountButtonLabel}
       </Button>
