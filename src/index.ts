@@ -12,5 +12,6 @@ export * from "./page";
 export * from "./search-header";
 export * from "./social-icons";
 export * from "./title-description-info";
+export * from "./scholar-card";
 export * from "./blog";
 export * from "./blog/post-page";

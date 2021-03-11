@@ -15,6 +15,7 @@ tslib_1.__exportStar(require("./page"), exports);
 tslib_1.__exportStar(require("./search-header"), exports);
 tslib_1.__exportStar(require("./social-icons"), exports);
 tslib_1.__exportStar(require("./title-description-info"), exports);
+tslib_1.__exportStar(require("./scholar-card"), exports);
 tslib_1.__exportStar(require("./blog"), exports);
 tslib_1.__exportStar(require("./blog/post-page"), exports);
 //# sourceMappingURL=index.js.map
