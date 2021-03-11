@@ -30,7 +30,7 @@
     "downlevelIteration": true,
     "isolatedModules": true,
     "importHelpers": true,
-    "outDir": "dist"
+    "outDir": "."
   },
   "exclude": ["node_modules"],
   "include": ["src"]
