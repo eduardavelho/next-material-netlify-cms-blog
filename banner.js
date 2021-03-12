@@ -7,11 +7,11 @@ const Box_1 = tslib_1.__importDefault(require("@material-ui/core/Box"));
 const Typography_1 = tslib_1.__importDefault(require("@material-ui/core/Typography"));
 const styles_1 = require("@material-ui/core/styles");
 const useMediaQuery_1 = tslib_1.__importDefault(require("@material-ui/core/useMediaQuery"));
-function Banner({ image, imageAlt, backgroundImage, color, title, subtitle, }) {
+function Banner({ image, imageAlt, background, color, title, subtitle, }) {
     const theme = styles_1.useTheme();
     const isDesktop = useMediaQuery_1.default(theme.breakpoints.up("sm"));
     return (react_1.default.createElement(Box_1.default, { paddingY: 16, paddingX: 2, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", color: color, style: {
-            backgroundImage,
+            background,
             backgroundSize: "cover",
         } },
         react_1.default.createElement(Box_1.default, { maxWidth: 960, marginX: "auto" },

@@ -9,11 +9,11 @@ const Typography_1 = tslib_1.__importDefault(require("@material-ui/core/Typograp
 const Button_1 = tslib_1.__importDefault(require("@material-ui/core/Button"));
 const styles_1 = require("@material-ui/core/styles");
 const useMediaQuery_1 = tslib_1.__importDefault(require("@material-ui/core/useMediaQuery"));
-function BannerWithButton({ title, label, link, color, backgroundImage, image, }) {
+function BannerWithButton({ title, label, href, color, background, image, }) {
     const theme = styles_1.useTheme();
     const isDesktop = useMediaQuery_1.default(theme.breakpoints.up("sm"));
     return (react_1.default.createElement(Box_1.default, { style: {
-            backgroundImage,
+            background,
         } },
         react_1.default.createElement(Box_1.default, { style: {
                 backgroundImage: `url(${image})`,
@@ -29,7 +29,7 @@ function BannerWithButton({ title, label, link, color, backgroundImage, image, }
                             fontWeight: 600,
                         } }, title)),
                 react_1.default.createElement(Box_1.default, null,
-                    react_1.default.createElement(link_1.default, { href: link, passHref: true },
+                    react_1.default.createElement(link_1.default, { href: href, passHref: true },
                         react_1.default.createElement(Button_1.default, { variant: "outlined", color: "inherit", component: "a", style: {
                                 borderWidth: "3px",
                                 borderRadius: "8px",

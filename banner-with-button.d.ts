@@ -1,10 +1,10 @@
-/// <reference types="react" />
+import React from "react";
 export interface BannerWithButtonProps {
-    title: string;
-    link: string;
+    title: React.ReactNode;
+    href: string;
     label: string;
     color: string;
-    backgroundImage: string;
+    background: string;
     image: string;
 }
-export declare function BannerWithButton({ title, label, link, color, backgroundImage, image, }: BannerWithButtonProps): JSX.Element;
+export declare function BannerWithButton({ title, label, href, color, background, image, }: BannerWithButtonProps): JSX.Element;

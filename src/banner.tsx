@@ -7,16 +7,16 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 export interface BannerProps {
   image: string;
   imageAlt: string;
-  backgroundImage: string;
+  background: string;
   color: string;
-  title: string;
-  subtitle: string;
+  title: React.ReactNode;
+  subtitle: React.ReactNode;
 }
 
 export function Banner({
   image,
   imageAlt,
-  backgroundImage,
+  background,
   color,
   title,
   subtitle,
@@ -34,7 +34,7 @@ export function Banner({
       justifyContent="center"
       color={color}
       style={{
-        backgroundImage,
+        background,
         backgroundSize: "cover",
       }}
     >

@@ -1,10 +1,10 @@
-/// <reference types="react" />
+import React from "react";
 export interface BannerProps {
     image: string;
     imageAlt: string;
-    backgroundImage: string;
+    background: string;
     color: string;
-    title: string;
-    subtitle: string;
+    title: React.ReactNode;
+    subtitle: React.ReactNode;
 }
-export declare function Banner({ image, imageAlt, backgroundImage, color, title, subtitle, }: BannerProps): JSX.Element;
+export declare function Banner({ image, imageAlt, background, color, title, subtitle, }: BannerProps): JSX.Element;

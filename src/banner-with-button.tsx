@@ -7,20 +7,20 @@ import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 export interface BannerWithButtonProps {
-  title: string;
-  link: string;
+  title: React.ReactNode;
+  href: string;
   label: string;
   color: string;
-  backgroundImage: string;
+  background: string;
   image: string;
 }
 
 export function BannerWithButton({
   title,
   label,
-  link,
+  href,
   color,
-  backgroundImage,
+  background,
   image,
 }: BannerWithButtonProps) {
   const theme = useTheme();
@@ -29,7 +29,7 @@ export function BannerWithButton({
   return (
     <Box
       style={{
-        backgroundImage,
+        background,
       }}
     >
       <Box
@@ -65,7 +65,7 @@ export function BannerWithButton({
             </Typography>
           </Box>
           <Box>
-            <Link href={link} passHref>
+            <Link href={href} passHref>
               <Button
                 variant="outlined"
                 color="inherit"
