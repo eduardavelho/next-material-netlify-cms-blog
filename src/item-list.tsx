@@ -28,6 +28,7 @@ function InfoViewImage({ image, text }: { image: string; text: string }) {
         width: isDesktop ? 128 : 72,
         height: isDesktop ? 128 : 72,
         borderRadius: isDesktop ? 64 : 36,
+        objectFit: "cover",
       }}
     />
   );
