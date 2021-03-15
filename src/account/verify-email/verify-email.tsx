@@ -9,7 +9,7 @@ export type CreateAccountViewStep = "email-code" | "verify-code";
 export interface VerifyEmailProps {
   step: CreateAccountViewStep;
   open: boolean;
-  onClose: () => void;
+  onRequestClose: () => void;
   verifyEmailTitleText: ReactNode;
   emailCodeStepProps: EmailCodeStepProps;
   verifyCodeStepProps: VerifyCodeStepProps;
@@ -18,13 +18,13 @@ export interface VerifyEmailProps {
 export function VerifyEmail({
   step,
   open,
-  onClose,
+  onRequestClose,
   verifyEmailTitleText,
   emailCodeStepProps,
   verifyCodeStepProps,
 }: VerifyEmailProps) {
   return (
-    <Dialog open={open} onClose={() => onClose()} scroll="body">
+    <Dialog open={open} onClose={() => onRequestClose()} scroll="body">
       <DialogTitle style={{ textAlign: "center" }}>
         {verifyEmailTitleText}
       </DialogTitle>

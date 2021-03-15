@@ -18,6 +18,8 @@ export interface DashProps {
   drawerButtonAriaLabel: AppBarProps["drawerButtonAriaLabel"];
   drawerItemsAriaLabel: DrawerProps["itemsAriaLabel"];
   drawerItems: DrawerProps["items"];
+  drawerOpen: DrawerProps["drawerOpen"];
+  setDrawerOpen: DrawerProps["setDrawerOpen"];
   footerItemsAriaLabel: FooterProps["itemsAriaLabel"];
   footerItems: FooterProps["items"];
   bottomNavigationItems: BottomNavigationProps["items"];
@@ -35,6 +37,8 @@ export function Dash({
   drawerButtonAriaLabel,
   drawerItemsAriaLabel,
   drawerItems,
+  drawerOpen,
+  setDrawerOpen,
   footerItemsAriaLabel,
   footerItems,
   bottomNavigationItems,
@@ -43,7 +47,6 @@ export function Dash({
   children,
 }: DashProps) {
   const theme = useTheme();
-  const [drawerOpen, setDrawerOpen] = React.useState(false);
 
   return (
     <>

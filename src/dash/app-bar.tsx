@@ -1,4 +1,6 @@
 import React from "react";
+import { OverridableComponent } from "@material-ui/core/OverridableComponent";
+import { SvgIconTypeMap } from "@material-ui/core";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import MuiAppBar from "@material-ui/core/AppBar";
@@ -21,6 +23,7 @@ export interface AppBarProps {
   itemsAriaLabel: string;
   drawerButtonAriaLabel: string;
   setDrawerOpen: (drawerOpen: boolean) => void;
+  drawerIcon?: OverridableComponent<SvgIconTypeMap<{}, "svg">>;
 }
 
 export function AppBar({
@@ -32,7 +35,9 @@ export function AppBar({
   itemsAriaLabel,
   drawerButtonAriaLabel,
   setDrawerOpen,
+  drawerIcon = MenuIcon,
 }: AppBarProps) {
+  const DrawerIcon = drawerIcon;
   return (
     <MuiAppBar
       position="sticky"
@@ -62,7 +67,8 @@ export function AppBar({
                 alt={shortName}
                 src={logo}
                 style={{
-                  width: 42,
+                  maxHeight: 42,
+                  maxWidth: 96,
                 }}
               />
             </Box>
@@ -102,7 +108,7 @@ export function AppBar({
             aria-label={drawerButtonAriaLabel}
             onClick={() => setDrawerOpen(true)}
           >
-            <MenuIcon />
+            <DrawerIcon />
           </IconButton>
         </Box>
       </Toolbar>

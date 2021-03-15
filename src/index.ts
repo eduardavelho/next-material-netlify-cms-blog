@@ -15,3 +15,4 @@ export * from "./title-description-info";
 export * from "./scholar-card";
 export * from "./blog";
 export * from "./blog/post-page";
+export * from "./breadcrumbs";
