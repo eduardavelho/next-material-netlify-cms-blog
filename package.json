@@ -4,7 +4,8 @@
   "description": "A set of Material UI based components to use with Next.js.",
   "main": "index.js",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "clean": "rm -rf *.d.ts *.js *.js.map account blog dash"
   },
   "author": "",
   "license": "GPL-3.0",
