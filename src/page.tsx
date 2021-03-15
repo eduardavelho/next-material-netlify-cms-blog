@@ -46,7 +46,7 @@ export function Page({
           color={dark ? theme.palette.common.white : undefined}
           marginBottom={1}
         >
-          {breadcrumbs !== undefined && (
+          {breadcrumbs !== undefined && breadcrumbs.length > 0 && (
             <Breadcrumbs
               className={styles.root}
               color="inherit"

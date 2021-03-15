@@ -23,7 +23,7 @@ export function TitleDescriptionInfo({
           {title}
         </Typography>
       </Box>
-      {description !== undefined && (
+      {description && (
         <Box marginTop={2}>
           <Typography
             component="h2"

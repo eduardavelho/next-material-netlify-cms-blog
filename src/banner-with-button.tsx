@@ -6,25 +6,54 @@ import Button from "@material-ui/core/Button";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
-export interface BannerWithButtonProps {
+export type BannerWithButtonProps = {
   title: React.ReactNode;
-  href: string;
   label: string;
   color: string;
   background: string;
   image: string;
-}
+  darkOverlay?: boolean;
+  lightOverlay?: boolean;
+} & ({ href: string } | { onClick: () => void });
 
 export function BannerWithButton({
   title,
   label,
-  href,
   color,
   background,
   image,
+  darkOverlay,
+  lightOverlay,
+  ...buttonProps
 }: BannerWithButtonProps) {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
+
+  const button = (
+    <Button
+      variant="outlined"
+      color="inherit"
+      component="a"
+      style={{
+        borderWidth: "3px",
+        borderRadius: "8px",
+      }}
+      onClick={"onClick" in buttonProps ? buttonProps.onClick : undefined}
+    >
+      <Box paddingY={1} paddingX={isDesktop ? 4 : 3}>
+        <Typography
+          variant={isDesktop ? "h5" : "h6"}
+          component="span"
+          align="center"
+          style={{
+            fontWeight: 600,
+          }}
+        >
+          {label}
+        </Typography>
+      </Box>
+    </Button>
+  );
 
   return (
     <Box
@@ -49,7 +78,11 @@ export function BannerWithButton({
           flexDirection="column"
           color={color}
           style={{
-            backgroundColor: "rgba(0, 0, 0, 0.3)",
+            backgroundColor: darkOverlay
+              ? "rgba(0, 0, 0, 0.3)"
+              : lightOverlay
+              ? "rgba(255, 255, 255, 0.3)"
+              : undefined,
           }}
         >
           <Box marginBottom={6} maxWidth={960} marginX="auto">
@@ -65,30 +98,13 @@ export function BannerWithButton({
             </Typography>
           </Box>
           <Box>
-            <Link href={href} passHref>
-              <Button
-                variant="outlined"
-                color="inherit"
-                component="a"
-                style={{
-                  borderWidth: "3px",
-                  borderRadius: "8px",
-                }}
-              >
-                <Box paddingY={1} paddingX={isDesktop ? 4 : 3}>
-                  <Typography
-                    variant={isDesktop ? "h5" : "h6"}
-                    component="span"
-                    align="center"
-                    style={{
-                      fontWeight: 600,
-                    }}
-                  >
-                    {label}
-                  </Typography>
-                </Box>
-              </Button>
-            </Link>
+            {"href" in buttonProps ? (
+              <Link href={buttonProps.href} passHref>
+                {button}
+              </Link>
+            ) : (
+              button
+            )}
           </Box>
         </Box>
       </Box>

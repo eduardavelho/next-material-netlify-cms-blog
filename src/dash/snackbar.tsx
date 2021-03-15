@@ -23,7 +23,7 @@ export function Snackbar({
 }: SnackbarProps) {
   return (
     <>
-      {message && (
+      {message !== undefined && (
         <MuiSnackbar
           open={message !== undefined}
           autoHideDuration={6000}

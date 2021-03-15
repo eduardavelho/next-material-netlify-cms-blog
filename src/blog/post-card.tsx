@@ -68,7 +68,7 @@ export function PostCard({
             height: "140px",
           }}
         />
-        {authorPicture !== undefined && (
+        {authorPicture && (
           <Avatar
             alt={authorName}
             src={authorPicture}

@@ -74,7 +74,7 @@ export function PostInfo({
           {title}
         </Typography>
       </Box>
-      {description !== undefined && (
+      {description && (
         <Box>
           <Typography
             variant={isDesktop ? "subtitle1" : "body2"}
@@ -92,7 +92,7 @@ export function PostInfo({
         flexDirection={isDesktop ? "row" : "column"}
         marginTop={isDesktop ? 3 : undefined}
       >
-        {authorName !== undefined && (
+        {authorName && (
           <Box display="flex" flex={1} marginTop={isDesktop ? undefined : 3}>
             <ListItem
               component="div"

@@ -11,7 +11,7 @@ interface Item {
 
 export interface ItemListProps {
   title: string;
-  backgroundColor: string;
+  background: string;
   color: string;
   items: Item[];
 }
@@ -26,6 +26,8 @@ function InfoViewImage({ image, text }: { image: string; text: string }) {
       alt={text}
       style={{
         width: isDesktop ? 128 : 72,
+        height: isDesktop ? 128 : 72,
+        borderRadius: isDesktop ? 64 : 36,
       }}
     />
   );
@@ -81,12 +83,7 @@ function InfoView({
   }
 }
 
-export function ItemList({
-  title,
-  color,
-  backgroundColor,
-  items,
-}: ItemListProps) {
+export function ItemList({ title, color, background, items }: ItemListProps) {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
 
@@ -95,7 +92,7 @@ export function ItemList({
       paddingY={16}
       paddingX={2}
       style={{
-        backgroundColor,
+        background,
         color,
       }}
     >
@@ -118,7 +115,7 @@ export function ItemList({
         </Box>
         {items.map(({ text, image }: Item, index) => (
           <Box
-            key={`how-works-item-${index}`}
+            key={`item-list-${index}`}
             marginBottom={items.length - 1 === index ? 0 : 8}
             width="100%"
           >

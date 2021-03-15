@@ -18,7 +18,7 @@ const icons: [
   OverridableComponent<SvgIconTypeMap<{}, "svg">>,
   string,
   (url: string) => string,
-  string,
+  string
 ][] = [
   [
     "facebook",
@@ -106,7 +106,7 @@ export function SocialIcons(props: SocialIconsProps) {
   return (
     <Box display="inline-flex">
       {icons
-        .filter(([icon]) => socialIcons[icon] !== undefined)
+        .filter(([icon]) => socialIcons[icon])
         .map(([icon, Icon, color, getHref, name], index) => (
           <Box
             marginLeft={index && 1.6}
