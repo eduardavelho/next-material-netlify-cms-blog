@@ -86,7 +86,7 @@ export function SearchHeader({
                   ? searchDefaultValue
                   : [searchDefaultValue]
                 : Array.isArray(searchDefaultValue)
-                ? searchDefaultValue[0] ?? ""
+                ? searchDefaultValue[0] ?? undefined
                 : searchDefaultValue
             }
             getOptionLabel={(option) => option}
