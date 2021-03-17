@@ -6,7 +6,7 @@ import Chip from "@material-ui/core/Chip";
 import Box from "@material-ui/core/Box";
 import TextField from "@material-ui/core/TextField";
 import { useTheme } from "@material-ui/core/styles";
-import Autocomplete from "@material-ui/lab/Autocomplete";
+import Autocomplete, { AutocompleteProps } from "@material-ui/lab/Autocomplete";
 import SearchIcon from "@material-ui/icons/Search";
 
 export interface SearchHeaderProps {
@@ -19,6 +19,8 @@ export interface SearchHeaderProps {
   searchDisabled: boolean;
   loading: boolean;
   dark?: boolean;
+  multiple?: boolean;
+  onSearchSelect?: (value: string[]) => Promise<void>;
 }
 
 export function SearchHeader({
@@ -31,6 +33,8 @@ export function SearchHeader({
   searchDisabled,
   loading,
   dark,
+  multiple = false,
+  onSearchSelect = async () => {},
 }: SearchHeaderProps) {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
@@ -47,7 +51,7 @@ export function SearchHeader({
       justifyContent="flex-end"
       flexDirection="column"
     >
-      <Box maxWidth="960px">
+      <Box maxWidth="960px" minWidth={isDesktop ? "480px" : undefined}>
         <Box marginBottom={1.6} marginX={isDesktop ? undefined : 1.6}>
           <Typography
             variant={isDesktop ? "h3" : "h5"}
@@ -66,7 +70,7 @@ export function SearchHeader({
           marginBottom={isDesktop ? 6.4 : 1.6}
         >
           <Autocomplete
-            multiple
+            multiple={multiple}
             disableCloseOnSelect
             blurOnSelect
             fullWidth
@@ -82,6 +86,15 @@ export function SearchHeader({
             disabled={searchDisabled}
             noOptionsText={searchNoOptionsText}
             popupIcon={<SearchIcon color="inherit" />}
+            onChange={(_, value) => {
+              if (value === null) {
+                onSearchSelect([]);
+              } else if (Array.isArray(value)) {
+                onSearchSelect(value);
+              } else {
+                onSearchSelect([value]);
+              }
+            }}
             renderTags={(value, getTagProps) =>
               value.map((option, index) => (
                 <Chip label={option} {...getTagProps({ index })} />
