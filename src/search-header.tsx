@@ -6,14 +6,14 @@ import Chip from "@material-ui/core/Chip";
 import Box from "@material-ui/core/Box";
 import TextField from "@material-ui/core/TextField";
 import { useTheme } from "@material-ui/core/styles";
-import Autocomplete, { AutocompleteProps } from "@material-ui/lab/Autocomplete";
+import Autocomplete from "@material-ui/lab/Autocomplete";
 import SearchIcon from "@material-ui/icons/Search";
 
 export interface SearchHeaderProps {
   title: string;
   background?: string;
   searchOptions: string[];
-  searchDefaultValue: string[];
+  searchDefaultValue: string[] | string;
   searchPlaceholder: string;
   searchNoOptionsText: string;
   searchDisabled: boolean;
@@ -37,7 +37,7 @@ export function SearchHeader({
   onSearchSelect = async () => {},
 }: SearchHeaderProps) {
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
   const searchClasses = searchStyles({ dark });
 
   return (
@@ -80,7 +80,15 @@ export function SearchHeader({
             loadingText=""
             classes={searchClasses}
             options={searchOptions}
-            defaultValue={searchDefaultValue}
+            defaultValue={
+              searchMultiple
+                ? Array.isArray(searchDefaultValue)
+                  ? searchDefaultValue
+                  : [searchDefaultValue]
+                : Array.isArray(searchDefaultValue)
+                ? searchDefaultValue[0] ?? ""
+                : searchDefaultValue
+            }
             getOptionLabel={(option) => option}
             loading={loading}
             disabled={searchDisabled}
