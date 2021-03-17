@@ -12,10 +12,12 @@ export function Blog({
   searchPlaceholder,
   searchNoOptionsText,
   searchDisabled,
+  searchMultiple,
   loading,
   dark,
   color,
   onRequestMorePosts,
+  onSearchSelect,
   hasMorePosts,
   posts,
 }: BlogProps) {
@@ -27,6 +29,8 @@ export function Blog({
     searchPlaceholder,
     searchNoOptionsText,
     searchDisabled,
+    searchMultiple,
+    onSearchSelect,
     loading,
     dark,
   };

@@ -19,7 +19,7 @@ export interface SearchHeaderProps {
   searchDisabled: boolean;
   loading: boolean;
   dark?: boolean;
-  multiple?: boolean;
+  searchMultiple?: boolean;
   onSearchSelect?: (value: string[]) => Promise<void>;
 }
 
@@ -33,7 +33,7 @@ export function SearchHeader({
   searchDisabled,
   loading,
   dark,
-  multiple = false,
+  searchMultiple = false,
   onSearchSelect = async () => {},
 }: SearchHeaderProps) {
   const theme = useTheme();
@@ -70,7 +70,7 @@ export function SearchHeader({
           marginBottom={isDesktop ? 6.4 : 1.6}
         >
           <Autocomplete
-            multiple={multiple}
+            multiple={searchMultiple}
             disableCloseOnSelect
             blurOnSelect
             fullWidth
