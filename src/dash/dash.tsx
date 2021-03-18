@@ -74,10 +74,7 @@ export function Dash({
         backgroundColor={theme.palette.secondary.main}
       />
       <Hidden smUp>
-        <BottomNavigation
-          color={theme.palette.primary.main}
-          items={bottomNavigationItems}
-        />
+        <BottomNavigation items={bottomNavigationItems} />
       </Hidden>
       <Snackbar content={snackbarContent} setContent={setSnackbarContent} />
     </>

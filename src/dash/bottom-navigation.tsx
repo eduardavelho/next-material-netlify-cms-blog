@@ -12,28 +12,41 @@ type Item = {
 } & ({ href: string } | { onClick: () => void });
 
 export interface BottomNavigationProps {
-  color: string;
   items: Item[];
 }
 
-export function BottomNavigation({ items, color }: BottomNavigationProps) {
+export function BottomNavigation({ items }: BottomNavigationProps) {
   const [value, setValue] = React.useState(undefined as string | undefined);
   const router = useRouter();
 
+  function mapItemToValue(item: Item) {
+    const hash = window.location.hash;
+    const url = router.pathname.concat(hash);
+
+    if (
+      "href" in item &&
+      item.href
+        .concat(item.href.endsWith("/") ? "" : "/")
+        .startsWith(url.concat(url.endsWith("/") ? "" : "/"))
+    ) {
+      return item.href;
+    } else {
+      return undefined;
+    }
+  }
+
+  const getValue = () =>
+    items
+      .map((item) => mapItemToValue(item))
+      .concat(undefined)
+      .sort()[0];
+
   React.useEffect(() => {
-    items.forEach((item) => {
-      if ("href" in item && router.pathname.startsWith(item.href)) {
-        setValue(item.href);
-      }
-    });
+    setValue(getValue());
   }, []);
 
   React.useEffect(() => {
-    items.forEach((item) => {
-      if ("href" in item && item.href.startsWith(router.pathname)) {
-        setValue(item.href);
-      }
-    });
+    setValue(getValue());
   }, [router.pathname]);
 
   return (
@@ -47,8 +60,7 @@ export function BottomNavigation({ items, color }: BottomNavigationProps) {
       style={{
         width: "100%",
         position: "sticky",
-        bottom: 0,
-        color,
+        bottom: 300,
       }}
       showLabels
     >
@@ -65,6 +77,7 @@ export function BottomNavigation({ items, color }: BottomNavigationProps) {
               label={label}
               icon={<Icon />}
               showLabel
+              className={item.href === value ? "Mui-selected" : undefined}
             />
           </Link>
         ) : (
