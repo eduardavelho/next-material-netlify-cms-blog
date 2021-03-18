@@ -28,14 +28,13 @@ export function BottomNavigation({ items, color }: BottomNavigationProps) {
     });
   }, []);
 
-  router.beforePopState((history) => {
+  React.useEffect(() => {
     items.forEach((item) => {
-      if ("href" in item && item.href.startsWith(history.url)) {
+      if ("href" in item && item.href.startsWith(router.pathname)) {
         setValue(item.href);
       }
     });
-    return true;
-  });
+  }, [router.pathname]);
 
   return (
     <MuiBottomNavigation
