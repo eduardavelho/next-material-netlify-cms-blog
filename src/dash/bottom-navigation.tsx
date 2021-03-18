@@ -60,7 +60,7 @@ export function BottomNavigation({ items }: BottomNavigationProps) {
       style={{
         width: "100%",
         position: "sticky",
-        bottom: 300,
+        bottom: 0,
       }}
       showLabels
     >
