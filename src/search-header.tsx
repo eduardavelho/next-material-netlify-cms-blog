@@ -51,7 +51,7 @@ export function SearchHeader({
       justifyContent="flex-end"
       flexDirection="column"
     >
-      <Box maxWidth="960px" minWidth={isDesktop ? "480px" : undefined}>
+      <Box maxWidth="960px" minWidth={isDesktop ? "480px" : "100%"}>
         <Box marginBottom={1.6} marginX={isDesktop ? undefined : 1.6}>
           <Typography
             variant={isDesktop ? "h3" : "h5"}

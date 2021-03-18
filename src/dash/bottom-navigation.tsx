@@ -4,6 +4,7 @@ import { OverridableComponent } from "@material-ui/core/OverridableComponent";
 import MuiBottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 type Item = {
   label: string;
@@ -16,8 +17,34 @@ export interface BottomNavigationProps {
 }
 
 export function BottomNavigation({ items, color }: BottomNavigationProps) {
+  const [value, setValue] = React.useState(undefined as string | undefined);
+  const router = useRouter();
+
+  React.useEffect(() => {
+    items.forEach((item) => {
+      if ("href" in item && router.pathname.startsWith(item.href)) {
+        setValue(item.href);
+      }
+    });
+  }, []);
+
+  router.beforePopState((history) => {
+    items.forEach((item) => {
+      if ("href" in item && item.href.startsWith(history.url)) {
+        setValue(item.href);
+      }
+    });
+    return true;
+  });
+
   return (
     <MuiBottomNavigation
+      value={value}
+      onChange={(_, nextValue) => {
+        if (!router.pathname.startsWith(nextValue)) {
+          setValue(nextValue);
+        }
+      }}
       style={{
         width: "100%",
         position: "sticky",
@@ -35,6 +62,7 @@ export function BottomNavigation({ items, color }: BottomNavigationProps) {
           >
             <BottomNavigationAction
               component="a"
+              value={item.href}
               label={label}
               icon={<Icon />}
               showLabel
@@ -43,6 +71,7 @@ export function BottomNavigation({ items, color }: BottomNavigationProps) {
         ) : (
           <BottomNavigationAction
             key={`bottom-navigation-item-${index}`}
+            value={`bottom-navigation-item-${index}`}
             onClick={item.onClick}
             label={label}
             icon={<Icon />}
