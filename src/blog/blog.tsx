@@ -1,8 +1,9 @@
 import React from "react";
+import { NoResults, NoResultsProps } from "../no-results";
 import { SearchHeader, SearchHeaderProps } from "../search-header";
 import { PostCardGrid, PostCardGridProps } from "./post-card-grid";
 
-export type BlogProps = SearchHeaderProps & PostCardGridProps;
+export type BlogProps = SearchHeaderProps & PostCardGridProps & NoResultsProps;
 
 export function Blog({
   title,
@@ -20,6 +21,7 @@ export function Blog({
   onSearchSelect,
   hasMorePosts,
   posts,
+  noResultsText,
 }: BlogProps) {
   const searchHeaderProps = {
     title,
@@ -42,10 +44,18 @@ export function Blog({
     posts,
   };
 
+  const noResultsProps = {
+    noResultsText,
+  };
+
   return (
     <>
       <SearchHeader {...searchHeaderProps} />
-      <PostCardGrid {...postCardGridProps} />
+      {posts.length > 0 ? (
+        <PostCardGrid {...postCardGridProps} />
+      ) : (
+        <NoResults {...noResultsProps} />
+      )}
     </>
   );
 }

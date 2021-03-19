@@ -1,6 +1,6 @@
 {
   "name": "@egvelho/next-material-components",
-  "version": "1.8.5",
+  "version": "1.9.0",
   "description": "A set of Material UI based components to use with Next.js.",
   "main": "index.js",
   "scripts": {
