@@ -13,6 +13,7 @@ export interface ItemListProps {
   title: string;
   background: string;
   color: string;
+  dark?: boolean;
   items: Item[];
 }
 
@@ -84,7 +85,13 @@ function InfoView({
   }
 }
 
-export function ItemList({ title, color, background, items }: ItemListProps) {
+export function ItemList({
+  title,
+  color,
+  background,
+  dark,
+  items,
+}: ItemListProps) {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
 
@@ -94,7 +101,7 @@ export function ItemList({ title, color, background, items }: ItemListProps) {
       paddingX={2}
       style={{
         background,
-        color,
+        color: dark ? "rgba(255, 255, 255, 0.8)" : "inherit",
       }}
     >
       <Box
@@ -105,7 +112,7 @@ export function ItemList({ title, color, background, items }: ItemListProps) {
         maxWidth={720}
         marginX="auto"
       >
-        <Box marginBottom={4}>
+        <Box marginBottom={4} color={color}>
           <Typography
             align="center"
             variant={isDesktop ? "h3" : "h4"}

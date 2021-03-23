@@ -44,23 +44,22 @@ export function Contact({
 
   return (
     <Box
-      paddingY={16}
+      paddingY={isDesktop ? 16 : 8}
       paddingX={2}
       display="flex"
       flexDirection="column"
       alignItems="center"
       justifyContent="center"
-      color={color}
       style={{
         background,
         backgroundSize: "cover",
       }}
     >
       <Box maxWidth={960} marginX="auto">
-        <Box marginBottom={4}>
+        <Box marginBottom={4} color={color}>
           <Typography
             align="center"
-            variant={isDesktop ? "h3" : "h4"}
+            variant={isDesktop ? "h3" : "h5"}
             component="h1"
           >
             {title}
