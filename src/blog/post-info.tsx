@@ -53,8 +53,8 @@ export function PostInfo({
                 marginBottom: theme.spacing(0.3),
                 marginRight: theme.spacing(0.3),
                 backgroundColor: dark
-                  ? "rgba(0, 0, 0, 0.1)"
-                  : "rgba(255, 255, 255, 0.5)",
+                  ? "rgba(255, 255, 255, 0.1)"
+                  : "rgba(0, 0, 0, 0.1)",
                 color: dark ? theme.palette.common.white : undefined,
               }}
             />

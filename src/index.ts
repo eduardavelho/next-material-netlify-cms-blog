@@ -17,3 +17,4 @@ export * from "./blog";
 export * from "./blog/post-page";
 export * from "./breadcrumbs";
 export * from "./no-results";
+export * from "./contact";
