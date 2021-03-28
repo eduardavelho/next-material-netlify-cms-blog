@@ -13,6 +13,7 @@ export function PostPage({
   background,
   dark,
   paper,
+  breadcrumbs,
   ...postInfoProps
 }: PostPageProps) {
   const markdownClasses = markdownStyles();
@@ -21,6 +22,7 @@ export function PostPage({
     background,
     dark,
     paper,
+    breadcrumbs,
   };
 
   return (

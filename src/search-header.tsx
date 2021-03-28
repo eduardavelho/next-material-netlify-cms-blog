@@ -127,9 +127,13 @@ const searchStyles = makeStyles((theme) => ({
     color: ({ dark }: { dark?: boolean }) =>
       dark ? theme.palette.common.white : "inherit",
     backgroundColor: ({ dark }: { dark?: boolean }) =>
-      dark ? "rgba(0, 0, 0, 0.1)" : "rgba(255, 255, 255, 0.1)",
+      dark ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.1)",
     "& .MuiOutlinedInput-notchedOutline": {
       border: "none",
+    },
+    "& .MuiIconButton-label": {
+      color: ({ dark }: { dark?: boolean }) =>
+        dark ? theme.palette.common.white : "inherit",
     },
   },
 }));
