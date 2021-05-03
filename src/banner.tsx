@@ -7,6 +7,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 export interface BannerProps {
   image: string;
   imageAlt: string;
+  imageWidth?: number;
   background: string;
   color: string;
   title: React.ReactNode;
@@ -16,6 +17,7 @@ export interface BannerProps {
 export function Banner({
   image,
   imageAlt,
+  imageWidth = 128,
   background,
   color,
   title,
@@ -49,7 +51,7 @@ export function Banner({
             src={image}
             alt={imageAlt}
             style={{
-              width: 128,
+              width: imageWidth,
             }}
           />
         </Box>

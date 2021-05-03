@@ -17,29 +17,29 @@ interface ContactForm {
   message: FormInput<string>;
 }
 
-export interface ContactProps {
+export interface ContactFormProps {
   onSubmit: (form: ContactForm) => Promise<void>;
   form: ContactForm;
   submitButtonLabel: string;
-  background: string;
-  color: string;
   loading: boolean;
-  dark?: boolean;
+  background: string;
+  backgroundIsDark?: boolean;
   title: React.ReactNode;
+  titleColor: string;
 }
 
-export function Contact({
+export function ContactForm({
   onSubmit,
   form,
   submitButtonLabel,
-  color,
-  dark,
-  background,
-  title,
   loading,
-}: ContactProps) {
+  title,
+  titleColor,
+  backgroundIsDark,
+  background,
+}: ContactFormProps) {
   const theme = useTheme();
-  const styles = useStyles({ dark });
+  const styles = useStyles({ backgroundIsDark });
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
 
   return (
@@ -56,7 +56,7 @@ export function Contact({
       }}
     >
       <Box maxWidth={960} marginX="auto">
-        <Box marginBottom={4} color={color}>
+        <Box marginBottom={4} color={titleColor}>
           <Typography
             align="center"
             variant={isDesktop ? "h3" : "h5"}
@@ -86,6 +86,8 @@ export function Contact({
                 variant="outlined"
                 disabled={loading}
                 className={styles.textField}
+                name="name"
+                autoComplete="off"
               />
             </Grid>
             <Grid item xs={12} md={7}>
@@ -101,6 +103,8 @@ export function Contact({
                 variant="outlined"
                 disabled={loading}
                 className={styles.textField}
+                name="email"
+                autoComplete="off"
               />
             </Grid>
             <Grid item xs={12} md={5}>
@@ -118,6 +122,8 @@ export function Contact({
                 variant="outlined"
                 disabled={loading}
                 className={styles.textField}
+                name="phone-number"
+                autoComplete="off"
               />
             </Grid>
             <Grid item xs={12}>
@@ -135,6 +141,8 @@ export function Contact({
                 variant="outlined"
                 disabled={loading}
                 className={styles.textField}
+                name="message"
+                autoComplete="off"
               />
             </Grid>
             <Grid
@@ -165,21 +173,29 @@ export function Contact({
 const useStyles = makeStyles((theme) => ({
   textField: {
     "& .MuiInputBase-input": {
-      color: ({ dark }: { dark?: boolean }) =>
-        dark ? theme.palette.common.white : "inherit",
+      color: ({ backgroundIsDark }: { backgroundIsDark?: boolean }) =>
+        backgroundIsDark ? theme.palette.common.white : "inherit",
     },
     "& .MuiFormLabel-root": {
-      color: ({ dark }: { dark?: boolean }) =>
-        dark ? "rgba(255, 255, 255, 0.54)" : "rgba(0, 0, 0, 0.54)",
+      color: ({ backgroundIsDark }: { backgroundIsDark?: boolean }) =>
+        backgroundIsDark ? "rgba(255, 255, 255, 0.54)" : "rgba(0, 0, 0, 0.54)",
+    },
+    "& .MuiFormHelperText-root:not(.Mui-error)": {
+      color: ({ backgroundIsDark }: { backgroundIsDark?: boolean }) =>
+        backgroundIsDark ? "rgba(255, 255, 255, 0.54)" : "rgba(0, 0, 0, 0.54)",
     },
     "& .MuiOutlinedInput-root": {
       "& fieldset": {
-        borderColor: ({ dark }: { dark?: boolean }) =>
-          dark ? "rgba(255, 255, 255, 0.23)" : "rgba(0, 0, 0, 0.23)",
+        borderColor: ({ backgroundIsDark }: { backgroundIsDark?: boolean }) =>
+          backgroundIsDark
+            ? "rgba(255, 255, 255, 0.23)"
+            : "rgba(0, 0, 0, 0.23)",
       },
       "&:hover fieldset": {
-        borderColor: ({ dark }: { dark?: boolean }) =>
-          dark ? "rgba(255, 255, 255, 0.23)" : "rgba(0, 0, 0, 0.23)",
+        borderColor: ({ backgroundIsDark }: { backgroundIsDark?: boolean }) =>
+          backgroundIsDark
+            ? "rgba(255, 255, 255, 0.23)"
+            : "rgba(0, 0, 0, 0.23)",
       },
     },
   },

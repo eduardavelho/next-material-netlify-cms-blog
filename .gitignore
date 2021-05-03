@@ -20,3 +20,4 @@ jspm_packages/
 *.tsbuildinfo
 .npm
 .env
+storybook-static
