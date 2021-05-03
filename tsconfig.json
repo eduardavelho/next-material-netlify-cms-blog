@@ -32,6 +32,6 @@
     "importHelpers": true,
     "outDir": "."
   },
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "src/stories"],
   "include": ["src"]
 }
