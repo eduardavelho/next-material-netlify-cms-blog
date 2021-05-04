@@ -10,13 +10,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { FormInput } from "./types";
 
-interface ContactForm {
-  name: FormInput<string>;
-  email: FormInput<string>;
-  phoneNumber: FormInput<string>;
-  message: FormInput<string>;
-}
-
 export interface ContactFormProps {
   onSubmit: (form: ContactForm) => Promise<void>;
   form: ContactForm;
@@ -168,6 +161,13 @@ export function ContactForm({
       </Box>
     </Box>
   );
+}
+
+interface ContactForm {
+  name: FormInput<string>;
+  email: FormInput<string>;
+  phoneNumber: FormInput<string>;
+  message: FormInput<string>;
 }
 
 const useStyles = makeStyles((theme) => ({

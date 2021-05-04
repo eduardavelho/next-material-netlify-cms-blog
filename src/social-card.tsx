@@ -1,5 +1,5 @@
 import React from "react";
-import Card, { CardProps } from "@material-ui/core/Card";
+import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import Chip from "@material-ui/core/Chip";
@@ -11,28 +11,26 @@ import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import { useTheme } from "@material-ui/core/styles";
 import { SocialIcons, SocialIconsProps } from "./social-icons";
 
-export type ScholarCardProps = {
+export type SocialCardProps = {
   name: string;
-  resume: string;
-  degree: string;
+  nameColor?: string;
+  description: string;
+  about: string;
   picture?: string;
-  color?: string;
   tags?: string[];
-  lattesHref?: string;
-  elevation?: CardProps["elevation"];
+  elevation?: number;
 } & SocialIconsProps;
 
-export function ScholarCard({
+export function SocialCard({
   name,
-  resume,
-  degree,
+  nameColor,
+  description,
+  about,
   picture,
-  color,
   tags,
-  lattesHref,
   elevation,
   ...socialIconsProps
-}: ScholarCardProps) {
+}: SocialCardProps) {
   const theme = useTheme();
   const haveSocialIconsProps = Object.keys(socialIconsProps).length > 0;
 
@@ -47,7 +45,7 @@ export function ScholarCard({
           <Box>
             {tags.map((tag, index) => (
               <Chip
-                key={`scholar-card-chip-${index}`}
+                key={`social-card-chip-${index}`}
                 size="small"
                 label={tag}
                 style={{
@@ -70,15 +68,15 @@ export function ScholarCard({
           </ListItemAvatar>
           <ListItemText
             primary={
-              <span style={{ color: color ?? theme.palette.primary.main }}>
+              <span style={{ color: nameColor ?? theme.palette.primary.main }}>
                 {name}
               </span>
             }
-            secondary={degree}
+            secondary={description}
           />
         </ListItem>
         <Box marginY={2}>
-          <Typography variant="body2">{resume}</Typography>
+          <Typography variant="body2">{about}</Typography>
         </Box>
         {haveSocialIconsProps && (
           <Box display="flex" justifyContent="center" alignItems="center">

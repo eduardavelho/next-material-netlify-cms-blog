@@ -4,17 +4,67 @@ import Typography from "@material-ui/core/Typography";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
+export interface ItemListProps {
+  title: string;
+  titleColor: string;
+  background: string;
+  backgroundIsDark?: boolean;
+  items: Item[];
+}
+
+export function ItemList({
+  title,
+  titleColor,
+  background,
+  backgroundIsDark,
+  items,
+}: ItemListProps) {
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
+
+  return (
+    <Box
+      paddingY={16}
+      paddingX={2}
+      style={{
+        background,
+        color: backgroundIsDark ? "rgba(255, 255, 255, 0.8)" : "inherit",
+      }}
+    >
+      <Box
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        flexDirection="column"
+        maxWidth={720}
+        marginX="auto"
+      >
+        <Box marginBottom={4} color={titleColor}>
+          <Typography
+            align="center"
+            variant={isDesktop ? "h3" : "h4"}
+            component="h1"
+          >
+            {title}
+          </Typography>
+        </Box>
+        {items.map(({ text, image }: Item, index) => (
+          <Box
+            key={`item-list-${index}`}
+            marginBottom={items.length - 1 === index ? 0 : 8}
+            width="100%"
+          >
+            <InfoView text={text} image={image} reverse={index % 2 !== 0} />
+          </Box>
+        ))}
+      </Box>
+    </Box>
+  );
+}
+
 interface Item {
   text: string;
   image: string;
-}
-
-export interface ItemListProps {
-  title: string;
-  background: string;
-  color: string;
-  dark?: boolean;
-  items: Item[];
 }
 
 function InfoViewImage({ image, text }: { image: string; text: string }) {
@@ -83,54 +133,4 @@ function InfoView({
       </Box>
     );
   }
-}
-
-export function ItemList({
-  title,
-  color,
-  background,
-  dark,
-  items,
-}: ItemListProps) {
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
-
-  return (
-    <Box
-      paddingY={16}
-      paddingX={2}
-      style={{
-        background,
-        color: dark ? "rgba(255, 255, 255, 0.8)" : "inherit",
-      }}
-    >
-      <Box
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-        flexDirection="column"
-        maxWidth={720}
-        marginX="auto"
-      >
-        <Box marginBottom={4} color={color}>
-          <Typography
-            align="center"
-            variant={isDesktop ? "h3" : "h4"}
-            component="h1"
-          >
-            {title}
-          </Typography>
-        </Box>
-        {items.map(({ text, image }: Item, index) => (
-          <Box
-            key={`item-list-${index}`}
-            marginBottom={items.length - 1 === index ? 0 : 8}
-            width="100%"
-          >
-            <InfoView text={text} image={image} reverse={index % 2 !== 0} />
-          </Box>
-        ))}
-      </Box>
-    </Box>
-  );
 }

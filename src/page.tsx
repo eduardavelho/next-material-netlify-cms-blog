@@ -10,7 +10,7 @@ export interface PageProps {
   children: React.ReactNode;
   breadcrumbs?: BreadcrumbsProps["breadcrumbs"];
   background?: string;
-  dark?: boolean;
+  backgroundIsDark?: boolean;
   paper?: boolean;
 }
 
@@ -19,7 +19,7 @@ export function Page({
   children,
   breadcrumbs,
   background,
-  dark,
+  backgroundIsDark,
   paper = true,
 }: PageProps) {
   const theme = useTheme();
@@ -31,14 +31,14 @@ export function Page({
         paddingTop={isDesktop ? 8 : 2}
         paddingBottom={24}
         paddingX={{ xs: 2, sm: 2, md: 6 }}
-        color={dark ? theme.palette.common.white : undefined}
+        color={backgroundIsDark ? theme.palette.common.white : undefined}
         style={{ background: background ?? theme.palette.primary.main }}
       >
         <Box maxWidth="960px">{header}</Box>
       </Box>
       <Box marginX={{ xs: 2, sm: 2, md: 6 }} marginTop={-20} maxWidth="960px">
         <Box
-          color={dark ? theme.palette.common.white : undefined}
+          color={backgroundIsDark ? theme.palette.common.white : undefined}
           marginBottom={1}
         >
           {breadcrumbs !== undefined && breadcrumbs.length > 0 && (
