@@ -1,11 +1,11 @@
 {
   "name": "@egvelho/next-material-components",
-  "version": "1.13.0",
+  "version": "1.14.0",
   "description": "A set of Material UI based components to use with Next.js.",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "clean": "rm -rf *.d.ts *.js *.js.map account blog dash",
+    "clean": "rm -rf *.d.ts *.js *.js.map blog dash",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
@@ -16,13 +16,9 @@
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.57",
     "@storybook/cli": "^6.2.9",
-    "@types/react-input-mask": "^3.0.0",
-    "axios": "^0.21.1",
-    "class-validator": "^0.13.1",
     "next": "^10.0.6",
     "react": "^17.0.1",
     "react-infinite-scroll-component": "^6.0.0",
-    "react-input-mask": "^2.0.4",
     "react-masonry-css": "^1.0.14",
     "tslib": "^2.1.0"
   },
