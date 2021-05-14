@@ -17,7 +17,7 @@
     "emitDecoratorMetadata": true,
     "sourceMap": true,
     "skipLibCheck": true,
-    "lib": ["es5", "es6", "dom"],
+    "lib": ["es5", "es6", "ES2016.Array.Include", "dom"],
     "baseUrl": "src",
     "typeRoots": ["node_modules/@types"],
     "declaration": true,

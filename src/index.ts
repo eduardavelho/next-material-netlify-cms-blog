@@ -1,3 +1,5 @@
+export { document } from "./document";
+export { app } from "./app";
 export * from "./dash";
 export * from "./banner";
 export * from "./banner-with-button";
