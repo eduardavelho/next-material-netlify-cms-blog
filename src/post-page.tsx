@@ -1,7 +1,7 @@
 import React from "react";
 import { PostInfo, PostInfoProps } from "./post-info";
-import { Page, PageProps } from "../page";
-import { markdownStyles } from "../markdown-styles";
+import { Page, PageProps } from "./page";
+import { markdownStyles } from "./markdown-styles";
 
 export type PostPageProps = PostInfoProps &
   Omit<PageProps, "header" | "children"> & {

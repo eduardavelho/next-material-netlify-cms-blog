@@ -5,18 +5,18 @@ import { useTheme } from "@material-ui/core/styles";
 import {
   InfiniteScrollGrid,
   InfiniteScrollGridProps,
-} from "../infinite-scroll-grid";
+} from "./infinite-scroll-grid";
 import { PostCard, PostCardProps } from "./post-card";
 
 export type PostCardGridProps = {
-  color?: PostCardProps["color"];
+  titleColor?: PostCardProps["titleColor"];
   posts: PostCardProps[];
   onRequestMorePosts: InfiniteScrollGridProps<PostCardProps>["onRequestMoreItems"];
   hasMorePosts: InfiniteScrollGridProps<PostCardProps>["hasMoreItems"];
 };
 
 export function PostCardGrid({
-  color,
+  titleColor,
   onRequestMorePosts,
   hasMorePosts,
   posts,
@@ -30,7 +30,9 @@ export function PostCardGrid({
         onRequestMoreItems={onRequestMorePosts}
         hasMoreItems={hasMorePosts}
         items={posts}
-        mapItemToComponent={(props) => <PostCard {...props} color={color} />}
+        mapItemToComponent={(props) => (
+          <PostCard {...props} titleColor={titleColor} />
+        )}
       />
     </Box>
   );

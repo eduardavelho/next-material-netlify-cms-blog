@@ -19,7 +19,7 @@ export type PostCardProps = {
   title: string;
   subtitle: string;
   image: string;
-  color?: string;
+  titleColor?: string;
   date?: Date;
   dateText?: string;
   authorName?: string;
@@ -49,7 +49,7 @@ export function PostCard({
   authorName,
   authorPicture,
   tags,
-  color,
+  titleColor,
   elevation,
   ...props
 }: PostCardProps) {
@@ -114,7 +114,7 @@ export function PostCard({
               component="span"
               style={{
                 lineHeight: "1.3",
-                color: color ?? theme.palette.primary.main,
+                color: titleColor ?? theme.palette.primary.main,
               }}
             >
               {title}

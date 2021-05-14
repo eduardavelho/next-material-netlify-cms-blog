@@ -1,11 +1,11 @@
 {
   "name": "@egvelho/next-material-components",
-  "version": "1.14.2",
+  "version": "1.15.0",
   "description": "A set of Material UI based components to use with Next.js.",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "clean": "rm -rf *.d.ts *.js *.js.map blog dash",
+    "clean": "rm -rf *.d.ts *.js *.js.map",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },

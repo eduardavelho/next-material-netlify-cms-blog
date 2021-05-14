@@ -9,7 +9,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 export type BannerWithButtonProps = {
   title: React.ReactNode;
   label: string;
-  color: string;
+  titleColor: string;
   background: string;
   image: string;
   darkOverlay?: boolean;
@@ -19,7 +19,7 @@ export type BannerWithButtonProps = {
 export function BannerWithButton({
   title,
   label,
-  color,
+  titleColor,
   background,
   image,
   darkOverlay,
@@ -76,7 +76,7 @@ export function BannerWithButton({
           alignItems="center"
           justifyContent="center"
           flexDirection="column"
-          color={color}
+          color={titleColor}
           style={{
             backgroundColor: darkOverlay
               ? "rgba(0, 0, 0, 0.3)"

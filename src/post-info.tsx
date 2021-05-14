@@ -8,7 +8,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { SocialIcons, SocialIconsProps } from "../social-icons";
+import { SocialIcons, SocialIconsProps } from "./social-icons";
 
 export type PostInfoProps = {
   title: React.ReactNode;
@@ -19,7 +19,7 @@ export type PostInfoProps = {
   authorPicture?: string;
   authorDescription?: string;
   tags?: string[];
-  color?: string;
+  titleColor?: string;
   dark?: boolean;
 } & SocialIconsProps;
 
@@ -32,7 +32,7 @@ export function PostInfo({
   authorPicture,
   authorDescription,
   tags,
-  color,
+  titleColor,
   dark,
   ...socialIconsProps
 }: PostInfoProps) {
@@ -68,7 +68,7 @@ export function PostInfo({
           style={{
             lineHeight: 1.1,
             fontWeight: isDesktop ? undefined : "bold",
-            color,
+            color: titleColor,
           }}
         >
           {title}
@@ -105,7 +105,9 @@ export function PostInfo({
                 <Avatar alt={authorName} src={authorPicture} />
               </ListItemAvatar>
               <ListItemText
-                primary={<span style={{ color }}>{authorName}</span>}
+                primary={
+                  <span style={{ color: titleColor }}>{authorName}</span>
+                }
                 secondary={
                   <Box color={dark ? "rgba(255, 255, 255, 0.8)" : undefined}>
                     {authorDescription}

@@ -15,7 +15,7 @@ export const Link = () => {
       darkOverlay
       background="green"
       image="https://upload.wikimedia.org/wikipedia/en/5/5f/Original_Doge_meme.jpg"
-      color="red"
+      titleColor="red"
       href="/"
     />
   );
@@ -29,7 +29,7 @@ export const Button = () => {
       lightOverlay
       background="green"
       image="https://upload.wikimedia.org/wikipedia/en/5/5f/Original_Doge_meme.jpg"
-      color="red"
+      titleColor="red"
       onClick={() => alert("Hi there!")}
     />
   );

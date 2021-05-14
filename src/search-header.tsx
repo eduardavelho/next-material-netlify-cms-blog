@@ -6,35 +6,36 @@ import Chip from "@material-ui/core/Chip";
 import Box from "@material-ui/core/Box";
 import TextField from "@material-ui/core/TextField";
 import { useTheme } from "@material-ui/core/styles";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import SearchIcon from "@material-ui/icons/Search";
 
 export interface SearchHeaderProps {
   title: string;
+  titleColor: string;
   background?: string;
-  searchOptions: string[];
-  searchDefaultValue: string[] | string;
-  searchPlaceholder: string;
-  searchNoOptionsText: string;
-  searchDisabled: boolean;
+  options: string[];
+  value: string[];
+  placeholder: string;
+  noOptionsText: string;
+  disabled: boolean;
   loading: boolean;
   dark?: boolean;
-  searchMultiple?: boolean;
-  onSearchSelect?: (value: string[]) => Promise<void>;
+  onChange?: (value: string[]) => Promise<void>;
 }
 
 export function SearchHeader({
   title,
+  titleColor,
   background,
-  searchOptions,
-  searchDefaultValue,
-  searchPlaceholder,
-  searchNoOptionsText,
-  searchDisabled,
+  options,
+  value,
+  placeholder,
+  noOptionsText,
+  disabled,
   loading,
   dark,
-  searchMultiple = false,
-  onSearchSelect = async () => {},
+  onChange = async () => {},
 }: SearchHeaderProps) {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
@@ -59,7 +60,7 @@ export function SearchHeader({
             style={{
               textAlign: "center",
               fontWeight: "bold",
-              color: dark ? theme.palette.common.white : undefined,
+              color: titleColor,
             }}
           >
             {title}
@@ -70,7 +71,7 @@ export function SearchHeader({
           marginBottom={isDesktop ? 6.4 : 1.6}
         >
           <Autocomplete
-            multiple={searchMultiple}
+            multiple
             disableCloseOnSelect
             blurOnSelect
             fullWidth
@@ -79,28 +80,26 @@ export function SearchHeader({
             closeText=""
             loadingText=""
             classes={searchClasses}
-            options={searchOptions}
-            defaultValue={
-              searchMultiple
-                ? Array.isArray(searchDefaultValue)
-                  ? searchDefaultValue
-                  : [searchDefaultValue]
-                : Array.isArray(searchDefaultValue)
-                ? searchDefaultValue[0] ?? undefined
-                : searchDefaultValue
-            }
+            options={options}
+            value={value}
             getOptionLabel={(option) => option}
             loading={loading}
-            disabled={searchDisabled}
-            noOptionsText={searchNoOptionsText}
-            popupIcon={<SearchIcon color="inherit" />}
+            disabled={loading || disabled}
+            noOptionsText={noOptionsText}
+            popupIcon={
+              loading ? (
+                <CircularProgress color="inherit" size="1em" />
+              ) : (
+                <SearchIcon color="inherit" />
+              )
+            }
             onChange={(_, value) => {
               if (value === null) {
-                onSearchSelect([]);
+                onChange([]);
               } else if (Array.isArray(value)) {
-                onSearchSelect(value);
+                onChange(value);
               } else {
-                onSearchSelect([value]);
+                onChange([value]);
               }
             }}
             renderTags={(value, getTagProps) =>
@@ -112,7 +111,7 @@ export function SearchHeader({
               <TextField
                 {...params}
                 variant="outlined"
-                placeholder={searchPlaceholder}
+                placeholder={placeholder}
               />
             )}
           />
@@ -128,12 +127,16 @@ const searchStyles = makeStyles((theme) => ({
       dark ? theme.palette.common.white : "inherit",
     backgroundColor: ({ dark }: { dark?: boolean }) =>
       dark ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.1)",
+    "& .MuiInputBase-input::placeholder": {
+      color: ({ dark }: { dark?: boolean }) =>
+        dark ? theme.palette.common.white : "inherit",
+    },
     "& .MuiOutlinedInput-notchedOutline": {
       border: "none",
     },
     "& .MuiIconButton-label": {
       color: ({ dark }: { dark?: boolean }) =>
-        dark ? theme.palette.common.white : "inherit",
+        dark ? "rgba(255, 255, 255, 0.42)" : "inherit",
     },
   },
 }));

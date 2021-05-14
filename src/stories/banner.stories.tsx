@@ -13,7 +13,7 @@ export const Usage = () => {
       title="Title goes here"
       subtitle="Subtitle is that"
       background="red"
-      color="blue"
+      titleColor="blue"
       image="https://upload.wikimedia.org/wikipedia/en/5/5f/Original_Doge_meme.jpg"
       imageAlt="Doge alt text"
       imageWidth={256}

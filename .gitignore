@@ -1,8 +1,6 @@
 /*.d.ts
 /*.js
 /*.js.map
-/blog
-/dash
 logs
 *.log
 npm-debug.log*

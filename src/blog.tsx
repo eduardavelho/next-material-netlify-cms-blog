@@ -1,44 +1,43 @@
 import React from "react";
-import { NoResults, NoResultsProps } from "../no-results";
-import { SearchHeader, SearchHeaderProps } from "../search-header";
+import { NoResults, NoResultsProps } from "./no-results";
+import { SearchHeader, SearchHeaderProps } from "./search-header";
 import { PostCardGrid, PostCardGridProps } from "./post-card-grid";
 
 export type BlogProps = SearchHeaderProps & PostCardGridProps & NoResultsProps;
 
 export function Blog({
   title,
+  titleColor,
   background,
-  searchOptions,
-  searchDefaultValue,
-  searchPlaceholder,
-  searchNoOptionsText,
-  searchDisabled,
-  searchMultiple,
+  options,
+  value,
+  placeholder,
+  noOptionsText,
+  disabled,
   loading,
   dark,
-  color,
   onRequestMorePosts,
-  onSearchSelect,
+  onChange,
   hasMorePosts,
   posts,
   noResultsText,
 }: BlogProps) {
   const searchHeaderProps = {
     title,
+    titleColor,
     background,
-    searchOptions,
-    searchDefaultValue,
-    searchPlaceholder,
-    searchNoOptionsText,
-    searchDisabled,
-    searchMultiple,
-    onSearchSelect,
+    options,
+    value,
+    placeholder,
+    noOptionsText,
+    disabled,
+    onChange,
     loading,
     dark,
   };
 
   const postCardGridProps = {
-    color,
+    titleColor,
     onRequestMorePosts,
     hasMorePosts,
     posts,
