@@ -20,6 +20,7 @@
     "@material-ui/lab": "^4.0.0-alpha.57",
     "@storybook/cli": "^6.2.9",
     "babel-plugin-transform-typescript-metadata": "^0.3.1",
+    "netlify-cms-core": "^2.40.3",
     "next": "^10.0.6",
     "next-images": "^1.7.0",
     "react": "^17.0.1",

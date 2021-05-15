@@ -13,10 +13,13 @@ export interface AccordionListProps {
     htmlContent: string;
     footer?: React.ReactNode;
   }[];
-  expandIconText: string;
+  expandIconAriaLabel: string;
 }
 
-export function AccordionList({ items, expandIconText }: AccordionListProps) {
+export function AccordionList({
+  items,
+  expandIconAriaLabel,
+}: AccordionListProps) {
   const theme = useTheme();
   const markdownClasses = markdownStyles();
 
@@ -34,7 +37,7 @@ export function AccordionList({ items, expandIconText }: AccordionListProps) {
                 <ExpandMoreIcon />
               </Box>
             }
-            aria-controls={expandIconText}
+            aria-controls={expandIconAriaLabel}
           >
             {header}
           </AccordionSummary>

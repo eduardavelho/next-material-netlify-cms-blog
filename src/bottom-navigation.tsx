@@ -17,7 +17,7 @@ export interface BottomNavigationProps {
 
 export function BottomNavigation({ items }: BottomNavigationProps) {
   const [value, setValue] = React.useState(undefined as string | undefined);
-  const router = useRouter();
+  const router = useRouter() ?? { pathname: "/" };
 
   function mapItemToValue(item: Item) {
     const hash = window.location.hash;
