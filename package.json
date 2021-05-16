@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "clean": "rm -rf *.d.ts *.js *.js.map components meta netlify-cms storybook-static",
+    "clean": "rm -rf *.d.ts *.js *.js.map components firebase meta netlify-cms storybook-static",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
   "bin": {
     "generate-assets": "./bin/generate-assets.js",
-    "resize-image-assets": "./bin/resize-image-assets.js"
+    "resize-image-assets": "./bin/resize-image-assets.js",
+    "load-firebase": "./bin/load-firebase.js"
   },
   "author": "egvelho",
   "license": "GPL-3.0",
@@ -24,7 +25,10 @@
     "@material-ui/lab": "^4.0.0-alpha.57",
     "axios": "^0.21.1",
     "babel-plugin-transform-typescript-metadata": "^0.3.1",
+    "dotenv": "^8.2.0",
     "favicons": "^5.5.0",
+    "firebase": "^8.2.6",
+    "firebase-admin": "^9.5.0",
     "netlify-cms-core": "^2.40.3",
     "next": "^10.0.6",
     "next-images": "^1.7.0",
