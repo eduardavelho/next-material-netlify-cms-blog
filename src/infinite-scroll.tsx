@@ -21,6 +21,9 @@ export function InfiniteScroll({
       dataLength={itemsLength}
       next={onRequestMoreItems}
       hasMore={hasMoreItems}
+      style={{
+        overflow: "initial",
+      }}
       loader={
         <Box paddingTop={1.6} display="flex" justifyContent="center">
           <Box

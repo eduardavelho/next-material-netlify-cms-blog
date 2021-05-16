@@ -3,6 +3,14 @@ import { makeStyles } from "@material-ui/core/styles";
 export const markdownStyles = makeStyles((theme) => ({
   markdown: {
     overflowY: "auto",
+    "& :first-child": {
+      paddingTop: 0,
+      marginTop: 0,
+    },
+    "& :last-child": {
+      paddingBottom: 0,
+      marginBottom: 0,
+    },
     "& > p:first-child": {
       marginTop: 0,
     },

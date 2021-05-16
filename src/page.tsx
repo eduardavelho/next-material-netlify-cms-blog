@@ -48,9 +48,7 @@ export function Page({
         {paper ? (
           <Box marginBottom={isDesktop ? 6 : 2}>
             <Paper elevation={6}>
-              <Box padding={{ xs: 2, sm: 2, md: 3 }}>
-                <Box>{children}</Box>
-              </Box>
+              <Box>{children}</Box>
             </Paper>
           </Box>
         ) : (
