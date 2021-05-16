@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta } from "@storybook/react";
-import { SearchHeader } from "../search-header";
+import { SearchHeader } from "../components/search-header";
 
 export default {
   title: "Example/SearchHeader",

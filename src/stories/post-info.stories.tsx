@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta } from "@storybook/react";
-import { PostInfo } from "../post-info";
+import { PostInfo } from "../components/post-info";
 
 export default {
   title: "Example/PostInfo",

@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta } from "@storybook/react";
-import { PostPage } from "../post-page";
+import { PostPage } from "../components/post-page";
 
 export default {
   title: "Example/PostPage",

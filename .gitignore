@@ -1,3 +1,9 @@
+/components
+/meta
+/netlify-cms
+/public
+/icon.svg
+/app.json
 /*.d.ts
 /*.js
 /*.js.map

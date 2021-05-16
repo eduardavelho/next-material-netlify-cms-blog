@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta } from "@storybook/react";
-import { Breadcrumbs } from "../breadcrumbs";
+import { Breadcrumbs } from "../components/breadcrumbs";
 
 export default {
   title: "Example/Breadcrumbs",

@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta } from "@storybook/react";
-import { InfiniteScrollGrid } from "../infinite-scroll-grid";
+import { InfiniteScrollGrid } from "../components/infinite-scroll-grid";
 
 export default {
   title: "Example/InfiniteScrollGrid",

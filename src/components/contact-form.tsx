@@ -8,7 +8,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import { useTheme } from "@material-ui/core/styles";
 import { makeStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { FormInput } from "./types";
+import { FormInput } from "../types";
 
 export interface ContactFormProps {
   onSubmit: (form: ContactForm) => Promise<void>;

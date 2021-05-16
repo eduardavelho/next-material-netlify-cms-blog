@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta } from "@storybook/react";
-import { NoResults } from "../no-results";
+import { NoResults } from "../components/no-results";
 
 export default {
   title: "Example/NoResults",

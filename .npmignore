@@ -1,3 +1,6 @@
-src
-storybook-static
-.storybook
+/src
+/storybook-static
+/.storybook
+/public
+/app.json
+/icon.svg

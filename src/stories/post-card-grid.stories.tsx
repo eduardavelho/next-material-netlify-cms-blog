@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta } from "@storybook/react";
-import { PostCardGrid } from "../post-card-grid";
+import { PostCardGrid } from "../components/post-card-grid";
 
 export default {
   title: "Example/PostCardGrid",

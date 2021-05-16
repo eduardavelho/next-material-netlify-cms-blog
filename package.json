@@ -5,9 +5,13 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "clean": "rm -rf *.d.ts *.js *.js.map",
+    "clean": "rm -rf *.d.ts *.js *.js.map components meta netlify-cms storybook-static",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
+  },
+  "bin": {
+    "generate-assets": "./bin/generate-assets.js",
+    "resize-image-assets": "./bin/resize-image-assets.js"
   },
   "author": "egvelho",
   "license": "GPL-3.0",
@@ -18,14 +22,18 @@
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.57",
-    "@storybook/cli": "^6.2.9",
+    "axios": "^0.21.1",
     "babel-plugin-transform-typescript-metadata": "^0.3.1",
+    "favicons": "^5.5.0",
     "netlify-cms-core": "^2.40.3",
     "next": "^10.0.6",
     "next-images": "^1.7.0",
     "react": "^17.0.1",
     "react-infinite-scroll-component": "^6.0.0",
     "react-masonry-css": "^1.0.14",
+    "sharp": "^0.28.1",
+    "sitemap": "^6.4.0",
+    "slug": "^4.0.3",
     "tslib": "^2.1.0"
   },
   "devDependencies": {
@@ -33,8 +41,11 @@
     "@storybook/addon-actions": "^6.2.9",
     "@storybook/addon-essentials": "^6.2.9",
     "@storybook/addon-links": "^6.2.9",
+    "@storybook/cli": "^6.2.9",
     "@storybook/react": "^6.2.9",
+    "@types/node": "^14.14.31",
     "@types/react": "^17.0.1",
+    "@types/slug": "^0.9.1",
     "babel-loader": "^8.2.2",
     "react-dom": "^17.0.1",
     "storybook-addon-material-ui": "^0.9.0-alpha.24",

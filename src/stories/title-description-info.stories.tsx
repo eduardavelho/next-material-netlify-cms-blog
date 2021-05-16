@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta } from "@storybook/react";
-import { TitleDescriptionInfo } from "../title-description-info";
+import { TitleDescriptionInfo } from "../components/title-description-info";
 
 export default {
   title: "Example/TitleDescriptionInfo",

@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta } from "@storybook/react";
-import { SocialIcons } from "../social-icons";
+import { SocialIcons } from "../components/social-icons";
 
 export default {
   title: "Example/SocialIcons",

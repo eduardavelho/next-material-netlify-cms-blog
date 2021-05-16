@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta } from "@storybook/react";
-import { AccordionList } from "../accordion-list";
+import { AccordionList } from "../components/accordion-list";
 
 export default {
   title: "Example/AccordionList",

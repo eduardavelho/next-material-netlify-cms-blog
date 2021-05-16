@@ -2,7 +2,7 @@ import React from "react";
 import { Meta } from "@storybook/react";
 import Button from "@material-ui/core/Button";
 import AlarmOffIcon from "@material-ui/icons/AlarmOff";
-import { Drawer } from "../drawer";
+import { Drawer } from "../components/drawer";
 
 export default {
   title: "Example/Drawer",

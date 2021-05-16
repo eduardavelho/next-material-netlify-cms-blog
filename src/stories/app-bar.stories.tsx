@@ -1,7 +1,7 @@
 import React from "react";
 import { Meta } from "@storybook/react";
 import MenuIcon from "@material-ui/icons/Menu";
-import { AppBar } from "../app-bar";
+import { AppBar } from "../components/app-bar";
 
 export default {
   title: "Example/AppBar",
