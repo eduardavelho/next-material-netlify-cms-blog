@@ -10,7 +10,7 @@
     "load-firebase": "load-firebase public"
   },
   "dependencies": {
-    "@egvelho/next-material-components": "^1.14.2",
+    "@egvelho/next-material-components": "^1.16.0",
     "material-icons": "^0.3.1",
     "next": "^10.0.6",
     "react": "17.0.1",

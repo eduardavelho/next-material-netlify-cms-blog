@@ -1,3 +1,14 @@
+/app.json
+/icon.svg
+/babel.config.js
+/next.config.js
+/next-env.d.ts
+/tsconfig.build.json
+/tsconfig.json
+/template
+/app
+/pages
+/boilerplate
 /src
 /storybook-static
 /.storybook

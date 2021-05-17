@@ -4,7 +4,7 @@ import {
   MetaKeywords,
   MetaImage,
   MetaPageUrl,
-} from "@egvelho/next-metadata";
+} from "@egvelho/next-material-components/meta";
 import app from "app.json";
 
 export type MetaProps = {

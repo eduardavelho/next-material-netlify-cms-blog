@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import firebase from "firebase/app";
 import firebaseConfig from "./firebase-config";
 
-import("firebase/messaging");
-import("firebase/analytics");
-import("firebase/auth");
+import "firebase/messaging";
+import "firebase/analytics";
+import "firebase/auth";
 
 interface Options {
   analytics: boolean;

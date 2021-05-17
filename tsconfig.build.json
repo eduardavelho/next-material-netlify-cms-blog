@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es2020",
-    "module": "es2020",
-    "jsx": "preserve",
+    "target": "es6",
+    "module": "commonjs",
+    "jsx": "react",
     "strict": true,
     "pretty": true,
     "checkJs": false,
@@ -17,21 +17,21 @@
     "emitDecoratorMetadata": true,
     "sourceMap": true,
     "skipLibCheck": true,
-    "lib": ["es2020", "dom"],
-    "baseUrl": ".",
+    "lib": ["es5", "es6", "es2019", "ES2016.Array.Include", "dom"],
+    "baseUrl": "src",
     "typeRoots": ["node_modules/@types"],
-    "forceConsistentCasingInFileNames": false,
-    "noEmit": true,
+    "declaration": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": false,
     "resolveJsonModule": true,
     "noUnusedLocals": false,
     "strictNullChecks": true,
     "allowJs": true,
+    "downlevelIteration": true,
     "isolatedModules": true,
-    "paths": {
-      "@egvelho/next-material-components": ["src/index.ts"],
-      "@egvelho/next-material-components/*": ["src/*"]
-    }
+    "importHelpers": true,
+    "outDir": "."
   },
-  "exclude": ["node_modules", "src/stories"],
-  "include": ["next-env.d.ts", "app/**/*", "pages/**/*", "src/**/*"]
+  "exclude": ["src/stories"],
+  "include": ["src"]
 }

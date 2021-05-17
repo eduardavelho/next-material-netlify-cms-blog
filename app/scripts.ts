@@ -1,6 +1,9 @@
 import loadEnv from "app/env";
-import { generateAssets, generateSitemap } from "@egvelho/next-metadata";
-import { loadFirebase } from "@egvelho/next-firebase";
+import {
+  generateAssets,
+  generateSitemap,
+  loadFirebase,
+} from "@egvelho/next-material-components";
 
 export default async function scripts() {
   const env = loadEnv();

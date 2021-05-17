@@ -1,7 +1,7 @@
 import { ReactNode, useContext } from "react";
 import dynamic from "next/dynamic";
 import { app } from "@egvelho/next-material-components";
-import { Meta, MetaProps } from "@egvelho/next-metadata";
+import { Meta, MetaProps } from "@egvelho/next-material-components/meta";
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import theme from "app/theme";
@@ -13,14 +13,20 @@ import "typeface-roboto";
 import "material-icons/css/material-icons.css";
 
 const DynamicWithFirebase = dynamic(
-  async () => (await import("@egvelho/next-firebase/client")).WithFirebase,
-  { ssr: false },
+  async () =>
+    (await import("@egvelho/next-material-components/firebase/with-firebase"))
+      .WithFirebase,
+  { ssr: false }
 );
 
 const DynamicWithFirebaseNotifications = dynamic(
   async () =>
-    (await import("@egvelho/next-firebase/client")).WithFirebaseNotifications,
-  { ssr: false },
+    (
+      await import(
+        "@egvelho/next-material-components/firebase/with-firebase-notifications"
+      )
+    ).WithFirebaseNotifications,
+  { ssr: false }
 );
 
 function Layout({ children }: { children: ReactNode }) {

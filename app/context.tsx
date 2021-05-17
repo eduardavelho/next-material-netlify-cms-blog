@@ -1,5 +1,5 @@
-import type { DashProps } from "@egvelho/next-material-components";
-import { createContext } from "@egvelho/next-metadata";
+import type { DashProps } from "@egvelho/next-material-components/components/dash";
+import { createContext } from "@egvelho/next-material-components/create-context";
 
 export type ContextProps = {
   loading: boolean;
@@ -21,5 +21,5 @@ const initialContext: ContextProps = {
 };
 
 export const { Context, ContextProvider, getContext } = createContext(
-  initialContext,
+  initialContext
 );

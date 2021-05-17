@@ -2,7 +2,7 @@ import { useContext, ReactNode } from "react";
 import {
   Dash as MuiDash,
   DashProps as MuiDashProps,
-} from "@egvelho/next-material-components";
+} from "@egvelho/next-material-components/components/dash";
 import theme from "app/theme";
 import links from "app/links";
 import { Context } from "app/context";

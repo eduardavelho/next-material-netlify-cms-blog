@@ -1,13 +1,13 @@
-import { link } from "@egvelho/next-metadata";
-import {
-  BannerProps,
-  ItemListProps,
-  BannerWithButtonProps,
-} from "@egvelho/next-material-components";
+import { link } from "@egvelho/next-material-components/link";
 import HomeIcon from "@material-ui/icons/Home";
 import RssFeedIcon from "@material-ui/icons/RssFeed";
 import ZoomInIcon from "@material-ui/icons/ZoomIn";
 import EmailIcon from "@material-ui/icons/Email";
+import type {
+  BannerProps,
+  BannerWithButtonProps,
+  ItemListProps,
+} from "@egvelho/next-material-components/components";
 
 export default {
   index: link<

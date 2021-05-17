@@ -1,19 +1,21 @@
 {
   "name": "@egvelho/next-material-components",
-  "version": "1.15.0",
+  "version": "1.16.0",
   "description": "A set of Material UI based components to use with Next.js.",
   "main": "index.js",
   "scripts": {
-    "dev": "cd boilerplate && npm run dev",
-    "build": "tsc",
-    "clean": "rm -rf *.d.ts *.js *.js.map components firebase meta netlify-cms storybook-static",
+    "dev": "next dev",
+    "build": "tsc --build tsconfig.build.json",
+    "clean": "rm -rf *.d.ts *.js *.js.map components firebase meta netlify-cms storybook-static boilerplate app.json icon.svg",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "create-boilerplate": "node scripts/create-boilerplate",
+    "prepare-dev": "node scripts/prepare-dev"
   },
   "bin": {
-    "generate-assets": "./bin/generate-assets.js",
-    "resize-image-assets": "./bin/resize-image-assets.js",
-    "load-firebase": "./bin/load-firebase.js"
+    "generate-assets": "./scripts/generate-assets.js",
+    "resize-image-assets": "./scripts/resize-image-assets.js",
+    "load-firebase": "./scripts/load-firebase.js"
   },
   "author": "egvelho",
   "license": "GPL-3.0",
