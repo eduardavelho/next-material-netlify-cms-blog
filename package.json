@@ -4,6 +4,7 @@
   "description": "A set of Material UI based components to use with Next.js.",
   "main": "index.js",
   "scripts": {
+    "dev": "cd boilerplate && npm run dev",
     "build": "tsc",
     "clean": "rm -rf *.d.ts *.js *.js.map components firebase meta netlify-cms storybook-static",
     "storybook": "start-storybook -p 6006",
@@ -29,6 +30,7 @@
     "favicons": "^5.5.0",
     "firebase": "^8.2.6",
     "firebase-admin": "^9.5.0",
+    "material-icons": "^0.3.1",
     "netlify-cms-core": "^2.40.3",
     "next": "^10.0.6",
     "next-images": "^1.7.0",
@@ -38,7 +40,8 @@
     "sharp": "^0.28.1",
     "sitemap": "^6.4.0",
     "slug": "^4.0.3",
-    "tslib": "^2.1.0"
+    "tslib": "^2.1.0",
+    "typeface-roboto": "0.0.75"
   },
   "devDependencies": {
     "@babel/core": "^7.14.0",
