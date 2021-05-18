@@ -28,8 +28,8 @@
     "allowJs": true,
     "isolatedModules": true,
     "paths": {
-      "@egvelho/next-material-components": ["src/index.ts"],
-      "@egvelho/next-material-components/*": ["src/*"]
+      "@egvelho/next-material": ["src/index.ts"],
+      "@egvelho/next-material/*": ["src/*"]
     }
   },
   "exclude": ["node_modules", "src/stories"],

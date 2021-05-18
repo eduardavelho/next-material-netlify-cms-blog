@@ -10,7 +10,7 @@ import {
   Endpoint,
   Endpoints,
 } from "./endpoint";
-import { Json } from "./types";
+import { Json } from "../types";
 
 export type AxiosClient<RequestData, ResponseData> = (
   requestData: RequestData,

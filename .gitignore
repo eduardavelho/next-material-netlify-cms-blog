@@ -1,11 +1,12 @@
 /app.json
 /icon.svg
+/boilerplate
+/utils
+/api
 /components
-/firebase
 /meta
-/netlify-cms
 /public
-!/public/.gitkeep
+/netlify-cms
 /*.d.ts
 /*.js
 /*.js.map

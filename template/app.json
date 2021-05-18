@@ -1,7 +1,7 @@
 {
-  "name": "AppName - Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-  "shortName": "AppName",
-  "description": "Phasellus commodo non libero ut convallis. Phasellus neque ante, consequat non est ac, blandit consequat ex. Sed facilisis lacus felis, eu dignissim eros tempus suscipit.",
+  "name": "AppBoilerplate - Com um nome extenso",
+  "shortName": "AppBoilerplate",
+  "description": "Descrição do app aqui.",
   "lang": "pt-BR",
   "twitterAt": "",
   "facebookAppId": "",

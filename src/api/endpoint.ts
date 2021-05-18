@@ -1,4 +1,4 @@
-import { Json } from "./types";
+import { Json } from "../types";
 
 export type ExtractRequestData<RequestData> = RequestData extends Endpoint<
   infer EndpointRequestData,

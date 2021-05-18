@@ -4,7 +4,7 @@ import {
   MetaKeywords,
   MetaImage,
   MetaPageUrl,
-} from "@egvelho/next-material-components/meta";
+} from "@egvelho/next-material/meta";
 import app from "app.json";
 
 export type MetaProps = {
@@ -15,13 +15,7 @@ export type MetaProps = {
   keywords: string[];
 };
 
-export default function Meta({
-  title,
-  description,
-  url,
-  image,
-  keywords,
-}: MetaProps) {
+export function Meta({ title, description, url, image, keywords }: MetaProps) {
   return (
     <>
       <MetaTitle title={`${title} - ${app.shortName}`} />

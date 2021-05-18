@@ -1,7 +1,7 @@
 import app from "app.json";
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 
-export default createMuiTheme({
+export const theme = createMuiTheme({
   palette: {
     primary: {
       main: app.primaryColor,

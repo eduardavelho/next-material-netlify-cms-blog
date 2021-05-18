@@ -5,7 +5,7 @@ import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Box from "@material-ui/core/Box";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { useTheme } from "@material-ui/core/styles";
-import { markdownStyles } from "../markdown-styles";
+import { markdownStyles } from "../utils/markdown-styles";
 
 export interface AccordionListProps {
   items: {

@@ -1,19 +1,23 @@
-import loadEnv from "app/env";
-import {
-  generateAssets,
-  generateSitemap,
-  loadFirebase,
-} from "@egvelho/next-material-components";
+import { env } from "app/env";
+import { generateAssets } from "@egvelho/next-material/utils/generate-assets";
+import { generateSitemap } from "@egvelho/next-material/utils/generate-sitemap";
+import { resizeImageAssets } from "@egvelho/next-material/utils/resize-image-assets";
 
-export default async function scripts() {
-  const env = loadEnv();
+export async function scripts() {
+  const loadedEnv = env();
   const outPath = "public";
 
-  if (env.nodeEnv === "production") {
+  if (loadedEnv.nodeEnv === "production" || loadedEnv.runScriptsInDevelopment) {
     await Promise.all([
-      env.generateAssetsOnBuild &&
-        generateAssets({ appPath: "app.json", outPath }),
-      loadFirebase({ outPath }),
+      loadedEnv.generateAssetsOnBuild
+        ? generateAssets({ appPath: "app.json", outPath })
+        : undefined,
+      loadedEnv.resizeImageAssetsOnBuild
+        ? resizeImageAssets({
+            paths: [".next/static/images", "public/images"],
+            size: 640,
+          })
+        : undefined,
       generateSitemap({
         mapPathToImport: (path) => import(`pages/${path}`),
         outPath,

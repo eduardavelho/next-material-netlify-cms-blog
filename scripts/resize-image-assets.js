@@ -15,5 +15,6 @@ args.reduce((previousArg, arg) => {
   return arg;
 }, "");
 
-const resizeImageAssets = require("../resize-image-assets").resizeImageAssets;
+const resizeImageAssets = require("../utils/resize-image-assets")
+  .resizeImageAssets;
 resizeImageAssets({ paths, size });

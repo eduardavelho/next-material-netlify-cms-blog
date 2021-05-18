@@ -8,7 +8,7 @@ import {
   GetServerSidePropsContext,
 } from "next";
 import { Link, Links, ExtractLinkQuery, ExtractLinkProps } from "./link";
-import { Json } from "./types";
+import { Json } from "../types";
 
 export type ChangeFrequency =
   | "always"

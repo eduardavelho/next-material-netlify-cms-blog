@@ -1,0 +1,7 @@
+{
+  "admin": false,
+  "about": false,
+  "contact": true,
+  "blog": true,
+  "index": true
+}

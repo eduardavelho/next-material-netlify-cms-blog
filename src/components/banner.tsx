@@ -9,7 +9,7 @@ export interface BannerProps {
   imageAlt: string;
   imageWidth?: number;
   background: string;
-  titleColor: string;
+  color: string;
   title: React.ReactNode;
   subtitle: React.ReactNode;
 }
@@ -19,7 +19,7 @@ export function Banner({
   imageAlt,
   imageWidth = 128,
   background,
-  titleColor,
+  color,
   title,
   subtitle,
 }: BannerProps) {
@@ -34,7 +34,7 @@ export function Banner({
       flexDirection="column"
       alignItems="center"
       justifyContent="center"
-      color={titleColor}
+      color={color}
       style={{
         background,
         backgroundSize: "cover",

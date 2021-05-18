@@ -1,4 +1,4 @@
-import { document } from "@egvelho/next-material-components";
+import { document } from "@egvelho/next-material";
 import { ServerStyleSheets } from "@material-ui/core/styles";
 
 export default document({

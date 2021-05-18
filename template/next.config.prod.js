@@ -1,1 +1,1 @@
-module.exports = require("@next-material-components/config/next.config");
+module.exports = require("@next-material/config/next.config");

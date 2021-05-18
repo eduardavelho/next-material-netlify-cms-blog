@@ -64,7 +64,7 @@ export function AppBar({
               justifyContent="center"
             >
               <img
-                alt={shortName}
+                alt=""
                 src={logo}
                 style={{
                   maxHeight: 42,

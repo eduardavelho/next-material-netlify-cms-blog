@@ -1,6 +1,7 @@
-import { CmsConfig } from "netlify-cms-core";
+import { CmsConfig, CmsCollection } from "netlify-cms-core";
+import { getNetlifyCmsConfig } from "./get-netlify-cms-config";
 
-export async function loadNetlifyCms(cmsConfig: CmsConfig) {
+export async function loadNetlifyCms(collections: CmsCollection[]) {
   if (document.querySelector("#nc-root") !== null) {
     window.location.reload();
     return;
@@ -31,7 +32,7 @@ export async function loadNetlifyCms(cmsConfig: CmsConfig) {
 
   script = document.createElement("script");
   script.innerHTML = `window.netlifyIdentity.on("logout", function() { document.body.innerHTML = ""; document.location.href = "/"; }); window.initCMS(${JSON.stringify(
-    cmsConfig
+    getNetlifyCmsConfig(collections)
   )})`;
   document.body.appendChild(script);
 }

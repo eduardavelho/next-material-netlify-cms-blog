@@ -74,7 +74,7 @@ function InfoViewImage({ image, text }: { image: string; text: string }) {
   return (
     <img
       src={image}
-      alt={text}
+      alt=""
       style={{
         width: isDesktop ? 128 : 72,
         height: isDesktop ? 128 : 72,

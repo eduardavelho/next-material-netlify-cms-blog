@@ -1,7 +1,7 @@
 import { NextApiRequest } from "next";
 import { SvgIconTypeMap } from "@material-ui/core";
 import { OverridableComponent } from "@material-ui/core/OverridableComponent";
-import { Json } from "./types";
+import { Json } from "../types";
 
 export type ExtractLinkProps<Props> = Props extends Link<
   infer LinkProps,

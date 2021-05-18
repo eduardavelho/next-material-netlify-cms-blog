@@ -1,1 +1,1 @@
-module.exports = require("@next-material-components/config/babel.config");
+module.exports = require("@next-material/config/babel.config");

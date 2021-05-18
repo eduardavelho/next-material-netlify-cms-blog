@@ -1,7 +1,6 @@
 import fs from "fs";
 import path from "path";
 import slug from "slug";
-import { CmsCollectionFile, CmsField, CmsCollection } from "netlify-cms-core";
 
 export type Data<DataType> = {
   id: number;
@@ -123,67 +122,4 @@ export async function groupBy<DataType>(
 
     dataGroup[key].push(item);
   }
-}
-
-export function files({
-  label,
-  files,
-  options = {},
-}: {
-  label: string;
-  files: CmsCollectionFile[];
-  options?: Partial<CmsCollection>;
-}) {
-  return {
-    ...options,
-    name: slug(label),
-    label,
-    format: "json",
-    files,
-  } as CmsCollection;
-}
-
-export function file({
-  label,
-  file,
-  fields,
-  options = {},
-}: {
-  label: string;
-  file: string;
-  fields: CmsField[];
-  options?: Partial<CmsCollectionFile>;
-}) {
-  return {
-    ...options,
-    name: slug(label),
-    label,
-    file,
-    fields,
-  } as CmsCollectionFile;
-}
-
-export function folder({
-  label,
-  label_singular,
-  folder,
-  fields,
-  options,
-}: {
-  label: string;
-  label_singular: string;
-  folder: string;
-  fields: CmsField[];
-  options: Partial<CmsCollection>;
-}) {
-  return {
-    ...options,
-    name: label ? slug(label) : name,
-    label: label,
-    label_singular: label_singular,
-    folder: folder,
-    create: true,
-    format: "json",
-    fields: fields,
-  } as CmsCollection;
 }
