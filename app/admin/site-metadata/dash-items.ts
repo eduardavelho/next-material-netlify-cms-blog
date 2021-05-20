@@ -1,50 +1,51 @@
 import { links } from "app/api";
-import { file, boolean } from "@egvelho/next-material/netlify-cms/data";
+import { file, list, select } from "@egvelho/next-material/netlify-cms/data";
 
-export const appBarItems = file({
-  file: "app/dash/app-bar-items.json",
-  label: "Items da barra superior",
-  fields: Object.entries(links).map(([key, { longLabel }]) =>
-    boolean({
-      label: longLabel,
-      name: key,
-      required: true,
-    })
-  ),
+const pagesSelect = select({
+  name: "page",
+  label: "Página",
+  required: true,
+  options: Object.entries(links).map(([key, item]) => ({
+    label: item.longLabel,
+    value: key,
+  })),
 });
 
-export const drawerItems = file({
-  file: "app/dash/drawer-items.json",
-  label: "Items do drawer",
-  fields: Object.entries(links).map(([key, { longLabel }]) =>
-    boolean({
-      label: longLabel,
-      name: key,
-      required: true,
-    })
-  ),
-});
-
-export const bottomNavigationItems = file({
-  file: "app/dash/bottom-navigation-items.json",
-  label: "Items da navegação inferior",
-  fields: Object.entries(links).map(([key, { longLabel }]) =>
-    boolean({
-      label: longLabel,
-      name: key,
-      required: true,
-    })
-  ),
-});
-
-export const footerItems = file({
-  file: "app/dash/footer-items.json",
-  label: "Items do rodapé",
-  fields: Object.entries(links).map(([key, { longLabel }]) =>
-    boolean({
-      label: longLabel,
-      name: key,
-      required: true,
-    })
-  ),
+export const dashItems = file({
+  file: "app/dash/dash-items.json",
+  label: "Items da dash",
+  fields: [
+    list({
+      label: "Items da barra superior",
+      labelSingular: "Item",
+      name: "appBar",
+      summary: "page",
+      collapsed: true,
+      fields: [pagesSelect],
+    }),
+    list({
+      label: "Items do drawer",
+      labelSingular: "Item",
+      name: "drawer",
+      summary: "page",
+      collapsed: true,
+      fields: [pagesSelect],
+    }),
+    list({
+      label: "Items da navegação inferior",
+      labelSingular: "Item",
+      name: "bottomNavigation",
+      summary: "page",
+      collapsed: true,
+      fields: [pagesSelect],
+    }),
+    list({
+      label: "Items do rodapé",
+      labelSingular: "Item",
+      name: "footer",
+      summary: "page",
+      collapsed: true,
+      fields: [pagesSelect],
+    }),
+  ],
 });

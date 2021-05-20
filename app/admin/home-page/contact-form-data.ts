@@ -1,20 +1,23 @@
 import {
   file,
   string,
-  boolean,
   color,
-  list,
-  text,
   image,
+  boolean,
 } from "@egvelho/next-material/netlify-cms/data";
 
-export const itemsData = file({
-  file: "app/home/items-data.json",
-  label: "Items de descrição",
+export const contactFormData = file({
+  file: "app/home/contact-form-data.json",
+  label: "Formulário de contato",
   fields: [
     string({
       label: "Título",
       name: "title",
+      required: true,
+    }),
+    string({
+      label: "Rótulo do botão",
+      name: "label",
       required: true,
     }),
     color({
@@ -38,24 +41,6 @@ export const itemsData = file({
       label: "Fundo escuro",
       name: "backgroundIsDark",
       required: true,
-    }),
-    list({
-      label: "Items",
-      labelSingular: "Item",
-      name: "items",
-      summary: "image",
-      fields: [
-        text({
-          label: "Texto",
-          name: "text",
-          required: true,
-        }),
-        image({
-          label: "Imagem",
-          name: "image",
-          required: true,
-        }),
-      ],
     }),
   ],
 });

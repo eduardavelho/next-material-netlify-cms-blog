@@ -225,19 +225,24 @@ export function list({
   label,
   labelSingular,
   fields,
+  summary,
+  collapsed = false,
 }: {
   name: string;
   label: string;
   labelSingular: string;
   fields: CmsField[];
+  summary: string;
+  collapsed?: boolean;
 }): CmsField & CmsFieldList {
   return {
     name,
     label,
     label_singular: labelSingular,
     widget: "list",
-    summary: "{{fields.title}}",
+    summary: `{{fields.${summary}}}`,
     fields,
+    collapsed,
   };
 }
 

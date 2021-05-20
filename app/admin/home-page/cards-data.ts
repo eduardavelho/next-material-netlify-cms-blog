@@ -24,6 +24,7 @@ export const cardsData = file({
       label: "Cartões",
       labelSingular: "Cartão",
       name: "cards",
+      summary: "title",
       fields: [
         string({
           label: "Título",

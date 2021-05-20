@@ -1,0 +1,49 @@
+{
+  "appBar": [
+    {
+      "page": "blog"
+    },
+    {
+      "page": "contact"
+    }
+  ],
+  "drawer": [
+    {
+      "page": "index"
+    },
+    {
+      "page": "blog"
+    },
+    {
+      "page": "contact"
+    },
+    {
+      "page": "about"
+    }
+  ],
+  "bottomNavigation": [
+    {
+      "page": "blog"
+    },
+    {
+      "page": "index"
+    },
+    {
+      "page": "contact"
+    }
+  ],
+  "footer": [
+    {
+      "page": "index"
+    },
+    {
+      "page": "blog"
+    },
+    {
+      "page": "contact"
+    },
+    {
+      "page": "about"
+    }
+  ]
+}

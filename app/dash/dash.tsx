@@ -3,15 +3,12 @@ import {
   Dash as MuiDash,
   DashProps as MuiDashProps,
 } from "@egvelho/next-material/components/dash";
-import { theme } from "app/theme";
 import { links } from "app/api";
 import { Context } from "app/context";
 import appConfig from "app.json";
-import appBarItems from "./app-bar-items.json";
-import bottomNavigationItems from "./bottom-navigation-items.json";
-import drawerItems from "./drawer-items.json";
-import footerItems from "./footer-items.json";
 import logo from "icon.svg";
+import dashColors from "./dash-colors.json";
+import dashItems from "./dash-items.json";
 
 const texts = {
   appBarItemsAriaLabel: "Links do cabeçalho",
@@ -42,43 +39,39 @@ export function Dash({
       setSnackbarContent={setSnackbarContent}
       logo={logo}
       shortName={appConfig.shortName}
-      appBarColor={theme.palette.primary.main}
+      appBarColor={dashColors.appBarColor}
       appBarBackgroundColor={appConfig.dashColor}
-      footerColor={theme.palette.primary.contrastText}
-      footerBackgroundColor={theme.palette.primary.main}
+      footerColor={dashColors.footerColor}
+      footerBackgroundColor={dashColors.footerBackgroundColor}
       drawerOpen={context.drawerOpen}
       setDrawerOpen={(drawerOpen) => setContext({ drawerOpen })}
-      appBarItems={Object.entries(appBarItems)
-        .filter(([_, item]) => item)
-        .map(([key]) => ({
-          href: links[key as keyof typeof links].href,
-          label: links[key as keyof typeof links].longLabel,
-          Icon: links[key as keyof typeof links].Icon,
-        }))}
-      footerItems={Object.entries(footerItems)
-        .filter(([_, item]) => item)
-        .map(([key]) => ({
-          href: links[key as keyof typeof links].href,
-          label: links[key as keyof typeof links].longLabel,
-          Icon: links[key as keyof typeof links].Icon,
-        }))}
-      bottomNavigationItems={Object.entries(bottomNavigationItems)
-        .filter(([_, item]) => item)
-        .map(([key]) => ({
-          href: links[key as keyof typeof links].href,
-          label: links[key as keyof typeof links].label,
-          Icon: links[key as keyof typeof links].Icon,
-        }))}
-      drawerItems={Object.entries(drawerItems)
-        .filter(([_, item]) => item)
-        .map(([key]) => ({
-          href: links[key as keyof typeof links].href,
-          label: links[key as keyof typeof links].longLabel,
-          Icon: links[key as keyof typeof links].Icon,
-        }))}
+      appBarItems={mapFilterItemsToLinks(dashItems.appBar).map((item) => ({
+        href: item.href,
+        label: item.longLabel,
+      }))}
+      footerItems={mapFilterItemsToLinks(dashItems.footer).map((item) => ({
+        href: item.href,
+        label: item.longLabel,
+      }))}
+      bottomNavigationItems={mapFilterItemsToLinks(
+        dashItems.bottomNavigation
+      ).map((item) => ({
+        href: item.href,
+        label: item.label,
+        Icon: item.Icon,
+      }))}
+      drawerItems={mapFilterItemsToLinks(dashItems.drawer).map((item) => ({
+        href: item.href,
+        label: item.longLabel,
+        Icon: item.Icon,
+      }))}
       {...texts}
     >
       {children}
     </MuiDash>
   );
+}
+
+function mapFilterItemsToLinks(items: { page: string }[]) {
+  return items.map(({ page }) => links[page as keyof typeof links]);
 }

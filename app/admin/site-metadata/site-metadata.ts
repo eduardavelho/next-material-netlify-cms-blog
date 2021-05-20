@@ -1,19 +1,9 @@
 import { files } from "@egvelho/next-material/netlify-cms/data";
 import { appMetadata } from "./app-metadata";
-import {
-  appBarItems,
-  drawerItems,
-  bottomNavigationItems,
-  footerItems,
-} from "./dash-items";
+import { dashColorsData } from "./dash-colors-data";
+import { dashItems } from "./dash-items";
 
 export const siteMetadata = files({
   label: "Geral",
-  files: [
-    appMetadata,
-    appBarItems,
-    drawerItems,
-    bottomNavigationItems,
-    footerItems,
-  ],
+  files: [appMetadata, dashColorsData, dashItems],
 });

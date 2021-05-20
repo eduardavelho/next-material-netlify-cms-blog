@@ -29,12 +29,12 @@ export const bannerData = file({
     string({
       label: "Texto alternativo da imagem",
       name: "imageAlt",
-      required: false,
+      required: true,
     }),
     number({
       label: "Largura da imagem",
       name: "imageWidth",
-      required: false,
+      required: true,
       valueType: "int",
       min: 128,
       max: 512,
@@ -43,7 +43,7 @@ export const bannerData = file({
     color({
       label: "Cor do texto",
       name: "color",
-      required: false,
+      required: true,
       allowInput: true,
     }),
     color({
