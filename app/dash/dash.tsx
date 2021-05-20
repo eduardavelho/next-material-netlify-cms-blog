@@ -44,6 +44,8 @@ export function Dash({
       shortName={appConfig.shortName}
       appBarColor={theme.palette.primary.main}
       appBarBackgroundColor={appConfig.dashColor}
+      footerColor={theme.palette.primary.contrastText}
+      footerBackgroundColor={theme.palette.primary.main}
       drawerOpen={context.drawerOpen}
       setDrawerOpen={(drawerOpen) => setContext({ drawerOpen })}
       appBarItems={Object.entries(appBarItems)

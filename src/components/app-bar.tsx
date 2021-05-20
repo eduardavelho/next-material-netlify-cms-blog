@@ -1,4 +1,5 @@
 import React from "react";
+import { useTheme } from "@material-ui/core/styles";
 import { OverridableComponent } from "@material-ui/core/OverridableComponent";
 import { SvgIconTypeMap } from "@material-ui/core";
 import Tabs from "@material-ui/core/Tabs";
@@ -15,8 +16,8 @@ import Link from "next/link";
 type Item = { label: string } & ({ href: string } | { onClick: () => void });
 
 export interface AppBarProps {
-  backgroundColor: string;
-  color: string;
+  backgroundColor?: string;
+  color?: string;
   shortName: string;
   logo: string;
   items: Item[];
@@ -38,12 +39,13 @@ export function AppBar({
   drawerIcon = MenuIcon,
 }: AppBarProps) {
   const DrawerIcon = drawerIcon;
+  const theme = useTheme();
   return (
     <MuiAppBar
       position="sticky"
       style={{
-        backgroundColor,
-        color,
+        backgroundColor: backgroundColor || theme.palette.primary.main,
+        color: color || theme.palette.primary.contrastText,
       }}
     >
       <Toolbar>

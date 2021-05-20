@@ -12,7 +12,7 @@ export type PostPageProps = PostInfoProps &
 export function PostPage({
   htmlContent,
   background,
-  dark,
+  backgroundIsDark,
   paper,
   breadcrumbs,
   ...postInfoProps
@@ -21,7 +21,7 @@ export function PostPage({
 
   const pageProps = {
     background,
-    dark,
+    backgroundIsDark,
     paper,
     breadcrumbs,
   };
@@ -29,8 +29,10 @@ export function PostPage({
   return (
     <Page
       {...pageProps}
-      backgroundIsDark={dark}
-      header={<PostInfo {...postInfoProps} dark={dark} />}
+      backgroundIsDark={backgroundIsDark}
+      header={
+        <PostInfo {...postInfoProps} backgroundIsDark={backgroundIsDark} />
+      }
     >
       <Box padding={{ xs: 2, sm: 6, md: 12 }} maxWidth="720px">
         <article

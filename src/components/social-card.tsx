@@ -68,7 +68,7 @@ export function SocialCard({
           </ListItemAvatar>
           <ListItemText
             primary={
-              <span style={{ color: nameColor ?? theme.palette.primary.main }}>
+              <span style={{ color: nameColor || theme.palette.primary.main }}>
                 {name}
               </span>
             }

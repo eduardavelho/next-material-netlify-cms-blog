@@ -2,6 +2,9 @@
 
 INTEGRAÇÃO COM NETLIFY CMS
 Adicionar componentes básicos e netlify-cms em app boilerplate
+Formulário de contato
+Necessário determinar ordem dos items do drawer, app bar, footer, etc via netlify
+Trocar cor/fundo do rodapé e da appbar
 
 BUGS
 Ver problema de segfault do sharp no netlify

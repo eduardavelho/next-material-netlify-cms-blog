@@ -165,6 +165,19 @@ export async function generateSitemap({
   console.log("Generating sitemap...");
 
   const fs = eval(`require("fs")`);
+
+  if (!fs.existsSync("pages")) {
+    console.log(
+      `Error: no "pages" folder in project root. Note that this script does not support "src/pages" location.`
+    );
+    return;
+  }
+
+  if (!fs.existsSync(outPath)) {
+    console.log(`Creating path "${outPath}"...`);
+    fs.mkdirSync(outPath);
+  }
+
   const path = eval(`require("path")`);
   const files = (await getFiles("./pages")) as string[];
   const urls = await getUrls(files, mapPathToImport);

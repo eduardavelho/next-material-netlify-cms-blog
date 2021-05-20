@@ -2,10 +2,14 @@ const fs = require("fs");
 const path = require("path");
 
 function createBoilerplate() {
+  console.log("Creating boilerplate...");
+
   if (fs.existsSync("boilerplate")) {
+    console.log("Deleting previous build...");
     fs.rmdirSync("boilerplate", { recursive: true });
   }
 
+  console.log("Copying files...");
   fs.mkdirSync("boilerplate");
   fs.copyFileSync(
     "template/babel.config.prod.js",
@@ -25,6 +29,8 @@ function createBoilerplate() {
 
   copyFolderRecursiveSync("pages", "boilerplate");
   copyFolderRecursiveSync("app", "boilerplate");
+
+  console.log('Boilerplate created with success!')
 }
 
 function copyFolderRecursiveSync(from, to) {

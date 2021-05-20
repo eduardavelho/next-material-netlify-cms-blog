@@ -20,7 +20,7 @@ export type PostInfoProps = {
   authorDescription?: string;
   tags?: string[];
   titleColor?: string;
-  dark?: boolean;
+  backgroundIsDark?: boolean;
 } & SocialIconsProps;
 
 export function PostInfo({
@@ -33,7 +33,7 @@ export function PostInfo({
   authorDescription,
   tags,
   titleColor,
-  dark,
+  backgroundIsDark,
   ...socialIconsProps
 }: PostInfoProps) {
   const theme = useTheme();
@@ -52,10 +52,12 @@ export function PostInfo({
               style={{
                 marginBottom: theme.spacing(0.3),
                 marginRight: theme.spacing(0.3),
-                backgroundColor: dark
+                backgroundColor: backgroundIsDark
                   ? "rgba(255, 255, 255, 0.1)"
                   : "rgba(0, 0, 0, 0.1)",
-                color: dark ? theme.palette.common.white : undefined,
+                color: backgroundIsDark
+                  ? theme.palette.common.white
+                  : undefined,
               }}
             />
           ))}
@@ -68,7 +70,7 @@ export function PostInfo({
           style={{
             lineHeight: 1.1,
             fontWeight: isDesktop ? undefined : "bold",
-            color: titleColor,
+            color: titleColor || theme.palette.primary.main,
           }}
         >
           {title}
@@ -80,7 +82,7 @@ export function PostInfo({
             variant={isDesktop ? "subtitle1" : "body2"}
             component="h2"
             style={{
-              color: dark ? "rgba(255, 255, 255, 0.8)" : undefined,
+              color: backgroundIsDark ? "rgba(255, 255, 255, 0.8)" : undefined,
             }}
           >
             {description}
@@ -106,10 +108,18 @@ export function PostInfo({
               </ListItemAvatar>
               <ListItemText
                 primary={
-                  <span style={{ color: titleColor }}>{authorName}</span>
+                  <span
+                    style={{ color: titleColor || theme.palette.primary.main }}
+                  >
+                    {authorName}
+                  </span>
                 }
                 secondary={
-                  <Box color={dark ? "rgba(255, 255, 255, 0.8)" : undefined}>
+                  <Box
+                    color={
+                      backgroundIsDark ? "rgba(255, 255, 255, 0.8)" : undefined
+                    }
+                  >
                     {authorDescription}
                     {date !== undefined && (
                       <Box>
@@ -118,7 +128,7 @@ export function PostInfo({
                           component="time"
                           dateTime={date.toISOString()}
                         >
-                          {dateText ?? date.toLocaleString()}
+                          {dateText || date.toLocaleString()}
                         </Typography>
                       </Box>
                     )}

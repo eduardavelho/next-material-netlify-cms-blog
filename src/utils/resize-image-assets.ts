@@ -32,9 +32,25 @@ export async function resizeImageAssets({
   paths = ["public/images", ".next/static/images"],
   size = 960,
 }) {
+  if (typeof window !== "undefined") {
+    return;
+  }
+
   console.log("Starting image resize process...");
 
   fs = eval('require("fs")');
+
+  const notFoundPaths = paths.filter((path) => fs.existsSync(path) === false);
+
+  if (notFoundPaths.length > 0) {
+    console.log(
+      `Error: the paths ${notFoundPaths
+        .reduce((stack, item) => `${stack}"${item}", `, "")
+        .slice(0, -2)} are not found.`
+    );
+    return;
+  }
+
   join = eval('require("path")').join;
   sharp = eval('require("sharp")');
 

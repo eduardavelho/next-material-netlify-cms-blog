@@ -104,7 +104,7 @@ export function PostCard({
                 component="time"
                 dateTime={date.toISOString()}
               >
-                {dateText ?? date.toLocaleString()}
+                {dateText || date.toLocaleString()}
               </Typography>
             </Box>
           )}
@@ -114,7 +114,7 @@ export function PostCard({
               component="span"
               style={{
                 lineHeight: "1.3",
-                color: titleColor ?? theme.palette.primary.main,
+                color: titleColor || theme.palette.primary.main,
               }}
             >
               {title}

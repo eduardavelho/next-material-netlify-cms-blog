@@ -12,7 +12,7 @@ export const Usage = () => {
     <PostPage
       titleColor="red"
       socialAnchorTitle="Anchor title"
-      dark={true}
+      backgroundIsDark={true}
       email="email@email.email"
       facebook
       instagram="https://instagram.com/teste"

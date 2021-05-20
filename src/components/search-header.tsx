@@ -13,14 +13,14 @@ import SearchIcon from "@material-ui/icons/Search";
 export interface SearchHeaderProps {
   title: string;
   titleColor: string;
-  background?: string;
+  background: string;
   options: string[];
   value: string[];
   placeholder: string;
   noOptionsText: string;
   disabled: boolean;
   loading: boolean;
-  dark?: boolean;
+  backgroundIsDark?: boolean;
   onChange?: (value: string[]) => Promise<void>;
 }
 
@@ -34,17 +34,17 @@ export function SearchHeader({
   noOptionsText,
   disabled,
   loading,
-  dark,
+  backgroundIsDark,
   onChange = async () => {},
 }: SearchHeaderProps) {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
-  const searchClasses = searchStyles({ dark });
+  const searchClasses = searchStyles({ backgroundIsDark });
 
   return (
     <Box
       style={{
-        background: background ?? theme.palette.primary.main,
+        background,
       }}
       height={isDesktop ? "394px" : "256px"}
       display="flex"
@@ -123,20 +123,20 @@ export function SearchHeader({
 
 const searchStyles = makeStyles((theme) => ({
   inputRoot: {
-    color: ({ dark }: { dark?: boolean }) =>
-      dark ? theme.palette.common.white : "inherit",
-    backgroundColor: ({ dark }: { dark?: boolean }) =>
-      dark ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.1)",
+    color: ({ backgroundIsDark }: { backgroundIsDark?: boolean }) =>
+      backgroundIsDark ? theme.palette.common.white : "inherit",
+    backgroundColor: ({ backgroundIsDark }: { backgroundIsDark?: boolean }) =>
+      backgroundIsDark ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.1)",
     "& .MuiInputBase-input::placeholder": {
-      color: ({ dark }: { dark?: boolean }) =>
-        dark ? theme.palette.common.white : "inherit",
+      color: ({ backgroundIsDark }: { backgroundIsDark?: boolean }) =>
+        backgroundIsDark ? theme.palette.common.white : "inherit",
     },
     "& .MuiOutlinedInput-notchedOutline": {
       border: "none",
     },
     "& .MuiIconButton-label": {
-      color: ({ dark }: { dark?: boolean }) =>
-        dark ? "rgba(255, 255, 255, 0.42)" : "inherit",
+      color: ({ backgroundIsDark }: { backgroundIsDark?: boolean }) =>
+        backgroundIsDark ? "rgba(255, 255, 255, 0.42)" : "inherit",
     },
   },
 }));

@@ -18,7 +18,7 @@ export const Usage = () => {
       title="Blog title"
       titleColor="green"
       background="blue"
-      dark={false}
+      backgroundIsDark={false}
       disabled={false}
       hasMorePosts={false}
       noOptionsText="No options"

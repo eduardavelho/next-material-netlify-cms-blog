@@ -32,7 +32,7 @@ export function Page({
         paddingBottom={24}
         paddingX={{ xs: 2, sm: 2, md: 6 }}
         color={backgroundIsDark ? theme.palette.common.white : undefined}
-        style={{ background: background ?? theme.palette.primary.main }}
+        style={{ background: background || theme.palette.primary.main }}
       >
         <Box maxWidth="960px">{header}</Box>
       </Box>

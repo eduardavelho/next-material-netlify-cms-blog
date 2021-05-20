@@ -22,6 +22,8 @@ export interface DashProps {
   setDrawerOpen: DrawerProps["setDrawerOpen"];
   footerItemsAriaLabel: FooterProps["itemsAriaLabel"];
   footerItems: FooterProps["items"];
+  footerBackgroundColor: FooterProps["backgroundColor"];
+  footerColor: FooterProps["color"];
   bottomNavigationItems: BottomNavigationProps["items"];
   snackbarContent: SnackbarProps["content"];
   setSnackbarContent: SnackbarProps["setContent"];
@@ -41,6 +43,8 @@ export function Dash({
   setDrawerOpen,
   footerItemsAriaLabel,
   footerItems,
+  footerColor,
+  footerBackgroundColor,
   bottomNavigationItems,
   snackbarContent,
   setSnackbarContent,
@@ -70,8 +74,8 @@ export function Dash({
       <Footer
         itemsAriaLabel={footerItemsAriaLabel}
         items={footerItems}
-        color={theme.palette.secondary.contrastText}
-        backgroundColor={theme.palette.secondary.main}
+        color={footerColor}
+        backgroundColor={footerBackgroundColor}
       />
       <Hidden smUp>
         <BottomNavigation items={bottomNavigationItems} />
