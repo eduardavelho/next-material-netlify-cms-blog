@@ -71,6 +71,23 @@ export function folder({
   } as CmsCollection;
 }
 
+export function hidden({
+  name,
+  label,
+  value,
+}: {
+  name: string;
+  label: string;
+  value: string;
+}): CmsField {
+  return {
+    label,
+    name,
+    default: value,
+    widget: "hidden",
+  };
+}
+
 export function string({
   name,
   label,
@@ -240,7 +257,7 @@ export function list({
     label,
     label_singular: labelSingular,
     widget: "list",
-    summary: `{{fields.${summary}}}`,
+    summary,
     fields,
     collapsed,
   };
@@ -266,4 +283,27 @@ export function keywords({
     max,
     allow_add: false,
   };
+}
+
+export function object({
+  name,
+  label,
+  summary,
+  fields,
+  collapsed = true,
+}: {
+  name: string;
+  label: string;
+  summary: string;
+  fields: CmsField[];
+  collapsed?: boolean;
+}) {
+  return {
+    name,
+    label,
+    collapsed,
+    fields,
+    summary,
+    widget: "object",
+  } as CmsField;
 }
