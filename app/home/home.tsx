@@ -49,14 +49,14 @@ function BannerSection() {
       <Banner
         title={bannerData.title}
         subtitle={bannerData.subtitle}
-        color={bannerData.color}
+        color={bannerData.color || theme.palette.primary.contrastText}
         image={bannerData.image}
         imageAlt={bannerData.imageAlt}
         imageWidth={bannerData.imageWidth}
         background={
           bannerData.backgroundImage
             ? `url(${bannerData.backgroundImage})`
-            : bannerData.backgroundColor || theme.palette.background.default
+            : bannerData.backgroundColor || theme.palette.primary.main
         }
       />
     </section>

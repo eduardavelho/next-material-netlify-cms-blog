@@ -1,8 +1,6 @@
 # next-material
 
 INTEGRAÇÃO COM NETLIFY CMS
-Selecionar quais items devem aparecer na home
-Selecionar ordem dos items da home
 Implementar blog e faq
 
 BUGS

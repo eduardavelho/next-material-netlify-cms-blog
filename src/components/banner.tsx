@@ -5,13 +5,13 @@ import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 export interface BannerProps {
-  image: string;
-  imageAlt: string;
+  image?: string;
+  imageAlt?: string;
   imageWidth?: number;
   background: string;
   color: string;
-  title: React.ReactNode;
-  subtitle: React.ReactNode;
+  title?: React.ReactNode;
+  subtitle?: React.ReactNode;
 }
 
 export function Banner({
@@ -41,41 +41,42 @@ export function Banner({
       }}
     >
       <Box maxWidth={960} marginX="auto">
-        <Box
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          marginBottom={6}
-        >
-          <img
-            src={image}
-            alt={imageAlt}
-            style={{
-              width: imageWidth,
-            }}
-          />
-        </Box>
-        <Box marginBottom={2}>
-          <Typography
-            variant={isDesktop ? "h3" : "h4"}
-            component="h1"
-            align="center"
-          >
-            {title}
-          </Typography>
-        </Box>
-        <Box>
-          <Typography
-            variant={isDesktop ? "h4" : "h6"}
-            component="h2"
-            align="center"
-            style={{
-              fontWeight: 300,
-            }}
-          >
-            {subtitle}
-          </Typography>
-        </Box>
+        {image && (
+          <Box display="flex" alignItems="center" justifyContent="center">
+            <img
+              src={image}
+              alt={imageAlt}
+              style={{
+                width: imageWidth,
+              }}
+            />
+          </Box>
+        )}
+        {title && (
+          <Box marginBottom={subtitle && 2} marginTop={image && 6}>
+            <Typography
+              variant={isDesktop ? "h3" : "h4"}
+              component="h1"
+              align="center"
+            >
+              {title}
+            </Typography>
+          </Box>
+        )}
+        {subtitle && (
+          <Box>
+            <Typography
+              variant={isDesktop ? "h4" : "h6"}
+              component="h2"
+              align="center"
+              style={{
+                fontWeight: 300,
+              }}
+            >
+              {subtitle}
+            </Typography>
+          </Box>
+        )}
       </Box>
     </Box>
   );
