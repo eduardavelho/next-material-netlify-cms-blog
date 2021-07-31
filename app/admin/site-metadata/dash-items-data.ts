@@ -11,12 +11,12 @@ const pagesSelect = select({
   })),
 });
 
-export const dashItems = file({
+export const dashItemsData = file({
   file: "app/dash/dash-items.json",
-  label: "Items da dash",
+  label: "Itens da dash",
   fields: [
     list({
-      label: "Items da barra superior",
+      label: "Itens da barra superior",
       labelSingular: "Item",
       name: "appBar",
       summary: "Item",
@@ -24,7 +24,7 @@ export const dashItems = file({
       fields: [pagesSelect],
     }),
     list({
-      label: "Items do drawer",
+      label: "Itens do drawer",
       labelSingular: "Item",
       name: "drawer",
       summary: "Item",
@@ -32,7 +32,7 @@ export const dashItems = file({
       fields: [pagesSelect],
     }),
     list({
-      label: "Items da navegação inferior",
+      label: "Itens da navegação inferior",
       labelSingular: "Item",
       name: "bottomNavigation",
       summary: "Item",
@@ -40,7 +40,7 @@ export const dashItems = file({
       fields: [pagesSelect],
     }),
     list({
-      label: "Items do rodapé",
+      label: "Itens do rodapé",
       labelSingular: "Item",
       name: "footer",
       summary: "Item",

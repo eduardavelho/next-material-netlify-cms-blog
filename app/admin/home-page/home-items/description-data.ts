@@ -8,9 +8,9 @@ import {
   image,
 } from "@egvelho/next-material/netlify-cms/data";
 
-export const itemsData = file({
-  file: "app/home/items-data.json",
-  label: "Items de descrição",
+export const descriptionData = file({
+  file: "app/home/description-data.json",
+  label: "Descrição",
   fields: [
     string({
       label: "Título",
