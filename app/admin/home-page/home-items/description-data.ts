@@ -34,11 +34,6 @@ export const descriptionData = file({
       name: "backgroundImage",
       required: false,
     }),
-    boolean({
-      label: "Fundo escuro",
-      name: "backgroundIsDark",
-      required: true,
-    }),
     list({
       label: "Items",
       labelSingular: "Item",

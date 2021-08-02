@@ -37,10 +37,5 @@ export const contactFormData = file({
       name: "backgroundImage",
       required: false,
     }),
-    boolean({
-      label: "Fundo escuro",
-      name: "backgroundIsDark",
-      required: true,
-    }),
   ],
 });

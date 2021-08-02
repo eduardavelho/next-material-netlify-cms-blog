@@ -12,7 +12,6 @@ export const Usage = () => (
     background="red"
     titleColor="yellow"
     title="Item area title"
-    backgroundIsDark={false}
     items={[
       {
         text: "Some text here",

@@ -91,7 +91,6 @@ function ContactFormSection() {
         title={contactFormData.title}
         submitButtonLabel={contactFormData.label}
         titleColor={contactFormData.titleColor}
-        backgroundIsDark={contactFormData.backgroundIsDark}
         loading={false}
         onSubmit={async () => {}}
         background={
@@ -161,7 +160,6 @@ function DescriptionSection() {
         title={descriptionData.title}
         titleColor={descriptionData.titleColor}
         items={descriptionData.items}
-        backgroundIsDark={descriptionData.backgroundIsDark}
         background={
           descriptionData.backgroundImage
             ? `url(${descriptionData.backgroundImage})`

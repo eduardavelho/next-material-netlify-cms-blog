@@ -11,7 +11,6 @@ export const Usage = () => {
   return (
     <ContactForm
       title="Form title"
-      backgroundIsDark={true}
       background="purple"
       titleColor="green"
       submitButtonLabel="Submit"

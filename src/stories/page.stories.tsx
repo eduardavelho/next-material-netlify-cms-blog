@@ -11,7 +11,6 @@ export const Paper = () => (
   <Page
     header={<h1>Some header here</h1>}
     background="black"
-    backgroundIsDark={true}
     breadcrumbs={[
       ["Home", "/"],
       ["Also home", "/"],
@@ -26,7 +25,6 @@ export const NoPaper = () => (
     paper={false}
     header={<h1>Some header here</h1>}
     background="black"
-    backgroundIsDark={true}
     breadcrumbs={[
       ["Home", "/"],
       ["Also home", "/"],

@@ -1,8 +1,6 @@
 # next-material
 
 INTEGRAÇÃO COM NETLIFY CMS
-Lógica de defaults deve estar dentro dos componentes
-Nada pode ser default em post-card
 Remover processamento de markdown de dentro dos componentes
 Remover index.ts do projeto
 Substituir tuplas por objetos

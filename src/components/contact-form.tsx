@@ -9,6 +9,7 @@ import { useTheme } from "@material-ui/core/styles";
 import { makeStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { FormInput } from "../types";
+import { isColorDark } from "../utils/is-color-dark";
 
 export interface ContactFormProps {
   onSubmit: (form: ContactForm) => Promise<void>;
@@ -16,7 +17,6 @@ export interface ContactFormProps {
   submitButtonLabel: string;
   loading: boolean;
   background?: string;
-  backgroundIsDark?: boolean;
   title?: React.ReactNode;
   titleColor?: string;
 }
@@ -28,9 +28,9 @@ export function ContactForm({
   loading,
   title,
   titleColor,
-  backgroundIsDark,
   background,
 }: ContactFormProps) {
+  const backgroundIsDark = background ? isColorDark(background) : false;
   const theme = useTheme();
   const styles = useStyles({ backgroundIsDark });
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));

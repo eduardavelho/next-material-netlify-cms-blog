@@ -19,7 +19,6 @@ export const Usage = () => {
       }}
       loading={false}
       value={searchValue}
-      backgroundIsDark={true}
       disabled={false}
       noOptionsText="No options"
       options={["Gon", "Killua", "Kurapika", "Giovani Giorgio", "Juan"]}

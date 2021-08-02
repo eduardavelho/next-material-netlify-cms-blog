@@ -22,7 +22,6 @@ export function Blog({
   noOptionsText,
   disabled,
   loading,
-  backgroundIsDark,
   onRequestMorePosts,
   onChange,
   hasMorePosts,
@@ -44,7 +43,6 @@ export function Blog({
     disabled,
     onChange,
     loading,
-    backgroundIsDark,
   };
 
   const postCardGridProps = {
