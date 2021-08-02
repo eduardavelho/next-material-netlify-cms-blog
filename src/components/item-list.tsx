@@ -5,9 +5,9 @@ import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 export interface ItemListProps {
-  title: string;
-  titleColor: string;
-  background: string;
+  title?: string;
+  titleColor?: string;
+  background?: string;
   backgroundIsDark?: boolean;
   items: Item[];
 }
@@ -32,7 +32,7 @@ export function ItemList({
       paddingY={16}
       paddingX={2}
       style={{
-        background,
+        background: background || theme.palette.primary.main,
         color: backgroundIsDark ? "rgba(255, 255, 255, 0.8)" : "inherit",
       }}
     >
@@ -44,15 +44,20 @@ export function ItemList({
         maxWidth={720}
         marginX="auto"
       >
-        <Box marginBottom={4} color={titleColor}>
-          <Typography
-            align="center"
-            variant={isDesktop ? "h3" : "h4"}
-            component="h1"
+        {title && (
+          <Box
+            marginBottom={4}
+            color={titleColor || theme.palette.primary.contrastText}
           >
-            {title}
-          </Typography>
-        </Box>
+            <Typography
+              align="center"
+              variant={isDesktop ? "h3" : "h4"}
+              component="h1"
+            >
+              {title}
+            </Typography>
+          </Box>
+        )}
         {items.map(({ text, image }: Item, index) => (
           <Box
             key={`item-list-${index}`}

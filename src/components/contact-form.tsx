@@ -15,10 +15,10 @@ export interface ContactFormProps {
   form: ContactForm;
   submitButtonLabel: string;
   loading: boolean;
-  background: string;
+  background?: string;
   backgroundIsDark?: boolean;
-  title: React.ReactNode;
-  titleColor: string;
+  title?: React.ReactNode;
+  titleColor?: string;
 }
 
 export function ContactForm({
@@ -44,20 +44,25 @@ export function ContactForm({
       alignItems="center"
       justifyContent="center"
       style={{
-        background,
+        background: background || theme.palette.primary.main,
         backgroundSize: "cover",
       }}
     >
       <Box maxWidth={960} marginX="auto">
-        <Box marginBottom={4} color={titleColor}>
-          <Typography
-            align="center"
-            variant={isDesktop ? "h3" : "h5"}
-            component="h1"
+        {title && (
+          <Box
+            marginBottom={4}
+            color={titleColor || theme.palette.primary.contrastText}
           >
-            {title}
-          </Typography>
-        </Box>
+            <Typography
+              align="center"
+              variant={isDesktop ? "h3" : "h5"}
+              component="h1"
+            >
+              {title}
+            </Typography>
+          </Box>
+        )}
         <form
           style={{ margin: "auto" }}
           onSubmit={(event) => {

@@ -49,14 +49,14 @@ function BannerSection() {
       <Banner
         title={bannerData.title}
         subtitle={bannerData.subtitle}
-        color={bannerData.color || theme.palette.primary.contrastText}
+        color={bannerData.color}
         image={bannerData.image}
         imageAlt={bannerData.imageAlt}
         imageWidth={bannerData.imageWidth}
         background={
           bannerData.backgroundImage
             ? `url(${bannerData.backgroundImage})`
-            : bannerData.backgroundColor || theme.palette.primary.main
+            : bannerData.backgroundColor
         }
       />
     </section>
@@ -77,8 +77,7 @@ function BannerWithButtonSection() {
         background={
           bannerWithButtonData.backgroundImage
             ? `url(${bannerWithButtonData.backgroundImage})`
-            : bannerWithButtonData.backgroundColor ||
-              theme.palette.background.default
+            : bannerWithButtonData.backgroundColor
         }
       />
     </section>
@@ -98,8 +97,7 @@ function ContactFormSection() {
         background={
           contactFormData.backgroundImage
             ? `url(${contactFormData.backgroundImage})`
-            : contactFormData.backgroundColor ||
-              theme.palette.background.default
+            : contactFormData.backgroundColor
         }
         form={{
           name: {
@@ -167,8 +165,7 @@ function DescriptionSection() {
         background={
           descriptionData.backgroundImage
             ? `url(${descriptionData.backgroundImage})`
-            : descriptionData.backgroundColor ||
-              theme.palette.background.default
+            : descriptionData.backgroundColor
         }
       />
     </section>

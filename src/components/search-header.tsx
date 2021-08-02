@@ -11,9 +11,9 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 import SearchIcon from "@material-ui/icons/Search";
 
 export interface SearchHeaderProps {
-  title: string;
-  titleColor: string;
-  background: string;
+  title?: string;
+  titleColor?: string;
+  background?: string;
   options: string[];
   value: string[];
   placeholder: string;
@@ -44,7 +44,7 @@ export function SearchHeader({
   return (
     <Box
       style={{
-        background,
+        background: background || theme.palette.primary.main,
       }}
       height={isDesktop ? "394px" : "256px"}
       display="flex"
@@ -53,19 +53,21 @@ export function SearchHeader({
       flexDirection="column"
     >
       <Box maxWidth="960px" minWidth={isDesktop ? "480px" : "100%"}>
-        <Box marginBottom={1.6} marginX={isDesktop ? undefined : 1.6}>
-          <Typography
-            variant={isDesktop ? "h3" : "h5"}
-            component="h1"
-            style={{
-              textAlign: "center",
-              fontWeight: "bold",
-              color: titleColor,
-            }}
-          >
-            {title}
-          </Typography>
-        </Box>
+        {title && (
+          <Box marginBottom={1.6} marginX={isDesktop ? undefined : 1.6}>
+            <Typography
+              variant={isDesktop ? "h3" : "h5"}
+              component="h1"
+              style={{
+                textAlign: "center",
+                fontWeight: "bold",
+                color: titleColor || theme.palette.primary.contrastText,
+              }}
+            >
+              {title}
+            </Typography>
+          </Box>
+        )}
         <Box
           marginX={isDesktop ? undefined : 1.6}
           marginBottom={isDesktop ? 6.4 : 1.6}

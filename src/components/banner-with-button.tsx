@@ -7,11 +7,11 @@ import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 export type BannerWithButtonProps = {
-  title: React.ReactNode;
+  title?: React.ReactNode;
   label: string;
-  titleColor: string;
-  background: string;
-  image: string;
+  color?: string;
+  background?: string;
+  image?: string;
   darkOverlay?: boolean;
   lightOverlay?: boolean;
 } & ({ href: string } | { onClick: () => void });
@@ -19,7 +19,7 @@ export type BannerWithButtonProps = {
 export function BannerWithButton({
   title,
   label,
-  titleColor,
+  color,
   background,
   image,
   darkOverlay,
@@ -58,16 +58,20 @@ export function BannerWithButton({
   return (
     <Box
       style={{
-        background,
+        background: background || theme.palette.primary.main,
       }}
     >
       <Box
-        style={{
-          backgroundImage: `url(${image})`,
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "auto 80%",
-        }}
+        style={
+          image
+            ? {
+                backgroundImage: `url(${image})`,
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "auto 80%",
+              }
+            : undefined
+        }
       >
         <Box
           paddingY={36}
@@ -76,7 +80,7 @@ export function BannerWithButton({
           alignItems="center"
           justifyContent="center"
           flexDirection="column"
-          color={titleColor}
+          color={color || theme.palette.primary.contrastText}
           style={{
             backgroundColor: darkOverlay
               ? "rgba(0, 0, 0, 0.3)"
@@ -85,18 +89,20 @@ export function BannerWithButton({
               : undefined,
           }}
         >
-          <Box marginBottom={6} maxWidth={960} marginX="auto">
-            <Typography
-              variant={isDesktop ? "h2" : "h4"}
-              component="h2"
-              align="center"
-              style={{
-                fontWeight: 600,
-              }}
-            >
-              {title}
-            </Typography>
-          </Box>
+          {title && (
+            <Box marginBottom={6} maxWidth={960} marginX="auto">
+              <Typography
+                variant={isDesktop ? "h2" : "h4"}
+                component="h2"
+                align="center"
+                style={{
+                  fontWeight: 600,
+                }}
+              >
+                {title}
+              </Typography>
+            </Box>
+          )}
           <Box>
             {"href" in buttonProps ? (
               <Link href={buttonProps.href} passHref>
