@@ -24,7 +24,7 @@ export type PostCardProps = {
   dateText?: string;
   authorName?: string;
   authorPicture?: string;
-  tags?: string[];
+  tags?: { key: React.Key; tag: string }[];
   likes?: number;
   likesAriaLabel?: string;
   comments?: number;
@@ -85,9 +85,9 @@ export function PostCard({
         <CardContent>
           {tags !== undefined && tags.length > 0 && (
             <Box marginTop={0.8} marginBottom={2.4}>
-              {tags.map((tag, index) => (
+              {tags.map(({ key, tag }) => (
                 <Chip
-                  key={`post-card-chip-${index}`}
+                  key={key}
                   size="small"
                   label={tag}
                   style={{

@@ -12,11 +12,13 @@ export const Usage = () => {
     <AttachmentList
       items={[
         {
+          key: 1,
           title: "Doge meme A",
           href:
             "https://upload.wikimedia.org/wikipedia/en/5/5f/Original_Doge_meme.jpg",
         },
         {
+          key: 2,
           title: "Doge meme B",
           href:
             "https://upload.wikimedia.org/wikipedia/en/5/5f/Original_Doge_meme.jpg",

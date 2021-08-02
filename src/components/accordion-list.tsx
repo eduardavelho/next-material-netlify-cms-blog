@@ -8,6 +8,7 @@ import { useTheme } from "@material-ui/core/styles";
 
 export interface AccordionListProps {
   items: {
+    key: React.Key;
     header: React.ReactNode;
     content: React.ReactNode;
   }[];
@@ -22,8 +23,8 @@ export function AccordionList({
 
   return (
     <Box>
-      {items.map(({ header, content }, index) => (
-        <Accordion key={`accordion-item-${index}`}>
+      {items.map(({ header, content, key }) => (
+        <Accordion key={key}>
           <AccordionSummary
             style={{
               paddingLeft: theme.spacing(1.5),

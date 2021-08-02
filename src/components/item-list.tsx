@@ -13,6 +13,7 @@ export interface ItemListProps {
 }
 
 interface Item {
+  key: React.Key;
   text: string;
   image: string;
 }
@@ -58,9 +59,9 @@ export function ItemList({
             </Typography>
           </Box>
         )}
-        {items.map(({ text, image }: Item, index) => (
+        {items.map(({ key, text, image }: Item, index) => (
           <Box
-            key={`item-list-${index}`}
+            key={key}
             marginBottom={items.length - 1 === index ? 0 : 8}
             width="100%"
           >

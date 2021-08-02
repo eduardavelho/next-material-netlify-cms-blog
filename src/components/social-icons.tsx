@@ -108,11 +108,7 @@ export function SocialIcons(props: SocialIconsProps) {
       {icons
         .filter(([icon]) => socialIcons[icon])
         .map(([icon, Icon, color, getHref, name], index) => (
-          <Box
-            marginLeft={index && 1.6}
-            display="inline-flex"
-            key={`social-icon-${index}`}
-          >
+          <Box marginLeft={index && 1.6} display="inline-flex" key={name}>
             <a
               href={
                 typeof socialIcons[icon] === "string"

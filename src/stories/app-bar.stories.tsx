@@ -22,9 +22,9 @@ export const Usage = () => {
       }}
       drawerIcon={MenuIcon}
       items={[
-        { label: "Link A", href: "/" },
-        { label: "Link B", href: "/" },
-        { label: "Link C", href: "/" },
+        { key: 1, label: "Link A", href: "/" },
+        { key: 2, label: "Link B", href: "/" },
+        { key: 3, label: "Link C", href: "/" },
       ]}
     />
   );

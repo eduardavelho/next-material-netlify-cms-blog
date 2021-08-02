@@ -27,7 +27,11 @@ export const Usage = () => {
       dateText="15, may, 2021"
       description="Description here"
       largeIcons
-      tags={["Tag A", "Tag B", "Tag C"]}
+      tags={[
+        { key: 1, tag: "Tag A" },
+        { key: 2, tag: "Tag B" },
+        { key: 3, tag: "Tag C" },
+      ]}
     />
   );
 };

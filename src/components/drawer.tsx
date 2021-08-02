@@ -10,6 +10,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Link from "next/link";
 
 type Item = {
+  key: React.Key;
   label: string;
   Icon: OverridableComponent<SvgIconTypeMap<{}, "svg">>;
 } & ({ href: string } | { onClick: () => void });
@@ -39,9 +40,9 @@ export function Drawer({
           onClick={() => setDrawerOpen(false)}
           arial-label={itemsAriaLabel}
         >
-          {items.map(({ label, Icon, ...item }, index) =>
+          {items.map(({ key, label, Icon, ...item }) =>
             "href" in item ? (
-              <Link href={item.href} passHref key={`drawer-item-${index}`}>
+              <Link href={item.href} passHref key={key}>
                 <ListItem
                   component={MuiLink}
                   color="inherit"
@@ -57,7 +58,7 @@ export function Drawer({
               <ListItem
                 onClick={item.onClick}
                 color="inherit"
-                key={`drawer-item-${index}`}
+                key={key}
                 style={{
                   cursor: "pointer",
                 }}

@@ -25,19 +25,20 @@ export const Usage = () => {
       shortName="App name"
       setDrawerOpen={setDrawerOpen}
       appBarItems={[
-        { label: "Link A", href: "/" },
-        { label: "Link B", href: "/" },
-        { label: "Link C", href: "/" },
+        { key: 1, label: "Link A", href: "/" },
+        { key: 2, label: "Link B", href: "/" },
+        { key: 3, label: "Link C", href: "/" },
       ]}
       bottomNavigationItems={[
-        { href: "/", label: "Alarm Off", Icon: AlarmOffIcon },
-        { href: "/a", label: "Alarm Off 2", Icon: AlarmOffIcon },
-        { href: "/b", label: "Alarm Off 3", Icon: AlarmOffIcon },
+        { key: 1, href: "/", label: "Alarm Off", Icon: AlarmOffIcon },
+        { key: 2, href: "/a", label: "Alarm Off 2", Icon: AlarmOffIcon },
+        { key: 3, href: "/b", label: "Alarm Off 3", Icon: AlarmOffIcon },
       ]}
       drawerItems={[
-        { href: "/", label: "Alarm Off", Icon: AlarmOffIcon },
-        { href: "/a", label: "Alarm Off 2", Icon: AlarmOffIcon },
+        { key: 1, href: "/", label: "Alarm Off", Icon: AlarmOffIcon },
+        { key: 2, href: "/a", label: "Alarm Off 2", Icon: AlarmOffIcon },
         {
+          key: 3,
           onClick() {
             setSnackbarContent({
               message: "Message here",

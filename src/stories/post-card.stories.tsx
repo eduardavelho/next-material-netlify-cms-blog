@@ -23,7 +23,11 @@ export const Usage = () => {
       elevation={9}
       likes={34}
       likesAriaLabel="Likes"
-      tags={["Tag A", "Tag B", "Tag C"]}
+      tags={[
+        { key: 1, tag: "Tag A" },
+        { key: 2, tag: "Tag B" },
+        { key: 3, tag: "Tag C" },
+      ]}
       titleColor="red"
       views={4}
       viewsAriaLabel="Views"

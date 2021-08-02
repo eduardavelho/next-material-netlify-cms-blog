@@ -8,7 +8,7 @@ import MuiBreadcrumbs from "@material-ui/core/Breadcrumbs";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 
 export interface BreadcrumbsProps {
-  breadcrumbs: { label: React.ReactNode; href: string }[];
+  breadcrumbs: { key: React.Key; label: React.ReactNode; href: string }[];
 }
 
 export function Breadcrumbs({ breadcrumbs }: BreadcrumbsProps) {
@@ -22,8 +22,8 @@ export function Breadcrumbs({ breadcrumbs }: BreadcrumbsProps) {
       color="inherit"
       separator={<NavigateNextIcon fontSize="small" />}
     >
-      {breadcrumbs.map(({ label, href }, index) => (
-        <Link href={href} passHref key={`page-breadcrumb-link-${index}`}>
+      {breadcrumbs.map(({ key, label, href }) => (
+        <Link href={href} passHref key={key}>
           <MuiLink color="inherit">{label}</MuiLink>
         </Link>
       ))}

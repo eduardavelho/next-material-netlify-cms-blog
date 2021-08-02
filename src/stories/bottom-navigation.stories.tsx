@@ -12,9 +12,9 @@ export const Usage = () => {
   return (
     <BottomNavigation
       items={[
-        { href: "/", label: "Alarm Off", Icon: AlarmOffIcon },
-        { href: "/a", label: "Alarm Off 2", Icon: AlarmOffIcon },
-        { href: "/b", label: "Alarm Off 3", Icon: AlarmOffIcon },
+        { key: 1, href: "/", label: "Alarm Off", Icon: AlarmOffIcon },
+        { key: 2, href: "/a", label: "Alarm Off 2", Icon: AlarmOffIcon },
+        { key: 3, href: "/b", label: "Alarm Off 3", Icon: AlarmOffIcon },
       ]}
     />
   );

@@ -11,12 +11,12 @@ export const Usage = () => {
   return (
     <Footer
       items={[
-        { label: "Link A", href: "/" },
-        { label: "Link B", href: "/" },
-        { label: "Link C", href: "/" },
-        { label: "Link D", href: "/" },
-        { label: "Link E", href: "/" },
-        { label: "Link F", href: "/" },
+        { key: 1, label: "Link A", href: "/" },
+        { key: 2, label: "Link B", href: "/" },
+        { key: 3, label: "Link C", href: "/" },
+        { key: 4, label: "Link D", href: "/" },
+        { key: 5, label: "Link E", href: "/" },
+        { key: 6, label: "Link F", href: "/" },
       ]}
       itemsAriaLabel="Footer items"
       backgroundColor="red"

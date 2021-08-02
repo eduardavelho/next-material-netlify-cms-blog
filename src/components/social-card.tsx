@@ -17,7 +17,7 @@ export type SocialCardProps = {
   description: string;
   about: string;
   picture?: string;
-  tags?: string[];
+  tags?: { key: React.Key; tag: string }[];
   elevation?: number;
 } & SocialIconsProps;
 
@@ -43,9 +43,9 @@ export function SocialCard({
       >
         {tags !== undefined && tags.length > 0 && (
           <Box>
-            {tags.map((tag, index) => (
+            {tags.map(({ key, tag }) => (
               <Chip
-                key={`social-card-chip-${index}`}
+                key={key}
                 size="small"
                 label={tag}
                 style={{

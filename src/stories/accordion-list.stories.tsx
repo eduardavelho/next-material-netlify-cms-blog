@@ -12,9 +12,9 @@ export const Usage = () => {
     <AccordionList
       expandIconAriaLabel="Show more"
       items={[
-        { header: "Item A", htmlContent: "<h1>Content A</h1>" },
-        { header: "Item B", htmlContent: "<h1>Content B</h1>" },
-        { header: "Item C", htmlContent: "<h1>Content C</h1>" },
+        { key: 1, header: "Item A", content: <h1>Content A</h1> },
+        { key: 2, header: "Item B", content: <h1>Content B</h1> },
+        { key: 3, header: "Item C", content: <h1>Content C</h1> },
       ]}
     />
   );

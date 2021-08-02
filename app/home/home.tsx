@@ -21,9 +21,18 @@ const itemsSections = {
   descriptionData: DescriptionSection,
 };
 
-const itemsToDisplay = itemsData.items.map(
-  ({ item }) => itemsSections[(item as any) as keyof typeof itemsSections]
-);
+const itemsToDisplay = itemsData.items.map(({ item }, index) => {
+  const Item = itemsSections[(item as any) as keyof typeof itemsSections];
+  const key = index;
+  return { Item, key };
+});
+
+const cardsItems = cardsData.cards.map((item, key) => ({ ...item, key }));
+
+const descriptionItems = descriptionData.items.map((item, key) => ({
+  ...item,
+  key,
+}));
 
 export const Home = pages.index.page(() => {
   return (
@@ -35,8 +44,8 @@ export const Home = pages.index.page(() => {
         keywords={homeMetadata.keywords}
         url={links.index.href}
       />
-      {itemsToDisplay.map((Item, index) => (
-        <Item key={`home-item-${index}`} />
+      {itemsToDisplay.map(({ Item, key }) => (
+        <Item key={key} />
       ))}
     </div>
   );
@@ -146,7 +155,7 @@ function CardsSection() {
       <ContentCards
         title={cardsData.title}
         subtitle={cardsData.subtitle}
-        cards={cardsData.cards}
+        cards={cardsItems}
       />
     </section>
   );
@@ -158,7 +167,7 @@ function DescriptionSection() {
       <ItemList
         title={descriptionData.title}
         titleColor={descriptionData.titleColor}
-        items={descriptionData.items}
+        items={descriptionItems}
         background={
           descriptionData.backgroundImage
             ? `url(${descriptionData.backgroundImage})`

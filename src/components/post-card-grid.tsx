@@ -8,11 +8,13 @@ import {
 } from "./infinite-scroll-grid";
 import { PostCard, PostCardProps } from "./post-card";
 
+type PostCard = PostCardProps & { key: React.Key };
+
 export type PostCardGridProps = {
   titleColor?: PostCardProps["titleColor"];
-  posts: PostCardProps[];
-  onRequestMorePosts: InfiniteScrollGridProps<PostCardProps>["onRequestMoreItems"];
-  hasMorePosts: InfiniteScrollGridProps<PostCardProps>["hasMoreItems"];
+  posts: PostCard[];
+  onRequestMorePosts: InfiniteScrollGridProps<PostCard>["onRequestMoreItems"];
+  hasMorePosts: InfiniteScrollGridProps<PostCard>["hasMoreItems"];
 };
 
 export function PostCardGrid({

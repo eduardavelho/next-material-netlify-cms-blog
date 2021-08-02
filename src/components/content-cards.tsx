@@ -15,6 +15,7 @@ export interface ContentCardsProps {
 }
 
 interface CardItem {
+  key: React.Key;
   title?: string;
   content?: string;
   href: string;
@@ -73,9 +74,9 @@ export function ContentCards({
         )}
         <Box className={styles.cards}>
           <MasonryGrid spacing={theme.spacing(2)} xs={2} md={2} lg={3} xl={3}>
-            {cards.map(({ title, content, image, href }, index) => (
+            {cards.map(({ key, title, content, image, href }) => (
               <PostCard
-                key={`content-cards-item-${index}`}
+                key={key}
                 title={title}
                 subtitle={content}
                 image={image}

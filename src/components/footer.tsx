@@ -3,7 +3,10 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Link from "next/link";
 
-type Item = { label: string } & ({ href: string } | { onClick: () => void });
+type Item = { key: React.Key; label: string } & (
+  | { href: string }
+  | { onClick: () => void }
+);
 
 export interface FooterProps {
   backgroundColor: string;
@@ -32,14 +35,14 @@ export function Footer({
           arial-label={itemsAriaLabel}
           value={false}
         >
-          {items.map((item, index) =>
+          {items.map((item) =>
             "href" in item ? (
-              <Link href={item.href} passHref key={`footer-item-${index}`}>
+              <Link href={item.href} passHref key={item.key}>
                 <Tab component="a" label={item.label} />
               </Link>
             ) : (
               <Tab
-                key={`footer-item-${index}`}
+                key={item.key}
                 label={item.label}
                 onClick={item.onClick}
                 style={{

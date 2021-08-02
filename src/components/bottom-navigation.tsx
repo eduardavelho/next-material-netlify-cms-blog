@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 type Item = {
+  key: React.Key;
   label: string;
   Icon: OverridableComponent<SvgIconTypeMap<{}, "svg">>;
 } & ({ href: string } | { onClick: () => void });
@@ -64,13 +65,9 @@ export function BottomNavigation({ items }: BottomNavigationProps) {
       }}
       showLabels
     >
-      {items.map(({ label, Icon, ...item }, index) =>
+      {items.map(({ key, label, Icon, ...item }) =>
         "href" in item ? (
-          <Link
-            href={item.href}
-            passHref
-            key={`bottom-navigation-item-${index}`}
-          >
+          <Link href={item.href} passHref key={key}>
             <BottomNavigationAction
               component="a"
               value={item.href}
@@ -82,8 +79,8 @@ export function BottomNavigation({ items }: BottomNavigationProps) {
           </Link>
         ) : (
           <BottomNavigationAction
-            key={`bottom-navigation-item-${index}`}
-            value={`bottom-navigation-item-${index}`}
+            key={key}
+            value={key}
             onClick={item.onClick}
             label={label}
             icon={<Icon />}

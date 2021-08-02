@@ -1,7 +1,6 @@
 # next-material
 
 INTEGRAÇÃO COM NETLIFY CMS
-Remover uso de index nas keys
 Verificar se sitemap está duplicando URLS
 Abstração para formulários e validação (front e back-end, ver zod)
 Use-form deve ser agnóstico na validação (receber string[])
@@ -9,17 +8,19 @@ Substituir class-validator por zod
 Implementar lógica do formulário de contato
 Adicionar componentes básicos (button, chip, paper, icons, etc)
 Implementar blog e faq
+Ver quais pacotes podem ser removidos
 Unificar módulos em um único framework, de forma que não seja necessário importar next ou material-ui
-
-Netlify cms deve ser implementado via react ao invés de script
+NetlifyCMS deve ser implementado via react ao invés de por injeção de script
 NetlifyCMS deve ser self-hosted
 Ver problema de segfault do sharp no netlify
 Netlify deve ter cache
-Google SpeedInsights está com nota baixa em mobile
 Ver quais features do nextJS faltam ser implementadas
 Criar repositório para app-boilerplate
+Realizar deploy do projeto para o Netlify
+Google SpeedInsights está com nota baixa em mobile
 
 DOCUMENTAÇÃO E NOVAS FEATURES
+Integração continua (testes, notificações e integrações)
 Escrever documentação dos módulos
 No rodapé, links para mídias sociais
 Questões de TWA

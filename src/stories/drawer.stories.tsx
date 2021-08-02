@@ -20,9 +20,10 @@ export const Usage = () => {
         itemsAriaLabel="Drawer items"
         drawerOpen={drawerOpen}
         items={[
-          { href: "/", label: "Alarm Off", Icon: AlarmOffIcon },
-          { href: "/a", label: "Alarm Off 2", Icon: AlarmOffIcon },
+          { key: 1, href: "/", label: "Alarm Off", Icon: AlarmOffIcon },
+          { key: 2, href: "/a", label: "Alarm Off 2", Icon: AlarmOffIcon },
           {
+            key: 3,
             href: "/",
             label: "Alarm Off 3",
             Icon: AlarmOffIcon,

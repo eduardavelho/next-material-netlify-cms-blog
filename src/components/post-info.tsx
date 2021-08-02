@@ -18,7 +18,7 @@ export type PostInfoProps = {
   authorName?: string;
   authorPicture?: string;
   authorDescription?: string;
-  tags?: string[];
+  tags?: { key: React.Key; tag: string }[];
   titleColor?: string;
   backgroundIsDark?: boolean;
 } & SocialIconsProps;
@@ -44,9 +44,9 @@ export function PostInfo({
     <Box>
       {tags !== undefined && tags.length > 0 && (
         <Box marginBottom={isDesktop ? undefined : 2}>
-          {tags.map((tag, index) => (
+          {tags.map(({ tag, key }) => (
             <Chip
-              key={`post-info-chip-${index}`}
+              key={key}
               size="small"
               label={tag}
               style={{

@@ -14,7 +14,7 @@ export const Usage = () => {
     <InfiniteScrollGrid
       items={new Array(count)
         .fill(undefined)
-        .map((_, index) => ({ title: `Title ${index}` }))}
+        .map((_, index) => ({ key: index, title: `Title ${index}` }))}
       hasMoreItems={count < 50}
       mapItemToComponent={({ title }) => <h1>{title}</h1>}
       onRequestMoreItems={() => {

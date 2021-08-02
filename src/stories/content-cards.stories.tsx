@@ -15,6 +15,7 @@ export const Usage = () => {
       titleColor="green"
       cards={[
         {
+          key: 1,
           title: "Card A",
           content: "Some description here",
           image:
@@ -22,6 +23,7 @@ export const Usage = () => {
           href: "/",
         },
         {
+          key: 2,
           title: "Card B",
           content: "Some description here",
           image:
@@ -29,6 +31,7 @@ export const Usage = () => {
           href: "/",
         },
         {
+          key: 3,
           title: "Card C",
           content: "Some description here",
           image:

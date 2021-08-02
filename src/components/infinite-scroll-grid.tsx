@@ -4,14 +4,14 @@ import { useTheme } from "@material-ui/core/styles";
 import { MasonryGrid, MasonryGridProps } from "./masonry-grid";
 import { InfiniteScroll, InfiniteScrollProps } from "./infinite-scroll";
 
-export type InfiniteScrollGridProps<Item> = {
+export type InfiniteScrollGridProps<Item extends { key: React.Key }> = {
   items: Item[];
   hasMoreItems: InfiniteScrollProps["hasMoreItems"];
   onRequestMoreItems: InfiniteScrollProps["onRequestMoreItems"];
   mapItemToComponent: (item: Item) => React.ReactNode;
 } & Omit<MasonryGridProps, "children">;
 
-export function InfiniteScrollGrid<Item>({
+export function InfiniteScrollGrid<Item extends { key: React.Key }>({
   hasMoreItems,
   onRequestMoreItems,
   items,
@@ -27,10 +27,8 @@ export function InfiniteScrollGrid<Item>({
       hasMoreItems={hasMoreItems}
     >
       <MasonryGrid xl={3} spacing={theme.spacing(2)} {...gridProps}>
-        {items.map((props, index) => (
-          <Box key={`infinite-scroll-grid-item-${index}`}>
-            {mapItemToComponent(props)}
-          </Box>
+        {items.map((props) => (
+          <Box key={props.key}>{mapItemToComponent(props)}</Box>
         ))}
       </MasonryGrid>
     </InfiniteScroll>

@@ -20,6 +20,40 @@ const texts = {
   logoutLabel: "Sair",
 };
 
+const appBarItems = mapFilterItemsToLinks(dashItems.appBar).map(
+  (item, key) => ({
+    key,
+    href: item.href,
+    label: item.longLabel,
+  })
+);
+
+const footerItems = mapFilterItemsToLinks(dashItems.footer).map(
+  (item, key) => ({
+    key,
+    href: item.href,
+    label: item.longLabel,
+  })
+);
+
+const bottomNavigationItems = mapFilterItemsToLinks(
+  dashItems.bottomNavigation
+).map((item, key) => ({
+  key,
+  href: item.href,
+  label: item.label,
+  Icon: item.Icon,
+}));
+
+const drawerItems = mapFilterItemsToLinks(dashItems.drawer).map(
+  (item, key) => ({
+    key,
+    href: item.href,
+    label: item.longLabel,
+    Icon: item.Icon,
+  })
+);
+
 export interface DashProps {
   children: ReactNode;
   snackbarContent: MuiDashProps["snackbarContent"];
@@ -45,26 +79,10 @@ export function Dash({
       footerBackgroundColor={dashColors.footerBackgroundColor}
       drawerOpen={context.drawerOpen}
       setDrawerOpen={(drawerOpen) => setContext({ drawerOpen })}
-      appBarItems={mapFilterItemsToLinks(dashItems.appBar).map((item) => ({
-        href: item.href,
-        label: item.longLabel,
-      }))}
-      footerItems={mapFilterItemsToLinks(dashItems.footer).map((item) => ({
-        href: item.href,
-        label: item.longLabel,
-      }))}
-      bottomNavigationItems={mapFilterItemsToLinks(
-        dashItems.bottomNavigation
-      ).map((item) => ({
-        href: item.href,
-        label: item.label,
-        Icon: item.Icon,
-      }))}
-      drawerItems={mapFilterItemsToLinks(dashItems.drawer).map((item) => ({
-        href: item.href,
-        label: item.longLabel,
-        Icon: item.Icon,
-      }))}
+      appBarItems={appBarItems}
+      footerItems={footerItems}
+      bottomNavigationItems={bottomNavigationItems}
+      drawerItems={drawerItems}
       {...texts}
     >
       {children}
@@ -73,5 +91,5 @@ export function Dash({
 }
 
 function mapFilterItemsToLinks(items: { page: string }[]) {
-  return items.map(({ page }) => links[page as keyof typeof links]);
+  return items.map(({ page }, key) => links[page as keyof typeof links]);
 }
