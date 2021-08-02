@@ -7,18 +7,18 @@ import Typography from "@material-ui/core/Typography";
 import { MasonryGrid } from "./masonry-grid";
 import { PostCard } from "./post-card";
 
-interface CardItem {
-  title: string;
-  content: string;
-  href: string;
-  image: string;
-}
-
 export interface ContentCardsProps {
-  title: string;
-  subtitle: string;
+  title?: string;
+  subtitle?: string;
   titleColor?: string;
   cards: CardItem[];
+}
+
+interface CardItem {
+  title?: string;
+  content?: string;
+  href: string;
+  image: string;
 }
 
 export function ContentCards({
@@ -45,28 +45,32 @@ export function ContentCards({
       }}
     >
       <Box maxWidth={960} marginX="auto">
-        <Box marginBottom={1}>
-          <Typography
-            align="center"
-            variant={isDesktop ? "h2" : "h4"}
-            component="h2"
-            style={{
-              color,
-            }}
-          >
-            {title}
-          </Typography>
-        </Box>
-        <Box marginBottom={4}>
-          <Typography
-            variant={isDesktop ? "h5" : "subtitle1"}
-            align="center"
-            component="h3"
-            color="textPrimary"
-          >
-            {subtitle}
-          </Typography>
-        </Box>
+        {title && (
+          <Box marginBottom={subtitle ? 1 : 4}>
+            <Typography
+              align="center"
+              variant={isDesktop ? "h2" : "h4"}
+              component="h2"
+              style={{
+                color,
+              }}
+            >
+              {title}
+            </Typography>
+          </Box>
+        )}
+        {subtitle && (
+          <Box marginBottom={4}>
+            <Typography
+              variant={isDesktop ? "h5" : "subtitle1"}
+              align="center"
+              component="h3"
+              color="textPrimary"
+            >
+              {subtitle}
+            </Typography>
+          </Box>
+        )}
         <Box className={styles.cards}>
           <MasonryGrid spacing={theme.spacing(2)} xs={2} md={2} lg={3} xl={3}>
             {cards.map(({ title, content, image, href }, index) => (

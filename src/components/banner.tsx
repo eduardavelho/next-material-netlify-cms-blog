@@ -8,8 +8,8 @@ export interface BannerProps {
   image?: string;
   imageAlt?: string;
   imageWidth?: number;
-  background: string;
-  color: string;
+  background?: string;
+  color?: string;
   title?: React.ReactNode;
   subtitle?: React.ReactNode;
 }
@@ -34,9 +34,9 @@ export function Banner({
       flexDirection="column"
       alignItems="center"
       justifyContent="center"
-      color={color}
+      color={color || theme.palette.primary.contrastText}
       style={{
-        background,
+        background: background || theme.palette.primary.main,
         backgroundSize: "cover",
       }}
     >

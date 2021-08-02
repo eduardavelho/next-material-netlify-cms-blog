@@ -11,7 +11,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { SocialIcons, SocialIconsProps } from "./social-icons";
 
 export type PostInfoProps = {
-  title: React.ReactNode;
+  title?: React.ReactNode;
   description?: React.ReactNode;
   date?: Date;
   dateText?: string;
@@ -63,19 +63,21 @@ export function PostInfo({
           ))}
         </Box>
       )}
-      <Box marginBottom={isDesktop ? 0.4 : 0.6}>
-        <Typography
-          variant={isDesktop ? "h3" : "h5"}
-          component="h1"
-          style={{
-            lineHeight: 1.1,
-            fontWeight: isDesktop ? undefined : "bold",
-            color: titleColor || theme.palette.primary.main,
-          }}
-        >
-          {title}
-        </Typography>
-      </Box>
+      {title && (
+        <Box marginBottom={isDesktop ? 0.4 : 0.6}>
+          <Typography
+            variant={isDesktop ? "h3" : "h5"}
+            component="h1"
+            style={{
+              lineHeight: 1.1,
+              fontWeight: isDesktop ? undefined : "bold",
+              color: titleColor || theme.palette.primary.main,
+            }}
+          >
+            {title}
+          </Typography>
+        </Box>
+      )}
       {description && (
         <Box>
           <Typography

@@ -16,9 +16,9 @@ import ModeCommentIcon from "@material-ui/icons/ModeComment";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 
 export type PostCardProps = {
-  title: string;
-  subtitle: string;
-  image: string;
+  title?: string;
+  subtitle?: string;
+  image?: string;
   titleColor?: string;
   date?: Date;
   dateText?: string;
@@ -61,19 +61,21 @@ export function PostCard({
       onClick={() => "onClick" in props && props.onClick()}
     >
       <CardActionArea>
-        <CardMedia
-          image={image}
-          title={title}
-          style={{
-            height: "140px",
-          }}
-        />
+        {image && (
+          <CardMedia
+            image={image}
+            title={title}
+            style={{
+              height: "140px",
+            }}
+          />
+        )}
         {authorPicture && (
           <Avatar
             alt={authorName}
             src={authorPicture}
             style={{
-              margin: "-28px auto 0",
+              margin: `${image ? "-28px" : "16px"} auto 0`,
               position: "relative",
               width: "56px",
               height: "56px",
@@ -108,23 +110,31 @@ export function PostCard({
               </Typography>
             </Box>
           )}
-          <Box marginBottom={0.4}>
-            <Typography
-              variant="h6"
-              component="span"
-              style={{
-                lineHeight: "1.3",
-                color: titleColor || theme.palette.primary.main,
-              }}
-            >
-              {title}
-            </Typography>
-          </Box>
-          <Box>
-            <Typography variant="body2" color="textSecondary" component="span">
-              {subtitle}
-            </Typography>
-          </Box>
+          {title && (
+            <Box marginBottom={subtitle ? 0.4 : undefined}>
+              <Typography
+                variant="h6"
+                component="span"
+                style={{
+                  lineHeight: "1.3",
+                  color: titleColor || theme.palette.primary.main,
+                }}
+              >
+                {title}
+              </Typography>
+            </Box>
+          )}
+          {subtitle && (
+            <Box>
+              <Typography
+                variant="body2"
+                color="textSecondary"
+                component="span"
+              >
+                {subtitle}
+              </Typography>
+            </Box>
+          )}
         </CardContent>
         {(likes !== undefined ||
           views !== undefined ||

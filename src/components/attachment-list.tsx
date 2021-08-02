@@ -4,7 +4,7 @@ import Chip, { ChipProps } from "@material-ui/core/Chip";
 import GetAppIcon from "@material-ui/icons/GetApp";
 
 export interface AttachmentListProps {
-  items: [string, string][];
+  items: { title: string; href: string }[];
   itemColor?: ChipProps["color"];
 }
 
@@ -14,7 +14,7 @@ export function AttachmentList({
 }: AttachmentListProps) {
   return (
     <Box flexWrap="wrap" display="flex" marginTop={2}>
-      {items.map(([title, file], index) => (
+      {items.map(({ title, href }, index) => (
         <Box
           key={`attachment-item-${index}`}
           marginRight={0.5}
@@ -24,7 +24,7 @@ export function AttachmentList({
             color={itemColor}
             component="a"
             download={title}
-            href={file}
+            href={href}
             label={title}
             icon={<GetAppIcon />}
             style={{

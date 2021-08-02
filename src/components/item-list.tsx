@@ -12,6 +12,11 @@ export interface ItemListProps {
   items: Item[];
 }
 
+interface Item {
+  text: string;
+  image: string;
+}
+
 export function ItemList({
   title,
   titleColor,
@@ -60,11 +65,6 @@ export function ItemList({
       </Box>
     </Box>
   );
-}
-
-interface Item {
-  text: string;
-  image: string;
 }
 
 function InfoViewImage({ image, text }: { image: string; text: string }) {

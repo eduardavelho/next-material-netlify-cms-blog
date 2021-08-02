@@ -1,35 +1,39 @@
 # next-material
 
 INTEGRAÇÃO COM NETLIFY CMS
-Implementar blog e faq
-
-BUGS
-Ver problema de segfault do sharp no netlify
+Lógica de defaults deve estar dentro dos componentes
+Nada pode ser default em post-card
+Remover processamento de markdown de dentro dos componentes
+Remover index.ts do projeto
+Substituir tuplas por objetos
+Remover default exports
+Remover uso de index nas keys
 Verificar se sitemap está duplicando URLS
-Netlify deve ter cache
-Google SpeedInsights está com nota baixa em mobile
-
-CRIAR BOILERPLATE
-Netlify cms deve ser implementado via react ao invés de script
-NetlifyCMS deve ser self-hosted
-Unificar módulos em um único framework, de forma que não seja necessário importar next ou material-ui
-Criar repositório para app-boilerplate
 Abstração para formulários e validação (front e back-end, ver zod)
 Use-form deve ser agnóstico na validação (receber string[])
 Substituir class-validator por zod
 Implementar lógica do formulário de contato
+Adicionar componentes básicos (button, chip, paper, icons, etc)
+Implementar blog e faq
+Unificar módulos em um único framework, de forma que não seja necessário importar next ou material-ui
+
+Netlify cms deve ser implementado via react ao invés de script
+NetlifyCMS deve ser self-hosted
+Ver problema de segfault do sharp no netlify
+Netlify deve ter cache
+Google SpeedInsights está com nota baixa em mobile
+Ver quais features do nextJS faltam ser implementadas
+Criar repositório para app-boilerplate
 
 DOCUMENTAÇÃO E NOVAS FEATURES
 Escrever documentação dos módulos
 No rodapé, links para mídias sociais
-Possibilidade de colocar a imagem do usuário no botão do drawer
-Drawer personalizado quando usuário está logado
-Possibilidade de adicionar ícones ao lado do drawer (ver portal react)
-Adicionar componentes básicos (button, chip, paper, icons, etc)
 Questões de TWA
 Anúncios
 Internacionalização
-Ver quais features do nextJS faltam ser implementadas
+Possibilidade de colocar a imagem do usuário no botão do drawer
+Drawer personalizado quando usuário está logado
+Possibilidade de adicionar ícones ao lado do drawer (ver portal react)
 Blog deve ter área de "mais lidas" nas postagens
 Blog deve ter área de "tags" nas postagens
 Rodapé deve ter link para redes sociais

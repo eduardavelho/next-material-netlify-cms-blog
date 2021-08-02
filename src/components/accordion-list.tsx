@@ -5,13 +5,11 @@ import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Box from "@material-ui/core/Box";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { useTheme } from "@material-ui/core/styles";
-import { markdownStyles } from "../utils/markdown-styles";
 
 export interface AccordionListProps {
   items: {
     header: React.ReactNode;
-    htmlContent: string;
-    footer?: React.ReactNode;
+    content: React.ReactNode;
   }[];
   expandIconAriaLabel: string;
 }
@@ -21,11 +19,10 @@ export function AccordionList({
   expandIconAriaLabel,
 }: AccordionListProps) {
   const theme = useTheme();
-  const markdownClasses = markdownStyles();
 
   return (
     <Box>
-      {items.map(({ header, htmlContent, footer }, index) => (
+      {items.map(({ header, content }, index) => (
         <Accordion key={`accordion-item-${index}`}>
           <AccordionSummary
             style={{
@@ -55,15 +52,7 @@ export function AccordionList({
                 paddingRight={{ sm: 0, md: 8 }}
                 paddingBottom={{ sm: 0, md: 2 }}
               >
-                <div
-                  className={markdownClasses.markdown}
-                  dangerouslySetInnerHTML={{ __html: htmlContent }}
-                />
-                {footer !== undefined && (
-                  <Box flexWrap="wrap" display="flex" marginTop={2}>
-                    {footer}
-                  </Box>
-                )}
+                {content}
               </Box>
             </Box>
           </AccordionDetails>

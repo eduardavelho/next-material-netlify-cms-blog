@@ -5,7 +5,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
 
 export interface TitleDescriptionInfoProps {
-  title: string;
+  title?: string;
   description?: string;
 }
 
@@ -18,13 +18,15 @@ export function TitleDescriptionInfo({
 
   return (
     <>
-      <Box>
-        <Typography component="h1" variant={isDesktop ? "h3" : "h5"}>
-          {title}
-        </Typography>
-      </Box>
+      {title && (
+        <Box>
+          <Typography component="h1" variant={isDesktop ? "h3" : "h5"}>
+            {title}
+          </Typography>
+        </Box>
+      )}
       {description && (
-        <Box marginTop={2}>
+        <Box marginTop={title ? 2 : undefined}>
           <Typography
             component="h2"
             variant={isDesktop ? "subtitle1" : "subtitle2"}
