@@ -1,6 +1,6 @@
 import { ReactNode, useContext } from "react";
-import { app } from "@egvelho/next-material";
-import { Meta, MetaProps } from "@egvelho/next-material/meta";
+import { app } from "@egvelho/next-material/app";
+import { Meta, MetaProps } from "@egvelho/next-material/meta/meta";
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { theme } from "app/theme";

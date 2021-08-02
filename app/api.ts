@@ -1,14 +1,13 @@
-import { link, getPages } from "@egvelho/next-material/api";
+import { link } from "@egvelho/next-material/api/link";
+import { getPages } from "@egvelho/next-material/api/get-pages";
 import HomeIcon from "@material-ui/icons/Home";
 import RssFeedIcon from "@material-ui/icons/RssFeed";
 import ZoomInIcon from "@material-ui/icons/ZoomIn";
 import EmailIcon from "@material-ui/icons/Email";
 import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
-import type {
-  BannerProps,
-  BannerWithButtonProps,
-  ItemListProps,
-} from "@egvelho/next-material/components";
+import type { BannerProps } from "@egvelho/next-material/components/banner";
+import type { BannerWithButtonProps } from "@egvelho/next-material/components/banner-with-button";
+import type { ItemListProps } from "@egvelho/next-material/components/item-list";
 
 export const links = {
   index: link<

@@ -1,8 +1,6 @@
 # next-material
 
 INTEGRAÇÃO COM NETLIFY CMS
-Remover index.ts do projeto
-Remover default exports
 Remover uso de index nas keys
 Verificar se sitemap está duplicando URLS
 Abstração para formulários e validação (front e back-end, ver zod)

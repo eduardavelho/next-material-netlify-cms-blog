@@ -5,7 +5,6 @@ import { BannerWithButton } from "@egvelho/next-material/components/banner-with-
 import { ContactForm } from "@egvelho/next-material/components/contact-form";
 import { Meta } from "app/meta";
 import { links, pages } from "app/api";
-import { theme } from "app/theme";
 import homeMetadata from "./home-metadata.json";
 import itemsData from "./items-data.json";
 import bannerData from "./banner-data.json";
@@ -70,7 +69,7 @@ function BannerWithButtonSection() {
         title={bannerWithButtonData.title}
         label={bannerWithButtonData.label}
         href={bannerWithButtonData.href}
-        titleColor={bannerWithButtonData.titleColor}
+        color={bannerWithButtonData.titleColor}
         image={bannerWithButtonData.image}
         darkOverlay={bannerWithButtonData.darkOverlay}
         lightOverlay={bannerWithButtonData.lightOverlay}

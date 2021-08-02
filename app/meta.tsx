@@ -1,10 +1,8 @@
-import {
-  MetaTitle,
-  MetaDescription,
-  MetaKeywords,
-  MetaImage,
-  MetaPageUrl,
-} from "@egvelho/next-material/meta";
+import { MetaTitle } from "@egvelho/next-material/meta/title";
+import { MetaDescription } from "@egvelho/next-material/meta/description";
+import { MetaKeywords } from "@egvelho/next-material/meta/keywords";
+import { MetaImage } from "@egvelho/next-material/meta/image";
+import { MetaPageUrl } from "@egvelho/next-material/meta/page-url";
 import app from "app.json";
 
 export type MetaProps = {

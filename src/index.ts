@@ -1,4 +1,3 @@
 export * from "./types";
 
-export { app } from "./app";
-export { document } from "./document";
+export default {} as never;
