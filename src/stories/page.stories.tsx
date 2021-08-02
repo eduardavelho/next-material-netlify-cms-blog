@@ -12,8 +12,8 @@ export const Paper = () => (
     header={<h1>Some header here</h1>}
     background="black"
     breadcrumbs={[
-      ["Home", "/"],
-      ["Also home", "/"],
+      { label: "Home", href: "/" },
+      { label: "Also home", href: "/" },
     ]}
   >
     <p style={{ paddingBottom: "256px" }}>Content goes here.</p>
@@ -26,8 +26,8 @@ export const NoPaper = () => (
     header={<h1>Some header here</h1>}
     background="black"
     breadcrumbs={[
-      ["Home", "/"],
-      ["Also home", "/"],
+      { label: "Home", href: "/" },
+      { label: "Also home", href: "/" },
     ]}
   >
     <p

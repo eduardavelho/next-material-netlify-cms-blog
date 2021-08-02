@@ -11,14 +11,16 @@ export const Usage = () => {
   return (
     <AttachmentList
       items={[
-        [
-          "Doge meme A",
-          "https://upload.wikimedia.org/wikipedia/en/5/5f/Original_Doge_meme.jpg",
-        ],
-        [
-          "Doge meme B",
-          "https://upload.wikimedia.org/wikipedia/en/5/5f/Original_Doge_meme.jpg",
-        ],
+        {
+          title: "Doge meme A",
+          href:
+            "https://upload.wikimedia.org/wikipedia/en/5/5f/Original_Doge_meme.jpg",
+        },
+        {
+          title: "Doge meme B",
+          href:
+            "https://upload.wikimedia.org/wikipedia/en/5/5f/Original_Doge_meme.jpg",
+        },
       ]}
     />
   );

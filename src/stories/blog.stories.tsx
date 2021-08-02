@@ -11,8 +11,8 @@ export const Usage = () => {
   return (
     <Blog
       breadcrumbs={[
-        ["Link A", "/"],
-        ["Link B", "/"],
+        { label: "Link A", href: "/" },
+        { label: "Link B", href: "/" },
       ]}
       loading={false}
       title="Blog title"

@@ -61,6 +61,8 @@ export const Usage = () => {
       footerItemsAriaLabel="Footer items"
       setSnackbarContent={setSnackbarContent}
       snackbarContent={snackbarContent}
+      footerBackgroundColor="green"
+      footerColor="red"
     >
       <div>Content goes here</div>
     </Dash>

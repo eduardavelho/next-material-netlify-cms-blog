@@ -11,8 +11,8 @@ export const Usage = () => {
   return (
     <Breadcrumbs
       breadcrumbs={[
-        ["Home", "/"],
-        ["Also home", "/"],
+        { label: "Home", href: "/" },
+        { label: "Also home", href: "/" },
       ]}
     />
   );

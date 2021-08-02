@@ -1,12 +1,9 @@
 # next-material
 
 INTEGRAÇÃO COM NETLIFY CMS
-Remover processamento de markdown de dentro dos componentes
 Remover index.ts do projeto
-Substituir tuplas por objetos
 Remover default exports
 Remover uso de index nas keys
-Ver defaults de backgroundIsDark
 Verificar se sitemap está duplicando URLS
 Abstração para formulários e validação (front e back-end, ver zod)
 Use-form deve ser agnóstico na validação (receber string[])
