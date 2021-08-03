@@ -4,6 +4,7 @@ import HomeIcon from "@material-ui/icons/Home";
 import RssFeedIcon from "@material-ui/icons/RssFeed";
 import ZoomInIcon from "@material-ui/icons/ZoomIn";
 import EmailIcon from "@material-ui/icons/Email";
+import CommentIcon from "@material-ui/icons/Comment";
 import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
 import type { BannerProps } from "@egvelho/next-material/components/banner";
 import type { BannerWithButtonProps } from "@egvelho/next-material/components/banner-with-button";
@@ -19,6 +20,30 @@ export const links = {
     {}
   >("/", HomeIcon, "Home"),
   blog: link("/blog", RssFeedIcon, "Blog", "Acessar o blog"),
+  post: link<
+    {
+      slug: string;
+      title: string;
+      titleColor: string;
+      description: string;
+      image: string;
+      tags: { key: React.Key; tag: string }[];
+      backgroundColor: string;
+      backgroundImage: string;
+      authorName: string;
+      authorDescription: string;
+      authorPicture: string;
+      publishDate: Date;
+      content: JSX.Element;
+    },
+    { slug: string },
+    "withQuery"
+  >(
+    ({ slug }) => `/blog/publicacoes/${slug}`,
+    CommentIcon,
+    "Publicação",
+    "Ver publicação"
+  ),
   contact: link("/#contato", EmailIcon, "Contato", "Realizar contato"),
   about: link("/#saiba-mais", ZoomInIcon, "Saiba mais"),
   admin: link("/admin", SupervisedUserCircleIcon, "Admin"),

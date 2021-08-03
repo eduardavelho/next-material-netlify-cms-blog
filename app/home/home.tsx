@@ -36,7 +36,7 @@ const descriptionItems = descriptionData.items.map((item, key) => ({
 
 export const Home = pages.index.page(() => {
   return (
-    <div>
+    <>
       <Meta
         title={homeMetadata.title}
         description={homeMetadata.description}
@@ -47,7 +47,7 @@ export const Home = pages.index.page(() => {
       {itemsToDisplay.map(({ Item, key }) => (
         <Item key={key} />
       ))}
-    </div>
+    </>
   );
 });
 
@@ -94,7 +94,7 @@ function BannerWithButtonSection() {
 
 function ContactFormSection() {
   return (
-    <section id="contact-form">
+    <section id="contato">
       <ContactForm
         title={contactFormData.title}
         submitButtonLabel={contactFormData.label}
@@ -163,7 +163,7 @@ function CardsSection() {
 
 function DescriptionSection() {
   return (
-    <section id="item-list">
+    <section id="saiba-mais">
       <ItemList
         title={descriptionData.title}
         titleColor={descriptionData.titleColor}

@@ -27,6 +27,7 @@ export function Blog({
   hasMorePosts,
   posts,
   noResultsText,
+  noResultsDescription,
   breadcrumbs,
 }: BlogProps) {
   const theme = useTheme();
@@ -54,6 +55,7 @@ export function Blog({
 
   const noResultsProps = {
     noResultsText,
+    noResultsDescription,
   };
 
   return (
@@ -61,12 +63,16 @@ export function Blog({
       <SearchHeader {...searchHeaderProps} />
       <Box maxWidth="960px" marginX={isDesktop ? "auto" : 1.6} marginY={1.6}>
         <Breadcrumbs breadcrumbs={breadcrumbs} />
+        <Box minHeight="60vh">
+          {posts.length > 0 ? (
+            <PostCardGrid {...postCardGridProps} />
+          ) : (
+            <Box paddingY={isDesktop ? 8 : 4}>
+              <NoResults {...noResultsProps} />
+            </Box>
+          )}
+        </Box>
       </Box>
-      {posts.length > 0 ? (
-        <PostCardGrid {...postCardGridProps} />
-      ) : (
-        <NoResults {...noResultsProps} />
-      )}
     </>
   );
 }

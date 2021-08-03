@@ -1,10 +1,13 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
+import { useTheme } from "@material-ui/core/styles";
 import { PostInfo, PostInfoProps } from "./post-info";
 import { Page, PageProps } from "./page";
+import { isColor } from "../utils/is-color";
 import { isColorDark } from "../utils/is-color-dark";
 
-export type PostPageProps = PostInfoProps & Omit<PageProps, "header">;
+export type PostPageProps = Omit<PostInfoProps, "backgroundIsDark"> &
+  Omit<PageProps, "header">;
 
 export function PostPage({
   children,
@@ -13,7 +16,10 @@ export function PostPage({
   breadcrumbs,
   ...postInfoProps
 }: PostPageProps) {
-  const backgroundIsDark = background ? isColorDark(background) : false;
+  const theme = useTheme();
+  const backgroundIsDark = background
+    ? isColor(background) && isColorDark(background)
+    : isColorDark(theme.palette.primary.main);
 
   const pageProps = {
     background,

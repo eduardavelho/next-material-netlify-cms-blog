@@ -9,6 +9,7 @@ import { useTheme } from "@material-ui/core/styles";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import SearchIcon from "@material-ui/icons/Search";
+import { isColor } from "../utils/is-color";
 import { isColorDark } from "../utils/is-color-dark";
 
 export interface SearchHeaderProps {
@@ -36,8 +37,11 @@ export function SearchHeader({
   loading,
   onChange = async () => {},
 }: SearchHeaderProps) {
-  const backgroundIsDark = background ? isColorDark(background) : false;
   const theme = useTheme();
+  const backgroundIsDark = background
+    ? isColor(background) && isColorDark(background)
+    : isColorDark(theme.palette.primary.main);
+
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
   const searchClasses = searchStyles({ backgroundIsDark });
 

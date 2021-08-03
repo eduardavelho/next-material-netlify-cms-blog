@@ -22,6 +22,7 @@ export const Usage = () => {
       hasMorePosts={false}
       noOptionsText="No options"
       noResultsText="No results"
+      noResultsDescription="No results description text"
       onRequestMorePosts={() => {}}
       options={["A", "B", "C"]}
       placeholder="Search here"

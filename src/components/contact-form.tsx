@@ -9,6 +9,7 @@ import { useTheme } from "@material-ui/core/styles";
 import { makeStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { FormInput } from "../types";
+import { isColor } from "../utils/is-color";
 import { isColorDark } from "../utils/is-color-dark";
 
 export interface ContactFormProps {
@@ -30,8 +31,11 @@ export function ContactForm({
   titleColor,
   background,
 }: ContactFormProps) {
-  const backgroundIsDark = background ? isColorDark(background) : false;
   const theme = useTheme();
+  const backgroundIsDark = background
+    ? isColor(background) && isColorDark(background)
+    : isColorDark(theme.palette.primary.main);
+
   const styles = useStyles({ backgroundIsDark });
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
 

@@ -3,6 +3,7 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { isColor } from "../utils/is-color";
 import { isColorDark } from "../utils/is-color-dark";
 
 export interface ItemListProps {
@@ -24,9 +25,11 @@ export function ItemList({
   background,
   items,
 }: ItemListProps) {
-  const backgroundIsDark = background ? isColorDark(background) : false;
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
+  const backgroundIsDark = background
+    ? isColor(background) && isColorDark(background)
+    : isColorDark(theme.palette.primary.main);
 
   return (
     <Box

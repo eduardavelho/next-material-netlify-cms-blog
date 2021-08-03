@@ -4,6 +4,7 @@ import Box from "@material-ui/core/Box";
 import Paper from "@material-ui/core/Paper";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { Breadcrumbs, BreadcrumbsProps } from "./breadcrumbs";
+import { isColor } from "../utils/is-color";
 import { isColorDark } from "../utils/is-color-dark";
 
 export interface PageProps {
@@ -22,9 +23,11 @@ export function Page({
   background,
   paper = true,
 }: PageProps) {
-  const backgroundIsDark = background ? isColorDark(background) : false;
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
+  const backgroundIsDark = background
+    ? isColor(background) && isColorDark(background)
+    : isColorDark(theme.palette.primary.main);
 
   return (
     <>

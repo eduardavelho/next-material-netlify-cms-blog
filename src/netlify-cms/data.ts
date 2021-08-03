@@ -1,4 +1,4 @@
-import slug from "slug";
+import slugify from "slug";
 import {
   CmsCollectionFile,
   CmsField,
@@ -19,7 +19,7 @@ export function files({
 }) {
   return {
     ...options,
-    name: slug(label),
+    name: slugify(label),
     label,
     format: "json",
     files,
@@ -39,7 +39,7 @@ export function file({
 }) {
   return {
     ...options,
-    name: slug(label),
+    name: slugify(label),
     label,
     file,
     fields,
@@ -48,26 +48,32 @@ export function file({
 
 export function folder({
   label,
-  label_singular,
+  labelSingular,
   folder,
   fields,
   options,
+  slug,
+  sortableFields,
 }: {
   label: string;
-  label_singular: string;
+  labelSingular: string;
   folder: string;
+  slug: string;
+  sortableFields: string[];
   fields: CmsField[];
-  options: Partial<CmsCollection>;
+  options?: Partial<CmsCollection>;
 }) {
   return {
     ...options,
-    name: label ? slug(label) : name,
-    label: label,
-    label_singular: label_singular,
+    name: slugify(label),
+    label,
+    label_singular: labelSingular,
+    sortable_fields: sortableFields,
     folder: folder,
     create: true,
     format: "json",
     fields: fields,
+    slug,
   } as CmsCollection;
 }
 
@@ -305,5 +311,45 @@ export function object({
     fields,
     summary,
     widget: "object",
+  } as CmsField;
+}
+
+export function datetime({
+  name,
+  label,
+  required,
+  dateFormat,
+  timeFormat,
+}: {
+  name: string;
+  label: string;
+  required: boolean;
+  dateFormat: string;
+  timeFormat: string;
+}) {
+  return {
+    name,
+    label,
+    required,
+    widget: "datetime",
+    date_format: dateFormat,
+    time_format: timeFormat,
+  } as CmsField;
+}
+
+export function markdown({
+  name,
+  label,
+  required,
+}: {
+  name: string;
+  label: string;
+  required: boolean;
+}) {
+  return {
+    name,
+    label,
+    required,
+    widget: "markdown",
   } as CmsField;
 }
