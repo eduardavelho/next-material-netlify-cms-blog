@@ -11,8 +11,8 @@ export const Usage = () => {
   return (
     <ContactForm
       title="Form title"
-      background="purple"
-      titleColor="green"
+      background="#fff"
+      titleColor="#0f0"
       submitButtonLabel="Submit"
       onSubmit={async () => {
         alert("Submit success!");

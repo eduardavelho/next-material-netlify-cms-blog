@@ -19,7 +19,7 @@ export const Usage = () => {
       }}
     >
       {new Array(count).fill(undefined).map((_, index) => (
-        <div style={{ paddingBottom: 50 }}>{`Title ${index}`}</div>
+        <div style={{ paddingBottom: 50 }} key={index}>{`Title ${index}`}</div>
       ))}
     </InfiniteScroll>
   );

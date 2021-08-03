@@ -11,13 +11,13 @@ export const Usage = () => {
   return (
     <Blog
       breadcrumbs={[
-        { label: "Link A", href: "/" },
-        { label: "Link B", href: "/" },
+        { key: 1, label: "Link A", href: "/" },
+        { key: 2, label: "Link B", href: "/" },
       ]}
       loading={false}
       title="Blog title"
-      titleColor="green"
-      background="blue"
+      titleColor="#0f0"
+      background="#00f"
       disabled={false}
       hasMorePosts={false}
       noOptionsText="No options"
@@ -25,7 +25,8 @@ export const Usage = () => {
       onRequestMorePosts={() => {}}
       options={["A", "B", "C"]}
       placeholder="Search here"
-      posts={new Array(10).fill(undefined).map(() => ({
+      posts={new Array(10).fill(undefined).map((_, key) => ({
+        key,
         href: "https://google.com",
         image:
           "https://upload.wikimedia.org/wikipedia/en/5/5f/Original_Doge_meme.jpg",
@@ -41,8 +42,12 @@ export const Usage = () => {
         elevation: 9,
         likes: 34,
         likesAriaLabel: "Likes",
-        tags: ["Tag A", "Tag B", "Tag C"],
-        titleColor: "red",
+        tags: [
+          { key: 1, tag: "Tag A" },
+          { key: 2, tag: "Tag B" },
+          { key: 3, tag: "Tag C" },
+        ],
+        titleColor: "#f00",
         views: 4,
         viewsAriaLabel: "Views",
       }))}

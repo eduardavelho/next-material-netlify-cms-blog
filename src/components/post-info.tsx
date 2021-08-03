@@ -118,13 +118,14 @@ export function PostInfo({
                 }
                 secondary={
                   <Box
+                    component="span"
                     color={
                       backgroundIsDark ? "rgba(255, 255, 255, 0.8)" : undefined
                     }
                   >
                     {authorDescription}
                     {date !== undefined && (
-                      <Box>
+                      <Box component="span">
                         <Typography
                           variant="caption"
                           component="time"

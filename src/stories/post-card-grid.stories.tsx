@@ -16,12 +16,13 @@ export const Usage = () => {
       onRequestMorePosts={() => {
         setCount(count + 10);
       }}
-      posts={new Array(count).fill(undefined).map((_, index) => ({
+      posts={new Array(count).fill(undefined).map((_, key) => ({
+        key,
         href: "https://google.com",
         image:
           "https://upload.wikimedia.org/wikipedia/en/5/5f/Original_Doge_meme.jpg",
         subtitle: "Subtitle here",
-        title: `Title here ${index}`,
+        title: `Title here ${key}`,
         authorName: "Author name",
         authorPicture:
           "https://upload.wikimedia.org/wikipedia/en/5/5f/Original_Doge_meme.jpg",
@@ -32,7 +33,11 @@ export const Usage = () => {
         elevation: 9,
         likes: 34,
         likesAriaLabel: "Likes",
-        tags: ["Tag A", "Tag B", "Tag C"],
+        tags: [
+          { key: 1, tag: "Tag A" },
+          { key: 2, tag: "Tag B" },
+          { key: 3, tag: "Tag C" },
+        ],
         titleColor: "red",
         views: 4,
         viewsAriaLabel: "Views",

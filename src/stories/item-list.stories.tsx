@@ -9,8 +9,8 @@ export default {
 
 export const Usage = () => (
   <ItemList
-    background="red"
-    titleColor="yellow"
+    background="#f00"
+    titleColor="#0ff"
     title="Item area title"
     items={[
       {

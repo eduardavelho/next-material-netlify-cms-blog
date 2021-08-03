@@ -10,10 +10,10 @@ export default {
 export const Paper = () => (
   <Page
     header={<h1>Some header here</h1>}
-    background="black"
+    background="#000"
     breadcrumbs={[
-      { label: "Home", href: "/" },
-      { label: "Also home", href: "/" },
+      { key: 1, label: "Home", href: "/" },
+      { key: 2, label: "Also home", href: "/" },
     ]}
   >
     <p style={{ paddingBottom: "256px" }}>Content goes here.</p>
@@ -24,10 +24,10 @@ export const NoPaper = () => (
   <Page
     paper={false}
     header={<h1>Some header here</h1>}
-    background="black"
+    background="#000"
     breadcrumbs={[
-      { label: "Home", href: "/" },
-      { label: "Also home", href: "/" },
+      { key: 1, label: "Home", href: "/" },
+      { key: 2, label: "Also home", href: "/" },
     ]}
   >
     <p

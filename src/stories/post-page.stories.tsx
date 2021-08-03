@@ -27,12 +27,16 @@ export const Usage = () => {
       dateText="15, may, 2021"
       description="Description here"
       largeIcons
-      tags={["Tag A", "Tag B", "Tag C"]}
-      background="black"
+      tags={[
+        { key: 1, tag: "Tag A" },
+        { key: 2, tag: "Tag B" },
+        { key: 3, tag: "Tag C" },
+      ]}
+      background="#000"
       paper
       breadcrumbs={[
-        { label: "Link A", href: "/" },
-        { label: "Link B", href: "/" },
+        { key: 1, label: "Link A", href: "/" },
+        { key: 2, label: "Link B", href: "/" },
       ]}
     >
       <div>

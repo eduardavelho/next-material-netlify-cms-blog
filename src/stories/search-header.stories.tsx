@@ -12,8 +12,8 @@ export const Usage = () => {
   return (
     <SearchHeader
       title="Search title"
-      titleColor="yellow"
-      background="red"
+      titleColor="#f0f"
+      background="#f00"
       onChange={async (searchValue) => {
         setSearchValue(searchValue);
       }}
