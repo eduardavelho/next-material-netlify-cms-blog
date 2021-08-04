@@ -10,6 +10,22 @@ import type { BannerProps } from "@egvelho/next-material/components/banner";
 import type { BannerWithButtonProps } from "@egvelho/next-material/components/banner-with-button";
 import type { ItemListProps } from "@egvelho/next-material/components/item-list";
 
+export interface PostType {
+  slug: string;
+  title: string;
+  titleColor?: string;
+  description: string;
+  image: string;
+  tags: { key: React.Key; tag: string }[];
+  backgroundColor?: string;
+  backgroundImage?: string;
+  authorName?: string;
+  authorDescription?: string;
+  authorPicture?: string;
+  publishDate?: string;
+  content: string;
+}
+
 export const links = {
   index: link<
     {
@@ -19,26 +35,10 @@ export const links = {
     },
     {}
   >("/", HomeIcon, "Home"),
-  blog: link("/blog", RssFeedIcon, "Blog", "Acessar o blog"),
-  post: link<
-    {
-      slug: string;
-      title: string;
-      titleColor?: string;
-      description: string;
-      image: string;
-      tags: { key: React.Key; tag: string }[];
-      backgroundColor?: string;
-      backgroundImage?: string;
-      authorName?: string;
-      authorDescription?: string;
-      authorPicture?: string;
-      publishDate?: string;
-      content: string;
-    },
-    { slug: string },
-    "withQuery"
-  >(
+  blog: link<{
+    posts: Omit<PostType, "content">[];
+  }>("/blog", RssFeedIcon, "Blog", "Acessar o blog"),
+  post: link<PostType, { slug: string }, "withQuery">(
     ({ slug }) => `/blog/publicacoes/${slug}`,
     CommentIcon,
     "Publicação",

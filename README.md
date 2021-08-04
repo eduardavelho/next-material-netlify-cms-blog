@@ -1,6 +1,8 @@
 # next-material
 
 Implementar blog e faq/q&s (com serp)
+Parar de repetir theme.palette e criar fallback
+Criar constantes para padding, maxWidth, etc
 Adicionar componentes básicos (button, chip, paper, icons, etc)
 Ver quais pacotes podem ser removidos
 Unificar módulos em um único framework, de forma que não seja necessário importar next ou material-ui

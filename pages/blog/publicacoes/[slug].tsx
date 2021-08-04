@@ -1,7 +1,5 @@
 import * as netlifyCmsUtils from "@egvelho/next-material/netlify-cms/utils";
-import { pages } from "app/api";
-
-type PostProps = Parameters<Parameters<typeof pages.post.page>[0]>[0];
+import { pages, PostType } from "app/api";
 
 export { Post as default } from "app/blog/post";
 
@@ -12,12 +10,12 @@ export const getStaticPaths = pages.post.getStaticPaths(async () => {
 
 export const getStaticProps = pages.post.getStaticProps(async (query) => {
   const { data, slug } = await netlifyCmsUtils.getItem<
-    Omit<PostProps, "tags"> & { tags: string[] }
+    Omit<PostType, "tags" | "slug"> & { tags: string[] }
   >(`app/blog/posts/${query.slug}.json`);
   return {
     ...data,
     slug,
-    tags: (data.tags ?? []).map((tag, key) => ({ tag, key })),
+    tags: data.tags.map((tag, key) => ({ tag, key })),
     content: await netlifyCmsUtils.markdownToHtml(data.content ?? ""),
   };
 });

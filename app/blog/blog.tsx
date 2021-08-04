@@ -1,4 +1,5 @@
 import { Blog as MuiBlog } from "@egvelho/next-material/components/blog";
+import { ClientRender } from "@egvelho/next-material/components/client-render";
 import { links, pages } from "app/api";
 import { Meta } from "app/meta";
 import blogMetadata from "./blog-metadata.json";
@@ -12,7 +13,7 @@ const texts = {
   placeholder: "Buscar publicações",
 };
 
-export const Blog = pages.blog.page(() => {
+export const Blog = pages.blog.page(({ posts }) => {
   return (
     <>
       <Meta
@@ -39,13 +40,33 @@ export const Blog = pages.blog.page(() => {
           { key: "blog", href: links.blog.href, label: links.blog.label },
         ]}
         options={[]}
-        posts={[]}
         value={[]}
         onRequestMorePosts={async () => {}}
         onChange={async () => {}}
         disabled={false}
         hasMorePosts={false}
         loading={false}
+        posts={posts.map((post) => {
+          const publishDateTime =
+            (post.publishDate && new Date(post.publishDate)) || undefined;
+
+          return {
+            title: post.title,
+            subtitle: post.description,
+            authorName: post.authorName,
+            authorPicture: post.authorPicture,
+            date: publishDateTime,
+            dateText: (
+              <ClientRender>
+                {`Em ${publishDateTime?.toLocaleDateString()}`}
+              </ClientRender>
+            ),
+            image: post.image,
+            tags: post.tags,
+            key: post.slug,
+            href: links.post.href({ slug: post.slug }),
+          };
+        })}
       />
     </>
   );

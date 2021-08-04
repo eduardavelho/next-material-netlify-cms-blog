@@ -17,6 +17,9 @@ export type SortFunction<DataType> = (
   right: Data<DataType>
 ) => number;
 
+const filenameToSlug = (fileName: string) =>
+  slug(path.basename(fileName.split(".").slice(0, -1).join(".")));
+
 export async function markdownToHtml(markdown: string) {
   return (await markdownProcessor.process(markdown)).toString();
 }
@@ -34,7 +37,7 @@ export async function getItem<DataType>(
 ): Promise<Data<DataType>> {
   return {
     id: 0,
-    slug: slug(inputFile.split(".").slice(0, -1).join(".")),
+    slug: filenameToSlug(inputFile),
     data: JSON.parse(
       fs.readFileSync(path.join(inputFile)).toString()
     ) as DataType,
@@ -48,7 +51,7 @@ export async function getItems<DataType>(
 
   return fileNames.map((fileName, index) => ({
     id: index,
-    slug: slug(fileName.split(".").slice(0, -1).join(".")),
+    slug: filenameToSlug(fileName),
     data: JSON.parse(
       fs.readFileSync(path.join(inputFolder, fileName)).toString()
     ) as DataType,
@@ -57,9 +60,7 @@ export async function getItems<DataType>(
 
 export function getSlugs(inputFolder: string): string[] {
   const fileNames = fs.readdirSync(inputFolder);
-  return fileNames.map((fileName) =>
-    path.basename(fileName).replace(".json", "")
-  );
+  return fileNames.map((fileName) => filenameToSlug(fileName));
 }
 
 export async function cleanFolder(outputFolder: string, removeFiles: boolean) {

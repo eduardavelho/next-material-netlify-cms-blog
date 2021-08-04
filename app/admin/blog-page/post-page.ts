@@ -39,7 +39,7 @@ export const postPage = folder({
     }),
     keywords({
       label: "Tags",
-      name: "keywords",
+      name: "tags",
       min: 1,
       max: 5,
     }),

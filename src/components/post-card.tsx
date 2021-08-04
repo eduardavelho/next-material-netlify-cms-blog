@@ -21,7 +21,7 @@ export type PostCardProps = {
   image?: string;
   titleColor?: string;
   date?: Date;
-  dateText?: string;
+  dateText?: React.ReactNode;
   authorName?: string;
   authorPicture?: string;
   tags?: { key: React.Key; tag: string }[];
