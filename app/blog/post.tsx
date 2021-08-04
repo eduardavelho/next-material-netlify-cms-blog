@@ -1,4 +1,6 @@
 import { PostPage } from "@egvelho/next-material/components/post-page";
+import { ClientRender } from "@egvelho/next-material/components/client-render";
+import { markdownStyles } from "@egvelho/next-material/utils/markdown-styles";
 import { links, pages } from "app/api";
 import { Meta } from "app/meta";
 
@@ -22,6 +24,11 @@ export const Post = pages.post.page(
     backgroundImage,
     content,
   }) => {
+    const markdownClasses = markdownStyles();
+
+    const publishDateTime =
+      (publishDate !== undefined && new Date(publishDate)) || undefined;
+
     return (
       <>
         <Meta
@@ -42,8 +49,12 @@ export const Post = pages.post.page(
           authorName={authorName}
           authorDescription={authorDescription}
           authorPicture={authorPicture}
-          date={publishDate}
-          dateText={publishDate.toLocaleDateString()}
+          date={publishDateTime}
+          dateText={
+            <ClientRender>
+              {`Em ${publishDateTime?.toLocaleDateString()}`}
+            </ClientRender>
+          }
           tags={tags}
           breadcrumbs={[
             { key: "index", label: links.index.label, href: links.index.href },
@@ -58,10 +69,11 @@ export const Post = pages.post.page(
           linkedIn
           twitter
           whatsApp
-          paper
-          largeIcons
         >
-          {content}
+          <article
+            className={markdownClasses.markdown}
+            dangerouslySetInnerHTML={{ __html: content }}
+          />
         </PostPage>
       </>
     );

@@ -2,9 +2,11 @@ import { CmsCollection } from "netlify-cms-core";
 import { siteMetadata } from "./site-metadata/site-metadata";
 import { homePage } from "./home-page/home-page";
 import { blogPage } from "./blog-page/blog-page";
+import { postPage } from "./blog-page/post-page";
 
 export const netlifyCmsConfig = [
   siteMetadata,
   homePage,
   blogPage,
+  postPage,
 ] as CmsCollection[];

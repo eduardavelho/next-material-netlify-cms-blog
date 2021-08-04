@@ -1,6 +1,10 @@
 import fs from "fs";
 import path from "path";
 import slug from "slug";
+import remark from "remark";
+import remarkHtml from "remark-html";
+
+const markdownProcessor = remark().use(remarkHtml);
 
 export type Data<DataType> = {
   id: number;
@@ -12,6 +16,10 @@ export type SortFunction<DataType> = (
   left: Data<DataType>,
   right: Data<DataType>
 ) => number;
+
+export async function markdownToHtml(markdown: string) {
+  return (await markdownProcessor.process(markdown)).toString();
+}
 
 export function sortByDate<DataType>(
   getDate: (data: Data<DataType>) => Date
@@ -45,6 +53,13 @@ export async function getItems<DataType>(
       fs.readFileSync(path.join(inputFolder, fileName)).toString()
     ) as DataType,
   }));
+}
+
+export function getSlugs(inputFolder: string): string[] {
+  const fileNames = fs.readdirSync(inputFolder);
+  return fileNames.map((fileName) =>
+    path.basename(fileName).replace(".json", "")
+  );
 }
 
 export async function cleanFolder(outputFolder: string, removeFiles: boolean) {

@@ -35,12 +35,18 @@ export function Page({
         paddingTop={isDesktop ? 8 : 2}
         paddingBottom={24}
         paddingX={{ xs: 2, sm: 2, md: 6 }}
+        paddingLeft={{ md: 20 }}
         color={backgroundIsDark ? theme.palette.common.white : undefined}
         style={{ background: background || theme.palette.primary.main }}
       >
         <Box maxWidth="960px">{header}</Box>
       </Box>
-      <Box marginX={{ xs: 2, sm: 2, md: 6 }} marginTop={-20} maxWidth="960px">
+      <Box
+        marginX={{ xs: 2, sm: 2, md: 6 }}
+        marginLeft={{ md: 20 }}
+        marginTop={-20}
+        maxWidth="960px"
+      >
         <Box
           color={backgroundIsDark ? theme.palette.common.white : undefined}
           marginBottom={1}
@@ -49,15 +55,17 @@ export function Page({
             <Breadcrumbs breadcrumbs={breadcrumbs} />
           )}
         </Box>
-        {paper ? (
-          <Box marginBottom={isDesktop ? 6 : 2}>
-            <Paper elevation={6}>
-              <Box>{children}</Box>
-            </Paper>
-          </Box>
-        ) : (
-          children
-        )}
+        <Box minHeight="80vh">
+          {paper ? (
+            <Box marginBottom={isDesktop ? 6 : 2}>
+              <Paper elevation={6}>
+                <Box>{children}</Box>
+              </Paper>
+            </Box>
+          ) : (
+            children
+          )}
+        </Box>
       </Box>
     </>
   );

@@ -24,17 +24,17 @@ export const links = {
     {
       slug: string;
       title: string;
-      titleColor: string;
+      titleColor?: string;
       description: string;
       image: string;
       tags: { key: React.Key; tag: string }[];
-      backgroundColor: string;
-      backgroundImage: string;
-      authorName: string;
-      authorDescription: string;
-      authorPicture: string;
-      publishDate: Date;
-      content: JSX.Element;
+      backgroundColor?: string;
+      backgroundImage?: string;
+      authorName?: string;
+      authorDescription?: string;
+      authorPicture?: string;
+      publishDate?: string;
+      content: string;
     },
     { slug: string },
     "withQuery"

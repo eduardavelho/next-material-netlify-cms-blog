@@ -14,7 +14,7 @@ export type PostInfoProps = {
   title?: React.ReactNode;
   description?: React.ReactNode;
   date?: Date;
-  dateText?: string;
+  dateText?: React.ReactNode;
   authorName?: string;
   authorPicture?: string;
   authorDescription?: string;
@@ -71,7 +71,7 @@ export function PostInfo({
             style={{
               lineHeight: 1.1,
               fontWeight: isDesktop ? undefined : "bold",
-              color: titleColor || theme.palette.primary.main,
+              color: titleColor || theme.palette.primary.contrastText,
             }}
           >
             {title}
@@ -111,7 +111,9 @@ export function PostInfo({
               <ListItemText
                 primary={
                   <span
-                    style={{ color: titleColor || theme.palette.primary.main }}
+                    style={{
+                      color: titleColor || theme.palette.primary.contrastText,
+                    }}
                   >
                     {authorName}
                   </span>
@@ -119,17 +121,21 @@ export function PostInfo({
                 secondary={
                   <Box
                     component="span"
+                    display="block"
                     color={
                       backgroundIsDark ? "rgba(255, 255, 255, 0.8)" : undefined
                     }
                   >
                     {authorDescription}
                     {date !== undefined && (
-                      <Box component="span">
+                      <Box component="span" display="block" marginTop={1}>
                         <Typography
-                          variant="caption"
+                          variant="body2"
                           component="time"
                           dateTime={date.toISOString()}
+                          style={{
+                            fontWeight: 600,
+                          }}
                         >
                           {dateText || date.toLocaleString()}
                         </Typography>

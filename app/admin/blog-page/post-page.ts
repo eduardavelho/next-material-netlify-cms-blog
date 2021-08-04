@@ -8,9 +8,9 @@ import {
   markdown,
 } from "@egvelho/next-material/netlify-cms/data";
 
-export const blogStyle = folder({
+export const postPage = folder({
   folder: "app/blog/posts",
-  label: "Publicações",
+  label: "Publicações do blog",
   labelSingular: "Publicação",
   slug: "{{title}}",
   sortableFields: ["publishDate"],
@@ -32,7 +32,7 @@ export const blogStyle = folder({
     }),
     datetime({
       name: "publishDate",
-      label: "Data",
+      label: "Data de publicação",
       dateFormat: "MM/YYYY",
       timeFormat: "HH:mm",
       required: false,
