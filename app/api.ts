@@ -1,4 +1,6 @@
 import { link } from "@egvelho/next-material/api/link";
+import { endpoint } from "@egvelho/next-material/api/endpoint";
+import { getAxiosClient } from "@egvelho/next-material/api/get-axios-client";
 import { getPages } from "@egvelho/next-material/api/get-pages";
 import HomeIcon from "@material-ui/icons/Home";
 import RssFeedIcon from "@material-ui/icons/RssFeed";
@@ -6,17 +8,20 @@ import ZoomInIcon from "@material-ui/icons/ZoomIn";
 import EmailIcon from "@material-ui/icons/Email";
 import CommentIcon from "@material-ui/icons/Comment";
 import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
+import type { Data } from "@egvelho/next-material/netlify-cms/utils";
 import type { BannerProps } from "@egvelho/next-material/components/banner";
 import type { BannerWithButtonProps } from "@egvelho/next-material/components/banner-with-button";
 import type { ItemListProps } from "@egvelho/next-material/components/item-list";
+import { getContext } from "app/context";
+
+export type { ExtractPageProps } from "@egvelho/next-material/api/get-pages";
 
 export interface PostType {
-  slug: string;
   title: string;
   titleColor?: string;
   description: string;
   image: string;
-  tags: { key: React.Key; tag: string }[];
+  tags: string[];
   backgroundColor?: string;
   backgroundImage?: string;
   authorName?: string;
@@ -24,6 +29,10 @@ export interface PostType {
   authorPicture?: string;
   publishDate?: string;
   content: string;
+}
+
+export interface WithSlug {
+  slug: string;
 }
 
 export const links = {
@@ -36,9 +45,10 @@ export const links = {
     {}
   >("/", HomeIcon, "Home"),
   blog: link<{
-    posts: Omit<PostType, "content">[];
+    postsLength: number;
+    posts: (Omit<PostType, "content"> & WithSlug)[];
   }>("/blog", RssFeedIcon, "Blog", "Acessar o blog"),
-  post: link<PostType, { slug: string }, "withQuery">(
+  post: link<PostType & WithSlug, { slug: string }, "withQuery">(
     ({ slug }) => `/blog/publicacoes/${slug}`,
     CommentIcon,
     "Publicação",
@@ -49,4 +59,21 @@ export const links = {
   admin: link("/admin", SupervisedUserCircleIcon, "Admin"),
 };
 
+export const endpoints = {
+  posts: endpoint<{ page: string }, Data<PostType>[]>(
+    "GET",
+    "/static-api/posts/[page].json"
+  ),
+};
+
 export const pages = getPages(links);
+
+export const client = getAxiosClient({
+  endpoints,
+  async beforeRequest() {
+    getContext().setContext({ loading: true });
+  },
+  async afterRequest() {
+    getContext().setContext({ loading: false });
+  },
+});

@@ -1,6 +1,7 @@
 import { PostPage } from "@egvelho/next-material/components/post-page";
 import { ClientRender } from "@egvelho/next-material/components/client-render";
 import { markdownStyles } from "@egvelho/next-material/utils/markdown-styles";
+import { truncateString } from "@egvelho/next-material/utils/truncate-string";
 import { links, pages } from "app/api";
 import { Meta } from "app/meta";
 
@@ -35,7 +36,7 @@ export const Post = pages.post.page(
           title={title}
           description={description}
           image={image}
-          keywords={tags.map(({ tag }) => tag)}
+          keywords={tags}
           url={links.post.href({ slug })}
         />
         <PostPage
@@ -55,13 +56,13 @@ export const Post = pages.post.page(
               {`Em ${publishDateTime?.toLocaleDateString()}`}
             </ClientRender>
           }
-          tags={tags}
+          tags={tags.map((tag) => ({ key: tag, tag }))}
           breadcrumbs={[
             { key: "index", label: links.index.label, href: links.index.href },
             { key: "blog", label: links.blog.label, href: links.blog.href },
             {
               key: "post",
-              label: links.post.label,
+              label: truncateString(title, 12),
               href: links.post.href({ slug }),
             },
           ]}

@@ -54,6 +54,13 @@ export type Pages<Api> = {
   >;
 };
 
+export type ExtractPageProps<
+  SelectedPage extends Page<
+    SelectedPage extends Page<infer Props, any> ? Props : any,
+    SelectedPage extends Page<any, infer Query> ? Query : any
+  >
+> = Parameters<Parameters<SelectedPage["page"]>[0]>[0];
+
 function mapLinkToPage<
   Props extends Json,
   Query extends NextApiRequest["query"],

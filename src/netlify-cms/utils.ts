@@ -63,18 +63,6 @@ export function getSlugs(inputFolder: string): string[] {
   return fileNames.map((fileName) => filenameToSlug(fileName));
 }
 
-export async function cleanFolder(outputFolder: string, removeFiles: boolean) {
-  if (removeFiles) {
-    if (!fs.existsSync(outputFolder)) {
-      fs.mkdirSync(outputFolder);
-    } else {
-      fs.readdirSync(outputFolder).forEach((file) =>
-        fs.unlinkSync(`${outputFolder}/${file}`)
-      );
-    }
-  }
-}
-
 export async function writeItems<DataType>(
   outputFolder: string,
   dataArray: Data<DataType>[]
@@ -113,9 +101,9 @@ export async function writeChunks<DataType>(
   );
 }
 
-export async function removeFilesFromFolder(folder: string) {
+export async function emptyFolder(folder: string) {
   if (!fs.existsSync(folder)) {
-    fs.mkdirSync(folder);
+    fs.mkdirSync(folder, { recursive: true });
   } else {
     fs.readdirSync(folder).forEach((file) =>
       fs.unlinkSync(`${folder}/${file}`)

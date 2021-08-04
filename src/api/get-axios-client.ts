@@ -66,7 +66,6 @@ function requestDataToUrl<RequestData extends Json>(
         }
       })();
       requestData && delete requestData[key];
-      console.log(requestData);
       return partialUrl;
     }, url);
 }
