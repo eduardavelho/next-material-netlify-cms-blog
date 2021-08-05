@@ -1,6 +1,9 @@
 import { link } from "@egvelho/next-material/api/link";
 import { endpoint } from "@egvelho/next-material/api/endpoint";
-import { getAxiosClient } from "@egvelho/next-material/api/get-axios-client";
+import {
+  getAxiosClient,
+  ExtractClientResponse,
+} from "@egvelho/next-material/api/get-axios-client";
 import { getPages } from "@egvelho/next-material/api/get-pages";
 import HomeIcon from "@material-ui/icons/Home";
 import RssFeedIcon from "@material-ui/icons/RssFeed";
@@ -15,6 +18,7 @@ import type { ItemListProps } from "@egvelho/next-material/components/item-list"
 import { getContext } from "app/context";
 
 export type { ExtractPageProps } from "@egvelho/next-material/api/get-pages";
+export type { ExtractClientResponse } from "@egvelho/next-material/api/get-axios-client";
 
 export interface PostType {
   title: string;
@@ -44,10 +48,15 @@ export const links = {
     },
     {}
   >("/", HomeIcon, "Home"),
-  blog: link<{
-    postsLength: number;
-    posts: (Omit<PostType, "content"> & WithSlug)[];
-  }>("/blog", RssFeedIcon, "Blog", "Acessar o blog"),
+  blog: link<
+    {
+      postsLength: number;
+      posts: (Omit<PostType, "content"> & WithSlug)[];
+      tags: string[];
+      selectedTags?: string[];
+    },
+    { tag?: string }
+  >("/blog", RssFeedIcon, "Blog", "Acessar o blog"),
   post: link<PostType & WithSlug, { slug: string }, "withQuery">(
     ({ slug }) => `/blog/publicacoes/${slug}`,
     CommentIcon,
@@ -60,9 +69,13 @@ export const links = {
 };
 
 export const endpoints = {
-  posts: endpoint<{ page: string }, Data<PostType>[]>(
+  getPosts: endpoint<{ page: string }, Data<PostType>[]>(
     "GET",
     "/static-api/posts/[page].json"
+  ),
+  getPostsForTag: endpoint<{ tag: string }, Data<PostType>[]>(
+    "GET",
+    "/static-api/tags/[tag].json"
   ),
 };
 
@@ -77,3 +90,5 @@ export const client = getAxiosClient({
     getContext().setContext({ loading: false });
   },
 });
+
+type A = ExtractClientResponse<typeof client.getPosts>;

@@ -12,6 +12,15 @@ import {
 } from "./endpoint";
 import { Json } from "../types";
 
+export type ExtractClientResponse<
+  SelectedClient extends AxiosClient<
+    SelectedClient extends AxiosClient<infer Request, any> ? Request : any,
+    SelectedClient extends AxiosClient<any, infer Response> ? Response : any
+  >
+> = ReturnType<SelectedClient> extends AxiosPromise<infer Response>
+  ? Response
+  : any;
+
 export type AxiosClient<RequestData, ResponseData> = (
   requestData: RequestData,
   config?: AxiosRequestConfig
