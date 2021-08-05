@@ -1,8 +1,8 @@
 import fs from "fs";
 import path from "path";
-import slug from "slug";
 import remark from "remark";
 import remarkHtml from "remark-html";
+import { slugify } from "../utils/slugify";
 
 const markdownProcessor = remark().use(remarkHtml);
 
@@ -18,17 +18,17 @@ export type SortFunction<DataType> = (
 ) => number;
 
 const filenameToSlug = (fileName: string) =>
-  slug(path.basename(fileName.split(".").slice(0, -1).join(".")));
+  slugify(path.basename(fileName.split(".").slice(0, -1).join(".")));
 
 export async function markdownToHtml(markdown: string) {
   return (await markdownProcessor.process(markdown)).toString();
 }
 
-export function sortByDate<DataType>(
+export function sortByMostRecent<DataType>(
   getDate: (data: Data<DataType>) => Date
 ): SortFunction<DataType> {
   return (left: Data<DataType>, right: Data<DataType>) => {
-    return (getDate(left) as any) - (getDate(right) as any);
+    return (getDate(right) as any) - (getDate(left) as any);
   };
 }
 
@@ -58,12 +58,19 @@ export async function getItems<DataType>(
   }));
 }
 
-export function getSlugs(inputFolder: string): string[] {
+export async function getSlugs(inputFolder: string) {
   const fileNames = fs.readdirSync(inputFolder);
   return fileNames.map((fileName) => filenameToSlug(fileName));
 }
 
-export async function writeItems<DataType>(
+export async function writeItemsToFile<DataType>(
+  outputFile: `${string}.json`,
+  dataArray: Data<DataType>[]
+) {
+  fs.writeFileSync(`${path.join(outputFile)}`, JSON.stringify(dataArray));
+}
+
+export async function writeItemsToFolder<DataType>(
   outputFolder: string,
   dataArray: Data<DataType>[]
 ) {
@@ -92,7 +99,7 @@ export async function chunkItems<DataType>(
   return chunkedData;
 }
 
-export async function writeChunks<DataType>(
+export async function writeChunksToFolder<DataType>(
   outputFolder: string,
   dataChunks: Data<DataType>[][]
 ) {
@@ -101,7 +108,13 @@ export async function writeChunks<DataType>(
   );
 }
 
-export async function emptyFolder(folder: string) {
+export async function createFolderIfNotExists(folder: string) {
+  if (!fs.existsSync(folder)) {
+    fs.mkdirSync(folder, { recursive: true });
+  }
+}
+
+export async function deleteFilesThenRecreateFolder(folder: string) {
   if (!fs.existsSync(folder)) {
     fs.mkdirSync(folder, { recursive: true });
   } else {

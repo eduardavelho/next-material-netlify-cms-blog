@@ -1,8 +1,5 @@
 # next-material
 
-Campo de busca do blog
-Precisar transformar a tag em slug nas requests
-Arquivo de mapeamento de slugs para tags
 Parar de repetir theme.palette e criar fallback
 Criar constantes para padding, maxWidth, etc
 Implementar faq/q&s (com serp)

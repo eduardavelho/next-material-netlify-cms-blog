@@ -53,7 +53,7 @@ export const links = {
       postsLength: number;
       posts: (Omit<PostType, "content"> & WithSlug)[];
       tags: string[];
-      selectedTags?: string[];
+      initialTag?: string;
     },
     { tag?: string }
   >("/blog", RssFeedIcon, "Blog", "Acessar o blog"),
@@ -75,7 +75,7 @@ export const endpoints = {
   ),
   getPostsForTag: endpoint<{ tag: string }, Data<PostType>[]>(
     "GET",
-    "/static-api/tags/[tag].json"
+    "/static-api/posts-by-tag/[tag].json"
   ),
 };
 

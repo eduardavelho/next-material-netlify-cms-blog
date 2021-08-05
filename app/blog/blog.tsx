@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { slugify } from "@egvelho/next-material/utils/slugify";
 import { Blog as MuiBlog } from "@egvelho/next-material/components/blog";
 import { ClientRender } from "@egvelho/next-material/components/client-render";
 import {
@@ -27,7 +28,9 @@ export const Blog = pages.blog.page((props) => {
   const [page, setPage] = useState(0);
   const [posts, setPosts] = useState(props.posts);
   const [postsLength, setPostsLength] = useState(props.postsLength);
-  const [selectedTags, setSelectedTags] = useState(props.selectedTags ?? []);
+  const [selectedTags, setSelectedTags] = useState(
+    props.initialTag ? [props.initialTag] : []
+  );
   const [tags, setTags] = useState(props.tags);
 
   const {
@@ -84,33 +87,52 @@ export const Blog = pages.blog.page((props) => {
         loading={loading}
         disabled={loading}
         onChange={async (nextSelectedTags) => {
+          if (props.initialTag && nextSelectedTags.length === 0) {
+            return;
+          }
+
+          if (
+            props.initialTag &&
+            nextSelectedTags.length > 0 &&
+            nextSelectedTags[0] !== props.initialTag
+          ) {
+            return;
+          }
+
           setSelectedTags(nextSelectedTags);
 
-          if (nextSelectedTags.length === 0) {
-            setPostsLength(props.postsLength);
+          if (
+            nextSelectedTags.length === 0 ||
+            (props.initialTag && nextSelectedTags.length === 1)
+          ) {
             setPage(0);
+            setPostsLength(props.postsLength);
             setPosts(props.posts);
             setTags(props.tags);
-          } else if (nextSelectedTags.length === 1) {
+          } else if (
+            props.initialTag === undefined &&
+            nextSelectedTags.length === 1
+          ) {
             const [tag] = nextSelectedTags;
-            const maybeNextPosts = await client.getPostsForTag({ tag });
+            const maybeNextPosts = await client.getPostsForTag({
+              tag: slugify(tag),
+            });
 
             if (maybeNextPosts.data) {
               const nextPosts = maybeNextPosts.data.map((request) =>
                 mapRequestToPost(request)
               );
-              const nextTags = filterTagsFromPosts(nextPosts, selectedTags);
+              const nextTags = mapPostsToTags(nextPosts);
 
               setPosts(nextPosts);
               setPostsLength(nextPosts.length);
               setTags(nextTags);
             }
           } else {
-            const [, ...filterTags] = nextSelectedTags;
             const nextPosts = posts.filter(({ tags }) =>
-              tags.some((tag) => filterTags.includes(tag))
+              nextSelectedTags.every((tag) => tags.includes(tag))
             );
-            const nextTags = filterTagsFromPosts(nextPosts, selectedTags);
+            const nextTags = mapPostsToTags(nextPosts);
 
             setPosts(nextPosts);
             setPostsLength(nextPosts.length);
@@ -156,13 +178,6 @@ function mapRequestToPost({
   };
 }
 
-function filterTagsFromPosts(posts: PostsPropType[], selectedTags: string[]) {
-  return [
-    ...new Set(
-      posts
-        .map(({ tags }) => tags)
-        .flat()
-        .filter((tag) => !selectedTags.includes(tag))
-    ),
-  ];
+function mapPostsToTags(posts: PostsPropType[]) {
+  return [...new Set(posts.map(({ tags }) => tags).flat())];
 }

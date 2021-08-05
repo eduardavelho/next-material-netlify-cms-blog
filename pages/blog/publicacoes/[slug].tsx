@@ -6,7 +6,7 @@ export { Post as default } from "app/blog/post";
 const postsPath = "app/blog/posts";
 
 export const getStaticPaths = pages.post.getStaticPaths(async () => {
-  const slugs = netlifyCmsUtils.getSlugs(postsPath);
+  const slugs = await netlifyCmsUtils.getSlugs(postsPath);
   return slugs.map((slug) => ({ slug }));
 });
 
