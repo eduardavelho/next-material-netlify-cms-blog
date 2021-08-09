@@ -1,9 +1,9 @@
-import { files } from "@egvelho/next-material/netlify-cms/data";
+import { collectionFiles } from "@egvelho/next-material/netlify-cms/collection";
 import { appMetadata } from "./app-metadata";
 import { dashColorsData } from "./dash-colors-data";
 import { dashItemsData } from "./dash-items-data";
 
-export const siteMetadata = files({
+export const siteMetadata = collectionFiles({
   label: "Geral",
-  files: [appMetadata, dashColorsData, dashItemsData],
+  collections: [appMetadata, dashColorsData, dashItemsData],
 });

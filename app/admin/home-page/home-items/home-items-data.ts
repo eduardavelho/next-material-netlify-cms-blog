@@ -1,27 +1,27 @@
-import { file, list, select } from "@egvelho/next-material/netlify-cms/data";
+import { collectionFile } from "@egvelho/next-material/netlify-cms/collection";
 import { homeItems } from "./home-items";
 
-const itemsSelect = select({
-  name: "item",
-  label: "Item",
-  required: true,
-  options: Object.entries(homeItems).map(([key, item]) => ({
-    label: item.label,
-    value: key,
-  })),
-});
-
-export const homeItemsData = file({
+export const homeItemsData = collectionFile({
   file: "app/home/items-data.json",
   label: "Itens da home",
-  fields: [
-    list({
-      label: "Itens",
-      labelSingular: "Item",
-      name: "items",
-      summary: "Item",
-      collapsed: false,
-      fields: [itemsSelect],
-    }),
-  ],
+}).fields((data) => {
+  return {
+    items: data
+      .list({
+        label: "Itens",
+        labelSingular: "Item",
+        summary: "Item",
+        collapsed: false,
+      })
+      .fields({
+        item: data.selectOne({
+          label: "Item",
+          options: Object.keys(homeItems).map((key) => ({
+            label:
+              homeItems[key as keyof typeof homeItems].collectionFile.label,
+            value: key,
+          })),
+        }),
+      }),
+  };
 });

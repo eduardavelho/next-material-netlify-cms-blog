@@ -1,25 +1,21 @@
-import { file, color, image } from "@egvelho/next-material/netlify-cms/data";
+import { collectionFile } from "@egvelho/next-material/netlify-cms/collection";
 
-export const blogStyle = file({
+export const blogStyle = collectionFile({
   file: "app/blog/blog-style.json",
   label: "Estilo do blog",
-  fields: [
-    color({
-      label: "Cor do texto",
-      name: "color",
-      required: false,
-      allowInput: true,
-    }),
-    color({
-      label: "Cor de fundo",
-      name: "backgroundColor",
-      required: false,
-      allowInput: true,
-    }),
-    image({
-      label: "Imagem de fundo",
-      name: "backgroundImage",
-      required: false,
-    }),
-  ],
-});
+}).fields((data) => ({
+  color: data.color<"optional">({
+    label: "Cor do texto",
+    required: false,
+    allowInput: true,
+  }),
+  backgroundColor: data.color<"optional">({
+    label: "Cor de fundo",
+    required: false,
+    allowInput: true,
+  }),
+  backgroundImage: data.image<"optional">({
+    label: "Imagem de fundo",
+    required: false,
+  }),
+}));

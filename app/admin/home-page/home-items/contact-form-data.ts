@@ -1,41 +1,26 @@
-import {
-  file,
-  string,
-  color,
-  image,
-  boolean,
-} from "@egvelho/next-material/netlify-cms/data";
+import { collectionFile } from "@egvelho/next-material/netlify-cms/collection";
 
-export const contactFormData = file({
+export const contactFormData = collectionFile({
   file: "app/home/contact-form-data.json",
   label: "Formulário de contato",
-  fields: [
-    string({
-      label: "Título",
-      name: "title",
-      required: true,
-    }),
-    string({
-      label: "Rótulo do botão",
-      name: "label",
-      required: true,
-    }),
-    color({
-      label: "Cor do título",
-      name: "titleColor",
-      required: true,
-      allowInput: true,
-    }),
-    color({
-      label: "Cor de fundo",
-      name: "backgroundColor",
-      required: false,
-      allowInput: true,
-    }),
-    image({
-      label: "Imagem de fundo",
-      name: "backgroundImage",
-      required: false,
-    }),
-  ],
-});
+}).fields((data) => ({
+  title: data.string({
+    label: "Título",
+  }),
+  label: data.string({
+    label: "Rótulo do botão",
+  }),
+  titleColor: data.color({
+    label: "Cor do título",
+    allowInput: true,
+  }),
+  backgroundColor: data.color<"optional">({
+    label: "Cor de fundo",
+    required: false,
+    allowInput: true,
+  }),
+  backgroundImage: data.image<"optional">({
+    label: "Imagem de fundo",
+    required: false,
+  }),
+}));

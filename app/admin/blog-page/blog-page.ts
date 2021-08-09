@@ -1,8 +1,8 @@
-import { files } from "@egvelho/next-material/netlify-cms/data";
+import { collectionFiles } from "@egvelho/next-material/netlify-cms/collection";
 import { blogMetadata } from "./blog-metadata";
 import { blogStyle } from "./blog-style";
 
-export const blogPage = files({
+export const blogPage = collectionFiles({
   label: "Blog",
-  files: [blogMetadata, blogStyle],
+  collections: [blogMetadata, blogStyle],
 });

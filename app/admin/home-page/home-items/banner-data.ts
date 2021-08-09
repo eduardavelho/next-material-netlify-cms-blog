@@ -1,61 +1,45 @@
-import {
-  file,
-  string,
-  color,
-  image,
-  text,
-  number,
-} from "@egvelho/next-material/netlify-cms/data";
+import { collectionFile } from "@egvelho/next-material/netlify-cms/collection";
 
-export const bannerData = file({
+export const bannerData = collectionFile({
   file: "app/home/banner-data.json",
   label: "Banner",
-  fields: [
-    string({
-      label: "Título",
-      name: "title",
-      required: false,
-    }),
-    text({
-      label: "Subtítulo",
-      name: "subtitle",
-      required: false,
-    }),
-    image({
-      label: "Imagem",
-      name: "image",
-      required: false,
-    }),
-    string({
-      label: "Texto alternativo da imagem",
-      name: "imageAlt",
-      required: false,
-    }),
-    number({
-      label: "Largura da imagem",
-      name: "imageWidth",
-      required: false,
-      valueType: "int",
-      min: 128,
-      max: 512,
-      step: 16,
-    }),
-    color({
-      label: "Cor do texto",
-      name: "color",
-      required: false,
-      allowInput: true,
-    }),
-    color({
-      label: "Cor de fundo",
-      name: "backgroundColor",
-      required: false,
-      allowInput: true,
-    }),
-    image({
-      label: "Imagem de fundo",
-      name: "backgroundImage",
-      required: false,
-    }),
-  ],
-});
+}).fields((data) => ({
+  title: data.string<"optional">({
+    label: "Título",
+    required: false,
+  }),
+  subtitle: data.text<"optional">({
+    label: "Subtítulo",
+    required: false,
+  }),
+  image: data.image<"optional">({
+    label: "Imagem",
+    required: false,
+  }),
+  imageAlt: data.string<"optional">({
+    label: "Texto alternativo da imagem",
+    required: false,
+  }),
+  imageWidth: data.number<"optional">({
+    label: "Largura da imagem",
+    required: false,
+    valueType: "int",
+    min: 128,
+    max: 512,
+    step: 16,
+  }),
+  color: data.color<"optional">({
+    label: "Cor do texto",
+    required: false,
+    allowInput: true,
+  }),
+  backgroundColor: data.color<"optional">({
+    label: "Cor de fundo",
+    required: false,
+    allowInput: true,
+  }),
+  backgroundImage: data.image<"optional">({
+    label: "Imagem de fundo",
+    required: false,
+  }),
+}));

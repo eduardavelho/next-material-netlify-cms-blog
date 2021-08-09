@@ -24,10 +24,11 @@ export function Page({
   paper = true,
 }: PageProps) {
   const theme = useTheme();
+  const backgroundFallback = theme.palette.primary.main;
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
   const backgroundIsDark = background
     ? isColor(background) && isColorDark(background)
-    : isColorDark(theme.palette.primary.main);
+    : isColorDark(backgroundFallback);
 
   return (
     <>
@@ -37,7 +38,7 @@ export function Page({
         paddingX={{ xs: 2, sm: 2, md: 6 }}
         paddingLeft={{ md: 20 }}
         color={backgroundIsDark ? theme.palette.common.white : undefined}
-        style={{ background: background || theme.palette.primary.main }}
+        style={{ background: background || backgroundFallback }}
       >
         <Box maxWidth="960px">{header}</Box>
       </Box>

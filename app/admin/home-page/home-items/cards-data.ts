@@ -1,52 +1,35 @@
-import {
-  file,
-  string,
-  list,
-  text,
-  image,
-} from "@egvelho/next-material/netlify-cms/data";
+import { collectionFile } from "@egvelho/next-material/netlify-cms/collection";
 
-export const cardsData = file({
+export const cardsData = collectionFile({
   file: "app/home/cards-data.json",
   label: "Cartões",
-  fields: [
-    string({
+}).fields((data) => {
+  return {
+    title: data.string({
       label: "Título",
-      name: "title",
-      required: true,
     }),
-    text({
+    subtitle: data.text({
       label: "Subtítulo",
-      name: "subtitle",
-      required: true,
     }),
-    list({
-      label: "Cartões",
-      labelSingular: "Cartão",
-      name: "cards",
-      summary: "{{fields.title}}",
-      fields: [
-        string({
+    cards: data
+      .list({
+        label: "Cartões",
+        labelSingular: "Cartão",
+        summary: "{{fields.title}}",
+      })
+      .fields({
+        title: data.string({
           label: "Título",
-          name: "title",
-          required: true,
         }),
-        text({
+        content: data.text({
           label: "Conteúdo",
-          name: "content",
-          required: true,
         }),
-        string({
+        href: data.string({
           label: "Link",
-          name: "href",
-          required: true,
         }),
-        image({
+        image: data.image({
           label: "Imagem",
-          name: "image",
-          required: true,
         }),
-      ],
-    }),
-  ],
+      }),
+  };
 });

@@ -38,9 +38,10 @@ export function SearchHeader({
   onChange = async () => {},
 }: SearchHeaderProps) {
   const theme = useTheme();
+  const backgroundFallback = theme.palette.primary.main;
   const backgroundIsDark = background
     ? isColor(background) && isColorDark(background)
-    : isColorDark(theme.palette.primary.main);
+    : isColorDark(backgroundFallback);
 
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
   const searchClasses = searchStyles({ backgroundIsDark });
@@ -48,7 +49,7 @@ export function SearchHeader({
   return (
     <Box
       style={{
-        background: background || theme.palette.primary.main,
+        background: background || backgroundFallback,
       }}
       height={isDesktop ? "394px" : "256px"}
       display="flex"

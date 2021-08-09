@@ -90,5 +90,3 @@ export const client = getAxiosClient({
     getContext().setContext({ loading: false });
   },
 });
-
-type A = ExtractClientResponse<typeof client.getPosts>;

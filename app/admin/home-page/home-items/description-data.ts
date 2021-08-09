@@ -1,56 +1,39 @@
-import {
-  file,
-  string,
-  boolean,
-  color,
-  list,
-  text,
-  image,
-} from "@egvelho/next-material/netlify-cms/data";
+import { collectionFile } from "@egvelho/next-material/netlify-cms/collection";
 
-export const descriptionData = file({
+export const descriptionData = collectionFile({
   file: "app/home/description-data.json",
   label: "Descrição",
-  fields: [
-    string({
-      label: "Título",
-      name: "title",
-      required: true,
-    }),
-    color({
-      label: "Cor do título",
-      name: "titleColor",
-      required: true,
-      allowInput: true,
-    }),
-    color({
-      label: "Cor de fundo",
-      name: "backgroundColor",
-      required: false,
-      allowInput: true,
-    }),
-    image({
-      label: "Imagem de fundo",
-      name: "backgroundImage",
-      required: false,
-    }),
-    list({
+}).fields((data) => ({
+  title: data.string({
+    label: "Título",
+  }),
+  titleColor: data.color({
+    label: "Cor do título",
+    allowInput: true,
+  }),
+  backgroundColor: data.color<"optional">({
+    label: "Cor de fundo",
+    required: false,
+    allowInput: true,
+  }),
+  backgroundImage: data.image<"optional">({
+    label: "Imagem de fundo",
+    required: false,
+  }),
+  items: data
+    .list({
       label: "Items",
       labelSingular: "Item",
-      name: "items",
       summary: "image",
-      fields: [
-        text({
-          label: "Texto",
-          name: "text",
-          required: true,
-        }),
-        image({
-          label: "Imagem",
-          name: "image",
-          required: true,
-        }),
-      ],
+    })
+    .fields({
+      text: data.text({
+        label: "Texto",
+        required: true,
+      }),
+      image: data.image({
+        label: "Imagem",
+        required: true,
+      }),
     }),
-  ],
-});
+}));

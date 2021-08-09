@@ -32,9 +32,10 @@ export function ContactForm({
   background,
 }: ContactFormProps) {
   const theme = useTheme();
+  const backgroundFallback = theme.palette.primary.main;
   const backgroundIsDark = background
     ? isColor(background) && isColorDark(background)
-    : isColorDark(theme.palette.primary.main);
+    : isColorDark(backgroundFallback);
 
   const styles = useStyles({ backgroundIsDark });
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
@@ -48,7 +49,7 @@ export function ContactForm({
       alignItems="center"
       justifyContent="center"
       style={{
-        background: background || theme.palette.primary.main,
+        background: background || backgroundFallback,
         backgroundSize: "cover",
       }}
     >
