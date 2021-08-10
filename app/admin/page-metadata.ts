@@ -7,15 +7,12 @@ export function pageMetadata({ file }: { file: string }) {
   }).fields((data) => ({
     title: data.string({
       label: "Título",
-      required: true,
     }),
     description: data.string({
       label: "Descrição",
-      required: true,
     }),
     image: data.image({
       label: "Imagem",
-      required: true,
     }),
     keywords: data.keywords({
       label: "Palavras-chave",

@@ -1,4 +1,9 @@
-import { collectionFile } from "@egvelho/next-material/netlify-cms/collection";
+import {
+  collectionFile,
+  GetCollectionType,
+} from "@egvelho/next-material/netlify-cms/collection";
+
+export type DescriptionData = GetCollectionType<typeof descriptionData>;
 
 export const descriptionData = collectionFile({
   file: "app/home/description-data.json",
@@ -29,11 +34,9 @@ export const descriptionData = collectionFile({
     .fields({
       text: data.text({
         label: "Texto",
-        required: true,
       }),
       image: data.image({
         label: "Imagem",
-        required: true,
       }),
     }),
 }));

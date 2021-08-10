@@ -1,10 +1,8 @@
 # next-material
 
-Criar tipos para os forms de netlifyCMS
-Centralizar os paths do netlifyCMS em um objeto
-Implementar faq/q&s (com serp)
-Adicionar componentes básicos (button, chip, paper, icons, etc)
 Ver quais pacotes podem ser removidos
+Refatorar scripts (remover sync, principalmente)
+Escolher nome mais curto para o pacote
 Unificar módulos em um único framework, de forma que não seja necessário importar next ou material-ui
 NetlifyCMS deve ser implementado via react ao invés de por injeção de script
 NetlifyCMS deve ser self-hosted
@@ -15,6 +13,9 @@ Realizar deploy do projeto para o Netlify
 Ver problema de segfault do sharp no netlify
 Google SpeedInsights está com nota baixa em mobile
 Escrever documentação dos módulos
+
+Implementar faq/q&s (com serp)
+Adicionar componentes básicos (button, chip, paper, icons, etc)
 Abstração para formulários e validação (front e back-end, ver zod)
 Use-form deve ser agnóstico na validação (receber string[])
 Implementar lógica do formulário de contato

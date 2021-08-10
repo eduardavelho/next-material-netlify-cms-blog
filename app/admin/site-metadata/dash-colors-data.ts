@@ -1,4 +1,9 @@
-import { collectionFile } from "@egvelho/next-material/netlify-cms/collection";
+import {
+  collectionFile,
+  GetCollectionType,
+} from "@egvelho/next-material/netlify-cms/collection";
+
+export type DashColorsData = GetCollectionType<typeof dashColorsData>;
 
 export const dashColorsData = collectionFile({
   file: "app/dash/dash-colors.json",

@@ -23,7 +23,7 @@ const texts = {
 const appBarItems = mapFilterItemsToLinks(dashItems.appBar).map(
   (item, key) => ({
     key,
-    href: item.href,
+    href: item.href as string,
     label: item.longLabel,
   })
 );
@@ -31,7 +31,7 @@ const appBarItems = mapFilterItemsToLinks(dashItems.appBar).map(
 const footerItems = mapFilterItemsToLinks(dashItems.footer).map(
   (item, key) => ({
     key,
-    href: item.href,
+    href: item.href as string,
     label: item.longLabel,
   })
 );
@@ -40,7 +40,7 @@ const bottomNavigationItems = mapFilterItemsToLinks(
   dashItems.bottomNavigation
 ).map((item, key) => ({
   key,
-  href: item.href,
+  href: item.href as string,
   label: item.label,
   Icon: item.Icon,
 }));
@@ -48,7 +48,7 @@ const bottomNavigationItems = mapFilterItemsToLinks(
 const drawerItems = mapFilterItemsToLinks(dashItems.drawer).map(
   (item, key) => ({
     key,
-    href: item.href,
+    href: item.href as string,
     label: item.longLabel,
     Icon: item.Icon,
   })
@@ -91,5 +91,5 @@ export function Dash({
 }
 
 function mapFilterItemsToLinks(items: { page: string }[]) {
-  return items.map(({ page }, key) => links[page as keyof typeof links]);
+  return items.map(({ page }) => links[page as keyof typeof links]);
 }

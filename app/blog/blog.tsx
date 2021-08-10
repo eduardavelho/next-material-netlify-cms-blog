@@ -20,7 +20,7 @@ const texts = {
   noOptionsText: "Sem resultados",
   noResultsText: "Nenhum resultado foi encontrado",
   noResultsDescription:
-    "Esta página ainda não possui conteúdo. Por favor, volte em breve.",
+    "Esta página não possui conteúdo. Por favor, tente outra busca.",
   placeholder: "Buscar publicações",
 };
 

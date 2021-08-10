@@ -1,13 +1,10 @@
-import * as netlifyCmsUtils from "@egvelho/next-material/netlify-cms/utils";
-import { slugify } from "@egvelho/next-material/utils/slugify";
-import { pages, PostType } from "app/api";
+import * as collectionUtils from "@egvelho/next-material/netlify-cms/collection-utils";
+import { pages } from "app/api";
 import { env } from "app/env";
+import paths from "app/admin/paths.json";
+import type { BlogPost } from "app/admin/blog-post";
 
 export { Blog as default } from "app/blog/blog";
-
-const postsPath = "app/blog/posts";
-const postsApiPath = "public/static-api/posts";
-const postsByTagApiPath = "public/static-api/posts-by-tag";
 
 export const getStaticProps = pages.blog.getStaticProps(
   async ({ tag } = {}) => {
@@ -23,10 +20,13 @@ async function writeChunksThenGetAllPosts() {
   const posts = await getAllPosts();
   const tags = [...new Set(posts.map(({ data: { tags } }) => tags).flat())];
 
-  const postsChunks = await netlifyCmsUtils.chunkItems(posts, env().pagination);
+  const postsChunks = await collectionUtils.chunkItems(posts, env().pagination);
+  const postsApiPath = await collectionUtils.createCollectionFolder(
+    paths.postsApi
+  );
 
-  await netlifyCmsUtils.deleteFilesThenRecreateFolder(postsApiPath);
-  await netlifyCmsUtils.writeChunksToFolder(postsApiPath, postsChunks);
+  await collectionUtils.deleteFilesThenRecreateFolder(postsApiPath);
+  await collectionUtils.writeChunksToFolder(postsApiPath, postsChunks);
 
   return {
     tags,
@@ -45,7 +45,7 @@ async function writePostsForTagThenGet(initialTag: string) {
   const allTags = [...new Set(posts.map(({ data: { tags } }) => tags).flat())];
 
   const tagsMap = allTags.reduce((stack, tag) => {
-    stack[slugify(tag)] = tag;
+    stack[collectionUtils.slugify(tag)] = tag;
     return stack;
   }, {} as { [key: string]: string });
 
@@ -53,11 +53,16 @@ async function writePostsForTagThenGet(initialTag: string) {
     tags.includes(tagsMap[initialTag])
   );
 
-  await netlifyCmsUtils.createFolderIfNotExists(postsByTagApiPath);
-  await netlifyCmsUtils.writeItemsToFile(
-    `${postsByTagApiPath}/${initialTag}.json`,
-    postsForTag
+  const postsByTagApiPath = await collectionUtils.createCollectionFolder(
+    paths.postsByTag
   );
+
+  const tagPath = await collectionUtils.createCollectionFile(
+    `${paths.postsByTag}/${initialTag}.json`
+  );
+
+  await collectionUtils.createFolderIfNotExists(postsByTagApiPath);
+  await collectionUtils.writeItemsToFile(tagPath, postsForTag);
 
   const tags = [
     ...new Set(postsForTag.map(({ data: { tags } }) => tags).flat()),
@@ -75,8 +80,9 @@ async function writePostsForTagThenGet(initialTag: string) {
 }
 
 async function getAllPosts() {
-  const posts = await netlifyCmsUtils.getItems<PostType>(postsPath);
-  const sortByMostRecentPosts = netlifyCmsUtils.sortByMostRecent<PostType>(
+  const postsPath = await collectionUtils.createCollectionFolder(paths.posts);
+  const posts = await collectionUtils.getCollectionFolder<BlogPost>(postsPath);
+  const sortByMostRecentPosts = collectionUtils.sortByMostRecent<BlogPost>(
     ({ data: { publishDate } }) => new Date(publishDate ?? 0)
   );
 

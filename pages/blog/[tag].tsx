@@ -1,6 +1,8 @@
-import { pages, PostType } from "app/api";
 import { slugify } from "@egvelho/next-material/utils/slugify";
-import * as netlifyCmsUtils from "@egvelho/next-material/netlify-cms/utils";
+import * as collectionUtils from "@egvelho/next-material/netlify-cms/collection-utils";
+import { pages } from "app/api";
+import paths from "app/admin/paths.json";
+import type { BlogPost } from "app/admin/blog-post";
 
 export {
   default,
@@ -11,10 +13,9 @@ export {
   priority,
 } from "./index";
 
-const postsPath = "app/blog/posts";
-
 export const getStaticPaths = pages.blog.getStaticPaths(async () => {
-  const posts = await netlifyCmsUtils.getItems<PostType>(postsPath);
+  const postsPath = await collectionUtils.createCollectionFolder(paths.posts);
+  const posts = await collectionUtils.getCollectionFolder<BlogPost>(postsPath);
   const tags = [...new Set(posts.map(({ data: { tags } }) => tags).flat())];
 
   return tags.map((tag) => ({ tag: slugify(tag) }));

@@ -1,5 +1,10 @@
-import { collectionFile } from "@egvelho/next-material/netlify-cms/collection";
+import {
+  collectionFile,
+  GetCollectionType,
+} from "@egvelho/next-material/netlify-cms/collection";
 import { homeItems } from "./home-items";
+
+export type HomeItemsData = GetCollectionType<typeof homeItemsData>;
 
 export const homeItemsData = collectionFile({
   file: "app/home/items-data.json",

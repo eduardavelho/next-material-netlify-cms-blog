@@ -1,4 +1,9 @@
-import { collectionFolder } from "@egvelho/next-material/netlify-cms/collection";
+import {
+  collectionFolder,
+  GetCollectionType,
+} from "@egvelho/next-material/netlify-cms/collection";
+
+export type BlogPost = GetCollectionType<typeof blogPost>;
 
 export const blogPost = collectionFolder({
   folder: "app/blog/posts",
@@ -39,7 +44,7 @@ export const blogPost = collectionFolder({
     label: "Foto do autor",
     required: false,
   }),
-  color: data.color<"optional">({
+  titleColor: data.color<"optional">({
     label: "Cor do texto",
     required: false,
     allowInput: true,

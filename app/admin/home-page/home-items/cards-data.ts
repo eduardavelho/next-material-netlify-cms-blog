@@ -1,4 +1,9 @@
-import { collectionFile } from "@egvelho/next-material/netlify-cms/collection";
+import {
+  collectionFile,
+  GetCollectionType,
+} from "@egvelho/next-material/netlify-cms/collection";
+
+export type CardsData = GetCollectionType<typeof cardsData>;
 
 export const cardsData = collectionFile({
   file: "app/home/cards-data.json",

@@ -1,4 +1,9 @@
-import { collectionFile } from "@egvelho/next-material/netlify-cms/collection";
+import {
+  collectionFile,
+  GetCollectionType,
+} from "@egvelho/next-material/netlify-cms/collection";
+
+export type BlogStyle = GetCollectionType<typeof blogStyle>;
 
 export const blogStyle = collectionFile({
   file: "app/blog/blog-style.json",

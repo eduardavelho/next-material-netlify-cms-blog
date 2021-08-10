@@ -1,4 +1,9 @@
-import { collectionFile } from "@egvelho/next-material/netlify-cms/collection";
+import {
+  collectionFile,
+  GetCollectionType,
+} from "@egvelho/next-material/netlify-cms/collection";
+
+export type ContactFormData = GetCollectionType<typeof contactFormData>;
 
 export const contactFormData = collectionFile({
   file: "app/home/contact-form-data.json",

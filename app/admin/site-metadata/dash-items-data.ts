@@ -1,5 +1,10 @@
+import {
+  collectionFile,
+  GetCollectionType,
+} from "@egvelho/next-material/netlify-cms/collection";
 import { links } from "app/api";
-import { collectionFile } from "@egvelho/next-material/netlify-cms/collection";
+
+export type DashItemsData = GetCollectionType<typeof dashItemsData>;
 
 export const dashItemsData = collectionFile({
   file: "app/dash/dash-items.json",

@@ -1,4 +1,9 @@
-import { collectionFile } from "@egvelho/next-material/netlify-cms/collection";
+import {
+  collectionFile,
+  GetCollectionType,
+} from "@egvelho/next-material/netlify-cms/collection";
+
+export type BannerData = GetCollectionType<typeof bannerData>;
 
 export const bannerData = collectionFile({
   file: "app/home/banner-data.json",

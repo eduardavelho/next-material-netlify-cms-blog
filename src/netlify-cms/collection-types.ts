@@ -6,6 +6,25 @@ export type {
   CmsCollection,
 } from "netlify-cms-core";
 
+declare const UniqueFile: unique symbol;
+
+declare const UniqueFolder: unique symbol;
+
+export type Data<DataType> = {
+  id: number;
+  slug: string;
+  data: DataType;
+};
+
+export type SortFunction<DataType> = (
+  left: Data<DataType>,
+  right: Data<DataType>
+) => number;
+
+export type CollectionFile = string & { readonly [UniqueFile]: "Path" };
+
+export type CollectionFolder = string & { readonly [UniqueFolder]: "Path" };
+
 export type FieldArguments = "required" | "optional" | "withDefault";
 
 export type GetCmsFieldArguments<
@@ -42,6 +61,14 @@ export type CmsFieldItems<Fields> = {
     InferFieldArguments<Fields[key]>
   >;
 };
+
+export type CmsFieldObject = {
+  [key: string]: GetCmsField<any, "required">;
+};
+
+export type CmsFieldObjectNotEmpty<
+  Items extends CmsFieldObject
+> = keyof Items extends never ? never : Items;
 
 export type InferCmsFieldItems<Items extends CmsFieldItems<Items>> = {
   [key in keyof Pick<

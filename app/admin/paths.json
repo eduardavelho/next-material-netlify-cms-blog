@@ -1,0 +1,5 @@
+{
+  "posts": "app/blog/posts",
+  "postsApi": "public/static-api/posts",
+  "postsByTag": "public/static-api/posts-by-tag"
+}

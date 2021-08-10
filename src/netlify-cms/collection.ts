@@ -1,13 +1,17 @@
-import slugify from "slug";
-import {
+import type {
   CmsCollectionFile,
   CmsCollection,
   CmsFieldItems,
+  CmsFieldObject,
+  CmsFieldObjectNotEmpty,
   GetCmsFieldArguments,
   InferCmsFieldItems,
   FieldArguments,
   GetCmsField,
+  CollectionFile,
+  CollectionFolder,
 } from "./collection-types";
+import { slugify } from "../utils/slugify";
 
 export type { GetCollectionType } from "./collection-types";
 
@@ -330,15 +334,18 @@ function list({
   labelSingular,
   summary,
   collapsed = false,
-}: GetCmsFieldArguments<undefined, "required"> & {
+}: GetCmsFieldArguments<never, "required"> & {
   labelSingular: string;
   summary: string;
   collapsed?: boolean;
 }) {
   return {
-    fields<Items extends CmsFieldItems<Items>>(
+    fields<Items extends CmsFieldObject>(
       items: Items
-    ): GetCmsField<InferCmsFieldItems<Items>, "required"> {
+    ): GetCmsField<
+      InferCmsFieldItems<CmsFieldObjectNotEmpty<Items>>[],
+      "required"
+    > {
       const fields = itemsToCmsFields(items);
 
       return () => (name) => ({
@@ -399,8 +406,8 @@ export function collectionFile({
   file: string;
 }) {
   return {
-    fields<Items extends CmsFieldItems<Items>>(
-      getItems: (data: typeof fieldsObject) => Items
+    fields<Items extends CmsFieldObject>(
+      getItems: (data: typeof fieldsObject) => CmsFieldObjectNotEmpty<Items>
     ) {
       const items = getItems(fieldsObject);
       const fields = itemsToCmsFields(items);
@@ -412,7 +419,7 @@ export function collectionFile({
         fields,
       };
 
-      return { items, collectionFile };
+      return { items, collectionFile, path: file as CollectionFile };
     },
   };
 }
@@ -431,8 +438,8 @@ export function collectionFolder({
   sortableFields?: string[];
 }) {
   return {
-    fields<Items extends CmsFieldItems<Items>>(
-      getItems: (data: typeof fieldsObject) => Items
+    fields<Items extends CmsFieldObject>(
+      getItems: (data: typeof fieldsObject) => CmsFieldObjectNotEmpty<Items>
     ) {
       const items = getItems(fieldsObject);
       const fields = itemsToCmsFields(items);
@@ -449,7 +456,7 @@ export function collectionFolder({
         slug,
       };
 
-      return { items, collection };
+      return { items, collection, path: folder as CollectionFolder };
     },
   };
 }

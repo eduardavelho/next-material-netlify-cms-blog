@@ -1,4 +1,9 @@
-import { collectionFile } from "@egvelho/next-material/netlify-cms/collection";
+import {
+  collectionFile,
+  GetCollectionType,
+} from "@egvelho/next-material/netlify-cms/collection";
+
+export type AppMetadata = GetCollectionType<typeof appMetadata>;
 
 export const appMetadata = collectionFile({
   label: "Metadados do site",
