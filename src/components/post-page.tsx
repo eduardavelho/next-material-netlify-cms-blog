@@ -30,7 +30,7 @@ export function PostPage({
 
   return (
     <Page {...pageProps} header={<PostInfo {...postInfoProps} />}>
-      <Box padding={{ xs: 2, sm: 6, md: 12 }} maxWidth="720px" marginX="auto">
+      <Box maxWidth="720px" marginX="auto">
         {children}
       </Box>
     </Page>

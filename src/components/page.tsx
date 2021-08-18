@@ -21,7 +21,7 @@ export function Page({
   children,
   breadcrumbs,
   background,
-  paper = true,
+  paper = false,
 }: PageProps) {
   const theme = useTheme();
   const backgroundFallback = theme.palette.primary.main;
@@ -34,38 +34,52 @@ export function Page({
     <>
       <Box
         paddingTop={isDesktop ? 8 : 2}
-        paddingBottom={24}
+        paddingBottom={paper ? 24 : undefined}
         paddingX={{ xs: 2, sm: 2, md: 6 }}
         paddingLeft={{ md: 20 }}
         color={backgroundIsDark ? theme.palette.common.white : undefined}
         style={{ background: background || backgroundFallback }}
       >
-        <Box maxWidth="960px">{header}</Box>
-      </Box>
-      <Box
-        marginX={{ xs: 2, sm: 2, md: 6 }}
-        marginLeft={{ md: 20 }}
-        marginTop={-20}
-        maxWidth="960px"
-      >
-        <Box
-          color={backgroundIsDark ? theme.palette.common.white : undefined}
-          marginBottom={1}
-        >
-          {breadcrumbs !== undefined && breadcrumbs.length > 0 && (
-            <Breadcrumbs breadcrumbs={breadcrumbs} />
+        <Box maxWidth="960px">
+          <Box paddingBottom={paper ? undefined : isDesktop ? 8 : 2}>
+            {header}
+          </Box>
+          {!paper && breadcrumbs !== undefined && breadcrumbs.length && (
+            <Box
+              color={backgroundIsDark ? theme.palette.common.white : undefined}
+              paddingBottom={isDesktop ? 2 : 1}
+            >
+              <Breadcrumbs breadcrumbs={breadcrumbs} />
+            </Box>
           )}
         </Box>
-        <Box minHeight="80vh">
-          {paper ? (
-            <Box marginBottom={isDesktop ? 6 : 2}>
-              <Paper elevation={6}>
-                <Box>{children}</Box>
-              </Paper>
+      </Box>
+      <Box bgcolor={paper ? undefined : theme.palette.common.white}>
+        <Box
+          marginX={{ xs: 2, sm: 2, md: 6 }}
+          marginLeft={{ md: 20 }}
+          marginTop={paper ? -20 : undefined}
+          maxWidth="960px"
+        >
+          {paper && breadcrumbs !== undefined && breadcrumbs.length && (
+            <Box
+              color={backgroundIsDark ? theme.palette.common.white : undefined}
+              marginBottom={1}
+            >
+              <Breadcrumbs breadcrumbs={breadcrumbs} />
             </Box>
-          ) : (
-            children
           )}
+          <Box minHeight="80vh">
+            {paper ? (
+              <Box marginBottom={isDesktop ? 6 : 2}>
+                <Paper elevation={6}>
+                  <Box>{children}</Box>
+                </Paper>
+              </Box>
+            ) : (
+              <Box paddingY={isDesktop ? 6 : 2}>{children}</Box>
+            )}
+          </Box>
         </Box>
       </Box>
     </>

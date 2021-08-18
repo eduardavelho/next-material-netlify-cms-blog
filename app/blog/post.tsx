@@ -1,6 +1,6 @@
 import { PostPage } from "@egvelho/next-material/components/post-page";
+import { Markdown } from "@egvelho/next-material/components/markdown";
 import { ClientRender } from "@egvelho/next-material/components/client-render";
-import { markdownStyles } from "@egvelho/next-material/utils/markdown-styles";
 import { truncateString } from "@egvelho/next-material/utils/truncate-string";
 import { links, pages } from "app/api";
 import { Meta } from "app/meta";
@@ -25,8 +25,6 @@ export const Post = pages.post.page(
     backgroundImage,
     content,
   }) => {
-    const markdownClasses = markdownStyles();
-
     const publishDateTime =
       (publishDate !== undefined && new Date(publishDate)) || undefined;
 
@@ -71,10 +69,9 @@ export const Post = pages.post.page(
           twitter
           whatsApp
         >
-          <article
-            className={markdownClasses.markdown}
-            dangerouslySetInnerHTML={{ __html: content }}
-          />
+          <article>
+            <Markdown content={content} />
+          </article>
         </PostPage>
       </>
     );

@@ -35,12 +35,14 @@
     "react": "^17.0.1",
     "react-infinite-scroll-component": "^6.0.0",
     "react-masonry-css": "^1.0.14",
-    "remark": "^13.0.0",
+    "remark-highlight.js": "^6.0.0",
     "remark-html": "^13.0.1",
+    "remark-parse": "^9.0.0",
     "sharp": "^0.29.0",
     "sitemap": "^6.4.0",
     "slug": "^4.0.3",
-    "tslib": "^2.1.0"
+    "tslib": "^2.1.0",
+    "unified": "^9.2.2"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^6.2.9",

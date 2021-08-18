@@ -1,5 +1,10 @@
 # next-material
 
+Implementar code, map, object e relation no NetlifyCMS
+Implementar validação regex no NetlifyCms
+Revisar estilos do markdown (adicionar estilo para blocos de código)
+
+Cachear getStaticProps em dev
 Atualizar pacotes
 Ver quais pacotes podem ser removidos
 Implementar script de typecheck geral (inclusive do storybook)
@@ -8,11 +13,8 @@ Melhorar templates, não duplicar versões
 Boilerplate deve ter gitignore
 Melhorar import de icones, não necessitar importar direto de material-ui
 Remover necessidade de importar next e material-ui no boilerplate
-
+Reduzir tamanho do bundle
 Ver quais features do nextJS faltam ser implementadas
-Implementar code, map, object e relation no NetlifyCMS
-Implementar validação regex no NetlifyCms
-Revisar estilos do markdown (adicionar estilo para blocos de código)
 
 Renomear netlify-cms para CMS
 Renomear componentes do projeto

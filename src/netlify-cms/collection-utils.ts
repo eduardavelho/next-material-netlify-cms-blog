@@ -1,6 +1,9 @@
 import { promises as fs, existsSync } from "fs";
 import path from "path";
-import remark from "remark";
+import unified from "unified";
+import remarkParse from "remark-parse";
+// @ts-ignore
+import remarkHighlight from "remark-highlight.js";
 import remarkHtml from "remark-html";
 import { slugify } from "../utils/slugify";
 import type {
@@ -11,10 +14,12 @@ import type {
 } from "./collection-types";
 
 export type { Data } from "./collection-types";
-
 export { slugify } from "../utils/slugify";
 
-const markdownProcessor = remark().use(remarkHtml);
+const markdownProcessor = unified()
+  .use(remarkParse)
+  .use(remarkHighlight)
+  .use(remarkHtml);
 
 export async function getCollectionFile<DataType>(
   inputFile: CollectionFile
@@ -65,7 +70,7 @@ export function filenameToSlug(fileName: CollectionFile) {
 }
 
 export async function markdownToHtml(markdown: string) {
-  return (await markdownProcessor.process(markdown)).toString();
+  return (await markdownProcessor.process(markdown)).contents;
 }
 
 export function sortByMostRecent<DataType>(
