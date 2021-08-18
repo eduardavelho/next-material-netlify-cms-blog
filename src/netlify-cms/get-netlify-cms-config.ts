@@ -1,20 +1,32 @@
-import { CmsConfig, CmsCollection } from "netlify-cms-core";
+import { CmsConfig, CmsCollection, CmsBackend } from "netlify-cms-core";
 
-export function getNetlifyCmsConfig(collections: CmsCollection[]) {
+export interface NetlifyCmsConfig {
+  collections: CmsCollection[];
+  locale: string;
+  backend: CmsBackend;
+  enableEditorialWorkflow?: boolean;
+  showPreviewLinks?: boolean;
+}
+
+export function getNetlifyCmsConfig({
+  collections,
+  locale,
+  backend,
+  enableEditorialWorkflow = true,
+  showPreviewLinks = true,
+}: NetlifyCmsConfig) {
   return {
     config: {
-      locale: "pt",
-      backend: {
-        name: "git-gateway",
-      },
+      locale: locale.slice(0, 2),
+      backend,
       local_backend:
         process.env.NODE_ENV === "development"
           ? {
-              url: "http://localhost:8081/api/v1",
+              url: `${process.env.NEXT_PUBLIC_URL}/api/netlify-cms`,
             }
           : {},
       publish_mode:
-        process.env.NODE_ENV === "development"
+        process.env.NODE_ENV === "development" || !enableEditorialWorkflow
           ? undefined
           : "editorial_workflow",
       load_config_file: false,
@@ -22,7 +34,7 @@ export function getNetlifyCmsConfig(collections: CmsCollection[]) {
       public_folder: "/images",
       site_url: process.env.NEXT_PUBLIC_URL,
       logo_url: "/android-chrome-96x96.png",
-      show_preview_links: true,
+      show_preview_links: showPreviewLinks,
       editor: {
         preview: false,
       },

@@ -10,10 +10,10 @@ import NextDocument, {
 import { ServerStyleSheets as MuiServerStyleSheets } from "@material-ui/core/styles";
 
 export function document({
-  lang = "pt-BR",
+  lang,
   ServerStyleSheets,
 }: {
-  lang?: string;
+  lang: string;
   ServerStyleSheets: typeof MuiServerStyleSheets;
 }) {
   return class Document extends NextDocument<DocumentProps> {

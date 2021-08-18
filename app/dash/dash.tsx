@@ -6,7 +6,6 @@ import {
 import { links } from "app/api";
 import { Context } from "app/context";
 import appConfig from "app.json";
-import logo from "icon.svg";
 import dashColors from "./dash-colors.json";
 import dashItems from "./dash-items.json";
 
@@ -19,6 +18,8 @@ const texts = {
   createAccountLabel: "Criar conta",
   logoutLabel: "Sair",
 };
+
+const logo = "/icon.svg";
 
 const appBarItems = mapFilterItemsToLinks(dashItems.appBar).map(
   (item, key) => ({

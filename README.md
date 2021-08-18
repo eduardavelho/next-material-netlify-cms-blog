@@ -1,17 +1,30 @@
 # next-material
 
+Atualizar pacotes
 Ver quais pacotes podem ser removidos
-Refatorar scripts (remover sync, principalmente)
-Escolher nome mais curto para o pacote
-Unificar módulos em um único framework, de forma que não seja necessário importar next ou material-ui
-NetlifyCMS deve ser implementado via react ao invés de por injeção de script
-NetlifyCMS deve ser self-hosted
-Netlify deve ter cache
+Implementar script de typecheck geral (inclusive do storybook)
+Implementar script de identação global
+Melhorar templates, não duplicar versões
+Boilerplate deve ter gitignore
+Melhorar import de icones, não necessitar importar direto de material-ui
+Remover necessidade de importar next e material-ui no boilerplate
+
 Ver quais features do nextJS faltam ser implementadas
+Implementar code, map, object e relation no NetlifyCMS
+Implementar validação regex no NetlifyCms
+Revisar estilos do markdown (adicionar estilo para blocos de código)
+
+Renomear netlify-cms para CMS
+Renomear componentes do projeto
+Escolher nome mais curto para o pacote
 Criar repositório para app-boilerplate
 Realizar deploy do projeto para o Netlify
-Ver problema de segfault do sharp no netlify
+Ver problema de segfault do sharp no netlify e problema de instalação no windows
+Netlify deve ter cache
+NetlifyCMS deve ser self-hosted
 Google SpeedInsights está com nota baixa em mobile
+
+Escrever testes
 Escrever documentação dos módulos
 
 Implementar faq/q&s (com serp)

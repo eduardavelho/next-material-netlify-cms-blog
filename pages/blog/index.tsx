@@ -20,6 +20,8 @@ async function writeChunksThenGetAllPosts() {
   const posts = await getAllPosts();
   const tags = [...new Set(posts.map(({ data: { tags } }) => tags).flat())];
 
+  await collectionUtils.createFolderIfNotExists(paths.postsApi);
+
   const postsChunks = await collectionUtils.chunkItems(posts, env().pagination);
   const postsApiPath = await collectionUtils.createCollectionFolder(
     paths.postsApi
@@ -53,15 +55,12 @@ async function writePostsForTagThenGet(initialTag: string) {
     tags.includes(tagsMap[initialTag])
   );
 
-  const postsByTagApiPath = await collectionUtils.createCollectionFolder(
-    paths.postsByTag
-  );
+  await collectionUtils.createFolderIfNotExists(paths.postsByTag);
 
   const tagPath = await collectionUtils.createCollectionFile(
     `${paths.postsByTag}/${initialTag}.json`
   );
 
-  await collectionUtils.createFolderIfNotExists(postsByTagApiPath);
   await collectionUtils.writeItemsToFile(tagPath, postsForTag);
 
   const tags = [

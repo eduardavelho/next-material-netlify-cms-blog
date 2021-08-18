@@ -1,9 +1,6 @@
 import { link } from "@egvelho/next-material/api/link";
 import { endpoint } from "@egvelho/next-material/api/endpoint";
-import {
-  getAxiosClient,
-  ExtractClientResponse,
-} from "@egvelho/next-material/api/get-axios-client";
+import { getAxiosClient } from "@egvelho/next-material/api/get-axios-client";
 import { getPages } from "@egvelho/next-material/api/get-pages";
 import HomeIcon from "@material-ui/icons/Home";
 import RssFeedIcon from "@material-ui/icons/RssFeed";
@@ -13,9 +10,6 @@ import CommentIcon from "@material-ui/icons/Comment";
 import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
 import type { BlogPost } from "app/admin/blog-post";
 import type { Data } from "@egvelho/next-material/netlify-cms/collection-types";
-import type { BannerProps } from "@egvelho/next-material/components/banner";
-import type { BannerWithButtonProps } from "@egvelho/next-material/components/banner-with-button";
-import type { ItemListProps } from "@egvelho/next-material/components/item-list";
 import { getContext } from "app/context";
 
 export type { ExtractPageProps } from "@egvelho/next-material/api/get-pages";
@@ -26,14 +20,7 @@ export interface WithSlug {
 }
 
 export const links = {
-  index: link<
-    {
-      bannerProps: BannerProps;
-      itemListProps: ItemListProps;
-      bannerWithButtonProps: BannerWithButtonProps;
-    },
-    {}
-  >("/", HomeIcon, "Home"),
+  index: link("/", HomeIcon, "Home"),
   blog: link<
     {
       postsLength: number;

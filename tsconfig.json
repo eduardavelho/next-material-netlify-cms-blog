@@ -5,7 +5,7 @@
     "jsx": "preserve",
     "strict": true,
     "pretty": true,
-    "checkJs": false,
+    "checkJs": true,
     "noImplicitAny": true,
     "alwaysStrict": true,
     "noImplicitReturns": true,
@@ -33,5 +33,5 @@
     }
   },
   "exclude": ["node_modules", "src/stories"],
-  "include": ["next-env.d.ts", "app/**/*", "pages/**/*", "src/**/*"]
+  "include": ["app/**/*", "pages/**/*", "src/**/*"]
 }

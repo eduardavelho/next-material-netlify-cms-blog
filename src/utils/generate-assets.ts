@@ -1,3 +1,7 @@
+import path from "path";
+import { promises as fs, existsSync } from "fs";
+import favicons, { Configuration, Callback } from "favicons";
+
 export async function generateAssets({
   appPath = "app.json",
   outPath = "public",
@@ -5,27 +9,19 @@ export async function generateAssets({
   appPath?: string;
   outPath?: string;
 } = {}) {
-  if (typeof window !== "undefined") {
-    return;
-  }
-
   console.log("Generating meta assets...");
 
-  const favicons = eval('require("favicons")');
-  const fs = eval('require("fs")');
-
-  if (!fs.existsSync(appPath)) {
+  if (!existsSync(appPath)) {
     console.log(`Error: the path "${appPath}" does not exists.`);
     return;
   }
 
-  if (!fs.existsSync(outPath)) {
+  if (!existsSync(outPath)) {
     console.log(`Creating path "${outPath}"...`);
-    fs.mkdirSync(outPath);
+    await fs.mkdir(outPath);
   }
 
-  const path = eval('require("path")');
-  const app = JSON.parse(fs.readFileSync(appPath));
+  const app = JSON.parse((await fs.readFile(appPath)).toString());
 
   const requiredKeys = [
     "name",
@@ -58,7 +54,7 @@ export async function generateAssets({
     return;
   }
 
-  const configuration = {
+  const configuration: Configuration = {
     path: "/",
     appName: app.name,
     appShortName: app.shortName,
@@ -78,6 +74,8 @@ export async function generateAssets({
     logging: false,
     pixel_art: false,
     loadManifestWithCredentials: false,
+    pipeHTML: false,
+    manifestRelativePaths: false,
     icons: {
       android: true,
       appleIcon: true,
@@ -90,17 +88,28 @@ export async function generateAssets({
     },
   };
 
-  async function callback(error: Error, response: any) {
+  const callback: Callback = async (error, response) => {
     if (error) {
       console.error(error.message);
       return;
     }
 
-    [...response.images, ...response.files].forEach(({ name, contents }) => {
-      console.log(`Writing to ${outPath}/${name}...`);
-      fs.writeFileSync(path.join(outPath, name), contents, "binary");
-    });
-  }
+    console.log(`Writing to ${outPath}/${app.iconPath}...`);
+    await fs.copyFile(app.iconPath, `${outPath}/${app.iconPath}`);
+
+    await Promise.all(
+      [...response.images, ...response.files].map(
+        async ({ name, contents }) => {
+          console.log(`Writing to ${outPath}/${name}...`);
+          return await fs.writeFile(
+            path.join(outPath, name),
+            contents,
+            "binary"
+          );
+        }
+      )
+    );
+  };
 
   await new Promise((resolve) =>
     favicons(

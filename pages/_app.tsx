@@ -1,4 +1,5 @@
 import { ReactNode, useContext } from "react";
+import "@egvelho/next-material/typography/typography.css";
 import { app } from "@egvelho/next-material/app";
 import { Meta, MetaProps } from "@egvelho/next-material/meta/meta";
 import { ThemeProvider } from "@material-ui/core/styles";
@@ -8,8 +9,6 @@ import { ContextProvider, Context } from "app/context";
 import { Dash } from "app/dash/dash";
 import { links } from "app/api";
 import appConfig from "app.json";
-import "typeface-roboto";
-import "material-icons/css/material-icons.css";
 
 function Layout({ children }: { children: ReactNode }) {
   return (

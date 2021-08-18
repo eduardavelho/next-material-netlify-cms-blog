@@ -1,3 +1,8 @@
+import path from "path";
+import { promises as fs, existsSync } from "fs";
+import { Readable } from "stream";
+import { SitemapStream, streamToPromise } from "sitemap";
+
 export interface Url {
   disallow: boolean;
   priority: number;
@@ -7,12 +12,9 @@ export interface Url {
 }
 
 async function getFiles(dir: string): Promise<string | string[]> {
-  const fs = eval(`require("fs")`);
-  const path = eval(`require("path")`);
-
-  const dirents = fs.readdirSync(dir, { withFileTypes: true });
+  const dirents = await fs.readdir(dir, { withFileTypes: true });
   const files = await Promise.all(
-    dirents.map((dirent: any) => {
+    dirents.map((dirent) => {
       const res = path.resolve(dir, dirent.name);
       return dirent.isDirectory() ? getFiles(res) : res;
     })
@@ -24,29 +26,33 @@ async function getUrls(
   files: string[],
   mapPathToImport: (path: string) => Promise<any>
 ): Promise<Array<Url>> {
-  const path = eval(`require("path")`);
-
   return (
     await Promise.all(
       files
         .map((file) => `.${path.sep}${path.relative(process.cwd(), file)}`)
-        .filter((file) => !path.basename(file).startsWith("_"))
-        .filter((file) =>
-          path.relative(path.join("pages", "api"), path.dirname(file))
+        .filter(
+          (file) =>
+            !path.basename(file).startsWith("_") &&
+            path.relative(path.join("pages", "api"), path.dirname(file))
         )
-        .map((file) => file.split(".").slice(0, -1).join("."))
-        .map((file) => file.replace(/\\/g, "/"))
-        .map((file) => file.replace("./pages/", ""))
-        .map(async (file) => {
-          const page = await mapPathToImport(file);
+        .map(async (rawFile) => {
+          const file = rawFile
+            .split(".")
+            .slice(0, -1)
+            .join(".")
+            .replace(/\\/g, "/")
+            .replace("./pages/", "");
+
+          const page: any = await mapPathToImport(file);
           const getPaths = page.getStaticPaths ?? page.getServerSidePaths;
 
           if (getPaths && page.disallow) {
             return [];
           }
 
-          const urls: Array<Url> = getPaths
-            ? await Promise.all(
+          const urls: Array<Url> = !getPaths
+            ? []
+            : await Promise.all<Url>(
                 (await getPaths({})).paths?.map(
                   async ({ params }: any) =>
                     ({
@@ -62,31 +68,33 @@ async function getUrls(
                       url: `/${objectToUrl(file, params)}/`,
                     } as Url)
                 )
-              )
-            : [];
-          return (urls || []).length > 0
-            ? urls.reduce((stack, item) => {
-                const url = item.url;
-                const urls = stack.map(({ url }) => url);
+              );
 
-                if (urls.includes(url)) {
-                  return stack;
-                } else {
-                  return [...stack, item];
-                }
-              }, [] as typeof urls)
-            : [
-                {
-                  disallow: page.disallow ?? false,
-                  priority: page.priority ?? 0.5,
-                  changefreq: page.changeFrequency ?? "daily",
-                  lastmod:
-                    (page.getLastModificationDate &&
-                      (await page.getLastModificationDate()).toISOString()) ??
-                    new Date().toISOString(),
-                  url: file === "index" ? "/" : `/${file}/`,
-                } as Url,
-              ];
+          if ((urls || []).length > 0) {
+            return urls.reduce((stack, item) => {
+              const url = item.url;
+              const urls = stack.map(({ url }) => url);
+
+              if (urls.includes(url)) {
+                return stack;
+              } else {
+                return [...stack, item];
+              }
+            }, [] as typeof urls);
+          } else {
+            return [
+              {
+                disallow: page.disallow ?? false,
+                priority: page.priority ?? 0.5,
+                changefreq: page.changeFrequency ?? "daily",
+                lastmod:
+                  (page.getLastModificationDate &&
+                    (await page.getLastModificationDate()).toISOString()) ??
+                  new Date().toISOString(),
+                url: file === "index" ? "/" : `/${file}/`,
+              } as Url,
+            ];
+          }
         })
     )
   ).flat();
@@ -118,9 +126,6 @@ function objectToUrl<T extends Object>(url: string, object: T) {
 }
 
 function getSitemap(urls: Array<Url>) {
-  const { SitemapStream, streamToPromise } = eval(`require("sitemap")`);
-  const { Readable } = eval(`require("stream")`);
-
   const links = urls
     .filter(({ disallow }) => !disallow)
     .map(({ priority, changefreq, lastmod, url }) => ({
@@ -135,13 +140,13 @@ function getSitemap(urls: Array<Url>) {
   }
 
   const stream = new SitemapStream({ hostname: process.env.NEXT_PUBLIC_URL });
-  return streamToPromise(Readable.from(links).pipe(stream)).then((data: any) =>
+  return streamToPromise(Readable.from(links).pipe(stream)).then((data) =>
     data.toString()
   );
 }
 
 function getRobots(urls: Array<Url>): string {
-  const disallowedUrls = urls.filter(({ url, disallow }) => disallow);
+  const disallowedUrls = urls.filter(({ disallow }) => disallow);
   const publicUrl = process.env.NEXT_PUBLIC_URL?.endsWith("/")
     ? process.env.NEXT_PUBLIC_URL?.slice(-1)
     : process.env.NEXT_PUBLIC_URL;
@@ -158,37 +163,30 @@ export async function generateSitemap({
   outPath?: string;
   mapPathToImport: (path: string) => Promise<any>;
 }) {
-  if (typeof window !== "undefined") {
-    return;
-  }
-
   console.log("Generating sitemap...");
 
-  const fs = eval(`require("fs")`);
-
-  if (!fs.existsSync("pages")) {
+  if (!existsSync("pages")) {
     console.log(
       `Error: no "pages" folder in project root. Note that this script does not support "src/pages" location.`
     );
     return;
   }
 
-  if (!fs.existsSync(outPath)) {
+  if (!existsSync(outPath)) {
     console.log(`Creating path "${outPath}"...`);
-    fs.mkdirSync(outPath);
+    await fs.mkdir(outPath);
   }
 
-  const path = eval(`require("path")`);
   const files = (await getFiles("./pages")) as string[];
   const urls = await getUrls(files, mapPathToImport);
   const sitemap = await getSitemap(urls);
   const robots = getRobots(urls);
 
   console.log(`Writing to ${outPath}/sitemap.xml`);
-  fs.writeFileSync(path.join(outPath, "sitemap.xml"), sitemap);
+  await fs.writeFile(path.join(outPath, "sitemap.xml"), sitemap);
 
   console.log(`Writing to ${outPath}/robots.txt`);
-  fs.writeFileSync(path.join(outPath, "robots.txt"), robots);
+  await fs.writeFile(path.join(outPath, "robots.txt"), robots);
 
   console.log("Sitemap generation success!");
 }

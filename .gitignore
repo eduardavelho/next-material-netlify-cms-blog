@@ -1,13 +1,13 @@
-/app.json
-/icon.svg
 /boilerplate
 /utils
 /api
 /components
 /meta
-/public
+/public/*
+!/public/*.gitkeep
 /netlify-cms
 /*.d.ts
+!/next-env.d.ts
 /*.js
 /*.js.map
 /.next

@@ -1,0 +1,17 @@
+{
+  "primaryColor": "#ff9966",
+  "developerURL": "https://github.com/egvelho",
+  "twitterAt": "",
+  "shortName": "AppBoilerplate",
+  "name": "AppBoilerplate - Uma frase de efeito aqui",
+  "lang": "pt-BR",
+  "secondaryColor": "#ff9999",
+  "orientation": "portrait",
+  "dashColor": "#fff",
+  "developerName": "egvelho",
+  "backgroundColor": "#f5f5f5",
+  "facebookAppId": "",
+  "version": "1.0",
+  "description": "Descrição do app aqui",
+  "iconPath": "icon.svg"
+}

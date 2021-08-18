@@ -1,12 +1,19 @@
-import { useEffect } from "react";
+import { NetlifyCms } from "@egvelho/next-material/netlify-cms/netlify-cms";
+import { lang } from "app.json";
 import { pages } from "app/api";
-import { netlifyCmsConfig } from "app/admin/netlify-cms-config";
-import { loadNetlifyCms } from "@egvelho/next-material/netlify-cms/load-netlify-cms";
+import { siteMetadata } from "./site-metadata/site-metadata";
+import { homePage } from "./home-page/home-page";
+import { blogPage } from "./blog-page/blog-page";
+import { blogPost } from "./blog-post";
 
 export const admin = pages.admin.page(() => {
-  useEffect(() => {
-    loadNetlifyCms(netlifyCmsConfig);
-  }, []);
-
-  return <div />;
+  return (
+    <NetlifyCms
+      locale={lang}
+      backend={{
+        name: "git-gateway",
+      }}
+      collections={[siteMetadata, homePage, blogPage, blogPost.collection]}
+    />
+  );
 });

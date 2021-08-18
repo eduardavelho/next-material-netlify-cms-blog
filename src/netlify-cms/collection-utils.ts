@@ -137,7 +137,7 @@ export async function writeChunksToFolder<DataType>(
   );
 }
 
-export async function createFolderIfNotExists(folder: CollectionFolder) {
+export async function createFolderIfNotExists(folder: string) {
   if (!existsSync(folder)) {
     await fs.mkdir(folder, { recursive: true });
   }

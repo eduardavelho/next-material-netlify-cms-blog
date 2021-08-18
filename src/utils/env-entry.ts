@@ -1,8 +1,8 @@
 export function envEntry<T>(
-  type_: "string" | "boolean" | "number",
+  valueType: "string" | "boolean" | "number",
   name: string,
   value: string | undefined,
-  default_?: T
+  defaultValue?: T
 ): T {
   const isClient = typeof window !== "undefined";
   const isPublicEntry =
@@ -16,13 +16,13 @@ export function envEntry<T>(
 
   const value_: any = value
     ? value.replace(/(\r\n|\n|\r)/gm, "")
-    : default_ ?? undefined;
+    : defaultValue ?? undefined;
 
-  if (!value && !default_ && typeof window === "undefined") {
+  if (!value && !defaultValue && typeof window === "undefined") {
     throw new Error(`Entry value for "${name}" was not found in env.`);
   }
 
-  switch (type_) {
+  switch (valueType) {
     case "boolean":
       const isTrue = value_ === "true";
       const isFalse = value_ === "false";

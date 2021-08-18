@@ -1,7 +1,7 @@
 import { env } from "app/env";
 import { generateAssets } from "@egvelho/next-material/utils/generate-assets";
 import { generateSitemap } from "@egvelho/next-material/utils/generate-sitemap";
-import { resizeImageAssets } from "@egvelho/next-material/utils/resize-image-assets";
+//import { resizeImageAssets } from "@egvelho/next-material/utils/resize-image-assets";
 
 export async function scripts() {
   const loadedEnv = env();
@@ -13,10 +13,10 @@ export async function scripts() {
         ? generateAssets({ appPath: "app.json", outPath })
         : undefined,
       loadedEnv.resizeImageAssetsOnBuild
-        ? resizeImageAssets({
+        ? undefined /*resizeImageAssets({
             paths: [".next/static/images", "public/images"],
             size: 640,
-          })
+          })*/
         : undefined,
       generateSitemap({
         mapPathToImport: (path) => import(`pages/${path}`),

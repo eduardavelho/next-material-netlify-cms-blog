@@ -1,10 +1,12 @@
-let fs: any, join: any, sharp: any;
+import { join } from "path";
+import { promises as fs, existsSync } from "fs";
+import sharp from "sharp";
 
 async function resizeImagesFromPath(inputPath: string, size: number) {
-  const paths = fs.readdirSync(inputPath, { withFileTypes: true });
+  const paths = await fs.readdir(inputPath, { withFileTypes: true });
 
   await Promise.all(
-    paths.map(async (path: any) => {
+    paths.map(async (path) => {
       const fullPath = join(inputPath, path.name);
       if (path.isDirectory()) {
         console.log(`Entering in ${fullPath}...`);
@@ -21,7 +23,7 @@ async function resizeImagesFromPath(inputPath: string, size: number) {
           })
           .toBuffer();
 
-        fs.writeFileSync(fullPath, buffer);
+        await fs.writeFile(fullPath, buffer);
         console.log(`Resizing ${fullPath} to fit ${size}x${size}`);
       }
     })
@@ -32,15 +34,8 @@ export async function resizeImageAssets({
   paths = ["public/images", ".next/static/images"],
   size = 960,
 }) {
-  if (typeof window !== "undefined") {
-    return;
-  }
-
   console.log("Starting image resize process...");
-
-  fs = eval('require("fs")');
-
-  const notFoundPaths = paths.filter((path) => fs.existsSync(path) === false);
+  const notFoundPaths = paths.filter((path) => existsSync(path) === false);
 
   if (notFoundPaths.length > 0) {
     console.log(
@@ -51,13 +46,9 @@ export async function resizeImageAssets({
     return;
   }
 
-  join = eval('require("path")').join;
-  sharp = eval('require("sharp")');
-
   sharp.cache(false);
   sharp.simd(false);
 
   await Promise.all(paths.map((path) => resizeImagesFromPath(path, size)));
-
   console.log("Resizing success!");
 }

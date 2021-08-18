@@ -22,7 +22,7 @@ const itemsSections = {
 };
 
 const itemsToDisplay = itemsData.items.map(({ item }, index) => {
-  const Item = itemsSections[(item as any) as keyof typeof itemsSections];
+  const Item = itemsSections[item as keyof typeof itemsSections];
   const key = index;
   return { Item, key };
 });

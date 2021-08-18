@@ -78,11 +78,8 @@ export function createContext<ContextProps extends Object>(
 }
 
 function setWindowContext<ContextProps>(context: ContextProps) {
-  if (typeof window === "undefined") {
-    return;
-  }
-  (window as any)["__context"] = {
-    ...((window as any)["__context"] ?? {}),
+  getWindow()["__context"] = {
+    ...(getWindow()["__context"] ?? {}),
     ...context,
   };
 }
@@ -90,26 +87,17 @@ function setWindowContext<ContextProps>(context: ContextProps) {
 function setWindowSetContext<ContextProps>(
   setContext: (context: ContextProps) => void
 ) {
-  if (typeof window === "undefined") {
-    return;
-  }
-  (window as any)["__setContext"] = setContext;
+  getWindow()["__setContext"] = setContext;
 }
 
 function getWindowContext<ContextProps>(): undefined | ContextProps {
-  if (typeof window === "undefined") {
-    return undefined;
-  }
-  return (window as any)["__context"];
+  return getWindow()["__context"];
 }
 
 function getWindowSetContext<ContextProps>():
   | undefined
   | ((context: ContextProps) => void) {
-  if (typeof window === "undefined") {
-    return undefined;
-  }
-  return (window as any)["__setContext"];
+  return getWindow()["__setContext"];
 }
 
 async function storeContextOnPersistedKeysChange<ContextProps>(
@@ -142,10 +130,6 @@ async function storeContextOnPersistedKeysChange<ContextProps>(
 }
 
 function storeContext<ContextProps>(context: ContextProps) {
-  if (typeof window === "undefined") {
-    return;
-  }
-
   localStorage.setItem("context", JSON.stringify(context));
 }
 
@@ -167,16 +151,16 @@ function retrieveStoredContext<ContextProps>(): Partial<ContextProps> {
 function popContextQueueAt<ContextProps>(
   at: number
 ): Partial<ContextProps> | undefined {
-  const contextAt = (window as any).__contextQueue[at][1];
-  (window as any).__contextQueue.splice(at, 1);
+  const contextAt = getWindow().__contextQueue[at][1];
+  getWindow().__contextQueue.splice(at, 1);
   return contextAt;
 }
 
 function lockContextQueueAt(at: number) {
-  if ((window as any).__contextQueue[at][0] === true) {
+  if (getWindow().__contextQueue[at][0] === true) {
     return false;
   } else {
-    (window as any).__contextQueue[at][0] = true;
+    getWindow().__contextQueue[at][0] = true;
     return true;
   }
 }
@@ -192,17 +176,17 @@ function getContextQueueItem<ContextProps>():
 }
 
 function pushToContextQueue<ContextProps>(context: Partial<ContextProps>) {
-  (window as any).__contextQueue.push([false, context]);
+  getWindow().__contextQueue.push([false, context]);
 }
 
 function startContextQueue() {
-  if ((window as any).__contextQueue === undefined) {
-    (window as any).__contextQueue = [];
+  if (getWindow().__contextQueue === undefined) {
+    getWindow().__contextQueue = [];
   }
 }
 
 function contextQueueIsEmpty() {
-  return (window as any).__contextQueue.length === 0;
+  return getWindow().__contextQueue.length === 0;
 }
 
 function queuedSetContext<ContextProps>(
@@ -227,4 +211,12 @@ function queuedSetContext<ContextProps>(
     setWindowContext(queuedContext);
     setContext(queuedContext);
   }
+}
+
+function getWindow(): Window & {
+  __context: any;
+  __contextQueue: any;
+  __setContext: any;
+} {
+  return (typeof window === "undefined" ? {} : window) as any;
 }

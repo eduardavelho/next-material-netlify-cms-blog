@@ -1,69 +1,71 @@
-const fs = require("fs");
+const { promises, existsSync } = require("fs");
+const fs = promises;
 const path = require("path");
+const generateAssets = require("../utils/generate-assets").generateAssets;
 
-function createBoilerplate() {
+async function createBoilerplate() {
   console.log("Creating boilerplate...");
 
-  if (fs.existsSync("boilerplate")) {
+  if (existsSync("boilerplate")) {
     console.log("Deleting previous build...");
-    fs.rmdirSync("boilerplate", { recursive: true });
+    await fs.rmdir("boilerplate", { recursive: true });
   }
 
   console.log("Copying files...");
-  fs.mkdirSync("boilerplate");
-  fs.copyFileSync(
-    "template/babel.config.prod.js",
-    "boilerplate/babel.config.js"
-  );
-  fs.copyFileSync("template/next.config.prod.js", "boilerplate/next.config.js");
-  fs.copyFileSync("template/next-env.d.ts", "boilerplate/next-env.d.ts");
-  fs.copyFileSync("template/package.json", "boilerplate/package.json");
-  fs.copyFileSync(
-    "template/babel.config.prod.js",
-    "boilerplate/babel.config.js"
-  );
-  fs.copyFileSync("template/app.json", "boilerplate/app.json");
-  fs.copyFileSync("template/icon.svg", "boilerplate/icon.svg");
-  fs.copyFileSync("template/tsconfig.json", "boilerplate/tsconfig.json");
-  fs.copyFileSync("template/.env.example", "boilerplate/.env.example");
 
-  copyFolderRecursiveSync("pages", "boilerplate");
-  copyFolderRecursiveSync("app", "boilerplate");
+  await fs.mkdir("boilerplate");
+  await fs.mkdir("boilerplate/public");
 
-  console.log('Boilerplate created with success!')
+  await fs.copyFile("template/package.json", "boilerplate/package.json");
+  await fs.copyFile("template/tsconfig.json", "boilerplate/tsconfig.json");
+
+  await fs.copyFile("app.json", "boilerplate/app.json");
+  await fs.copyFile("icon.svg", "boilerplate/icon.svg");
+  await fs.copyFile(".env.example", "boilerplate/.env");
+
+  await copyFolderRecursive("pages", "boilerplate");
+  await copyFolderRecursive("app", "boilerplate");
+
+  await generateAssets({
+    appPath: "boilerplate/app.json",
+    outPath: "boilerplate/public",
+  });
+
+  console.log("Boilerplate created with success!");
 }
 
-function copyFolderRecursiveSync(from, to) {
+async function copyFolderRecursive(from, to) {
   let files = [];
 
   const targetFolder = path.join(to, path.basename(from));
-  if (!fs.existsSync(targetFolder)) {
-    fs.mkdirSync(targetFolder);
+  if (!existsSync(targetFolder)) {
+    await fs.mkdir(targetFolder);
   }
 
-  if (fs.lstatSync(from).isDirectory()) {
-    files = fs.readdirSync(from);
-    files.forEach(function (file) {
+  if ((await fs.lstat(from)).isDirectory()) {
+    files = await fs.readdir(from);
+
+    for (file of files) {
       const currentSource = path.join(from, file);
-      if (fs.lstatSync(currentSource).isDirectory()) {
-        copyFolderRecursiveSync(currentSource, targetFolder);
+      if ((await fs.lstat(currentSource)).isDirectory()) {
+        await copyFolderRecursive(currentSource, targetFolder);
       } else {
-        copyFileSync(currentSource, targetFolder);
+        await copyFile(currentSource, targetFolder);
       }
-    });
+    }
   }
 }
 
-function copyFileSync(from, to) {
+async function copyFile(from, to) {
   let targetFile = to;
 
-  if (fs.existsSync(to)) {
-    if (fs.lstatSync(to).isDirectory()) {
+  if (existsSync(to)) {
+    if ((await fs.lstat(to)).isDirectory()) {
       targetFile = path.join(to, path.basename(from));
     }
   }
 
-  fs.writeFileSync(targetFile, fs.readFileSync(from));
+  await fs.writeFile(targetFile, await fs.readFile(from));
 }
 
 createBoilerplate();
