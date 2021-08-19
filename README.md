@@ -1,8 +1,5 @@
 # next-material
 
-Implementar relation no NetlifyCMS
-Implementar validação regex no NetlifyCms
-
 Implementar script de typecheck geral (inclusive do storybook)
 Implementar script de identação global
 Melhorar templates, não duplicar versões

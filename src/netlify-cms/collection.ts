@@ -27,11 +27,13 @@ function string<Arguments extends FieldArguments = "required">({
   label,
   required,
   defaultValue,
+  pattern,
 }: GetCmsFieldArguments<string, Arguments>): GetCmsField<string, Arguments> {
   return () => (name) => ({
     name,
     label,
     required,
+    pattern,
     default: defaultValue,
     widget: "string",
   });
@@ -41,6 +43,7 @@ function hidden({
   label,
   defaultValue,
   required,
+  pattern,
 }: GetCmsFieldArguments<string, "withDefault">): GetCmsField<
   string,
   "withDefault"
@@ -49,6 +52,7 @@ function hidden({
     name,
     label,
     required,
+    pattern,
     default: defaultValue,
     widget: "hidden",
   });
@@ -58,11 +62,13 @@ function text<Arguments extends FieldArguments = "required">({
   label,
   required,
   defaultValue,
+  pattern,
 }: GetCmsFieldArguments<string, Arguments>): GetCmsField<string, Arguments> {
   return () => (name) => ({
     name,
     label,
     required,
+    pattern,
     default: defaultValue,
     widget: "text",
   });
@@ -71,6 +77,7 @@ function text<Arguments extends FieldArguments = "required">({
 function number<Arguments extends FieldArguments = "required">({
   label,
   required,
+  pattern,
   defaultValue,
   min,
   max,
@@ -86,6 +93,7 @@ function number<Arguments extends FieldArguments = "required">({
     name,
     label,
     required,
+    pattern,
     default: defaultValue,
     widget: "number",
     min,
@@ -98,6 +106,7 @@ function number<Arguments extends FieldArguments = "required">({
 function color<Arguments extends FieldArguments = "required">({
   label,
   required,
+  pattern,
   defaultValue,
   allowInput = false,
   enableAlpha = false,
@@ -109,6 +118,7 @@ function color<Arguments extends FieldArguments = "required">({
     name,
     label,
     required,
+    pattern,
     allowInput,
     enableAlpha,
     default: defaultValue,
@@ -119,6 +129,7 @@ function color<Arguments extends FieldArguments = "required">({
 function boolean({
   label,
   required,
+  pattern,
   defaultValue,
 }: GetCmsFieldArguments<boolean, "withDefault">): GetCmsField<
   boolean,
@@ -128,6 +139,7 @@ function boolean({
     name,
     label,
     required,
+    pattern,
     default: defaultValue,
     widget: "boolean",
   });
@@ -136,6 +148,7 @@ function boolean({
 function selectMany<Arguments extends FieldArguments = "required">({
   label,
   required,
+  pattern,
   defaultValue,
   options,
   min,
@@ -149,6 +162,7 @@ function selectMany<Arguments extends FieldArguments = "required">({
     name,
     label,
     required,
+    pattern,
     options,
     min,
     max,
@@ -161,6 +175,7 @@ function selectMany<Arguments extends FieldArguments = "required">({
 function selectOne<Arguments extends FieldArguments = "required">({
   label,
   required,
+  pattern,
   defaultValue,
   options,
 }: GetCmsFieldArguments<string[], Arguments> & {
@@ -170,6 +185,7 @@ function selectOne<Arguments extends FieldArguments = "required">({
     name,
     label,
     required,
+    pattern,
     options,
     multiple: false,
     default: defaultValue,
@@ -180,6 +196,7 @@ function selectOne<Arguments extends FieldArguments = "required">({
 function image<Arguments extends FieldArguments = "required">({
   label,
   required,
+  pattern,
   defaultValue,
   chooseUrl,
   mediaFolder,
@@ -191,6 +208,7 @@ function image<Arguments extends FieldArguments = "required">({
     name,
     label,
     required,
+    pattern,
     allow_multiple: false,
     media_folder: mediaFolder,
     choose_url: chooseUrl,
@@ -202,6 +220,7 @@ function image<Arguments extends FieldArguments = "required">({
 function images<Arguments extends FieldArguments = "required">({
   label,
   required,
+  pattern,
   defaultValue,
   chooseUrl,
   mediaFolder,
@@ -213,6 +232,7 @@ function images<Arguments extends FieldArguments = "required">({
     name,
     label,
     required,
+    pattern,
     allow_multiple: true,
     choose_url: chooseUrl,
     media_folder: mediaFolder,
@@ -229,6 +249,7 @@ function images<Arguments extends FieldArguments = "required">({
 function file<Arguments extends FieldArguments = "required">({
   label,
   required,
+  pattern,
   defaultValue,
   chooseUrl,
   mediaFolder,
@@ -240,6 +261,7 @@ function file<Arguments extends FieldArguments = "required">({
     name,
     label,
     required,
+    pattern,
     allow_multiple: false,
     media_folder: mediaFolder,
     choose_url: chooseUrl,
@@ -251,6 +273,7 @@ function file<Arguments extends FieldArguments = "required">({
 function files<Arguments extends FieldArguments = "required">({
   label,
   required,
+  pattern,
   defaultValue,
   chooseUrl,
   mediaFolder,
@@ -262,6 +285,7 @@ function files<Arguments extends FieldArguments = "required">({
     name,
     label,
     required,
+    pattern,
     allow_multiple: true,
     choose_url: chooseUrl,
     media_folder: mediaFolder,
@@ -278,6 +302,7 @@ function files<Arguments extends FieldArguments = "required">({
 function keywords({
   label,
   required,
+  pattern,
   min,
   max,
   allowAdd = false,
@@ -290,6 +315,7 @@ function keywords({
     name,
     label,
     required,
+    pattern,
     min,
     max,
     allow_add: allowAdd,
@@ -300,6 +326,7 @@ function keywords({
 function datetime<Arguments extends FieldArguments = "required">({
   label,
   required,
+  pattern,
   defaultValue,
   dateFormat,
   timeFormat,
@@ -311,6 +338,7 @@ function datetime<Arguments extends FieldArguments = "required">({
     name,
     label,
     required,
+    pattern,
     default: defaultValue,
     date_format: dateFormat,
     time_format: timeFormat,
@@ -321,6 +349,7 @@ function datetime<Arguments extends FieldArguments = "required">({
 function map<Arguments extends FieldArguments = "required">({
   label,
   required,
+  pattern,
   defaultValue,
   decimals,
   type,
@@ -332,6 +361,7 @@ function map<Arguments extends FieldArguments = "required">({
     name,
     label,
     required,
+    pattern,
     decimals,
     type,
     default: defaultValue,
@@ -342,6 +372,7 @@ function map<Arguments extends FieldArguments = "required">({
 function code<Arguments extends FieldArguments = "required">({
   label,
   required,
+  pattern,
   defaultValue,
   defaultLanguage,
   allowLanguageSelection,
@@ -357,6 +388,7 @@ function code<Arguments extends FieldArguments = "required">({
     name,
     label,
     required,
+    pattern,
     keys,
     output_code_only: outputCodeOnly,
     allow_language_selection: allowLanguageSelection,
@@ -369,6 +401,7 @@ function code<Arguments extends FieldArguments = "required">({
 function markdown<Arguments extends FieldArguments = "required">({
   label,
   required,
+  pattern,
   defaultValue,
   minimal,
   buttons,
@@ -386,6 +419,7 @@ function markdown<Arguments extends FieldArguments = "required">({
     name,
     label,
     required,
+    pattern,
     minimal,
     buttons,
     modes,
@@ -396,9 +430,54 @@ function markdown<Arguments extends FieldArguments = "required">({
   });
 }
 
+function relation<Arguments extends FieldArguments = "required">({
+  label,
+  required,
+  pattern,
+  defaultValue,
+  collection,
+  valueField,
+  searchFields,
+  file,
+  displayFields,
+  multiple,
+  min,
+  max,
+  optionsLength,
+}: GetCmsFieldArguments<string, Arguments> & {
+  collection: string;
+  valueField: string;
+  searchFields: string[];
+  file?: string;
+  displayFields?: string[];
+  multiple?: boolean;
+  min?: number;
+  max?: number;
+  optionsLength?: number;
+}): GetCmsField<string, Arguments> {
+  return () => (name) => ({
+    name,
+    label,
+    required,
+    pattern,
+    collection,
+    file,
+    multiple,
+    min,
+    max,
+    value_field: valueField,
+    search_fields: searchFields,
+    display_fields: displayFields,
+    options_length: optionsLength,
+    default: defaultValue,
+    widget: "relation",
+  });
+}
+
 function list({
   label,
   required,
+  pattern,
   labelSingular,
   summary,
   collapsed = false,
@@ -422,6 +501,7 @@ function list({
         summary,
         collapsed,
         required,
+        pattern,
         fields,
         label_singular: labelSingular,
         widget: "list",
@@ -433,6 +513,7 @@ function list({
 function object({
   label,
   required,
+  pattern,
   summary,
   collapsed = false,
 }: GetCmsFieldArguments<never, "required"> & {
@@ -454,6 +535,7 @@ function object({
         summary,
         collapsed,
         required,
+        pattern,
         fields,
         widget: "object",
       });
@@ -479,6 +561,7 @@ const fieldsObject = {
   selectOne,
   image,
   images,
+  relation,
   list,
   object,
 };

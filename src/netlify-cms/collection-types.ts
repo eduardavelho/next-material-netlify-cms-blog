@@ -35,13 +35,24 @@ export type GetCmsFieldArguments<
   Type,
   Arguments extends FieldArguments
 > = Arguments extends "optional"
-  ? { label: string; required: false; defaultValue?: undefined }
+  ? {
+      label: string;
+      required: false;
+      defaultValue?: undefined;
+      pattern?: [string, string];
+    }
   : Arguments extends "withDefault"
-  ? { label: string; required?: true; defaultValue: Type }
+  ? {
+      label: string;
+      required?: true;
+      defaultValue: Type;
+      pattern?: [string, string];
+    }
   : {
       label: string;
       required?: true;
       defaultValue?: undefined;
+      pattern?: [string, string];
     };
 
 export type GetCmsField<Type, Arguments extends FieldArguments> = () => (
