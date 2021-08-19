@@ -1,37 +1,22 @@
 {
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "target": "es2020",
     "module": "es2020",
     "jsx": "preserve",
-    "strict": true,
-    "pretty": true,
-    "checkJs": true,
-    "noImplicitAny": true,
-    "alwaysStrict": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
     "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "sourceMap": true,
-    "skipLibCheck": true,
     "lib": ["es2020", "dom"],
     "baseUrl": ".",
     "typeRoots": ["node_modules/@types"],
-    "forceConsistentCasingInFileNames": false,
+    "checkJs": true,
     "noEmit": true,
-    "resolveJsonModule": true,
     "noUnusedLocals": false,
-    "strictNullChecks": true,
-    "allowJs": true,
-    "isolatedModules": true,
+    "skipLibCheck": true,
     "paths": {
       "@egvelho/next-material": ["src/index.ts"],
       "@egvelho/next-material/*": ["src/*"]
     }
   },
-  "exclude": ["node_modules", "src/stories"],
-  "include": ["app/**/*", "pages/**/*", "src/**/*"]
+  "exclude": ["node_modules"],
+  "include": ["app/**/*", "pages/**/*", "src/**/*", "scripts/**/*"]
 }

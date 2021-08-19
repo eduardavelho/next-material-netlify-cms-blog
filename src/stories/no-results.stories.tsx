@@ -8,5 +8,10 @@ export default {
 } as Meta;
 
 export const Usage = () => {
-  return <NoResults noResultsText="No results found for search" />;
+  return (
+    <NoResults
+      noResultsText="No results found for search"
+      noResultsDescription="No results has found for the current search query"
+    />
+  );
 };

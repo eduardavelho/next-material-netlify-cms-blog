@@ -4,6 +4,8 @@ const fs = require("fs");
 
 function scriptsResizeImageAssets() {
   const args = process.argv.slice(2);
+
+  /** @type {string[]} */
   let paths = [];
   let size = undefined;
 

@@ -1,12 +1,9 @@
 # next-material
 
-Implementar script de typecheck geral (inclusive do storybook)
-Implementar script de identação global
 Melhorar templates, não duplicar versões
 Atualizar pacotes
 Ver quais pacotes podem ser removidos
 Ver quais features do nextJS faltam ser implementadas
-Alterar api para poder ter vários métodos http em um mesmo endpoint
 
 Renomear netlify-cms para CMS
 Renomear componentes do projeto
@@ -30,6 +27,7 @@ Gerar formulários automaticamente
 Abstração para formulários e validação (front e back-end, ver zod)
 Use-form deve ser agnóstico na validação (receber string[])
 Implementar lógica do formulário de contato
+Alterar api para poder ter vários métodos http em um mesmo endpoint
 
 Possibilidade de colocar a imagem do usuário no botão do drawer
 Possibilidade de adicionar ícones ao lado do drawer (ver portal react)
@@ -39,6 +37,7 @@ Cadastro de autores no netlify cms (com relations, talvez)
 
 Implementar react-admin
 
+- questões de devops (identação automática, eslint, pipeline, configs do vscode)
 - produtos/blog (com filtros, ordenação, etc)
 - login
 - logout

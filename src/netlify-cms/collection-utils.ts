@@ -70,7 +70,7 @@ export function filenameToSlug(fileName: CollectionFile) {
 }
 
 export async function markdownToHtml(markdown: string) {
-  return (await markdownProcessor.process(markdown)).contents;
+  return (await markdownProcessor.process(markdown)).contents.toString();
 }
 
 export function sortByMostRecent<DataType>(

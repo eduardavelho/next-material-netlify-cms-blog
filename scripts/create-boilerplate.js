@@ -34,7 +34,12 @@ async function createBoilerplate() {
   console.log("Boilerplate created with success!");
 }
 
+/**
+ * @param {string} from
+ * @param {string} to
+ */
 async function copyFolderRecursive(from, to) {
+  /** @type {string[]} */
   let files = [];
 
   const targetFolder = path.join(to, path.basename(from));
@@ -45,7 +50,7 @@ async function copyFolderRecursive(from, to) {
   if ((await fs.lstat(from)).isDirectory()) {
     files = await fs.readdir(from);
 
-    for (file of files) {
+    for (const file of files) {
       const currentSource = path.join(from, file);
       if ((await fs.lstat(currentSource)).isDirectory()) {
         await copyFolderRecursive(currentSource, targetFolder);
@@ -56,6 +61,10 @@ async function copyFolderRecursive(from, to) {
   }
 }
 
+/**
+ * @param {string} from
+ * @param {string} to
+ */
 async function copyFile(from, to) {
   let targetFile = to;
 

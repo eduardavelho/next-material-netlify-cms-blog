@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "pretty": true,
+    "noImplicitAny": true,
+    "alwaysStrict": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": false,
+    "emitDecoratorMetadata": false,
+    "sourceMap": true,
+    "typeRoots": ["node_modules/@types"],
+    "forceConsistentCasingInFileNames": false,
+    "resolveJsonModule": true,
+    "strictNullChecks": true,
+    "allowJs": true,
+    "isolatedModules": true
+  }
+}
