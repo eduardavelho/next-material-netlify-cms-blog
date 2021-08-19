@@ -1,5 +1,4 @@
 import React from "react";
-import { useTheme } from "@material-ui/core/styles";
 import Hidden from "@material-ui/core/Hidden";
 import { AppBar, AppBarProps } from "./app-bar";
 import { BottomNavigation, BottomNavigationProps } from "./bottom-navigation";
@@ -50,8 +49,6 @@ export function Dash({
   setSnackbarContent,
   children,
 }: DashProps) {
-  const theme = useTheme();
-
   return (
     <>
       <AppBar

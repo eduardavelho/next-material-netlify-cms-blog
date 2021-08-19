@@ -6,13 +6,13 @@ import type { BlogPost } from "app/admin/blog-post";
 export { Post as default } from "app/blog/post";
 
 export const getStaticPaths = pages.post.getStaticPaths(async () => {
-  const postsPath = await collectionUtils.createCollectionFolder(paths.posts);
+  const postsPath = await collectionUtils.useCollectionFolder(paths.posts);
   const slugs = await collectionUtils.getSlugs(postsPath);
   return slugs.map((slug) => ({ slug }));
 });
 
 export const getStaticProps = pages.post.getStaticProps(async (query) => {
-  const postPath = await collectionUtils.createCollectionFile(
+  const postPath = await collectionUtils.useCollectionFile(
     `${paths.posts}/${query.slug}.json`
   );
 

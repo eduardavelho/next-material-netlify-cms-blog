@@ -1,8 +1,14 @@
-import { join } from "path";
-import { promises as fs, existsSync } from "fs";
-import sharp from "sharp";
+#!/usr/bin/env node
 
-async function resizeImagesFromPath(inputPath: string, size: number) {
+const { join } = require("path");
+const { promises, existsSync } = require("fs");
+const fs = promises;
+const sharp = require("sharp");
+
+module.exports = { resizeImageAssets };
+
+/** @param {string} inputPath @param {number} size */
+async function resizeImagesFromPath(inputPath, size) {
   const paths = await fs.readdir(inputPath, { withFileTypes: true });
 
   await Promise.all(
@@ -30,7 +36,7 @@ async function resizeImagesFromPath(inputPath: string, size: number) {
   );
 }
 
-export async function resizeImageAssets({
+async function resizeImageAssets({
   paths = ["public/images", ".next/static/images"],
   size = 960,
 }) {
@@ -51,4 +57,30 @@ export async function resizeImageAssets({
 
   await Promise.all(paths.map((path) => resizeImagesFromPath(path, size)));
   console.log("Resizing success!");
+}
+
+if (require.main === module) {
+  const args = process.argv.slice(2);
+
+  /** @type {string[]} */
+  let paths = [];
+  let size = undefined;
+
+  args.reduce((previousArg, arg) => {
+    if (previousArg === "-size") {
+      size = parseInt(arg);
+    } else if (arg === "-size") {
+    } else {
+      paths.push(arg);
+    }
+
+    return arg;
+  }, "");
+
+  if (!size || paths.length === 0) {
+    console.log("Error: you must provide the arguments for size and paths.");
+    console.log("Example: resize-image-assets -size 256 path/to/a path/to/b");
+  } else {
+    resizeImageAssets({ paths, size });
+  }
 }

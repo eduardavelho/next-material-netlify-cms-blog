@@ -49,16 +49,32 @@ export async function getCollectionFolder<DataType>(
   );
 }
 
-export async function createCollectionFile(path: string) {
-  if (existsSync(path) && (await fs.stat(path)).isFile()) {
+export async function useCollectionFile(
+  path: string,
+  options: {
+    doNotCheckIfExists?: boolean;
+  } = {}
+) {
+  if (
+    options.doNotCheckIfExists ||
+    (existsSync(path) && (await fs.stat(path)).isFile())
+  ) {
     return path as CollectionFile;
   }
 
   throw new Error(`The file "${path}" does not exists.`);
 }
 
-export async function createCollectionFolder(path: string) {
-  if (existsSync(path) && (await fs.stat(path)).isDirectory()) {
+export async function useCollectionFolder(
+  path: string,
+  options: {
+    doNotCheckIfExists?: boolean;
+  } = {}
+) {
+  if (
+    options.doNotCheckIfExists ||
+    (existsSync(path) && (await fs.stat(path)).isDirectory())
+  ) {
     return path as CollectionFolder;
   }
 

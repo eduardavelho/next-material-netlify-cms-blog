@@ -7,16 +7,13 @@
     "moduleResolution": "node",
     "lib": ["es5", "es6", "es2019", "ES2016.Array.Include", "dom"],
     "baseUrl": "src",
-    "typeRoots": ["node_modules/@types"],
     "outDir": ".",
-    "checkJs": true,
     "declaration": true,
     "noEmit": false,
     "resolveJsonModule": true,
     "noUnusedLocals": true,
     "downlevelIteration": true,
-    "importHelpers": true,
-    "skipLibCheck": false
+    "importHelpers": true
   },
   "exclude": ["src/stories"],
   "include": ["src"]

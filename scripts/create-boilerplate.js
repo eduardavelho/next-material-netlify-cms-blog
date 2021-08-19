@@ -1,7 +1,74 @@
+#!/usr/bin/env node
+
 const { promises, existsSync } = require("fs");
 const fs = promises;
 const path = require("path");
-const generateAssets = require("../utils/generate-assets").generateAssets;
+const generateAssets = require("../src/utils/generate-assets").generateAssets;
+const packageJson = require("../package.json");
+const tsconfigBase = require("../tsconfig.base.json");
+
+const boilerplatePackage = {
+  name: "tropicalia-app",
+  version: "1.0.0",
+  private: true,
+  scripts: {
+    dev: "next dev",
+    start: "next start",
+    build: "next build",
+    export: "next export",
+    "generate-assets": "generate-assets app.json public",
+    "resize-image-assets":
+      "resize-image-assets .next/static/images public/images -size 640",
+  },
+  dependencies: {
+    "@egvelho/next-material": `^${packageJson.version}`,
+    next: packageJson.dependencies.next,
+    react: packageJson.dependencies.react,
+    "react-dom": packageJson.dependencies.react,
+  },
+  devDependencies: {
+    "@types/node": packageJson.devDependencies["@types/node"],
+    "@types/react": packageJson.devDependencies["@types/react"],
+    typescript: packageJson.devDependencies.typescript,
+  },
+};
+
+const boilerplateGitIgnore = `
+/.next
+/out
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+pids
+*.pid
+*.seed
+*.pid.lock
+node_modules
+jspm_packages
+*.tsbuildinfo
+.npm
+.env
+`;
+
+const boilerplateTsConfig = {
+  compilerOptions: {
+    ...tsconfigBase.compilerOptions,
+    target: "es2020",
+    module: "es2020",
+    jsx: "preserve",
+    moduleResolution: "node",
+    lib: ["es2020", "dom"],
+    baseUrl: ".",
+    noEmit: true,
+    noUnusedLocals: false,
+  },
+  exclude: ["node_modules"],
+  include: ["app/**/*", "pages/**/*"],
+};
 
 async function createBoilerplate() {
   console.log("Creating boilerplate...");
@@ -16,8 +83,17 @@ async function createBoilerplate() {
   await fs.mkdir("boilerplate");
   await fs.mkdir("boilerplate/public");
 
-  await fs.copyFile("template/package.json", "boilerplate/package.json");
-  await fs.copyFile("template/tsconfig.json", "boilerplate/tsconfig.json");
+  await fs.writeFile(
+    "boilerplate/package.json",
+    JSON.stringify(boilerplatePackage, null, 2)
+  );
+
+  await fs.writeFile(
+    "boilerplate/tsconfig.json",
+    JSON.stringify(boilerplateTsConfig, null, 2)
+  );
+
+  await fs.writeFile("boilerplate/.gitignore", boilerplateGitIgnore);
 
   await fs.copyFile("app.json", "boilerplate/app.json");
   await fs.copyFile("icon.svg", "boilerplate/icon.svg");
@@ -34,10 +110,7 @@ async function createBoilerplate() {
   console.log("Boilerplate created with success!");
 }
 
-/**
- * @param {string} from
- * @param {string} to
- */
+/** @param {string} from @param {string} to */
 async function copyFolderRecursive(from, to) {
   /** @type {string[]} */
   let files = [];
@@ -61,10 +134,7 @@ async function copyFolderRecursive(from, to) {
   }
 }
 
-/**
- * @param {string} from
- * @param {string} to
- */
+/** @param {string} from @param {string} to */
 async function copyFile(from, to) {
   let targetFile = to;
 

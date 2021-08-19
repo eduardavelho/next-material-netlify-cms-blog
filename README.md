@@ -1,27 +1,35 @@
 # next-material
 
-Melhorar templates, não duplicar versões
-Atualizar pacotes
-Ver quais pacotes podem ser removidos
-Ver quais features do nextJS faltam ser implementadas
+--- ETAPA 1: Ajustes ---
 
 Renomear netlify-cms para CMS
 Renomear componentes do projeto
+Mover alguns componentes para dentro do boilerplate
+
 Escolher nome mais curto para o pacote
 Finalizar boilerplate (deve ter gitignore)
 Criar repositório para app-boilerplate
 Realizar deploy do projeto para o Netlify
 
-Ver problema de segfault do sharp no netlify e problema de instalação no windows
+Ver problema de segfault do sharp no netlify e problema de instalação no windows (está comentado em scripts.ts)
 Netlify deve ter cache
 NetlifyCMS deve ser self-hosted
 Google SpeedInsights está com nota baixa em mobile
 
+Criar README
+Criar changelog
 Escrever testes
 Escrever documentação dos módulos
+Questões de devops (identação automática, eslint, pipeline, configs do vscode)
+Criar logo e ajustar aparência do boilerplate
+Organizar tarefas em algo melhor que o readme
+Cronograma de atualização das dependências (mensal)
 
-Implementar faq/q&s (com serp)
-Adicionar componentes básicos (button, chip, paper, icons, etc)
+--- ETAPA 2: Melhorias ---
+
+Remover componente blog (renomear para algo mais genérico)
+Substituir e remover react-masonry-css
+Ver quais features do nextJS faltam ser implementadas (internalionalização, por exemplo)
 
 Gerar formulários automaticamente
 Abstração para formulários e validação (front e back-end, ver zod)
@@ -33,11 +41,12 @@ Possibilidade de colocar a imagem do usuário no botão do drawer
 Possibilidade de adicionar ícones ao lado do drawer (ver portal react)
 Rodapé deve ter link para redes sociais
 Rodapé deve ter lista de imagens com link (para registrar afiliados, métodos de pagamento, etc)
-Cadastro de autores no netlify cms (com relations, talvez)
 
-Implementar react-admin
+--- ETAPA 3: Novas features ---
 
-- questões de devops (identação automática, eslint, pipeline, configs do vscode)
+- Implementar react-admin
+- Cadastro de autores no netlify cms (com relations, talvez)
+- Implementar faq/q&s (com serp)
 - produtos/blog (com filtros, ordenação, etc)
 - login
 - logout

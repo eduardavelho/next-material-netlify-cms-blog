@@ -7,11 +7,8 @@
     "moduleResolution": "node",
     "lib": ["es2020", "dom"],
     "baseUrl": ".",
-    "typeRoots": ["node_modules/@types"],
-    "checkJs": true,
     "noEmit": true,
     "noUnusedLocals": false,
-    "skipLibCheck": true,
     "paths": {
       "@egvelho/next-material": ["src/index.ts"],
       "@egvelho/next-material/*": ["src/*"]

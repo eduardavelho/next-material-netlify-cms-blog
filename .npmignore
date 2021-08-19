@@ -3,6 +3,7 @@
 /babel.config.js
 /next.config.js
 /next-env.d.ts
+/tsconfig.base.json
 /tsconfig.build.json
 /tsconfig.json
 /template
@@ -13,5 +14,5 @@
 /storybook-static
 /.storybook
 /public
-/app.json
-/icon.svg
+/out
+/build

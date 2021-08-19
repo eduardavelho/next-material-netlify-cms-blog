@@ -23,7 +23,7 @@ async function writeChunksThenGetAllPosts() {
   await collectionUtils.createFolderIfNotExists(paths.postsApi);
 
   const postsChunks = await collectionUtils.chunkItems(posts, env().pagination);
-  const postsApiPath = await collectionUtils.createCollectionFolder(
+  const postsApiPath = await collectionUtils.useCollectionFolder(
     paths.postsApi
   );
 
@@ -57,8 +57,9 @@ async function writePostsForTagThenGet(initialTag: string) {
 
   await collectionUtils.createFolderIfNotExists(paths.postsByTag);
 
-  const tagPath = await collectionUtils.createCollectionFile(
-    `${paths.postsByTag}/${initialTag}.json`
+  const tagPath = await collectionUtils.useCollectionFile(
+    `${paths.postsByTag}/${initialTag}.json`,
+    { doNotCheckIfExists: true }
   );
 
   await collectionUtils.writeItemsToFile(tagPath, postsForTag);
@@ -79,7 +80,7 @@ async function writePostsForTagThenGet(initialTag: string) {
 }
 
 async function getAllPosts() {
-  const postsPath = await collectionUtils.createCollectionFolder(paths.posts);
+  const postsPath = await collectionUtils.useCollectionFolder(paths.posts);
   const posts = await collectionUtils.getCollectionFolder<BlogPost>(postsPath);
   const sortByMostRecentPosts = collectionUtils.sortByMostRecent<BlogPost>(
     ({ data: { publishDate } }) => new Date(publishDate ?? 0)

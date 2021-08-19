@@ -12,11 +12,13 @@
     "experimentalDecorators": false,
     "emitDecoratorMetadata": false,
     "sourceMap": true,
-    "typeRoots": ["node_modules/@types"],
     "forceConsistentCasingInFileNames": false,
     "resolveJsonModule": true,
     "strictNullChecks": true,
     "allowJs": true,
-    "isolatedModules": true
+    "checkJs": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "typeRoots": ["node_modules/@types"]
   }
 }

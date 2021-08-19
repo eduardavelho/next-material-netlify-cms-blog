@@ -1,13 +1,15 @@
-import path from "path";
-import { promises as fs, existsSync } from "fs";
-import favicons, { Configuration, Callback } from "favicons";
+#!/usr/bin/env node
 
-export async function generateAssets({
+const path = require("path");
+const { promises, existsSync } = require("fs");
+const fs = promises;
+const favicons = require("favicons");
+
+module.exports = { generateAssets };
+
+async function generateAssets({
   appPath = "app.json",
   outPath = "public",
-}: {
-  appPath?: string;
-  outPath?: string;
 } = {}) {
   console.log("Generating meta assets...");
 
@@ -54,7 +56,8 @@ export async function generateAssets({
     return;
   }
 
-  const configuration: Configuration = {
+  /** @type {favicons.FaviconOptions} */
+  const configuration = {
     path: "/",
     appName: app.name,
     appShortName: app.shortName,
@@ -88,7 +91,8 @@ export async function generateAssets({
     },
   };
 
-  const callback: Callback = async (error, response) => {
+  /** @type {favicons.FaviconCallback} */
+  const callback = async (error, response) => {
     if (error) {
       console.error(error.message);
       return;
@@ -112,14 +116,23 @@ export async function generateAssets({
   };
 
   await new Promise((resolve) =>
-    favicons(
-      app.iconPath,
-      configuration,
-      async (...args: Parameters<typeof callback>) => {
-        resolve(await callback(...args));
-      }
-    )
+    favicons(app.iconPath, configuration, async (...args) => {
+      resolve(await callback(...args));
+    })
   );
 
   console.log("Assets generation success!");
+}
+
+if (require.main === module) {
+  const [appPath, outPath] = process.argv.slice(2);
+
+  if (!appPath || !outPath) {
+    console.log(
+      "Error: you must provide the arguments for input and output path."
+    );
+    console.log("Example: generate-assets path/to/app.json path/to/out/folder");
+  } else {
+    generateAssets({ appPath, outPath });
+  }
 }
