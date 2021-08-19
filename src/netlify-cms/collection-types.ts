@@ -4,6 +4,10 @@ export type {
   CmsField,
   CmsCollectionFile,
   CmsCollection,
+  CmsMarkdownWidgetButton,
+  CmsFieldMarkdown,
+  CmsFieldMap,
+  CmsFieldCode,
 } from "netlify-cms-core";
 
 declare const UniqueFile: unique symbol;

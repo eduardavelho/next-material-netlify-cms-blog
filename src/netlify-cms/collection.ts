@@ -3,6 +3,10 @@ import type {
   CmsCollection,
   CmsFieldItems,
   CmsFieldObject,
+  CmsMarkdownWidgetButton,
+  CmsFieldMarkdown,
+  CmsFieldMap,
+  CmsFieldCode,
   CmsFieldObjectNotEmpty,
   GetCmsFieldArguments,
   InferCmsFieldItems,
@@ -300,8 +304,8 @@ function datetime<Arguments extends FieldArguments = "required">({
   dateFormat,
   timeFormat,
 }: GetCmsFieldArguments<string, Arguments> & {
-  dateFormat: string;
-  timeFormat: string;
+  dateFormat?: string;
+  timeFormat?: string;
 }): GetCmsField<string, Arguments> {
   return () => (name) => ({
     name,
@@ -314,15 +318,79 @@ function datetime<Arguments extends FieldArguments = "required">({
   });
 }
 
-function markdown<Arguments extends FieldArguments = "required">({
+function map<Arguments extends FieldArguments = "required">({
   label,
   required,
   defaultValue,
-}: GetCmsFieldArguments<string, Arguments>): GetCmsField<string, Arguments> {
+  decimals,
+  type,
+}: GetCmsFieldArguments<string, Arguments> & {
+  decimals?: number;
+  type?: CmsFieldMap["type"];
+}): GetCmsField<string, Arguments> {
   return () => (name) => ({
     name,
     label,
     required,
+    decimals,
+    type,
+    default: defaultValue,
+    widget: "map",
+  });
+}
+
+function code<Arguments extends FieldArguments = "required">({
+  label,
+  required,
+  defaultValue,
+  defaultLanguage,
+  allowLanguageSelection,
+  keys,
+  outputCodeOnly,
+}: GetCmsFieldArguments<string, Arguments> & {
+  defaultLanguage?: string;
+  allowLanguageSelection?: boolean;
+  keys?: CmsFieldCode["keys"];
+  outputCodeOnly?: boolean;
+}): GetCmsField<string, Arguments> {
+  return () => (name) => ({
+    name,
+    label,
+    required,
+    keys,
+    output_code_only: outputCodeOnly,
+    allow_language_selection: allowLanguageSelection,
+    default_language: defaultLanguage,
+    default: defaultValue,
+    widget: "code",
+  });
+}
+
+function markdown<Arguments extends FieldArguments = "required">({
+  label,
+  required,
+  defaultValue,
+  minimal,
+  buttons,
+  editorComponents,
+  modes,
+  sanitizePreview,
+}: GetCmsFieldArguments<string, Arguments> & {
+  minimal?: boolean;
+  buttons?: CmsMarkdownWidgetButton[];
+  editorComponents?: string[];
+  modes?: CmsFieldMarkdown["modes"];
+  sanitizePreview?: boolean;
+}): GetCmsField<string, Arguments> {
+  return () => (name) => ({
+    name,
+    label,
+    required,
+    minimal,
+    buttons,
+    modes,
+    editor_components: editorComponents,
+    sanitize_preview: sanitizePreview,
     default: defaultValue,
     widget: "markdown",
   });
@@ -362,6 +430,37 @@ function list({
   };
 }
 
+function object({
+  label,
+  required,
+  summary,
+  collapsed = false,
+}: GetCmsFieldArguments<never, "required"> & {
+  summary: string;
+  collapsed?: boolean;
+}) {
+  return {
+    fields<Items extends CmsFieldObject>(
+      items: Items
+    ): GetCmsField<
+      InferCmsFieldItems<CmsFieldObjectNotEmpty<Items>>[],
+      "required"
+    > {
+      const fields = itemsToCmsFields(items);
+
+      return () => (name) => ({
+        name,
+        label,
+        summary,
+        collapsed,
+        required,
+        fields,
+        widget: "object",
+      });
+    },
+  };
+}
+
 const fieldsObject = {
   string,
   text,
@@ -371,6 +470,8 @@ const fieldsObject = {
   file,
   files,
   hidden,
+  map,
+  code,
   markdown,
   keywords,
   number,
@@ -379,6 +480,7 @@ const fieldsObject = {
   image,
   images,
   list,
+  object,
 };
 
 export function collectionFiles({

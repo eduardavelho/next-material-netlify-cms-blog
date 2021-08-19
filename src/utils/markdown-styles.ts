@@ -45,6 +45,16 @@ export const markdownStyles = makeStyles((theme) => ({
     "& blockquote": {
       fontStyle: "italic",
     },
+    "& blockquote p": {
+      fontSize: "16px",
+      fontFamily: "Roboto Slab",
+      lineHeight: 2.4,
+      borderLeftWidth: "4px",
+      borderLeftColor: theme.palette.common.black,
+      borderLeftStyle: "solid",
+      paddingLeft: "14px",
+      marginLeft: "-18px",
+    },
     "& figure": {
       marginLeft: 0,
       marginRight: 0,
@@ -54,6 +64,13 @@ export const markdownStyles = makeStyles((theme) => ({
       maxWidth: "100%",
       display: "block",
       margin: "12px auto",
+      borderRadius: "4px",
+    },
+    "& iframe": {
+      maxWidth: "100%",
+      display: "block",
+      margin: "12px auto",
+      borderRadius: "4px",
     },
     "& table": {
       fontSize: "18px",

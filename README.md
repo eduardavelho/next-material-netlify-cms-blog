@@ -1,26 +1,23 @@
 # next-material
 
-Implementar code, map, object e relation no NetlifyCMS
+Implementar relation no NetlifyCMS
 Implementar validação regex no NetlifyCms
-Revisar estilos do markdown (adicionar estilo para blocos de código)
 
-Cachear getStaticProps em dev
-Atualizar pacotes
-Ver quais pacotes podem ser removidos
 Implementar script de typecheck geral (inclusive do storybook)
 Implementar script de identação global
 Melhorar templates, não duplicar versões
-Boilerplate deve ter gitignore
-Melhorar import de icones, não necessitar importar direto de material-ui
-Remover necessidade de importar next e material-ui no boilerplate
-Reduzir tamanho do bundle
+Atualizar pacotes
+Ver quais pacotes podem ser removidos
 Ver quais features do nextJS faltam ser implementadas
+Alterar api para poder ter vários métodos http em um mesmo endpoint
 
 Renomear netlify-cms para CMS
 Renomear componentes do projeto
 Escolher nome mais curto para o pacote
+Finalizar boilerplate (deve ter gitignore)
 Criar repositório para app-boilerplate
 Realizar deploy do projeto para o Netlify
+
 Ver problema de segfault do sharp no netlify e problema de instalação no windows
 Netlify deve ter cache
 NetlifyCMS deve ser self-hosted
@@ -31,10 +28,38 @@ Escrever documentação dos módulos
 
 Implementar faq/q&s (com serp)
 Adicionar componentes básicos (button, chip, paper, icons, etc)
+
+Gerar formulários automaticamente
 Abstração para formulários e validação (front e back-end, ver zod)
 Use-form deve ser agnóstico na validação (receber string[])
 Implementar lógica do formulário de contato
+
 Possibilidade de colocar a imagem do usuário no botão do drawer
 Possibilidade de adicionar ícones ao lado do drawer (ver portal react)
 Rodapé deve ter link para redes sociais
 Rodapé deve ter lista de imagens com link (para registrar afiliados, métodos de pagamento, etc)
+Cadastro de autores no netlify cms (com relations, talvez)
+
+Implementar react-admin
+
+- produtos/blog (com filtros, ordenação, etc)
+- login
+- logout
+- recuperação de conta
+- perfil (com grade de imagens, lightbox e edição)
+- fórum
+- feed
+- configurações
+- carrousel de imagens
+- notificações
+- mais componentes base (modal, grid de imagens, lightbox, steps, abas)
+- carrinho de produtos
+- checkout/comprar
+- mapa
+- cadastrar método de pagamento
+- cadastrar endereço
+- envio de imagens/arquivos (com crop, mais lidas)
+- tela de preços (com tabela de comparação)
+- comentários
+- modal de compartilhamento
+- termos de uso (com edição no netlifycms)
