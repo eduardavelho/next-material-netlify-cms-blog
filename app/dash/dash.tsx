@@ -2,8 +2,8 @@ import { useContext, ReactNode } from "react";
 import {
   Dash as MuiDash,
   DashProps as MuiDashProps,
-} from "@egvelho/next-material/components/dash";
-import { links } from "app/api";
+} from "tropicalia/components/dash";
+import { links } from "app/url";
 import { Context } from "app/context";
 import appConfig from "app.json";
 import dashColors from "./dash-colors.json";

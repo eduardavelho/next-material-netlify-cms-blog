@@ -1,4 +1,4 @@
-import { pages } from "app/api";
+import { pages } from "app/url";
 import { scripts } from "app/scripts";
 
 export { Home as default } from "app/home/home";

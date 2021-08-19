@@ -1,8 +1,8 @@
-import { PostPage } from "@egvelho/next-material/components/post-page";
-import { Markdown } from "@egvelho/next-material/components/markdown";
-import { ClientRender } from "@egvelho/next-material/components/client-render";
-import { truncateString } from "@egvelho/next-material/utils/truncate-string";
-import { links, pages } from "app/api";
+import { PostPage } from "tropicalia/components/post-page";
+import { Markdown } from "tropicalia/components/markdown";
+import { ClientRender } from "tropicalia/components/client-render";
+import { truncateString } from "tropicalia/utils/truncate-string";
+import { links, pages } from "app/url";
 import { Meta } from "app/meta";
 
 const texts = {

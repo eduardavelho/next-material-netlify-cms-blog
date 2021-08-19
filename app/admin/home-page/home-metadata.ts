@@ -1,4 +1,4 @@
-import type { GetCollectionType } from "@egvelho/next-material/netlify-cms/collection";
+import type { GetCollectionType } from "tropicalia/cms/collection";
 import { pageMetadata } from "app/admin/page-metadata";
 
 export type HomeMetadata = GetCollectionType<typeof homeMetadata>;

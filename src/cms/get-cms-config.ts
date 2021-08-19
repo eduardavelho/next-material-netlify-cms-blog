@@ -1,6 +1,10 @@
-import { CmsConfig, CmsCollection, CmsBackend } from "netlify-cms-core";
+import {
+  CmsConfig as NetlifyCmsConfig,
+  CmsCollection,
+  CmsBackend,
+} from "netlify-cms-core";
 
-export interface NetlifyCmsConfig {
+export interface CmsConfig {
   collections: CmsCollection[];
   locale: string;
   backend: CmsBackend;
@@ -8,13 +12,13 @@ export interface NetlifyCmsConfig {
   showPreviewLinks?: boolean;
 }
 
-export function getNetlifyCmsConfig({
+export function getCmsConfig({
   collections,
   locale,
   backend,
   enableEditorialWorkflow = true,
   showPreviewLinks = true,
-}: NetlifyCmsConfig) {
+}: CmsConfig) {
   return {
     config: {
       locale: locale.slice(0, 2),
@@ -44,6 +48,6 @@ export function getNetlifyCmsConfig({
         sanitize_replacement: "-",
       },
       collections,
-    } as CmsConfig,
+    } as NetlifyCmsConfig,
   };
 }

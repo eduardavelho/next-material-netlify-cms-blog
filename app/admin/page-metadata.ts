@@ -1,4 +1,4 @@
-import { collectionFile } from "@egvelho/next-material/netlify-cms/collection";
+import { collectionFile } from "tropicalia/cms/collection";
 
 export function pageMetadata({ file }: { file: string }) {
   return collectionFile({

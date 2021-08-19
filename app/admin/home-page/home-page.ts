@@ -1,4 +1,4 @@
-import { collectionFiles } from "@egvelho/next-material/netlify-cms/collection";
+import { collectionFiles } from "tropicalia/cms/collection";
 import itemsData from "app/home/items-data.json";
 import { homeItems } from "./home-items/home-items";
 import { homeMetadata } from "./home-metadata";

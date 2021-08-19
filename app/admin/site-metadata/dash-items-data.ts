@@ -1,8 +1,5 @@
-import {
-  collectionFile,
-  GetCollectionType,
-} from "@egvelho/next-material/netlify-cms/collection";
-import { links } from "app/api";
+import { collectionFile, GetCollectionType } from "tropicalia/cms/collection";
+import { links } from "app/url";
 
 export type DashItemsData = GetCollectionType<typeof dashItemsData>;
 

@@ -5,7 +5,7 @@ const fs = require("fs");
 
 console.log("Deleting build files...");
 exec(
-  "rm -rf *.d.ts *.js *.js.map components api utils meta netlify-cms storybook-static boilerplate out build .next public",
+  "rm -rf *.d.ts *.js *.js.map components url utils meta cms storybook-static boilerplate out build .next public",
   () => {
     console.log("Creating public folder...");
     fs.mkdirSync("public");

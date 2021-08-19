@@ -1,5 +1,5 @@
-import type { DashProps } from "@egvelho/next-material/components/dash";
-import { createContext } from "@egvelho/next-material/utils/create-context";
+import type { DashProps } from "tropicalia/components/dash";
+import { createContext } from "tropicalia/utils/create-context";
 
 export type ContextProps = {
   loading: boolean;

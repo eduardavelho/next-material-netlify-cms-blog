@@ -21,7 +21,7 @@ const boilerplatePackage = {
       "resize-image-assets .next/static/images public/images -size 640",
   },
   dependencies: {
-    "@egvelho/next-material": `^${packageJson.version}`,
+    tropicalia: `^${packageJson.version}`,
     next: packageJson.dependencies.next,
     react: packageJson.dependencies.react,
     "react-dom": packageJson.dependencies.react,

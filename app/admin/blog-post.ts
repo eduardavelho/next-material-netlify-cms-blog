@@ -1,7 +1,4 @@
-import {
-  collectionFolder,
-  GetCollectionType,
-} from "@egvelho/next-material/netlify-cms/collection";
+import { collectionFolder, GetCollectionType } from "tropicalia/cms/collection";
 
 export type BlogPost = GetCollectionType<typeof blogPost>;
 

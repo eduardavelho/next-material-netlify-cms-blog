@@ -1,8 +1,8 @@
-import { MetaTitle } from "@egvelho/next-material/meta/title";
-import { MetaDescription } from "@egvelho/next-material/meta/description";
-import { MetaKeywords } from "@egvelho/next-material/meta/keywords";
-import { MetaImage } from "@egvelho/next-material/meta/image";
-import { MetaPageUrl } from "@egvelho/next-material/meta/page-url";
+import { MetaTitle } from "tropicalia/meta/title";
+import { MetaDescription } from "tropicalia/meta/description";
+import { MetaKeywords } from "tropicalia/meta/keywords";
+import { MetaImage } from "tropicalia/meta/image";
+import { MetaPageUrl } from "tropicalia/meta/page-url";
 import app from "app.json";
 
 export type MetaProps = {

@@ -1,11 +1,11 @@
 /boilerplate
 /utils
-/api
+/url
 /components
 /meta
 /public/*
 !/public/*.gitkeep
-/netlify-cms
+/cms
 /*.d.ts
 !/next-env.d.ts
 /*.js

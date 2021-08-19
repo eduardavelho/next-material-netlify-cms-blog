@@ -1,13 +1,13 @@
 import { ReactNode, useContext } from "react";
-import "@egvelho/next-material/typography/typography.css";
-import { app } from "@egvelho/next-material/app";
-import { Meta, MetaProps } from "@egvelho/next-material/meta/meta";
+import "tropicalia/typography/typography.css";
+import { app } from "tropicalia/app";
+import { Meta, MetaProps } from "tropicalia/meta/meta";
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { theme } from "app/theme";
 import { ContextProvider, Context } from "app/context";
 import { Dash } from "app/dash/dash";
-import { links } from "app/api";
+import { links } from "app/url";
 import appConfig from "app.json";
 
 function Layout({ children }: { children: ReactNode }) {

@@ -10,8 +10,8 @@
     "noEmit": true,
     "noUnusedLocals": false,
     "paths": {
-      "@egvelho/next-material": ["src/index.ts"],
-      "@egvelho/next-material/*": ["src/*"]
+      "tropicalia": ["src/index.ts"],
+      "tropicalia/*": ["src/*"]
     }
   },
   "exclude": ["node_modules"],

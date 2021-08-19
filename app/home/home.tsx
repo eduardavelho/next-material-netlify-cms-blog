@@ -1,10 +1,10 @@
-import { Banner } from "@egvelho/next-material/components/banner";
-import { ContentCards } from "@egvelho/next-material/components/content-cards";
-import { ItemList } from "@egvelho/next-material/components/item-list";
-import { BannerWithButton } from "@egvelho/next-material/components/banner-with-button";
-import { ContactForm } from "@egvelho/next-material/components/contact-form";
+import { Banner } from "tropicalia/components/banner";
+import { ContentCards } from "tropicalia/components/content-cards";
+import { ItemList } from "tropicalia/components/item-list";
+import { BannerWithButton } from "tropicalia/components/banner-with-button";
+import { ContactForm } from "tropicalia/components/contact-form";
 import { Meta } from "app/meta";
-import { links, pages } from "app/api";
+import { links, pages } from "app/url";
 import homeMetadata from "./home-metadata.json";
 import itemsData from "./items-data.json";
 import bannerData from "./banner-data.json";

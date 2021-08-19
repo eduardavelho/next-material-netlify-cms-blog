@@ -1,13 +1,10 @@
 import React from "react";
-import {
-  getNetlifyCmsConfig,
-  NetlifyCmsConfig,
-} from "./get-netlify-cms-config";
+import { getCmsConfig, CmsConfig } from "./get-cms-config";
 
 const netlifyCmsScript: string = require("!!raw-loader!netlify-cms/dist/netlify-cms.js")
   .default;
 
-async function loadNetlifyCms(config: NetlifyCmsConfig) {
+async function loadNetlifyCms(config: CmsConfig) {
   if (document.querySelector("#nc-root") !== null) {
     return;
   }
@@ -37,13 +34,11 @@ async function loadNetlifyCms(config: NetlifyCmsConfig) {
 
   script = document.createElement("script");
   script.id = "nc-root-init-cms";
-  script.innerHTML = `window.initCMS(${JSON.stringify(
-    getNetlifyCmsConfig(config)
-  )})`;
+  script.innerHTML = `window.initCMS(${JSON.stringify(getCmsConfig(config))})`;
   document.body.appendChild(script);
 }
 
-export function NetlifyCms(config: NetlifyCmsConfig) {
+export function Cms(config: CmsConfig) {
   React.useEffect(() => {
     loadNetlifyCms(config);
 

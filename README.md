@@ -2,12 +2,6 @@
 
 --- ETAPA 1: Ajustes ---
 
-Renomear netlify-cms para CMS
-Renomear componentes do projeto
-Mover alguns componentes para dentro do boilerplate
-
-Escolher nome mais curto para o pacote
-Finalizar boilerplate (deve ter gitignore)
 Criar repositório para app-boilerplate
 Realizar deploy do projeto para o Netlify
 

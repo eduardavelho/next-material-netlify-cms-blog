@@ -1,7 +1,4 @@
-import {
-  collectionFile,
-  GetCollectionType,
-} from "@egvelho/next-material/netlify-cms/collection";
+import { collectionFile, GetCollectionType } from "tropicalia/cms/collection";
 import { homeItems } from "./home-items";
 
 export type HomeItemsData = GetCollectionType<typeof homeItemsData>;

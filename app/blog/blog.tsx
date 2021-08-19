@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { slugify } from "@egvelho/next-material/utils/slugify";
-import { Blog as MuiBlog } from "@egvelho/next-material/components/blog";
-import { ClientRender } from "@egvelho/next-material/components/client-render";
+import { slugify } from "tropicalia/utils/slugify";
+import { Blog as MuiBlog } from "tropicalia/components/blog";
+import { ClientRender } from "tropicalia/components/client-render";
 import {
   links,
   pages,
   client,
   ExtractPageProps,
   ExtractClientResponse,
-} from "app/api";
+} from "app/url";
 import { Meta } from "app/meta";
 import { useContext } from "app/context";
 import blogMetadata from "./blog-metadata.json";

@@ -1,7 +1,7 @@
 import { env } from "app/env";
-import { generateAssets } from "@egvelho/next-material/utils/generate-assets";
-import { generateSitemap } from "@egvelho/next-material/utils/generate-sitemap";
-//import { resizeImageAssets } from "@egvelho/next-material/utils/resize-image-assets";
+import { generateAssets } from "tropicalia/utils/generate-assets";
+import { generateSitemap } from "tropicalia/utils/generate-sitemap";
+//import { resizeImageAssets } from "tropicalia/utils/resize-image-assets";
 
 export async function scripts() {
   const loadedEnv = env();

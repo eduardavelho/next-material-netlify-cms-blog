@@ -1,4 +1,4 @@
-import { envEntry } from "@egvelho/next-material/utils/env-entry";
+import { envEntry } from "tropicalia/utils/env-entry";
 
 export function env() {
   return {

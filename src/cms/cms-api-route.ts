@@ -5,10 +5,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 const repoPath = path.resolve(process.cwd());
 
-export async function netlifyCmsApiRoute(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export async function cmsApiRoute(req: NextApiRequest, res: NextApiResponse) {
   try {
     const { body } = req;
 
