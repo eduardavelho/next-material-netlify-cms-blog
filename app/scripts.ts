@@ -1,7 +1,7 @@
 import { env } from "app/env";
 import { generateAssets } from "tropicalia/utils/generate-assets";
 import { generateSitemap } from "tropicalia/utils/generate-sitemap";
-//import { resizeImageAssets } from "tropicalia/utils/resize-image-assets";
+import { resizeImageAssets } from "tropicalia/utils/resize-image-assets";
 
 export async function scripts() {
   const loadedEnv = env();
@@ -13,10 +13,10 @@ export async function scripts() {
         ? generateAssets({ appPath: "app.json", outPath })
         : undefined,
       loadedEnv.resizeImageAssetsOnBuild
-        ? undefined /*resizeImageAssets({
+        ? resizeImageAssets({
             paths: [".next/static/images", "public/images"],
             size: 640,
-          })*/
+          })
         : undefined,
       generateSitemap({
         mapPathToImport: (path) => import(`pages/${path}`),

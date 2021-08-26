@@ -2,7 +2,6 @@
 
 --- ETAPA 1: Ajustes ---
 
-Criar repositório para app-boilerplate
 Realizar deploy do projeto para o Netlify
 
 Ver problema de segfault do sharp no netlify e problema de instalação no windows (está comentado em scripts.ts)

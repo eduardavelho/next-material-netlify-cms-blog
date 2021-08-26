@@ -1,4 +1,4 @@
-import { NetlifyCms } from "tropicalia/cms/netlify-cms";
+import { Cms } from "tropicalia/cms/cms";
 import app from "app.json";
 import { pages } from "app/url";
 import { siteMetadata } from "./site-metadata/site-metadata";
@@ -8,7 +8,7 @@ import { blogPost } from "./blog-post";
 
 export const admin = pages.admin.page(() => {
   return (
-    <NetlifyCms
+    <Cms
       locale={app.lang}
       backend={{
         name: "git-gateway",
