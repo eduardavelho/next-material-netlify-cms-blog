@@ -1,7 +1,7 @@
 import * as collectionUtils from "tropicalia/cms/collection-utils";
 import { pages } from "app/url";
-import paths from "app/admin/paths.json";
-import type { BlogPost } from "app/admin/blog-post";
+import paths from "app/cms/paths.json";
+import type { BlogPost } from "app/cms/blog-post";
 
 export { Post as default } from "app/blog/post";
 

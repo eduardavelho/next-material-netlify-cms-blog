@@ -1,0 +1,7 @@
+# buildspec.yml
+version: 0.2
+
+cache:
+  paths:
+    - "node_modules/**/*"
+    - ".next/cache/**/*"

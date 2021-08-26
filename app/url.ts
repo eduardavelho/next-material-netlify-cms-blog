@@ -8,7 +8,7 @@ import ZoomInIcon from "@material-ui/icons/ZoomIn";
 import EmailIcon from "@material-ui/icons/Email";
 import CommentIcon from "@material-ui/icons/Comment";
 import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
-import type { BlogPost } from "app/admin/blog-post";
+import type { BlogPost } from "app/cms/blog-post";
 import type { Data } from "tropicalia/cms/collection-types";
 import { getContext } from "app/context";
 
@@ -38,7 +38,7 @@ export const links = {
   ),
   contact: link("/#contato", EmailIcon, "Contato", "Realizar contato"),
   about: link("/#saiba-mais", ZoomInIcon, "Saiba mais"),
-  admin: link("/admin", SupervisedUserCircleIcon, "Admin"),
+  cms: link("/cms", SupervisedUserCircleIcon, "CMS"),
 };
 
 export const endpoints = {

@@ -1,5 +1,5 @@
 import type { GetCollectionType } from "tropicalia/cms/collection";
-import { pageMetadata } from "app/admin/page-metadata";
+import { pageMetadata } from "app/cms/page-metadata";
 
 export type BlogMetadata = GetCollectionType<typeof blogMetadata>;
 

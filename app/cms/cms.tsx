@@ -6,7 +6,7 @@ import { homePage } from "./home-page/home-page";
 import { blogPage } from "./blog-page/blog-page";
 import { blogPost } from "./blog-post";
 
-export const admin = pages.admin.page(() => {
+export const cms = pages.cms.page(() => {
   return (
     <Cms
       locale={app.lang}

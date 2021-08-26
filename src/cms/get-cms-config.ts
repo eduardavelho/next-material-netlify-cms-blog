@@ -8,6 +8,7 @@ export interface CmsConfig {
   collections: CmsCollection[];
   locale: string;
   backend: CmsBackend;
+  localBackendUrl?: string;
   enableEditorialWorkflow?: boolean;
   showPreviewLinks?: boolean;
 }
@@ -16,6 +17,7 @@ export function getCmsConfig({
   collections,
   locale,
   backend,
+  localBackendUrl = `${process.env.NEXT_PUBLIC_URL}/api/cms`,
   enableEditorialWorkflow = true,
   showPreviewLinks = true,
 }: CmsConfig) {
@@ -26,7 +28,7 @@ export function getCmsConfig({
       local_backend:
         process.env.NODE_ENV === "development"
           ? {
-              url: `${process.env.NEXT_PUBLIC_URL}/api/netlify-cms`,
+              url: localBackendUrl,
             }
           : {},
       publish_mode:
