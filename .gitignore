@@ -2,6 +2,7 @@
 /utils
 /url
 /components
+/typography
 /meta
 /public/*
 !/public/*.gitkeep

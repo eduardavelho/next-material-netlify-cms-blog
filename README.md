@@ -2,10 +2,7 @@
 
 --- ETAPA 1: Ajustes ---
 
-Realizar deploy do projeto para o Netlify
-
-Ver problema de segfault do sharp no netlify e problema de instalação no windows (está comentado em scripts.ts)
-Netlify deve ter cache
+Ver problema de segfault do sharp no netlify e problema de instalação no windows Netlify deve ter cache
 NetlifyCMS deve ser self-hosted
 Google SpeedInsights está com nota baixa em mobile
 

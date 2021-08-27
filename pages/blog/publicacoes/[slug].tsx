@@ -6,8 +6,11 @@ import type { BlogPost } from "app/cms/blog-post";
 export { Post as default } from "app/blog/post";
 
 export const getStaticPaths = pages.post.getStaticPaths(async () => {
-  const postsPath = await collectionUtils.useCollectionFolder(paths.posts);
+  const postsPath = await collectionUtils.useCollectionFolder(paths.posts, {
+    createFolderIfNotExists: true,
+  });
   const slugs = await collectionUtils.getSlugs(postsPath);
+
   return slugs.map((slug) => ({ slug }));
 });
 

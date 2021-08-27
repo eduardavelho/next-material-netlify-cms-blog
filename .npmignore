@@ -13,6 +13,7 @@
 /src
 /storybook-static
 /.storybook
+/.next
 /public
 /out
 /build

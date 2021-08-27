@@ -1,11 +1,11 @@
 {
   "name": "tropicalia",
-  "version": "1.16.0",
+  "version": "1.16.4",
   "description": "Boilerplate for Next.js and Material UI",
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
-    "build": "tsc --build tsconfig.build.json",
+    "build": "tsc --build tsconfig.build.json && cp -rf src/typography typography",
     "typecheck": "tsc",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",

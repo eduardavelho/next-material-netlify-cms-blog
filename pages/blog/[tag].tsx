@@ -14,7 +14,9 @@ export {
 } from "./index";
 
 export const getStaticPaths = pages.blog.getStaticPaths(async () => {
-  const postsPath = await collectionUtils.useCollectionFolder(paths.posts);
+  const postsPath = await collectionUtils.useCollectionFolder(paths.posts, {
+    createFolderIfNotExists: true,
+  });
   const posts = await collectionUtils.getCollectionFolder<BlogPost>(postsPath);
   const tags = [...new Set(posts.map(({ data: { tags } }) => tags).flat())];
 

@@ -19,12 +19,12 @@ export const getStaticProps = pages.blog.getStaticProps(
 async function writeChunksThenGetAllPosts() {
   const posts = await getAllPosts();
   const tags = [...new Set(posts.map(({ data: { tags } }) => tags).flat())];
-
-  await collectionUtils.createFolderIfNotExists(paths.postsApi);
-
   const postsChunks = await collectionUtils.chunkItems(posts, env().pagination);
   const postsApiPath = await collectionUtils.useCollectionFolder(
-    paths.postsApi
+    paths.postsApi,
+    {
+      createFolderIfNotExists: true,
+    }
   );
 
   await collectionUtils.deleteFilesThenRecreateFolder(postsApiPath);
@@ -80,7 +80,9 @@ async function writePostsForTagThenGet(initialTag: string) {
 }
 
 async function getAllPosts() {
-  const postsPath = await collectionUtils.useCollectionFolder(paths.posts);
+  const postsPath = await collectionUtils.useCollectionFolder(paths.posts, {
+    createFolderIfNotExists: true,
+  });
   const posts = await collectionUtils.getCollectionFolder<BlogPost>(postsPath);
   const sortByMostRecentPosts = collectionUtils.sortByMostRecent<BlogPost>(
     ({ data: { publishDate } }) => new Date(publishDate ?? 0)

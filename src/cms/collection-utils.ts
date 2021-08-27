@@ -69,8 +69,13 @@ export async function useCollectionFolder(
   path: string,
   options: {
     doNotCheckIfExists?: boolean;
+    createFolderIfNotExists?: boolean;
   } = {}
 ) {
+  if (options.createFolderIfNotExists) {
+    await createFolderIfNotExists(path);
+  }
+
   if (
     options.doNotCheckIfExists ||
     (existsSync(path) && (await fs.stat(path)).isDirectory())
