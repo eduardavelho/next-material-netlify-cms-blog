@@ -17,7 +17,7 @@ export function getCmsConfig({
   collections,
   locale,
   backend,
-  localBackendUrl = `${process.env.NEXT_PUBLIC_URL}/api/cms`,
+  localBackendUrl = `${process.env.NEXT_PUBLIC_URL}/api/local-cms`,
   enableEditorialWorkflow = true,
   showPreviewLinks = true,
 }: CmsConfig) {

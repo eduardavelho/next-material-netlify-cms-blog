@@ -21,6 +21,9 @@ const boilerplatePackage = {
       "resize-image-assets .next/static/images public/images -size 640",
   },
   dependencies: {
+    "@material-ui/core": packageJson.dependencies["@material-ui/core"],
+    "@material-ui/icons": packageJson.dependencies["@material-ui/icons"],
+    "@material-ui/lab": packageJson.dependencies["@material-ui/lab"],
     tropicalia: `^${packageJson.version}`,
     next: packageJson.dependencies.next,
     react: packageJson.dependencies.react,

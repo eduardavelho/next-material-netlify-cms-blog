@@ -20,7 +20,17 @@ import { slugify } from "../utils/slugify";
 export type { GetCollectionType } from "./collection-types";
 
 export function itemsToCmsFields<Items>(items: CmsFieldItems<Items>) {
-  return Object.keys(items).map((key) => items[key as keyof Items]()(key));
+  return Object.keys(items).map((key) => {
+    const field = items[key as keyof Items]()(key);
+
+    Object.keys(field).forEach((key) => {
+      if (field[key as keyof typeof field] === undefined) {
+        delete field[key as keyof typeof field];
+      }
+    });
+
+    return field;
+  });
 }
 
 function string<Arguments extends FieldArguments = "required">({

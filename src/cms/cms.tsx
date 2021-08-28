@@ -15,8 +15,15 @@ async function loadNetlifyCms(config: CmsConfig) {
   document.body.appendChild(root);
 
   style.id = "nc-root-style";
-  style.innerHTML =
-    "body > *:not(#nc-root):not(.ReactModalPortal) { display: none; }";
+  style.innerHTML = `
+    #nc-root > div > section > span {
+      text-align: center;
+    }
+
+    body > *:not(#nc-root):not(.ReactModalPortal) {
+      display: none;
+    }`;
+
   document.head.appendChild(style);
 
   // @ts-ignore

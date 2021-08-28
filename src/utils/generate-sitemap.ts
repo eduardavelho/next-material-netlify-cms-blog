@@ -81,6 +81,8 @@ async function getUrls(
                 return [...stack, item];
               }
             }, [] as typeof urls);
+          } else if (file.match(/\[([^\)]+)\]/)) {
+            return [];
           } else {
             return [
               {
@@ -91,7 +93,14 @@ async function getUrls(
                   (page.getLastModificationDate &&
                     (await page.getLastModificationDate()).toISOString()) ??
                   new Date().toISOString(),
-                url: file === "index" ? "/" : `/${file}/`,
+                url:
+                  file === "index"
+                    ? "/"
+                    : `/${
+                        file.endsWith("/index")
+                          ? file.slice(0, -"/index".length)
+                          : file
+                      }/`,
               } as Url,
             ];
           }

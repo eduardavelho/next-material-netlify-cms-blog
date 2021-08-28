@@ -5,7 +5,15 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 const repoPath = path.resolve(process.cwd());
 
-export async function cmsApiRoute(req: NextApiRequest, res: NextApiResponse) {
+export async function localCmsApiRoute(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  if (process.env.NODE_ENV === "production") {
+    res.json({});
+    return;
+  }
+
   try {
     const { body } = req;
 
