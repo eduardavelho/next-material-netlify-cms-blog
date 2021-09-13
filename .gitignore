@@ -9,6 +9,7 @@
 /cms
 /*.d.ts
 !/next-env.d.ts
+!/jest.config.js
 /*.js
 /*.js.map
 /.next
