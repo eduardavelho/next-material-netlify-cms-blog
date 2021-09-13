@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta } from "@storybook/react";
-import { Blog } from "../components/blog";
+import { Blog } from "./blog";
 
 export default {
   title: "Example/Blog",

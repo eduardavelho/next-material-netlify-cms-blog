@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta } from "@storybook/react";
-import { SocialCard } from "../components/social-card";
+import { SocialCard } from "./social-card";
 
 export default {
   title: "Example/SocialCard",

@@ -11,7 +11,7 @@ export const cms = pages.cms.page(() => {
     <Cms
       locale={app.lang}
       backend={{
-        name: "git-gateway",
+        name: "test-repo",
       }}
       collections={[siteMetadata, homePage, blogPage, blogPost.collection]}
     />

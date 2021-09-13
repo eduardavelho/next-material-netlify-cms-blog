@@ -11,6 +11,7 @@ export interface CmsConfig {
   localBackendUrl?: string;
   enableEditorialWorkflow?: boolean;
   showPreviewLinks?: boolean;
+  developmentMode?: boolean;
 }
 
 export function getCmsConfig({
@@ -18,6 +19,7 @@ export function getCmsConfig({
   locale,
   backend,
   localBackendUrl = `${process.env.NEXT_PUBLIC_URL}/api/local-cms`,
+  developmentMode = process.env.NODE_ENV === "development",
   enableEditorialWorkflow = true,
   showPreviewLinks = true,
 }: CmsConfig) {
@@ -25,14 +27,13 @@ export function getCmsConfig({
     config: {
       locale: locale.slice(0, 2),
       backend,
-      local_backend:
-        process.env.NODE_ENV === "development"
-          ? {
-              url: localBackendUrl,
-            }
-          : {},
+      local_backend: developmentMode
+        ? {
+            url: localBackendUrl,
+          }
+        : {},
       publish_mode:
-        process.env.NODE_ENV === "development" || !enableEditorialWorkflow
+        developmentMode || !enableEditorialWorkflow
           ? undefined
           : "editorial_workflow",
       load_config_file: false,

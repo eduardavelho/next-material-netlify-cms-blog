@@ -2,8 +2,6 @@
 
 --- ETAPA 1: Ajustes ---
 
-NetlifyCMS deve ser self-hosted
-
 Criar README
 Escrever testes
 Escrever documentação dos módulos
@@ -26,6 +24,8 @@ Abstração para formulários e validação (front e back-end, ver zod)
 Use-form deve ser agnóstico na validação (receber string[])
 Implementar lógica do formulário de contato
 Alterar api para poder ter vários métodos http em um mesmo endpoint
+Possibilidade de cachear arquivos gerados (pela data, talvez)
+Gerar static api automaticamente pela estrutura do CMS
 
 Possibilidade de colocar a imagem do usuário no botão do drawer
 Possibilidade de adicionar ícones ao lado do drawer (ver portal react)

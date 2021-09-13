@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta } from "@storybook/react";
-import { PostCard } from "../components/post-card";
+import { PostCard } from "./post-card";
 
 export default {
   title: "Example/PostCard",

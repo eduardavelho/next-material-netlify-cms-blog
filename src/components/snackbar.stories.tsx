@@ -1,7 +1,7 @@
 import React from "react";
 import { Meta } from "@storybook/react";
 import Button from "@material-ui/core/Button";
-import { Snackbar, SnackbarProps } from "../components/snackbar";
+import { Snackbar, SnackbarProps } from "./snackbar";
 
 export default {
   title: "Example/Snackbar",

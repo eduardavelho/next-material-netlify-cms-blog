@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta } from "@storybook/react";
-import { Banner } from "../components/banner";
+import { Banner } from "./banner";
 
 export default {
   title: "Example/Banner",

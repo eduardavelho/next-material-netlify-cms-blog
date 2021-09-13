@@ -1,7 +1,7 @@
 import React from "react";
 import { Meta } from "@storybook/react";
 import AlarmOffIcon from "@material-ui/icons/AlarmOff";
-import { Dash, DashProps } from "../components/dash";
+import { Dash, DashProps } from "./dash";
 
 export default {
   title: "Example/Dash",

@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta } from "@storybook/react";
-import { BannerWithButton } from "../components/banner-with-button";
+import { BannerWithButton } from "./banner-with-button";
 
 export default {
   title: "Example/BannerWithButton",

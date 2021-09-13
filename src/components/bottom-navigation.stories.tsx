@@ -1,7 +1,7 @@
 import React from "react";
 import { Meta } from "@storybook/react";
 import AlarmOffIcon from "@material-ui/icons/AlarmOff";
-import { BottomNavigation } from "../components/bottom-navigation";
+import { BottomNavigation } from "./bottom-navigation";
 
 export default {
   title: "Example/BottomNavigation",

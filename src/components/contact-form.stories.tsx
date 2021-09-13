@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta } from "@storybook/react";
-import { ContactForm } from "../components/contact-form";
+import { ContactForm } from "./contact-form";
 
 export default {
   title: "Example/ContactForm",

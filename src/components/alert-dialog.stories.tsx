@@ -1,7 +1,7 @@
 import React from "react";
 import { Meta } from "@storybook/react";
 import Button from "@material-ui/core/Button";
-import { AlertDialog } from "../components/alert-dialog";
+import { AlertDialog } from "./alert-dialog";
 
 export default {
   title: "Example/AlertDialog",

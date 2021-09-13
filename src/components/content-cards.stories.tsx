@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta } from "@storybook/react";
-import { ContentCards } from "../components/content-cards";
+import { ContentCards } from "./content-cards";
 
 export default {
   title: "Example/ContentCards",

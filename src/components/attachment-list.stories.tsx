@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta } from "@storybook/react";
-import { AttachmentList } from "../components/attachment-list";
+import { AttachmentList } from "./attachment-list";
 
 export default {
   title: "Example/AttachmentList",

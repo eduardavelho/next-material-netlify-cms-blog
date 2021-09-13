@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta } from "@storybook/react";
-import { InfiniteScroll } from "../components/infinite-scroll";
+import { InfiniteScroll } from "./infinite-scroll";
 
 export default {
   title: "Example/InfiniteScroll",

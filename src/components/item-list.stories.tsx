@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta } from "@storybook/react";
-import { ItemList } from "../components/item-list";
+import { ItemList } from "./item-list";
 
 export default {
   title: "Example/ItemList",
