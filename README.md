@@ -1,19 +1,5 @@
 # next-material
 
---- ETAPA 1: Ajustes ---
-
-Criar README
-Escrever testes
-Escrever documentação dos módulos
-Criar changelog
-Questões de devops (identação automática, eslint, pipeline, configs do vscode)
-Criar logo e ajustar aparência do boilerplate
-Gerar páginas de exemplo para o CMS
-Organizar tarefas em algo melhor que o readme
-Cronograma de atualização das dependências (mensal)
-
---- ETAPA 2: Melhorias ---
-
 Substituir e remover react-masonry-css
 Ver quais features do nextJS faltam ser implementadas (internalionalização, por exemplo)
 Script de clean-project deve se basear em gitignore e npmignore
