@@ -1,4 +1,4 @@
-import { envEntry } from "tropicalia/utils/env-entry";
+import { envEntry } from "app/utils/env-entry";
 
 export function env() {
   return {

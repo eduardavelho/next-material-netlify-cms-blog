@@ -1,4 +1,4 @@
-import { collectionFiles } from "tropicalia/cms/collection";
+import { collectionFiles } from "next-cms/collection";
 import { blogMetadata } from "./blog-metadata";
 import { blogStyle } from "./blog-style";
 

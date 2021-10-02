@@ -1,7 +1,7 @@
-import { link } from "tropicalia/url/link";
-import { endpoint } from "tropicalia/url/endpoint";
-import { getAxiosClient } from "tropicalia/url/get-axios-client";
-import { getPages } from "tropicalia/url/get-pages";
+import { link } from "next-cms/url/link";
+import { endpoint } from "next-cms/url/endpoint";
+import { getAxiosClient } from "next-cms/url/get-axios-client";
+import { getPages } from "next-cms/url/get-pages";
 import HomeIcon from "@material-ui/icons/Home";
 import RssFeedIcon from "@material-ui/icons/RssFeed";
 import ZoomInIcon from "@material-ui/icons/ZoomIn";
@@ -9,11 +9,11 @@ import EmailIcon from "@material-ui/icons/Email";
 import CommentIcon from "@material-ui/icons/Comment";
 import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
 import type { BlogPost } from "app/cms/blog-post";
-import type { Data } from "tropicalia/cms/collection-types";
+import type { Data } from "next-cms/collection-types";
 import { getContext } from "app/context";
 
-export type { ExtractPageProps } from "tropicalia/url/get-pages";
-export type { ExtractClientResponse } from "tropicalia/url/get-axios-client";
+export type { ExtractPageProps } from "next-cms/url/get-pages";
+export type { ExtractClientResponse } from "next-cms/url/get-axios-client";
 
 export interface WithSlug {
   slug: string;

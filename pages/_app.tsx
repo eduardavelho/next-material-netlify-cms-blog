@@ -1,7 +1,7 @@
 import { ReactNode, useContext } from "react";
-import "tropicalia/typography/typography.css";
-import { app } from "tropicalia/app";
-import { Meta, MetaProps } from "tropicalia/meta/meta";
+import "next-material/typography/typography.css";
+import { app } from "next-material/app";
+import { Meta, MetaProps } from "next-cms/meta/meta";
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { theme } from "app/theme";

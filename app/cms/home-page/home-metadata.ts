@@ -1,4 +1,4 @@
-import type { GetCollectionType } from "tropicalia/cms/collection";
+import type { GetCollectionType } from "next-cms/collection";
 import { pageMetadata } from "app/cms/page-metadata";
 
 export type HomeMetadata = GetCollectionType<typeof homeMetadata>;

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { slugify } from "tropicalia/utils/slugify";
-import { Blog as MuiBlog } from "tropicalia/components/blog";
-import { ClientRender } from "tropicalia/components/client-render";
+import { slugify } from "next-cms/utils/slugify";
+import { Blog as MuiBlog } from "next-material/blog";
+import { ClientRender } from "next-material/client-render";
 import {
   links,
   pages,

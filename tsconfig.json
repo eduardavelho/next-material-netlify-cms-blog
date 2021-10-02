@@ -1,6 +1,24 @@
 {
-  "extends": "./tsconfig.base.json",
   "compilerOptions": {
+    "strict": true,
+    "pretty": true,
+    "noImplicitAny": true,
+    "alwaysStrict": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": false,
+    "emitDecoratorMetadata": false,
+    "sourceMap": true,
+    "forceConsistentCasingInFileNames": false,
+    "resolveJsonModule": true,
+    "strictNullChecks": true,
+    "allowJs": true,
+    "checkJs": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "typeRoots": ["node_modules/@types"],
     "target": "es2020",
     "module": "es2020",
     "jsx": "preserve",
@@ -8,11 +26,7 @@
     "lib": ["es2020", "dom"],
     "baseUrl": ".",
     "noEmit": true,
-    "noUnusedLocals": false,
-    "paths": {
-      "tropicalia": ["src/index.ts"],
-      "tropicalia/*": ["src/*"]
-    }
+    "noUnusedLocals": false
   },
   "exclude": ["node_modules"],
   "include": ["app/**/*", "pages/**/*", "src/**/*", "scripts/**/*"]

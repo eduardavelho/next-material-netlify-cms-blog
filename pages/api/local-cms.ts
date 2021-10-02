@@ -1,1 +1,1 @@
-export { localCmsApiRoute as default } from "tropicalia/cms/local-cms-api-route";
+export { localCmsApiRoute as default } from "next-cms/local-cms-api-route";

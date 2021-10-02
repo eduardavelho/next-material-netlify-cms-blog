@@ -1,4 +1,4 @@
-import { document } from "tropicalia/document";
+import { document } from "next-material/document";
 import { ServerStyleSheets } from "@material-ui/core/styles";
 import app from "app.json";
 

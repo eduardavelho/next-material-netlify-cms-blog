@@ -1,4 +1,4 @@
-import * as collectionUtils from "tropicalia/cms/collection-utils";
+import * as collectionUtils from "next-cms/collection-utils";
 import { pages } from "app/url";
 import { env } from "app/env";
 import paths from "app/cms/paths.json";

@@ -1,4 +1,4 @@
-import { collectionFile, GetCollectionType } from "tropicalia/cms/collection";
+import { collectionFile, GetCollectionType } from "next-cms/collection";
 
 export type DescriptionData = GetCollectionType<typeof descriptionData>;
 

@@ -1,8 +1,5 @@
 import { useContext, ReactNode } from "react";
-import {
-  Dash as MuiDash,
-  DashProps as MuiDashProps,
-} from "tropicalia/components/dash";
+import { Dash as MuiDash, DashProps as MuiDashProps } from "next-material/dash";
 import { links } from "app/url";
 import { Context } from "app/context";
 import appConfig from "app.json";

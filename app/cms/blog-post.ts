@@ -1,4 +1,4 @@
-import { collectionFolder, GetCollectionType } from "tropicalia/cms/collection";
+import { collectionFolder, GetCollectionType } from "next-cms/collection";
 
 export type BlogPost = GetCollectionType<typeof blogPost>;
 

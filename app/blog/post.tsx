@@ -1,7 +1,7 @@
-import { PostPage } from "tropicalia/components/post-page";
-import { Markdown } from "tropicalia/components/markdown";
-import { ClientRender } from "tropicalia/components/client-render";
-import { truncateString } from "tropicalia/utils/truncate-string";
+import { PostPage } from "next-material/post-page";
+import { Markdown } from "next-material/markdown";
+import { ClientRender } from "next-material/client-render";
+import { truncateString } from "next-material/utils/truncate-string";
 import { links, pages } from "app/url";
 import { Meta } from "app/meta";
 

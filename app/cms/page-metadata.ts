@@ -1,4 +1,4 @@
-import { collectionFile } from "tropicalia/cms/collection";
+import { collectionFile } from "next-cms/collection";
 
 export function pageMetadata({ file }: { file: string }) {
   return collectionFile({

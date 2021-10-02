@@ -1,5 +1,5 @@
-import { slugify } from "tropicalia/utils/slugify";
-import * as collectionUtils from "tropicalia/cms/collection-utils";
+import { slugify } from "next-cms/utils/slugify";
+import * as collectionUtils from "next-cms/collection-utils";
 import { pages } from "app/url";
 import paths from "app/cms/paths.json";
 import type { BlogPost } from "app/cms/blog-post";

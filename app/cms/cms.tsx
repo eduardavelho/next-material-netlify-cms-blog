@@ -1,4 +1,4 @@
-import { Cms } from "tropicalia/cms/cms";
+import { Cms } from "next-cms/cms";
 import app from "app.json";
 import { pages } from "app/url";
 import { siteMetadata } from "./site-metadata/site-metadata";
