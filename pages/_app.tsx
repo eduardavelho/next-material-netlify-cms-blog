@@ -1,9 +1,7 @@
 import { ReactNode, useContext } from "react";
-import "next-material/typography/typography.css";
-import { app } from "next-material/app";
-import { Meta, MetaProps } from "next-cms/meta/meta";
-import { ThemeProvider } from "@material-ui/core/styles";
-import CssBaseline from "@material-ui/core/CssBaseline";
+//import "@egvelho/next-mui/typography/typography.css";
+import { app } from "@egvelho/next-mui/app";
+import { Meta, MetaProps } from "@egvelho/next-meta/meta/meta";
 import { theme } from "app/theme";
 import { ContextProvider, Context } from "app/context";
 import { Dash } from "app/dash/dash";
@@ -43,7 +41,5 @@ function NestedLayout({ children }: { children: ReactNode }) {
 
 export default app({
   Layout,
-  ThemeProvider,
-  CssBaseline,
   theme,
 });

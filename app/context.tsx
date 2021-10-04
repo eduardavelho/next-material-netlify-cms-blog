@@ -1,4 +1,4 @@
-import type { DashProps } from "next-material/dash";
+import type { DashProps } from "@egvelho/next-mui/components/dash";
 import { createContext } from "app/utils/create-context";
 
 export type ContextProps = {
@@ -16,9 +16,5 @@ const initialContext: ContextProps = {
   },
 };
 
-export const {
-  Context,
-  ContextProvider,
-  getContext,
-  useContext,
-} = createContext(initialContext);
+export const { Context, ContextProvider, getContext, useContext } =
+  createContext(initialContext);

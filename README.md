@@ -1,5 +1,8 @@
-# next-material
+# @egvelho/next-mui
 
+Exportar ícones do MUI
+Arrumar projeto
+Renomear @egvelho/next-meta para @egvelho/next-static
 Substituir e remover react-masonry-css
 Ver quais features do nextJS faltam ser implementadas (internalionalização, por exemplo)
 Script de clean-project deve se basear em gitignore e npmignore

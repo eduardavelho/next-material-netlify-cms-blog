@@ -1,7 +1,7 @@
 import { env } from "app/env";
-import { generateAssets } from "next-cms/utils/generate-assets";
-import { generateSitemap } from "next-cms/utils/generate-sitemap";
-import { resizeImageAssets } from "next-cms/utils/resize-image-assets";
+import { generateAssets } from "@egvelho/next-meta/utils/generate-assets";
+import { generateSitemap } from "@egvelho/next-meta/utils/generate-sitemap";
+import { resizeImageAssets } from "@egvelho/next-meta/utils/resize-image-assets";
 
 export async function scripts() {
   const loadedEnv = env();

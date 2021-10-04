@@ -1,4 +1,4 @@
-import type { GetCollectionType } from "next-cms/collection";
+import type { GetCollectionType } from "@egvelho/next-meta/collection";
 import { pageMetadata } from "app/cms/page-metadata";
 
 export type HomeMetadata = GetCollectionType<typeof homeMetadata>;

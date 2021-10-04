@@ -1,4 +1,7 @@
-import { collectionFile, GetCollectionType } from "next-cms/collection";
+import {
+  collectionFile,
+  GetCollectionType,
+} from "@egvelho/next-meta/collection";
 
 export type DescriptionData = GetCollectionType<typeof descriptionData>;
 

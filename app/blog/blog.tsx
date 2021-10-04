@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { slugify } from "next-cms/utils/slugify";
-import { Blog as MuiBlog } from "next-material/blog";
-import { ClientRender } from "next-material/client-render";
+import { slugify } from "@egvelho/next-meta/utils/slugify";
+import { Blog as MuiBlog } from "@egvelho/next-mui/components/blog";
+import { ClientRender } from "@egvelho/next-mui/components/client-render";
 import {
   links,
   pages,

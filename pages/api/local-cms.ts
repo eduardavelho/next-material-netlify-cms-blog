@@ -1,1 +1,1 @@
-export { localCmsApiRoute as default } from "next-cms/local-cms-api-route";
+export { localCmsApiRoute as default } from "@egvelho/next-meta/local-cms-api-route";

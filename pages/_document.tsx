@@ -1,8 +1,6 @@
-import { document } from "next-material/document";
-import { ServerStyleSheets } from "@material-ui/core/styles";
+import { document } from "@egvelho/next-mui/document";
 import app from "app.json";
 
 export default document({
-  ServerStyleSheets,
   lang: app.lang,
 });

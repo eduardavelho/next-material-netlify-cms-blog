@@ -1,8 +1,8 @@
-import { Banner } from "next-material/banner";
-import { ContentCards } from "next-material/content-cards";
-import { ItemList } from "next-material/item-list";
-import { BannerWithButton } from "next-material/banner-with-button";
-import { ContactForm } from "next-material/contact-form";
+import { Banner } from "@egvelho/next-mui/components/banner";
+import { ContentCards } from "@egvelho/next-mui/components/content-cards";
+import { ItemList } from "@egvelho/next-mui/components/item-list";
+import { BannerWithButton } from "@egvelho/next-mui/components/banner-with-button";
+import { ContactForm } from "@egvelho/next-mui/components/contact-form";
 import { Meta } from "app/meta";
 import { links, pages } from "app/url";
 import homeMetadata from "./home-metadata.json";

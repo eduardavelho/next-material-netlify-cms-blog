@@ -1,4 +1,7 @@
-import { collectionFolder, GetCollectionType } from "next-cms/collection";
+import {
+  collectionFolder,
+  GetCollectionType,
+} from "@egvelho/next-meta/collection";
 
 export type BlogPost = GetCollectionType<typeof blogPost>;
 

@@ -1,16 +1,8 @@
 import app from "app.json";
-import createTheme from "@material-ui/core/styles/createTheme";
+import { createTheme } from "@egvelho/next-mui/utils/create-theme";
 
 export const theme = createTheme({
-  palette: {
-    primary: {
-      main: app.primaryColor,
-    },
-    secondary: {
-      main: app.secondaryColor,
-    },
-    background: {
-      default: app.backgroundColor,
-    },
-  },
+  primaryColor: app.primaryColor,
+  secondaryColor: app.secondaryColor,
+  backgroundColor: app.backgroundColor,
 });

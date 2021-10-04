@@ -1,4 +1,4 @@
-import { collectionFiles } from "next-cms/collection";
+import { collectionFiles } from "@egvelho/next-meta/collection";
 import { appMetadata } from "./app-metadata";
 import { dashColorsData } from "./dash-colors-data";
 import { dashItemsData } from "./dash-items-data";

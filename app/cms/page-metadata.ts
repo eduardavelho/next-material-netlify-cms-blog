@@ -1,4 +1,4 @@
-import { collectionFile } from "next-cms/collection";
+import { collectionFile } from "@egvelho/next-meta/collection";
 
 export function pageMetadata({ file }: { file: string }) {
   return collectionFile({

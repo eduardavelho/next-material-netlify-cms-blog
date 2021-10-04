@@ -1,5 +1,8 @@
 import { useContext, ReactNode } from "react";
-import { Dash as MuiDash, DashProps as MuiDashProps } from "next-material/dash";
+import {
+  Dash as MuiDash,
+  DashProps as MuiDashProps,
+} from "@egvelho/next-mui/components/dash";
 import { links } from "app/url";
 import { Context } from "app/context";
 import appConfig from "app.json";

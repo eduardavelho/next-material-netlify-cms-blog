@@ -1,19 +1,27 @@
-import { link } from "next-cms/url/link";
-import { endpoint } from "next-cms/url/endpoint";
-import { getAxiosClient } from "next-cms/url/get-axios-client";
-import { getPages } from "next-cms/url/get-pages";
-import HomeIcon from "@material-ui/icons/Home";
-import RssFeedIcon from "@material-ui/icons/RssFeed";
-import ZoomInIcon from "@material-ui/icons/ZoomIn";
-import EmailIcon from "@material-ui/icons/Email";
-import CommentIcon from "@material-ui/icons/Comment";
-import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
+import { link } from "@egvelho/next-meta/url/link";
+import { endpoint } from "@egvelho/next-meta/url/endpoint";
+import { getAxiosClient } from "@egvelho/next-meta/url/get-axios-client";
+import { getPages } from "@egvelho/next-meta/url/get-pages";
+/*import {
+  HomeIcon,
+  RssFeedIcon,
+  ZoomInIcon,
+  EmailIcon,
+  CommentIcon,
+  SupervisedUserCircleIcon,
+} from "@egvelho/next-mui/icons";*/
 import type { BlogPost } from "app/cms/blog-post";
-import type { Data } from "next-cms/collection-types";
+import type { Data } from "@egvelho/next-meta/cms/collection-types";
 import { getContext } from "app/context";
+import HomeIcon from "./icon";
+import RssFeedIcon from "./icon";
+import ZoomInIcon from "./icon";
+import EmailIcon from "./icon";
+import CommentIcon from "./icon";
+import SupervisedUserCircleIcon from "./icon";
 
-export type { ExtractPageProps } from "next-cms/url/get-pages";
-export type { ExtractClientResponse } from "next-cms/url/get-axios-client";
+export type { ExtractPageProps } from "@egvelho/next-meta/url/get-pages";
+export type { ExtractClientResponse } from "@egvelho/next-meta/url/get-axios-client";
 
 export interface WithSlug {
   slug: string;

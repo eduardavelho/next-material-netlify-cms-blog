@@ -1,4 +1,7 @@
-import { collectionFile, GetCollectionType } from "next-cms/collection";
+import {
+  collectionFile,
+  GetCollectionType,
+} from "@egvelho/next-meta/collection";
 import { homeItems } from "./home-items";
 
 export type HomeItemsData = GetCollectionType<typeof homeItemsData>;
