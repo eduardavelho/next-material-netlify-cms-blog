@@ -1,5 +1,4 @@
 import { ReactNode, useContext } from "react";
-//import "@egvelho/next-mui/typography/typography.css";
 import { app } from "@egvelho/next-mui/app";
 import { Meta, MetaProps } from "@egvelho/next-meta/meta/meta";
 import { theme } from "app/theme";

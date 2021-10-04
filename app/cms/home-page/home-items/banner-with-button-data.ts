@@ -1,7 +1,7 @@
 import {
   collectionFile,
   GetCollectionType,
-} from "@egvelho/next-meta/collection";
+} from "@egvelho/next-meta/cms/collection";
 
 export type BannerWithButtonData = GetCollectionType<
   typeof bannerWithButtonData

@@ -1,7 +1,7 @@
 import {
   collectionFile,
   GetCollectionType,
-} from "@egvelho/next-meta/collection";
+} from "@egvelho/next-meta/cms/collection";
 import { links } from "app/url";
 
 export type DashItemsData = GetCollectionType<typeof dashItemsData>;

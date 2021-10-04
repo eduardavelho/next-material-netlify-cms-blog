@@ -1,10 +1,10 @@
 import { pages } from "app/url";
-//import { scripts } from "app/scripts";
+import { scripts } from "app/scripts";
 
 export { Home as default } from "app/home/home";
 
 export const getStaticProps = pages.index.getStaticProps(async () => {
-  //await scripts();
+  await scripts();
   return {};
 });
 

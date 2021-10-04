@@ -1,4 +1,4 @@
-import { collectionFiles } from "@egvelho/next-meta/collection";
+import { collectionFiles } from "@egvelho/next-meta/cms/collection";
 import { blogMetadata } from "./blog-metadata";
 import { blogStyle } from "./blog-style";
 

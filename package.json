@@ -1,25 +1,23 @@
 {
-  "name": "@egvelho/next-mui-boilerplate",
-  "version": "1.16.4",
+  "name": "next-material-netlify-cms-blog",
+  "version": "1.0.0",
   "description": "Boilerplate for Next.js and Material UI",
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
     "typecheck": "tsc",
-    "create-boilerplate": "node scripts/create-boilerplate",
-    "clean-project": "node scripts/clean-project",
     "build-dev": "next build",
     "export-dev": "next export",
     "serve-dev": "serve out -l 3000",
     "generate-assets": "generate-assets app.json public",
-    "resize-image-assets": "resize-image-assets .next/static/images public/images -size 640"
+    "resize-image-assets": "resize-image-assets public/images -size 640"
   },
   "author": "egvelho",
   "license": "GPL-3.0",
   "dependencies": {
     "next": "^11.1.0",
-    "@egvelho/next-meta": "^1.16.4",
-    "@egvelho/next-mui": "^1.0.0",
+    "@egvelho/next-meta": "^1.16.5",
+    "@egvelho/next-mui": "^1.0.1",
     "react": "^17.0.2"
   },
   "devDependencies": {

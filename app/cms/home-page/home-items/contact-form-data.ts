@@ -1,7 +1,7 @@
 import {
   collectionFile,
   GetCollectionType,
-} from "@egvelho/next-meta/collection";
+} from "@egvelho/next-meta/cms/collection";
 
 export type ContactFormData = GetCollectionType<typeof contactFormData>;
 

@@ -1,4 +1,4 @@
-import { Cms } from "@egvelho/next-meta/cms";
+import { Cms } from "@egvelho/next-meta/cms/cms";
 import app from "app.json";
 import { pages } from "app/url";
 import { siteMetadata } from "./site-metadata/site-metadata";

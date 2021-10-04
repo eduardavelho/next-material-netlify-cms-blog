@@ -1,5 +1,5 @@
 import { slugify } from "@egvelho/next-meta/utils/slugify";
-import * as collectionUtils from "@egvelho/next-meta/collection-utils";
+import * as collectionUtils from "@egvelho/next-meta/cms/collection-utils";
 import { pages } from "app/url";
 import paths from "app/cms/paths.json";
 import type { BlogPost } from "app/cms/blog-post";

@@ -1,7 +1,7 @@
 import {
   collectionFolder,
   GetCollectionType,
-} from "@egvelho/next-meta/collection";
+} from "@egvelho/next-meta/cms/collection";
 
 export type BlogPost = GetCollectionType<typeof blogPost>;
 

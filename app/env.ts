@@ -1,4 +1,4 @@
-import { envEntry } from "app/utils/env-entry";
+import { envEntry } from "@egvelho/next-meta/utils/env-entry";
 
 export function env() {
   return {

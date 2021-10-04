@@ -1,7 +1,7 @@
 import {
   collectionFile,
   GetCollectionType,
-} from "@egvelho/next-meta/collection";
+} from "@egvelho/next-meta/cms/collection";
 import { homeItems } from "./home-items";
 
 export type HomeItemsData = GetCollectionType<typeof homeItemsData>;
