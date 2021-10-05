@@ -5,10 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
-    "typecheck": "tsc",
-    "build-dev": "next build",
-    "export-dev": "next export",
-    "serve-dev": "serve out -l 3000",
+    "build": "next build",
+    "export": "next export",
+    "serve": "serve out -l 3000",
     "generate-assets": "generate-assets app.json public",
     "resize-image-assets": "resize-image-assets public/images -size 640"
   },
