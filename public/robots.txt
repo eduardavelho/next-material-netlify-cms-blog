@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: https://github.io/egvelho/next-material-netlify-cms-blog-template/cms/
+Sitemap: https://github.io/egvelho/next-material-netlify-cms-blog-template/sitemap.xml
