@@ -19,6 +19,9 @@
     },
     {
       "page": "about"
+    },
+    {
+      "page": "cms"
     }
   ],
   "bottomNavigation": [

@@ -1,7 +1,7 @@
 {
-  "name": "next-material-netlify-cms-blog",
+  "name": "next-material-netlify-cms-blog-template",
   "version": "1.0.0",
-  "description": "Boilerplate for Next.js and Material UI",
+  "description": "Blog template on top of Next.js, MaterialUI and NetlifyCMS",
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
@@ -15,9 +15,9 @@
   "author": "egvelho",
   "license": "GPL-3.0",
   "dependencies": {
+    "@egvelho/next-meta": "^1.16.6",
+    "@egvelho/next-mui": "^1.0.2",
     "next": "^11.1.0",
-    "@egvelho/next-meta": "^1.16.5",
-    "@egvelho/next-mui": "^1.0.1",
     "react": "^17.0.2"
   },
   "devDependencies": {

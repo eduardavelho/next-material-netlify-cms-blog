@@ -2,23 +2,10 @@ import { link } from "@egvelho/next-meta/url/link";
 import { endpoint } from "@egvelho/next-meta/url/endpoint";
 import { getAxiosClient } from "@egvelho/next-meta/url/get-axios-client";
 import { getPages } from "@egvelho/next-meta/url/get-pages";
-/*import {
-  HomeIcon,
-  RssFeedIcon,
-  ZoomInIcon,
-  EmailIcon,
-  CommentIcon,
-  SupervisedUserCircleIcon,
-} from "@egvelho/next-mui/icons";*/
+import { icons } from "@egvelho/next-mui/icons";
 import type { BlogPost } from "app/cms/blog-post";
 import type { Data } from "@egvelho/next-meta/cms/collection-types";
 import { getContext } from "app/context";
-import HomeIcon from "./icon";
-import RssFeedIcon from "./icon";
-import ZoomInIcon from "./icon";
-import EmailIcon from "./icon";
-import CommentIcon from "./icon";
-import SupervisedUserCircleIcon from "./icon";
 
 export type { ExtractPageProps } from "@egvelho/next-meta/url/get-pages";
 export type { ExtractClientResponse } from "@egvelho/next-meta/url/get-axios-client";
@@ -28,7 +15,7 @@ export interface WithSlug {
 }
 
 export const links = {
-  index: link("/", HomeIcon, "Home"),
+  index: link("/", icons.Home, "Home"),
   blog: link<
     {
       postsLength: number;
@@ -37,16 +24,16 @@ export const links = {
       initialTag?: string;
     },
     { tag?: string }
-  >("/blog", RssFeedIcon, "Blog", "Acessar o blog"),
+  >("/blog", icons.RssFeed, "Blog", "Acessar o blog"),
   post: link<BlogPost & WithSlug, { slug: string }, "withQuery">(
     ({ slug }) => `/blog/publicacoes/${slug}`,
-    CommentIcon,
+    icons.Comment,
     "Publicação",
     "Ver publicação"
   ),
-  contact: link("/#contato", EmailIcon, "Contato", "Realizar contato"),
-  about: link("/#saiba-mais", ZoomInIcon, "Saiba mais"),
-  cms: link("/cms", SupervisedUserCircleIcon, "CMS"),
+  contact: link("/#contato", icons.Email, "Contato", "Realizar contato"),
+  about: link("/#saiba-mais", icons.ZoomIn, "Saiba mais"),
+  cms: link("/cms", icons.SupervisedUserCircle, "CMS"),
 };
 
 export const endpoints = {

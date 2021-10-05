@@ -1,6 +1,6 @@
 {
   "title": "Blog do site",
   "description": "Descrição do blog do site",
-  "image": "https://upload.wikimedia.org/wikipedia/en/5/5f/Original_Doge_meme.jpg",
+  "image": "/doge.jpg",
   "keywords": ["Blog", "Site"]
 }
