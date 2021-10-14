@@ -3,6 +3,7 @@ import {
   Dash as MuiDash,
   DashProps as MuiDashProps,
 } from "@egvelho/next-mui/components/dash";
+import { icons } from "@egvelho/next-mui/icons";
 import { links } from "app/url";
 import { Context } from "app/context";
 import appConfig from "app.json";
@@ -81,6 +82,14 @@ export function Dash({
       drawerOpen={context.drawerOpen}
       setDrawerOpen={(drawerOpen) => setContext({ drawerOpen })}
       appBarItems={appBarItems}
+      appBarIcons={[
+        {
+          Icon: icons.GitHub,
+          ariaLabel: "Repositório do Github",
+          href: "https://github.com/egvelho/next-material-netlify-cms-blog",
+          key: "github",
+        },
+      ]}
       footerItems={footerItems}
       bottomNavigationItems={bottomNavigationItems}
       drawerItems={drawerItems}
