@@ -16,8 +16,8 @@
   "author": "egvelho",
   "license": "GPL-3.0",
   "dependencies": {
-    "@egvelho/next-meta": "^1.16.6",
-    "@egvelho/next-mui": "^1.1.4",
+    "@egvelho/next-meta": "1.16.6",
+    "@egvelho/next-mui": "1.1.6",
     "next": "^11.1.0",
     "react": "^17.0.2"
   },
