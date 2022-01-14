@@ -162,7 +162,7 @@ function mapPostToItem(post: PostsPropType) {
       </ClientRender>
     ),
     image: post.image,
-    tags: post.tags.map((tag) => ({ tag, key: tag })),
+    tags: post.tags.map((tag, index) => ({ tag, key: `${tag}-${index}` })),
     key: post.slug,
     href: links.post.href({ slug: post.slug }),
   };
