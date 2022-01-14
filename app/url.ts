@@ -25,6 +25,12 @@ export const links = {
     },
     { tag?: string }
   >("/blog", icons.RssFeed, "Blog", "Acessar o blog"),
+  blogTag: link<{}, { tag: string }, "withQuery">(
+    ({ tag }) => `/blog/${tag}`,
+    icons.RssFeed,
+    "Blog",
+    "Acessar o blog"
+  ),
   post: link<BlogPost & WithSlug, { slug: string }, "withQuery">(
     ({ slug }) => `/blog/publicacoes/${slug}`,
     icons.Comment,

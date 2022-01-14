@@ -4,6 +4,7 @@ import { ClientRender } from "@egvelho/next-mui/components/client-render";
 import { truncateString } from "@egvelho/next-mui/utils/truncate-string";
 import { links, pages } from "app/url";
 import { Meta } from "app/meta";
+import appConfig from "app.json";
 
 const texts = {
   socialAnchorTitle: "Compartilhar no",
@@ -39,8 +40,8 @@ export const Post = pages.post.page(
         />
         <PostPage
           socialAnchorTitle={texts.socialAnchorTitle}
-          title={title}
           titleColor={titleColor}
+          title={title}
           description={description}
           background={
             backgroundImage ? `url(${backgroundImage})` : backgroundColor
@@ -54,7 +55,11 @@ export const Post = pages.post.page(
               {`Em ${publishDateTime?.toLocaleDateString()}`}
             </ClientRender>
           }
-          tags={tags.map((tag) => ({ key: tag, tag }))}
+          tags={tags.map((tag) => ({
+            key: tag,
+            tag,
+            href: links.blogTag.href({ tag }),
+          }))}
           breadcrumbs={[
             { key: "index", label: links.index.label, href: links.index.href },
             { key: "blog", label: links.blog.label, href: links.blog.href },

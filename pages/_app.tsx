@@ -6,6 +6,7 @@ import { ContextProvider, Context } from "app/context";
 import { Dash } from "app/dash/dash";
 import { links } from "app/url";
 import appConfig from "app.json";
+import "@egvelho/next-mui/typography/typography.css";
 
 function Layout({ children }: { children: ReactNode }) {
   return (
