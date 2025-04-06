@@ -13,7 +13,7 @@
     "generate-assets": "generate-assets app.json public",
     "resize-image-assets": "resize-image-assets public/images -size 640"
   },
-  "author": "egvelho",
+  "author": "eduardavelho",
   "license": "GPL-3.0",
   "dependencies": {
     "@egvelho/next-meta": "1.16.6",
